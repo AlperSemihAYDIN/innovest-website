@@ -57,7 +57,7 @@ export default function Header({ dict, locale }: HeaderProps) {
     <>
       {/* Top bar — dark premium strip */}
       <div className="hidden lg:block bg-foreground">
-        <div className="w-full px-10 lg:px-16 xl:px-20 max-w-[1920px] mx-auto py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
+        <div className="w-full px-10 lg:px-16 max-w-[1440px] mx-auto py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
               <Phone size={11} className="text-gold" />
@@ -88,7 +88,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             : 'border-transparent'
         }`}
       >
-        <div className="w-full px-10 lg:px-16 xl:px-20 max-w-[1920px] mx-auto">
+        <div className="w-full px-10 lg:px-16 max-w-[1440px] mx-auto">
           <div className="flex items-center h-[72px]">
             {/* Logo — fixed left */}
             <Link href={`${prefix}/`} className="flex items-center gap-3 group flex-shrink-0">
@@ -108,7 +108,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             </Link>
 
             {/* Desktop Navigation — centered, takes all available space */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-4">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-6">
               {navItems.map((item) => (
                 <div
                   key={item.href}
@@ -151,7 +151,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             </nav>
 
             {/* CTA + Mobile Toggle — fixed right */}
-            <div className="flex items-center gap-4 flex-shrink-0">
+            <div className="flex items-center gap-4 flex-shrink-0 pr-2">
               <Link
                 href={`${prefix}/contact`}
                 className="hidden lg:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 btn-shine"
