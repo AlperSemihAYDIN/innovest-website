@@ -1,0 +1,25 @@
+import { getDictionary } from '@/lib/dictionary';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import AIChat from '@/components/chat/AIChat';
+import ContactContent from '@/components/pages/ContactContent';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description: 'Schedule a complimentary consultation with our expert investment advisors. Get personalised guidance for your global investment goals.',
+};
+
+export default function ContactPage() {
+  const dict = getDictionary('en');
+  return (
+    <>
+      <Header dict={dict} locale="en" />
+      <main className="flex-1">
+        <ContactContent dict={dict} locale="en" />
+      </main>
+      <Footer dict={dict} locale="en" />
+      <AIChat dict={dict} />
+    </>
+  );
+}

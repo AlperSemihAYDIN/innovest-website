@@ -1,0 +1,57 @@
+'use client';
+
+import { Target, Users, Globe, Award, Handshake, Eye } from 'lucide-react';
+import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import type { Dictionary } from '@/lib/dictionary';
+
+interface WhyUsProps {
+  dict: Dictionary;
+}
+
+const icons = [Target, Users, Globe, Award, Handshake, Eye];
+
+export default function WhyInnovest({ dict }: WhyUsProps) {
+  return (
+    <section className="py-40 md:py-56 bg-background relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+        backgroundSize: '40px 40px',
+      }} />
+
+      <div className="relative max-w-[1440px] mx-auto px-10 lg:px-16">
+        <AnimatedSection>
+          <SectionHeading
+            tagline={dict.whyUs.tagline}
+            title={dict.whyUs.title}
+            titleHighlight={dict.whyUs.titleHighlight}
+            subtitle={dict.whyUs.subtitle}
+            center
+          />
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+          {dict.whyUs.items.map((item, index) => {
+            const Icon = icons[index];
+            return (
+              <AnimatedSection key={item.title} delay={index * 0.1}>
+                <div className="group p-10 bg-surface/50 border border-border hover:border-gold/30 transition-all duration-500 text-center">
+                  <div className="w-14 h-14 mb-6 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                    <Icon size={24} className="text-gold" />
+                  </div>
+                  <h3
+                    className="text-lg font-light mb-3 group-hover:text-gold transition-colors duration-300"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                </div>
+              </AnimatedSection>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
