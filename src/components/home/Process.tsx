@@ -13,7 +13,7 @@ export default function Process({ dict }: ProcessProps) {
       {/* Accent lines */}
       <div className="absolute right-0 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
 
-      <div className="relative max-w-[1440px] mx-auto px-10 lg:px-16">
+      <div className="relative max-w-[1600px] mx-auto px-10 lg:px-16">
         <AnimatedSection>
           <SectionHeading
             tagline={dict.process.tagline}

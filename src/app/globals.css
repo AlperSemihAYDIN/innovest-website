@@ -24,7 +24,8 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges;
+  overflow-x: clip;
 }
 
 body {

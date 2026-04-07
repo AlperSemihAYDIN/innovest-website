@@ -19,7 +19,7 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
         backgroundSize: '40px 40px',
       }} />
 
-      <div className="relative max-w-[1440px] mx-auto px-10 lg:px-16">
+      <div className="relative max-w-[1600px] mx-auto px-10 lg:px-16">
         <AnimatedSection>
           <SectionHeading
             tagline={dict.whyUs.tagline}

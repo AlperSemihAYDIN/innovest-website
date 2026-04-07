@@ -111,7 +111,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative max-w-[1440px] mx-auto px-10 lg:px-16">
+        <div className="relative max-w-[1600px] mx-auto px-10 lg:px-16">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.insightsPage.tagline}
@@ -127,7 +127,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       {/* Featured article */}
       {featuredArticle && (
         <section className="py-28 md:py-36 bg-background">
-          <div className="max-w-[1440px] mx-auto px-10 lg:px-16">
+          <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
             <AnimatedSection>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border overflow-hidden group">
                 <div className="relative h-72 lg:h-auto overflow-hidden">
@@ -164,7 +164,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
 
       {/* Category filter + Articles */}
       <section className="py-40 md:py-56 bg-background">
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
           <AnimatedSection>
             <div className="flex flex-wrap gap-3 mb-12 justify-center">
               {categories.map((cat) => (

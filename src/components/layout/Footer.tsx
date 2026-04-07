@@ -31,7 +31,7 @@ export default function Footer({ dict, locale }: FooterProps) {
   return (
     <footer className="footer-dark bg-background border-t border-border">
       {/* Main Footer */}
-      <div className="max-w-[1440px] mx-auto px-10 lg:px-16 py-20">
+      <div className="max-w-[1600px] mx-auto px-10 lg:px-16 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -190,7 +190,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
       {/* Bottom bar */}
       <div className="border-t border-border">
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-[1600px] mx-auto px-10 lg:px-16 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted">{dict.footer.rights}</p>
           <div className="flex items-center gap-6 text-xs text-muted">
             <Link href={`${prefix}/`} className="hover:text-gold transition-colors">

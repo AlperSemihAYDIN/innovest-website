@@ -45,7 +45,7 @@ export default function Services({ dict, locale }: ServicesProps) {
 
   return (
     <section className="py-40 md:py-56 bg-background">
-      <div className="max-w-[1440px] mx-auto px-10 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
         <AnimatedSection>
           <SectionHeading
             tagline={dict.services.tagline}
