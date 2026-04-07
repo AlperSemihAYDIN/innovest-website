@@ -8,12 +8,15 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^framer-motion$': '<rootDir>/src/__mocks__/framer-motion.tsx',
   },
+  testPathIgnorePatterns: ['/node_modules/', '/e2e/', '/.playwright/'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
     '!src/app/**/page.tsx',
     '!src/app/**/layout.tsx',
+    '!src/__mocks__/**',
   ],
 };
 

@@ -162,6 +162,7 @@ export default function Header({ dict, locale }: HeaderProps) {
               {/* Language switcher mobile */}
               <Link
                 href={`${altPrefix}/`}
+                aria-label={`Switch to ${altLocale === 'tr' ? 'Turkish' : 'English'}`}
                 className="lg:hidden flex items-center gap-1 text-sm text-muted hover:text-gold transition-colors"
               >
                 <Globe size={16} />

@@ -131,8 +131,9 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.budget} *</label>
+                          <label htmlFor="budget" className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.budget} *</label>
                           <select
+                            id="budget"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground focus:outline-none focus:border-gold transition-colors appearance-none cursor-pointer"
                           >
@@ -143,8 +144,9 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           </select>
                         </div>
                         <div>
-                          <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.interest} *</label>
+                          <label htmlFor="interest" className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.interest} *</label>
                           <select
+                            id="interest"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground focus:outline-none focus:border-gold transition-colors appearance-none cursor-pointer"
                           >
