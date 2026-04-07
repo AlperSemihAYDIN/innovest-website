@@ -108,7 +108,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             </Link>
 
             {/* Desktop Navigation — centered, takes all available space */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-1">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-4">
               {navItems.map((item) => (
                 <div
                   key={item.href}
@@ -118,7 +118,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1.5 px-4 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
+                    className="flex items-center gap-1.5 px-5 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
                   >
                     {item.label}
                     {item.children && <ChevronDown size={14} className="opacity-50" />}
