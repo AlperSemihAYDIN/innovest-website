@@ -57,7 +57,7 @@ export default function Header({ dict, locale }: HeaderProps) {
     <>
       {/* Top bar — dark premium strip */}
       <div className="hidden lg:block bg-foreground">
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16 py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
+        <div className="w-full px-10 lg:px-16 xl:px-20 max-w-[1920px] mx-auto py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
               <Phone size={11} className="text-gold" />
@@ -88,10 +88,10 @@ export default function Header({ dict, locale }: HeaderProps) {
             : 'border-transparent'
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16">
-          <div className="flex items-center justify-between h-[72px]">
-            {/* Logo */}
-            <Link href={`${prefix}/`} className="flex items-center gap-3 group">
+        <div className="w-full px-10 lg:px-16 xl:px-20 max-w-[1920px] mx-auto">
+          <div className="flex items-center h-[72px]">
+            {/* Logo — fixed left */}
+            <Link href={`${prefix}/`} className="flex items-center gap-3 group flex-shrink-0">
               <div className="relative">
                 <div className="w-10 h-10 border border-gold flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
                   <span className="text-gold font-bold text-lg font-[var(--font-display)]">I</span>
@@ -107,8 +107,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-2">
+            {/* Desktop Navigation — centered, takes all available space */}
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-1">
               {navItems.map((item) => (
                 <div
                   key={item.href}
@@ -118,7 +118,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1.5 px-5 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300"
+                    className="flex items-center gap-1.5 px-4 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
                   >
                     {item.label}
                     {item.children && <ChevronDown size={14} className="opacity-50" />}
@@ -150,8 +150,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               ))}
             </nav>
 
-            {/* CTA + Mobile Toggle */}
-            <div className="flex items-center gap-4">
+            {/* CTA + Mobile Toggle — fixed right */}
+            <div className="flex items-center gap-4 flex-shrink-0">
               <Link
                 href={`${prefix}/contact`}
                 className="hidden lg:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 btn-shine"
