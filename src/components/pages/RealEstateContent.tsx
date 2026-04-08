@@ -50,7 +50,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.realEstatePage.tagline}

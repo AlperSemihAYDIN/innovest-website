@@ -27,7 +27,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="py-44 md:py-64 bg-surface">
-      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
         <AnimatedSection>
           <div className="text-center mb-20">
             <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">
@@ -44,7 +44,7 @@ export default function Testimonials() {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={testimonial.name} delay={index * 0.15}>
               <div className="bg-background border border-border p-10 h-full flex flex-col text-center">

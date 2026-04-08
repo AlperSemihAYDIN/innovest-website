@@ -80,7 +80,7 @@ export default function CityContent({
 
       {/* Properties Grid */}
       <section className="py-44 md:py-64 bg-background">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
@@ -152,7 +152,7 @@ export default function CityContent({
 
       {/* CTA */}
       <section className="py-36 md:py-48 bg-surface border-t border-border">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>

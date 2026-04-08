@@ -63,7 +63,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
 
   return (
     <section className="py-44 md:py-64 bg-surface">
-      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
         <AnimatedSection>
           <div className="flex flex-col items-center text-center gap-8 mb-20">
             <SectionHeading
@@ -83,7 +83,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group">

@@ -28,7 +28,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
         <div className="absolute inset-0 bg-background/80" />
       </div>
 
-      <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 text-center">
+      <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center text-center">
         <AnimatedSection>
           <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
             {locale === 'en' ? 'Get Started' : 'Başlayın'}

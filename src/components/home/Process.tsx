@@ -13,7 +13,7 @@ export default function Process({ dict }: ProcessProps) {
       {/* Accent lines */}
       <div className="absolute right-0 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
 
-      <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
         <AnimatedSection>
           <SectionHeading
             tagline={dict.process.tagline}
@@ -24,7 +24,7 @@ export default function Process({ dict }: ProcessProps) {
           />
         </AnimatedSection>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+        <div className="w-full mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {dict.process.steps.map((step, index) => (
             <AnimatedSection key={step.num} delay={index * 0.15}>
               <div className="bg-surface p-8 h-full relative group hover:bg-surface-light transition-colors duration-500">

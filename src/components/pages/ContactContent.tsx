@@ -96,7 +96,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
 
       {/* Contact Form + Info — Modern Premium Layout */}
       <section className="py-44 md:py-64 bg-background">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Left — Form */}
             <div className="bg-surface p-10 md:p-14 lg:p-16">

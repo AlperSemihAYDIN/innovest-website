@@ -29,7 +29,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.about.tagline}
@@ -44,7 +44,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* Mission & Vision */}
       <section className="py-44 md:py-64 bg-background">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <AnimatedSection>
               <div className="p-10 bg-surface border border-border h-full">
@@ -76,7 +76,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* Story section */}
       <section className="py-44 md:py-64 bg-surface">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <div className="relative">
@@ -127,7 +127,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* Values */}
       <section className="py-44 md:py-64 bg-background">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
@@ -169,7 +169,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* CTA */}
       <section className="py-36 md:py-48 bg-surface border-t border-border">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2
