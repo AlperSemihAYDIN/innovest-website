@@ -44,7 +44,7 @@ export function SectionHeading({
   light = false,
 }: SectionHeadingProps) {
   return (
-    <div className={center ? 'text-center' : ''}>
+    <div className={`w-full ${center ? 'text-center' : ''}`}>
       <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">
         {tagline}
       </span>
