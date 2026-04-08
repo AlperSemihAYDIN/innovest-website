@@ -26,11 +26,11 @@ export default function HomeTR() {
       <main className="flex-1">
         <Hero dict={dict} locale="tr" />
         <Services dict={dict} locale="tr" />
-        <Stats />
+        <Stats locale="tr" />
         <FeaturedInvestments dict={dict} locale="tr" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
-        <Testimonials />
+        <Testimonials locale="tr" />
         <CallToAction dict={dict} locale="tr" />
       </main>
       <Footer dict={dict} locale="tr" />

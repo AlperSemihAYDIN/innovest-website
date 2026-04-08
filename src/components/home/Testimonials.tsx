@@ -5,42 +5,54 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const testimonials = [
   {
-    quote: "Working with Innovest was transformative for my portfolio. Their deep understanding of the London market and personalised approach helped me secure two premium properties that have exceeded yield expectations.",
+    quoteEn: "Working with Innovest was transformative for my portfolio. Their deep understanding of the London market and personalised approach helped me secure two premium properties that have exceeded yield expectations.",
+    quoteTr: "Innovest ile çalışmak portföyüm için dönüştürücü oldu. Londra pazarını derin anlayışları ve kişiselleştirilmiş yaklaşımları, getiri beklentilerimi aşan iki premium mülk edinmemi sağladı.",
     name: "James Richardson",
     role: "Private Investor, London",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
   },
   {
-    quote: "Innovest made the Golden Visa process seamless. From initial consultation to receiving my residence permit, their team handled everything with exceptional professionalism and attention to detail.",
+    quoteEn: "Innovest made the Golden Visa process seamless. From initial consultation to receiving my residence permit, their team handled everything with exceptional professionalism and attention to detail.",
+    quoteTr: "Innovest, Altın Vize sürecini sorunsuz hale getirdi. İlk danışmanlıktan oturma iznime kadar ekip her şeyi olağanüstü profesyonellik ve dikkatle yönetti.",
     name: "Ayşe Demir",
-    role: "Entrepreneur, Istanbul",
+    role: "Girişimci, İstanbul",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
   },
   {
-    quote: "Their business expansion advisory was invaluable for our UAE market entry. The local connections and strategic guidance they provided accelerated our timeline by at least six months.",
+    quoteEn: "Their business expansion advisory was invaluable for our UAE market entry. The local connections and strategic guidance they provided accelerated our timeline by at least six months.",
+    quoteTr: "İş genişleme danışmanlıkları BAE pazarına girişimiz için paha biçilmezdi. Sağladıkları yerel bağlantılar ve stratejik rehberlik sürecimizi en az altı ay hızlandırdı.",
     name: "Michael Chen",
     role: "CEO, Tech Ventures",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200",
   },
 ];
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  locale?: 'en' | 'tr';
+}
+
+export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
+  const tr = locale === 'tr';
   return (
     <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
       <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
         <AnimatedSection>
-          <div className="text-center mb-20 max-w-3xl mx-auto">
-            <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">
-              Client Testimonials
-            </span>
+          <div className="text-center mb-32 max-w-3xl mx-auto">
+            <div className="flex items-center gap-4 justify-center mb-6">
+              <div className="w-12 h-px bg-gold/50" />
+              <span className="inline-block text-gold text-xs md:text-sm tracking-[0.35em] uppercase font-semibold">
+                {tr ? 'Müşteri Görüşleri' : 'Client Testimonials'}
+              </span>
+              <div className="w-12 h-px bg-gold/50" />
+            </div>
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-light"
+              className="text-4xl md:text-5xl lg:text-6xl font-light"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              Trusted by{' '}
-              <span className="text-gradient-gold">Investors Worldwide</span>
+              {tr ? 'Dünya Genelinde ' : 'Trusted by '}
+              <span className="text-gradient-gold">{tr ? 'Yatırımcıların Güveni' : 'Investors Worldwide'}</span>
             </h2>
-            <div className="gold-line-center mt-6" />
+            <div className="gold-line-center mt-8" />
           </div>
         </AnimatedSection>
 
@@ -56,7 +68,7 @@ export default function Testimonials() {
                   &ldquo;
                 </span>
                 <p className="text-sm text-muted-light leading-relaxed flex-1 mb-6">
-                  {testimonial.quote}
+                  {tr ? testimonial.quoteTr : testimonial.quoteEn}
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-6 border-t border-border">
                   <div className="w-10 h-10 rounded-full overflow-hidden relative">

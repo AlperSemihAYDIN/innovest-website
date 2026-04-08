@@ -23,12 +23,17 @@ function AnimatedStat({ value, label }: StatItemProps) {
   );
 }
 
-export default function Stats() {
+interface StatsProps {
+  locale?: 'en' | 'tr';
+}
+
+export default function Stats({ locale = 'en' }: StatsProps) {
+  const tr = locale === 'tr';
   const stats = [
-    { value: '£500M+', label: 'Assets Under Advisory' },
-    { value: '25+', label: 'Countries Covered' },
-    { value: '500+', label: 'Successful Investments' },
-    { value: '98%', label: 'Client Satisfaction' },
+    { value: '£500M+', label: tr ? 'Danışmanlık Altındaki Varlık' : 'Assets Under Advisory' },
+    { value: '25+', label: tr ? 'Kapsanan Ülke' : 'Countries Covered' },
+    { value: '500+', label: tr ? 'Başarılı Yatırım' : 'Successful Investments' },
+    { value: '%98', label: tr ? 'Müşteri Memnuniyeti' : 'Client Satisfaction' },
   ];
 
   return (

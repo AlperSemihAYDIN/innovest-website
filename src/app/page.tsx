@@ -20,11 +20,11 @@ export default function Home() {
       <main className="flex-1">
         <Hero dict={dict} locale="en" />
         <Services dict={dict} locale="en" />
-        <Stats />
+        <Stats locale="en" />
         <FeaturedInvestments dict={dict} locale="en" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
-        <Testimonials />
+        <Testimonials locale="en" />
         <CallToAction dict={dict} locale="en" />
       </main>
       <Footer dict={dict} locale="en" />
