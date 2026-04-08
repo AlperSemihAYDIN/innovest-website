@@ -19,13 +19,13 @@ export default function CallToAction({ dict, locale }: CTAProps) {
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1486325212027-8a89f35474e8?q=80&w=2070"
+          src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2070"
           alt="Investment"
           fill
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-background/65" />
       </div>
 
       <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center text-center">
@@ -35,14 +35,14 @@ export default function CallToAction({ dict, locale }: CTAProps) {
           </span>
 
           <h2
-            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 max-w-3xl mx-auto"
+            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 w-full"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {dict.cta.title}{' '}
             <span className="text-gradient-gold">{dict.cta.titleHighlight}</span>
           </h2>
 
-          <p className="text-muted text-lg max-w-xl mx-auto mb-10">
+          <p className="text-muted text-lg w-full mb-10">
             {dict.cta.subtitle}
           </p>
 
