@@ -58,7 +58,7 @@ export default function Header({ dict, locale }: HeaderProps) {
     <>
       {/* Top bar — dark premium strip */}
       <div className="hidden lg:block bg-[#0c0c10]">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
+        <div className="px-10 md:px-14 lg:px-20 xl:px-32 2xl:px-44 py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
               <Phone size={11} className="text-gold" />
@@ -89,7 +89,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             : 'border-transparent'
         }`}
       >
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex items-center h-[72px]">
+        <div className="px-10 md:px-14 lg:px-20 xl:px-32 2xl:px-44 flex items-center h-[72px]">
 
             {/* Logo — sol, sabit genişlik */}
             <Link href={`${prefix}/`} className="shrink-0 flex items-center gap-3 group">
