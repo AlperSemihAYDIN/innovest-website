@@ -90,9 +90,9 @@ export default function Header({ dict, locale }: HeaderProps) {
         }`}
       >
         <div className="px-6 lg:px-8 max-w-7xl mx-auto">
-          <div className="flex items-center h-[72px]">
-            {/* Logo — fixed left */}
-            <Link href={`${prefix}/`} className="flex items-center gap-3 group flex-shrink-0">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center h-[72px]">
+            {/* Logo — left */}
+            <Link href={`${prefix}/`} className="flex items-center gap-3 group justify-self-start">
               <Image
                 src="/logo.jpg"
                 alt="Innovest"
@@ -111,8 +111,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               </div>
             </Link>
 
-            {/* Desktop Navigation — centered, takes all available space */}
-            <nav className="hidden lg:flex flex-1 items-center justify-center gap-6">
+            {/* Desktop Navigation — true center */}
+            <nav className="hidden lg:flex items-center justify-self-center gap-6">
               {navItems.map((item) => (
                 <div
                   key={item.href}
@@ -154,8 +154,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               ))}
             </nav>
 
-            {/* CTA + Mobile Toggle — fixed right */}
-            <div className="flex items-center gap-4 flex-shrink-0 pr-2">
+            {/* CTA + Mobile Toggle — right */}
+            <div className="flex items-center gap-4 justify-self-end">
               <Link
                 href={`${prefix}/contact`}
                 className="hidden lg:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 btn-shine"
