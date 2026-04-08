@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import type { Dictionary } from '@/lib/dictionary';
 
@@ -9,50 +10,66 @@ interface ProcessProps {
 
 export default function Process({ dict }: ProcessProps) {
   return (
-    <section className="min-h-screen flex flex-col justify-center py-24 bg-surface relative overflow-hidden">
-      {/* Accent lines */}
-      <div className="absolute right-0 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
+    <section className="min-h-screen flex flex-col lg:flex-row bg-surface overflow-hidden">
+      {/* Left: full-height image */}
+      <div className="relative w-full lg:w-1/2 min-h-[40vh] lg:min-h-screen">
+        <Image
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200"
+          alt="Investment Process"
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent lg:bg-gradient-to-l lg:from-surface/90 lg:via-surface/40 lg:to-transparent" />
 
-      <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-        <div className="w-full max-w-3xl mx-auto text-center mb-32">
-          <AnimatedSection>
+        {/* Floating stat on image */}
+        <div className="absolute bottom-10 left-10 hidden lg:block">
+          <div className="border border-gold/40 bg-black/60 backdrop-blur-sm px-8 py-6">
+            <div className="text-4xl font-light text-gold mb-1" style={{ fontFamily: 'var(--font-display)' }}>
+              {dict.process.steps.length}
+            </div>
+            <div className="text-xs text-white/60 tracking-widest uppercase">
+              {dict.process.tagline}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right: heading + steps */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 py-24 lg:py-0">
+        <AnimatedSection>
+          <div className="mb-16">
             <SectionHeading
               tagline={dict.process.tagline}
               title={dict.process.title}
               titleHighlight={dict.process.titleHighlight}
               subtitle={dict.process.subtitle}
-              center
             />
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+        <div className="space-y-0 divide-y divide-border">
           {dict.process.steps.map((step, index) => (
-            <AnimatedSection key={step.num} delay={index * 0.15}>
-              <div className="bg-surface p-8 h-full relative group hover:bg-surface-light transition-colors duration-500">
+            <AnimatedSection key={step.num} delay={index * 0.12}>
+              <div className="group flex items-start gap-8 py-8 hover:bg-surface-light transition-colors duration-300 px-4 -mx-4">
                 {/* Step number */}
                 <span
-                  className="text-5xl font-light text-gold/10 group-hover:text-gold/20 transition-colors duration-500 block mb-6"
+                  className="text-5xl font-light text-gold/20 group-hover:text-gold/50 transition-colors duration-500 leading-none shrink-0 w-16 text-right"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {step.num}
                 </span>
-
-                {/* Gold top border on hover */}
-                <div className="absolute top-0 left-0 w-full h-px bg-border group-hover:bg-gold transition-colors duration-500" />
-
-                <h3
-                  className="text-lg font-light mb-3 group-hover:text-gold transition-colors duration-300"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  {step.title}
-                </h3>
-                <p className="text-sm text-muted leading-relaxed">{step.desc}</p>
-
-                {/* Connection line on larger screens */}
-                {index < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
-                )}
+                <div className="flex-1 pt-1">
+                  <div className="w-8 h-px bg-gold mb-4 group-hover:w-16 transition-all duration-500" />
+                  <h3
+                    className="text-xl font-light mb-3 group-hover:text-gold transition-colors duration-300"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed">{step.desc}</p>
+                </div>
               </div>
             </AnimatedSection>
           ))}
