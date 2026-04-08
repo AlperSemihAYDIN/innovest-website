@@ -45,11 +45,16 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={`w-full mb-16 ${center ? 'text-center' : ''}`}>
-      <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">
-        {tagline}
-      </span>
+      {/* Tagline with decorative lines */}
+      <div className={`flex items-center gap-4 mb-6 ${center ? 'justify-center' : ''}`}>
+        {center && <div className="w-12 h-px bg-gold/50" />}
+        <span className="inline-block text-gold text-xs md:text-sm tracking-[0.35em] uppercase font-semibold">
+          {tagline}
+        </span>
+        <div className="w-12 h-px bg-gold/50" />
+      </div>
       <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-4 ${
+        className={`text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 ${
           light ? 'text-foreground' : 'text-foreground'
         }`}
         style={{ fontFamily: 'var(--font-display)' }}
@@ -58,11 +63,11 @@ export function SectionHeading({
         <span className="text-gradient-gold">{titleHighlight}</span>
       </h2>
       {subtitle && (
-        <p className={`text-muted text-base md:text-lg leading-relaxed ${center ? 'mx-auto text-center' : ''}`}>
+        <p className={`text-muted-light text-lg md:text-xl leading-relaxed font-light italic ${center ? 'mx-auto text-center' : ''}`}>
           {subtitle}
         </p>
       )}
-      <div className={`gold-line mt-6 ${center ? 'mx-auto' : ''}`} />
+      <div className={`gold-line mt-8 ${center ? 'mx-auto' : ''}`} />
     </div>
   );
 }

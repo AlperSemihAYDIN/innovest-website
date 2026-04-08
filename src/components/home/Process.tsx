@@ -14,7 +14,7 @@ export default function Process({ dict }: ProcessProps) {
       <div className="absolute right-0 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
 
       <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-        <div className="w-full max-w-3xl mx-auto text-center mb-20">
+        <div className="w-full max-w-3xl mx-auto text-center mb-32">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.process.tagline}
