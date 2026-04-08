@@ -16,14 +16,54 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = dict.contactPage.form;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1500);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstname: formData.get('firstname') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      city: formData.get('city') as string,
+      budget: formData.get('budget') as string,
+      interest: formData.get('interest') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      // HubSpot Forms API — replace PORTAL_ID and FORM_GUID with your actual values
+      const HUBSPOT_PORTAL_ID = 'YOUR_PORTAL_ID';
+      const HUBSPOT_FORM_GUID = 'YOUR_FORM_GUID';
+
+      await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fields: [
+              { name: 'firstname', value: data.firstname },
+              { name: 'email', value: data.email },
+              { name: 'phone', value: data.phone },
+              { name: 'city', value: data.city },
+              { name: 'budget', value: data.budget },
+              { name: 'interest_area', value: data.interest },
+              { name: 'message', value: data.message },
+            ],
+            context: {
+              pageUri: typeof window !== 'undefined' ? window.location.href : '',
+              pageName: 'Contact Page',
+            },
+          }),
+        }
+      );
+    } catch {
+      // Silently fail — still show success to user
+    }
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   return (
@@ -99,6 +139,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.name} *</label>
                           <input
                             type="text"
+                            name="firstname"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold transition-colors"
                             placeholder={form.name}
@@ -108,6 +149,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.email} *</label>
                           <input
                             type="email"
+                            name="email"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold transition-colors"
                             placeholder={form.email}
@@ -117,6 +159,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.phone} *</label>
                           <input
                             type="tel"
+                            name="phone"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold transition-colors"
                             placeholder={form.phone}
@@ -126,6 +169,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.location}</label>
                           <input
                             type="text"
+                            name="city"
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold transition-colors"
                             placeholder={form.location}
                           />
@@ -134,6 +178,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <label htmlFor="budget" className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.budget} *</label>
                           <select
                             id="budget"
+                            name="budget"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground focus:outline-none focus:border-gold transition-colors appearance-none cursor-pointer"
                           >
@@ -147,6 +192,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <label htmlFor="interest" className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.interest} *</label>
                           <select
                             id="interest"
+                            name="interest"
                             required
                             className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground focus:outline-none focus:border-gold transition-colors appearance-none cursor-pointer"
                           >
@@ -161,6 +207,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       <div>
                         <label className="block text-[11px] text-muted uppercase tracking-[0.12em] mb-2.5">{form.message}</label>
                         <textarea
+                          name="message"
                           rows={4}
                           className="w-full bg-background border-b border-border px-0 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold transition-colors resize-none"
                           placeholder={form.message}

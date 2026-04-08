@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import WhatsAppButton from "@/components/chat/WhatsAppButton";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,6 +52,8 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
         {children}
+        <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );

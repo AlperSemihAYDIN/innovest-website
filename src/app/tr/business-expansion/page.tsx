@@ -19,7 +19,7 @@ export default function BusinessPageTR() {
         <BusinessContent dict={dict} locale="tr" />
       </main>
       <Footer dict={dict} locale="tr" />
-      <AIChat dict={dict} />
+      <AIChat dict={dict} locale="tr" />
     </>
   );
 }

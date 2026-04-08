@@ -94,7 +94,7 @@ export default function LondonPage() {
         />
       </main>
       <Footer dict={dict} locale="en" />
-      <AIChat dict={dict} />
+      <AIChat dict={dict} locale="en" />
     </>
   );
 }

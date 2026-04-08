@@ -34,7 +34,7 @@ export default function HomeTR() {
         <CallToAction dict={dict} locale="tr" />
       </main>
       <Footer dict={dict} locale="tr" />
-      <AIChat dict={dict} />
+      <AIChat dict={dict} locale="tr" />
     </>
   );
 }

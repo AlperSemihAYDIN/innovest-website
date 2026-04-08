@@ -82,9 +82,9 @@ export default function Header({ dict, locale }: HeaderProps) {
 
       {/* Main header */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-md border-b ${
+        className={`sticky top-0 z-50 transition-all duration-500 bg-[rgba(9,9,11,0.95)] backdrop-blur-md border-b ${
           isScrolled
-            ? 'border-border shadow-lg shadow-black/5'
+            ? 'border-border shadow-lg shadow-black/20'
             : 'border-transparent'
         }`}
       >

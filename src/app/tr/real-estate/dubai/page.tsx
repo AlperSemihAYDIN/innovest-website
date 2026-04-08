@@ -94,7 +94,7 @@ export default function DubaiPageTR() {
         />
       </main>
       <Footer dict={dict} locale="tr" />
-      <AIChat dict={dict} />
+      <AIChat dict={dict} locale="tr" />
     </>
   );
 }

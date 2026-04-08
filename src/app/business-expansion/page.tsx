@@ -19,7 +19,7 @@ export default function BusinessPage() {
         <BusinessContent dict={dict} locale="en" />
       </main>
       <Footer dict={dict} locale="en" />
-      <AIChat dict={dict} />
+      <AIChat dict={dict} locale="en" />
     </>
   );
 }

@@ -7,6 +7,7 @@ import type { Dictionary } from '@/lib/dictionary';
 
 interface AIChatProps {
   dict: Dictionary;
+  locale: 'en' | 'tr';
 }
 
 interface Message {
@@ -14,29 +15,52 @@ interface Message {
   content: string;
 }
 
-const knowledgeBase: Record<string, string> = {
+const knowledgeBaseEN: Record<string, string> = {
   'dubai.*minimum|minimum.*dubai|dubai.*invest': 'The minimum investment for property in Dubai starts from approximately $200,000 for studio apartments in emerging areas. For Golden Visa eligibility, you need a minimum property investment of AED 2,000,000 (approximately $545,000). Our team can help you find the best options within your budget.',
   'london.*minimum|minimum.*london|london.*invest|uk.*invest': 'London property investments typically start from £350,000 for studio/1-bed apartments in zones 3-6. Premium developments in central London start from £550,000+. Average rental yields range from 4-6% depending on location. Would you like to explore specific developments?',
-  'residency|oturum|golden visa|visa': 'We assist with residency-by-investment programmes in several countries:\n\n• Portugal Golden Visa: From €500,000\n• Greece Golden Visa: From €250,000\n• UAE Golden Visa: From AED 2,000,000\n• UK Innovator Visa: From £50,000\n\nEach programme has different benefits and timelines. Would you like details on a specific country?',
+  'residency|golden visa|visa': 'We assist with residency-by-investment programmes in several countries:\n\n• Portugal Golden Visa: From €500,000\n• Greece Golden Visa: From €250,000\n• UAE Golden Visa: From AED 2,000,000\n• UK Innovator Visa: From £50,000\n\nEach programme has different benefits and timelines. Would you like details on a specific country?',
   'under.*500|below.*500|£500|500k': 'We have several excellent options under £500K:\n\n• London Square Woolwich (SE18) - From £380,000\n• Sterling Place, SW17 - From £420,000\n• Ridgeway Views, NW7 - From £450,000\n\nIn Dubai, options under $500K include Binghatti Flare and various Business Bay developments. Shall I provide more details?',
-  'business|ticari|company|şirket|partner': 'Our Business Expansion services include:\n\n• Market Entry Strategy for UK, UAE, EU & US\n• Partner Matching with vetted local businesses\n• Company Formation in key jurisdictions\n• Trade Facilitation & compliance support\n\nWe help businesses navigate new markets with confidence. Would you like to discuss your specific expansion goals?',
-  'yield|getiri|return|roi': 'Current approximate rental yields:\n\n• London: 4-6% (higher in outer zones)\n• Dubai: 6-10% (varies by area)\n\nCapital appreciation over 5 years:\n• London: ~15%\n• Dubai: ~20%\n\nThese are indicative figures. Actual returns depend on specific properties and market conditions.',
-  'contact|iletişim|appointment|randevu': 'You can reach our team at:\n\n📍 Berkeley Square House, Mayfair, London\n📧 info@innovest.uk\n📞 +44 7491 510941 (UK)\n📞 +971 54 755 0101 (UAE)\n📞 +90 531 420 0331 (Turkey)\n\nOr visit our Contact page to schedule a free consultation.',
+  'business|company|partner': 'Our Business Expansion services include:\n\n• Market Entry Strategy for UK, UAE, EU & US\n• Partner Matching with vetted local businesses\n• Company Formation in key jurisdictions\n• Trade Facilitation & compliance support\n\nWe help businesses navigate new markets with confidence. Would you like to discuss your specific expansion goals?',
+  'yield|return|roi': 'Current approximate rental yields:\n\n• London: 4-6% (higher in outer zones)\n• Dubai: 6-10% (varies by area)\n\nCapital appreciation over 5 years:\n• London: ~15%\n• Dubai: ~20%\n\nThese are indicative figures. Actual returns depend on specific properties and market conditions.',
+  'contact|appointment': 'You can reach our team at:\n\n📍 Berkeley Square House, Mayfair, London\n📧 info@innovest.uk\n📞 +44 7491 510941 (UK)\n📞 +971 54 755 0101 (UAE)\n📞 +90 531 420 0331 (Turkey)\n\nOr visit our Contact page to schedule a free consultation.',
 };
 
-function getAIResponse(message: string): string {
+const knowledgeBaseTR: Record<string, string> = {
+  'dubai.*minimum|minimum.*dubai|dubai.*yatırım|dubai.*fiyat': 'Dubai\'de gayrimenkul yatırımı, gelişmekte olan bölgelerdeki stüdyo daireler için yaklaşık 200.000$\'dan başlamaktadır. Golden Visa için minimum AED 2.000.000 (yaklaşık 545.000$) gayrimenkul yatırımı gereklidir. Ekibimiz bütçenize uygun en iyi seçenekleri bulmanıza yardımcı olabilir.',
+  'londra.*minimum|minimum.*londra|londra.*yatırım|ingiltere.*yatırım|london.*yatırım': 'Londra gayrimenkul yatırımları, 3-6 bölgelerindeki stüdyo/1+1 daireler için £350.000\'dan başlamaktadır. Merkez Londra\'daki premium projeler £550.000+ seviyesindedir. Ortalama kira getirisi konuma göre %4-6 arasında değişmektedir. Belirli projeleri incelemek ister misiniz?',
+  'oturum|golden visa|vize|vatandaşlık|göç': 'Yatırım yoluyla oturum izni programlarında yardımcı oluyoruz:\n\n• Portekiz Golden Visa: 500.000€\'dan itibaren\n• Yunanistan Golden Visa: 250.000€\'dan itibaren\n• BAE Golden Visa: AED 2.000.000\'dan itibaren\n• İngiltere Innovator Vizesi: £50.000\'dan itibaren\n\nHer programın farklı avantajları ve süreleri vardır. Belirli bir ülke hakkında detay ister misiniz?',
+  '500.*altı|500.*alt|£500|500k|uygun.*fiyat|bütçe': '£500K altında birçok mükemmel seçeneğimiz var:\n\n• London Square Woolwich (SE18) - £380.000\'dan itibaren\n• Sterling Place, SW17 - £420.000\'dan itibaren\n• Ridgeway Views, NW7 - £450.000\'dan itibaren\n\nDubai\'de 500.000$ altı seçenekler arasında Binghatti Flare ve çeşitli Business Bay projeleri bulunmaktadır. Daha fazla detay ister misiniz?',
+  'ticari|şirket|partner|iş.*kurma|firma|şirket.*kurma': 'İş Genişletme hizmetlerimiz:\n\n• İngiltere, BAE, AB ve ABD için Pazar Giriş Stratejisi\n• Doğrulanmış yerel işletmelerle Partner Eşleştirme\n• Önemli yargı bölgelerinde Şirket Kurulumu\n• Ticaret Kolaylaştırma ve uyum desteği\n\nİşletmelerin yeni pazarlarda güvenle ilerlemesine yardımcı oluyoruz. Genişleme hedeflerinizi tartışmak ister misiniz?',
+  'getiri|kira.*getiri|roi|kazanç|kar': 'Güncel yaklaşık kira getirileri:\n\n• Londra: %4-6 (dış bölgelerde daha yüksek)\n• Dubai: %6-10 (bölgeye göre değişir)\n\n5 yıllık sermaye değer artışı:\n• Londra: ~%15\n• Dubai: ~%20\n\nBunlar gösterge niteliğindedir. Gerçek getiriler belirli mülklere ve piyasa koşullarına bağlıdır.',
+  'iletişim|randevu|görüşme|telefon|email|adres': 'Ekibimize ulaşabilirsiniz:\n\n📍 Berkeley Square House, Mayfair, Londra\n📧 info@innovest.uk\n📞 +44 7491 510941 (İngiltere)\n📞 +971 54 755 0101 (BAE)\n📞 +90 531 420 0331 (Türkiye)\n\nÜcretsiz danışmanlık randevusu almak için İletişim sayfamızı ziyaret edebilirsiniz.',
+  'merhaba|selam|günaydın|iyi günler|iyi akşamlar|nasılsın': 'Merhaba! Innovest\'e hoş geldiniz. Size nasıl yardımcı olabilirim?\n\n1. Londra veya Dubai gayrimenkulleri\n2. Oturum izni programları\n3. İş genişletme hizmetleri\n4. Ücretsiz danışmanlık randevusu\n\nHangi konuda bilgi almak istersiniz?',
+};
+
+function isTurkish(text: string): boolean {
+  const turkishChars = /[ğüşıöçĞÜŞİÖÇ]/;
+  const turkishWords = /\b(merhaba|selam|nasıl|nedir|nerede|yatırım|gayrimenkul|oturum|fiyat|bütçe|bilgi|ister|lütfen|teşekkür|evet|hayır|kaç|nasıl|hangi|için|veya|ile|bir|bu|şu|ben|biz|siz|olan|gibi|daha|çok|var|yok|istiyorum|arıyorum|düşünüyorum|soruyorum)\b/i;
+  return turkishChars.test(text) || turkishWords.test(text);
+}
+
+function getAIResponse(message: string, locale: 'en' | 'tr'): string {
   const lowerMessage = message.toLowerCase();
-  
-  for (const [pattern, response] of Object.entries(knowledgeBase)) {
+  const useTurkish = locale === 'tr' || isTurkish(message);
+  const kb = useTurkish ? knowledgeBaseTR : knowledgeBaseEN;
+
+  for (const [pattern, response] of Object.entries(kb)) {
     if (new RegExp(pattern, 'i').test(lowerMessage)) {
       return response;
     }
   }
 
+  if (useTurkish) {
+    return "Sorunuz için teşekkür ederiz. Yatırım danışmanlarımız size detaylı ve kişiselleştirilmiş rehberlik sağlayabilir. Şunlardan birini öğrenmek ister misiniz?\n\n1. Londra veya Dubai gayrimenkulleri\n2. Oturum izni programları\n3. İş genişletme hizmetleri\n4. Ücretsiz danışmanlık randevusu\n\nSize nasıl yardımcı olabileceğimi belirtin.";
+  }
+
   return "Thank you for your question. Our investment advisors can provide you with detailed, personalised guidance. Would you like to:\n\n1. Learn about London or Dubai properties\n2. Explore residency programmes\n3. Discuss business expansion\n4. Schedule a free consultation\n\nPlease let me know how I can help.";
 }
 
-export default function AIChat({ dict }: AIChatProps) {
+export default function AIChat({ dict, locale }: AIChatProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -67,7 +91,7 @@ export default function AIChat({ dict }: AIChatProps) {
     setIsTyping(true);
 
     setTimeout(() => {
-      const response = getAIResponse(userMessage);
+      const response = getAIResponse(userMessage, locale);
       setMessages((prev) => [...prev, { role: 'assistant', content: response }]);
       setIsTyping(false);
     }, 800 + Math.random() * 1200);
