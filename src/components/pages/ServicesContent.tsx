@@ -80,7 +80,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
+        <div className="relative px-8 md:px-12 lg:px-16 flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.servicesPage.tagline}
@@ -95,7 +95,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
 
       {/* Services Grid */}
       <section className="py-64 md:py-96 bg-background">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
+        <div className="px-8 md:px-12 lg:px-16 flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {allServices.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.08}>
@@ -125,7 +125,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
 
       {/* CTA */}
       <section className="py-56 md:py-80 bg-surface border-t border-border">
-        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
+        <div className="px-8 md:px-12 lg:px-16 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
