@@ -201,9 +201,9 @@ export default function Header({ dict, locale }: HeaderProps) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-surface border-l border-border overflow-y-auto"
+              className="absolute right-0 top-[72px] h-[calc(100%-72px)] w-80 max-w-[85vw] bg-surface border-l border-border overflow-y-auto"
             >
-              <div className="p-6 pt-20">
+              <div className="p-6">
                 <nav className="space-y-1">
                   {navItems.map((item) => (
                     <div key={item.href}>
