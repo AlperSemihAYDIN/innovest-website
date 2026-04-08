@@ -58,7 +58,7 @@ export default function Header({ dict, locale }: HeaderProps) {
     <>
       {/* Top bar — dark premium strip */}
       <div className="hidden lg:block bg-[#0c0c10]">
-        <div className="px-8 md:px-14 lg:px-20 xl:px-28 2xl:px-36 py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
+        <div className="max-w-screen-xl mx-auto px-8 py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
               <Phone size={11} className="text-gold" />
@@ -70,12 +70,13 @@ export default function Header({ dict, locale }: HeaderProps) {
           <div className="flex items-center gap-8">
             <span>Berkeley Square, Mayfair, London</span>
             <span className="w-px h-3 bg-white/15" />
+            {/* Bayraklı dil seçici */}
             <Link
               href={`${altPrefix}/`}
-              className="flex items-center gap-2 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-1.5 hover:text-white transition-colors duration-300"
             >
-              <Globe size={11} />
-              {altLocale === 'tr' ? 'Türkçe' : 'English'}
+              <span className="text-base leading-none">{altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+              <span>{altLocale === 'tr' ? 'Türkçe' : 'English'}</span>
             </Link>
           </div>
         </div>
@@ -89,7 +90,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             : 'border-transparent'
         }`}
       >
-        <div className="px-8 md:px-14 lg:px-20 xl:px-28 2xl:px-36 flex items-center h-[72px]">
+        <div className="max-w-screen-xl mx-auto px-8 flex items-center h-[72px]">
 
             {/* Logo — sol, sabit genişlik */}
             <Link href={`${prefix}/`} className="shrink-0 flex items-center gap-3 group">
@@ -167,9 +168,9 @@ export default function Header({ dict, locale }: HeaderProps) {
               <Link
                 href={`${altPrefix}/`}
                 aria-label={`Switch to ${altLocale === 'tr' ? 'Turkish' : 'English'}`}
-                className="lg:hidden flex items-center gap-1 text-sm text-muted hover:text-gold transition-colors"
+                className="lg:hidden flex items-center gap-1 text-lg hover:opacity-70 transition-opacity"
               >
-                <Globe size={16} />
+                {altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}
               </Link>
 
               <button
@@ -240,9 +241,10 @@ export default function Header({ dict, locale }: HeaderProps) {
                     <Link
                       href={`${altPrefix}/`}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-sm text-muted hover:text-gold transition-colors"
+                      className="text-sm text-muted hover:text-gold transition-colors flex items-center gap-2 justify-center"
                     >
-                      {altLocale === 'tr' ? '🇹🇷 Türkçe' : '🇬🇧 English'}
+                      <span className="text-base">{altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+                      {altLocale === 'tr' ? 'Türkçe' : 'English'}
                     </Link>
                   </div>
                 </div>
