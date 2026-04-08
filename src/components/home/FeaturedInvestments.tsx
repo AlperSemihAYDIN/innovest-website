@@ -63,7 +63,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
 
   return (
     <section className="py-64 md:py-96 bg-surface">
-      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center">
         <AnimatedSection>
           <div className="flex flex-col items-center text-center gap-8 mb-20">
             <SectionHeading
