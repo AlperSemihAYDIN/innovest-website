@@ -94,7 +94,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       </section>
 
       {/* Services Grid */}
-      <section className="py-44 md:py-64 bg-background">
+      <section className="py-56 md:py-80 bg-background">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {allServices.map((service, index) => (
@@ -124,7 +124,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-36 md:py-48 bg-surface border-t border-border">
+      <section className="py-48 md:py-64 bg-surface border-t border-border">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>

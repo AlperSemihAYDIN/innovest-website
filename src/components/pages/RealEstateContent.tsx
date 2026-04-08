@@ -64,7 +64,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
       </section>
 
       {/* Markets */}
-      <section className="py-44 md:py-64 bg-background">
+      <section className="py-56 md:py-80 bg-background">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 space-y-20">
           {markets.map((market, index) => (
             <AnimatedSection key={market.city}>

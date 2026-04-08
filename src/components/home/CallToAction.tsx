@@ -15,7 +15,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
   return (
-    <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
+    <section className="hero-dark relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <Image
@@ -28,7 +28,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
         <div className="absolute inset-0 bg-background/65" />
       </div>
 
-      <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center text-center">
+      <div className="relative w-full px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center text-center py-24">
         <AnimatedSection>
           <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
             {locale === 'en' ? 'Get Started' : 'Başlayın'}

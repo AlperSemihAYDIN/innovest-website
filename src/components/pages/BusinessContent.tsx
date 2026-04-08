@@ -45,7 +45,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Services */}
-      <section className="py-44 md:py-64 bg-background">
+      <section className="py-56 md:py-80 bg-background">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.businessPage.services.map((service, index) => {
@@ -72,7 +72,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Markets we cover */}
-      <section className="py-44 md:py-64 bg-surface">
+      <section className="py-56 md:py-80 bg-surface">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -110,7 +110,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-36 md:py-48 bg-background border-t border-border">
+      <section className="py-48 md:py-64 bg-background border-t border-border">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
