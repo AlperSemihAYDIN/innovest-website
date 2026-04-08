@@ -33,7 +33,7 @@ export default function Stats() {
 
   return (
     <section className="py-28 md:py-40 bg-background border-y border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
         <AnimatedSection>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {stats.map((stat) => (

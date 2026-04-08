@@ -52,7 +52,7 @@ export default function CityContent({
           <Image src={heroImage} alt={city} fill className="object-cover" priority sizes="100vw" />
           <div className="absolute inset-0 bg-background/80" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
           <AnimatedSection>
             <SectionHeading
               tagline={tagline}
@@ -80,7 +80,7 @@ export default function CityContent({
 
       {/* Properties Grid */}
       <section className="py-44 md:py-64 bg-background">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
           <AnimatedSection>
             <div className="text-center mb-20">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
@@ -152,7 +152,7 @@ export default function CityContent({
 
       {/* CTA */}
       <section className="py-36 md:py-48 bg-surface border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
