@@ -272,15 +272,6 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
           </div>
         </div>
       </section>
-                    <div className="w-8 h-px bg-gold" />
-                    <div className="w-2 h-2 border-t border-r border-gold rotate-45 -ml-1" />
-                  </div>
-                </div>
-              </AnimatedSection>
-            );
-          })}
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-32 bg-surface border-t border-border">
