@@ -58,7 +58,7 @@ export default function Header({ dict, locale }: HeaderProps) {
     <>
       {/* Top bar — dark premium strip */}
       <div className="hidden lg:block bg-[#0c0c10]">
-        <div className="px-6 lg:px-8 max-w-7xl mx-auto py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
               <Phone size={11} className="text-gold" />
@@ -89,10 +89,10 @@ export default function Header({ dict, locale }: HeaderProps) {
             : 'border-transparent'
         }`}
       >
-        <div className="px-6 lg:px-8 max-w-7xl mx-auto">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center h-[72px]">
-            {/* Logo — left */}
-            <Link href={`${prefix}/`} className="flex items-center gap-3 group justify-self-start">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex items-center h-[72px]">
+
+            {/* Logo — sol, sabit genişlik */}
+            <Link href={`${prefix}/`} className="shrink-0 flex items-center gap-3 group">
               <Image
                 src="/logo.jpg"
                 alt="Innovest"
@@ -111,8 +111,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               </div>
             </Link>
 
-            {/* Desktop Navigation — true center */}
-            <nav className="hidden lg:flex items-center justify-self-center gap-6">
+            {/* Desktop Navigation — flex-1 ile tüm alanı kaplar, öğeler justify-evenly ile yayılır */}
+            <nav className="hidden lg:flex flex-1 items-center justify-evenly mx-8">
               {navItems.map((item) => (
                 <div
                   key={item.href}
@@ -122,7 +122,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1.5 px-5 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
+                    className="flex items-center gap-1.5 px-3 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
                   >
                     {item.label}
                     {item.children && <ChevronDown size={14} className="opacity-50" />}
@@ -154,11 +154,11 @@ export default function Header({ dict, locale }: HeaderProps) {
               ))}
             </nav>
 
-            {/* CTA + Mobile Toggle — right */}
-            <div className="flex items-center gap-4 justify-self-end">
+            {/* CTA — sağ, sabit, navdan tamamen ayrı */}
+            <div className="shrink-0 flex items-center gap-4">
               <Link
                 href={`${prefix}/contact`}
-                className="hidden lg:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 btn-shine"
+                className="hidden lg:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 btn-shine whitespace-nowrap"
               >
                 {dict.nav.getConsultation}
               </Link>
@@ -180,7 +180,6 @@ export default function Header({ dict, locale }: HeaderProps) {
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
-          </div>
         </div>
       </header>
 
