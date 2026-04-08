@@ -9,7 +9,7 @@ interface ProcessProps {
 
 export default function Process({ dict }: ProcessProps) {
   return (
-    <section className="py-64 md:py-96 bg-surface relative overflow-hidden">
+    <section className="min-h-screen flex flex-col justify-center py-24 bg-surface relative overflow-hidden">
       {/* Accent lines */}
       <div className="absolute right-0 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
 

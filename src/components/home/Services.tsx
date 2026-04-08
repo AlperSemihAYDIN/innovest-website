@@ -44,7 +44,7 @@ export default function Services({ dict, locale }: ServicesProps) {
   ];
 
   return (
-    <section className="py-64 md:py-96 bg-background">
+    <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
       <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center">
         <AnimatedSection>
           <SectionHeading
