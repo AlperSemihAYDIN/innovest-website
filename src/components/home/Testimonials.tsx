@@ -27,7 +27,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
-      <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center">
+      <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
         <AnimatedSection>
           <div className="text-center mb-20">
             <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">

@@ -40,7 +40,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center">
+        <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.residencyPage.tagline}
@@ -54,8 +54,8 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* Programmes */}
-      <section className="py-64 md:py-96 bg-background">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center">
+      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.residencyPage.programmes.map((programme, index) => (
               <AnimatedSection key={programme.country} delay={index * 0.1}>
@@ -113,8 +113,8 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* How it works */}
-      <section className="py-64 md:py-96 bg-surface">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center">
+      <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
@@ -152,8 +152,8 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* CTA */}
-      <section className="py-56 md:py-80 bg-background border-t border-border">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center">
+      <section className="py-32 bg-background border-t border-border">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
