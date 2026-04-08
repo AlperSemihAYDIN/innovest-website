@@ -33,7 +33,7 @@ export default function Stats() {
 
   return (
     <section className="py-48 md:py-64 bg-background border-y border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center">
+      <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
         <AnimatedSection>
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {stats.map((stat) => (

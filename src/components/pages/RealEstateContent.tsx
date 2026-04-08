@@ -50,7 +50,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center">
+        <div className="relative px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.realEstatePage.tagline}
@@ -65,7 +65,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
 
       {/* Markets */}
       <section className="py-64 md:py-96 bg-background">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 space-y-20">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 space-y-20">
           {markets.map((market, index) => (
             <AnimatedSection key={market.city}>
               <Link href={market.href} className="block group">
