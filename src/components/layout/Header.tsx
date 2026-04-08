@@ -205,13 +205,13 @@ export default function Header({ dict, locale }: HeaderProps) {
               className="absolute right-0 top-[72px] h-[calc(100%-72px)] w-80 max-w-[85vw] bg-surface border-l border-border overflow-y-auto"
             >
               <div className="p-6">
-                <nav className="space-y-1">
+                <nav className="space-y-2">
                   {navItems.map((item) => (
                     <div key={item.href}>
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-3 text-base text-muted-light hover:text-gold transition-colors border-b border-border/50"
+                        className="block py-4 text-lg text-muted-light hover:text-gold transition-colors border-b border-border/50"
                       >
                         {item.label}
                       </Link>
@@ -220,7 +220,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                           key={child.href}
                           href={child.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-2.5 pl-4 text-sm text-muted hover:text-gold transition-colors"
+                          className="block py-3.5 pl-4 text-base text-muted hover:text-gold transition-colors"
                         >
                           {child.label}
                         </Link>

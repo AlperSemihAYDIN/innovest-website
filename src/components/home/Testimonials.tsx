@@ -29,7 +29,7 @@ export default function Testimonials() {
     <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
       <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
         <AnimatedSection>
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 max-w-3xl mx-auto">
             <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">
               Client Testimonials
             </span>
@@ -44,7 +44,7 @@ export default function Testimonials() {
           </div>
         </AnimatedSection>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={testimonial.name} delay={index * 0.15}>
               <div className="bg-background border border-border p-10 h-full flex flex-col text-center">

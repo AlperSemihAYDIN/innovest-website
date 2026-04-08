@@ -20,17 +20,19 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
       }} />
 
       <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-        <AnimatedSection>
-          <SectionHeading
-            tagline={dict.whyUs.tagline}
-            title={dict.whyUs.title}
-            titleHighlight={dict.whyUs.titleHighlight}
-            subtitle={dict.whyUs.subtitle}
-            center
-          />
-        </AnimatedSection>
+        <div className="w-full max-w-3xl mx-auto text-center mb-20">
+          <AnimatedSection>
+            <SectionHeading
+              tagline={dict.whyUs.tagline}
+              title={dict.whyUs.title}
+              titleHighlight={dict.whyUs.titleHighlight}
+              subtitle={dict.whyUs.subtitle}
+              center
+            />
+          </AnimatedSection>
+        </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {dict.whyUs.items.map((item, index) => {
             const Icon = icons[index];
             return (

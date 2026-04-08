@@ -46,17 +46,19 @@ export default function Services({ dict, locale }: ServicesProps) {
   return (
     <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
       <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-        <AnimatedSection>
-          <SectionHeading
-            tagline={dict.services.tagline}
-            title={dict.services.title}
-            titleHighlight={dict.services.titleHighlight}
-            subtitle={dict.services.subtitle}
-            center
-          />
-        </AnimatedSection>
+        <div className="w-full max-w-3xl mx-auto text-center mb-20">
+          <AnimatedSection>
+            <SectionHeading
+              tagline={dict.services.tagline}
+              title={dict.services.title}
+              titleHighlight={dict.services.titleHighlight}
+              subtitle={dict.services.subtitle}
+              center
+            />
+          </AnimatedSection>
+        </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 mt-20">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           {services.map((service, index) => (
             <AnimatedSection key={service.title} delay={index * 0.15}>
               <Link href={service.href} className="block group">

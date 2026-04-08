@@ -64,26 +64,28 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
   return (
     <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
       <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-        <AnimatedSection>
-          <div className="flex flex-col items-center text-center gap-8 mb-20">
-            <SectionHeading
-              tagline={dict.featured.tagline}
-              title={dict.featured.title}
-              titleHighlight={dict.featured.titleHighlight}
-              subtitle={dict.featured.subtitle}
-              center
-            />
-            <Link
-              href={`${prefix}/real-estate`}
-              className="inline-flex items-center gap-2 text-gold text-sm hover:gap-3 transition-all duration-300 whitespace-nowrap"
-            >
-              {dict.featured.viewAll}
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </AnimatedSection>
+        <div className="w-full max-w-3xl mx-auto text-center mb-20">
+          <AnimatedSection>
+            <div className="flex flex-col items-center gap-8">
+              <SectionHeading
+                tagline={dict.featured.tagline}
+                title={dict.featured.title}
+                titleHighlight={dict.featured.titleHighlight}
+                subtitle={dict.featured.subtitle}
+                center
+              />
+              <Link
+                href={`${prefix}/real-estate`}
+                className="inline-flex items-center gap-2 text-gold text-sm hover:gap-3 transition-all duration-300 whitespace-nowrap"
+              >
+                {dict.featured.viewAll}
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group">

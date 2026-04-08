@@ -14,17 +14,19 @@ export default function Process({ dict }: ProcessProps) {
       <div className="absolute right-0 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
 
       <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-        <AnimatedSection>
-          <SectionHeading
-            tagline={dict.process.tagline}
-            title={dict.process.title}
-            titleHighlight={dict.process.titleHighlight}
-            subtitle={dict.process.subtitle}
-            center
-          />
-        </AnimatedSection>
+        <div className="w-full max-w-3xl mx-auto text-center mb-20">
+          <AnimatedSection>
+            <SectionHeading
+              tagline={dict.process.tagline}
+              title={dict.process.title}
+              titleHighlight={dict.process.titleHighlight}
+              subtitle={dict.process.subtitle}
+              center
+            />
+          </AnimatedSection>
+        </div>
 
-        <div className="w-full mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {dict.process.steps.map((step, index) => (
             <AnimatedSection key={step.num} delay={index * 0.15}>
               <div className="bg-surface p-8 h-full relative group hover:bg-surface-light transition-colors duration-500">
