@@ -27,7 +27,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="py-44 md:py-64 bg-surface">
-      <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-20">
             <span className="inline-block text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">

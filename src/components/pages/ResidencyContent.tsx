@@ -40,7 +40,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative max-w-[1600px] mx-auto px-10 lg:px-16">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.residencyPage.tagline}
@@ -55,7 +55,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
 
       {/* Programmes */}
       <section className="py-44 md:py-64 bg-background">
-        <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.residencyPage.programmes.map((programme, index) => (
               <AnimatedSection key={programme.country} delay={index * 0.1}>
@@ -114,7 +114,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
 
       {/* How it works */}
       <section className="py-44 md:py-64 bg-surface">
-        <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-20">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
@@ -153,7 +153,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
 
       {/* CTA */}
       <section className="py-36 md:py-48 bg-background border-t border-border">
-        <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
