@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Globe, Phone } from 'lucide-react';
 import type { Dictionary } from '@/lib/dictionary';
@@ -92,11 +93,14 @@ export default function Header({ dict, locale }: HeaderProps) {
           <div className="flex items-center h-[72px]">
             {/* Logo — fixed left */}
             <Link href={`${prefix}/`} className="flex items-center gap-3 group flex-shrink-0">
-              <div className="relative">
-                <div className="w-10 h-10 border border-gold flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
-                  <span className="text-gold font-bold text-lg font-[var(--font-display)]">I</span>
-                </div>
-              </div>
+              <Image
+                src="/logo.jpg"
+                alt="Innovest"
+                width={44}
+                height={44}
+                className="rounded-sm"
+                priority
+              />
               <div className="flex flex-col">
                 <span className="text-lg font-semibold tracking-[0.2em] text-foreground">
                   INNOVEST

@@ -163,7 +163,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       )}
 
       {/* Category filter + Articles */}
-      <section className="py-40 md:py-56 bg-background">
+      <section className="py-44 md:py-64 bg-background">
         <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
           <AnimatedSection>
             <div className="flex flex-wrap gap-3 mb-12 justify-center">

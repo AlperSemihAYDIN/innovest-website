@@ -32,7 +32,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-background border-y border-border">
+    <section className="py-28 md:py-40 bg-background border-y border-border">
       <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
         <AnimatedSection>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">

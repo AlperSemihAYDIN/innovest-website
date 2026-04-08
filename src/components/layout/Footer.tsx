@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import type { Dictionary } from '@/lib/dictionary';
 
@@ -31,14 +32,18 @@ export default function Footer({ dict, locale }: FooterProps) {
   return (
     <footer className="footer-dark bg-background border-t border-border">
       {/* Main Footer */}
-      <div className="max-w-[1600px] mx-auto px-10 lg:px-16 py-20">
+      <div className="max-w-[1600px] mx-auto px-10 lg:px-16 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`${prefix}/`} className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 border border-gold flex items-center justify-center">
-                <span className="text-gold font-bold text-lg font-[var(--font-display)]">I</span>
-              </div>
+              <Image
+                src="/logo.jpg"
+                alt="Innovest"
+                width={44}
+                height={44}
+                className="rounded-sm"
+              />
               <div className="flex flex-col">
                 <span className="text-lg font-semibold tracking-[0.2em]">INNOVEST</span>
                 <span className="text-[9px] tracking-[0.25em] text-muted uppercase">

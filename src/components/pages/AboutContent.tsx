@@ -43,7 +43,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-40 md:py-56 bg-background">
+      <section className="py-44 md:py-64 bg-background">
         <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <AnimatedSection>
@@ -75,7 +75,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Story section */}
-      <section className="py-40 md:py-56 bg-surface">
+      <section className="py-44 md:py-64 bg-surface">
         <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -126,7 +126,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Values */}
-      <section className="py-40 md:py-56 bg-background">
+      <section className="py-44 md:py-64 bg-background">
         <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -168,7 +168,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-40 bg-surface border-t border-border">
+      <section className="py-36 md:py-48 bg-surface border-t border-border">
         <div className="max-w-[1600px] mx-auto px-10 lg:px-16">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
