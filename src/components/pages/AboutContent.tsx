@@ -191,11 +191,11 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Values */}
-      <section className="bg-background overflow-hidden">
-        {/* Asymmetric heading strip */}
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-24 pb-16 border-b border-border">
-          <AnimatedSection>
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          {/* Heading */}
+          <AnimatedSection className="w-full max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 pb-12 border-b border-border">
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-px bg-gold/50" />
@@ -220,49 +220,58 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               </p>
             </div>
           </AnimatedSection>
-        </div>
 
-        {/* Value rows — full width editorial layout */}
-        <div className="divide-y divide-border pb-24">
-          {dict.about.values.map((value, index) => {
-            const Icon = valueIcons[index];
-            const roman = valueRoman[index];
-            return (
-              <AnimatedSection key={value.title} delay={index * 0.08}>
-                <div className="group px-6 md:px-12 lg:px-16 xl:px-20 py-10 lg:py-12 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 hover:bg-surface/50 transition-colors duration-500 cursor-default">
-                  {/* Roman numeral */}
-                  <div className="shrink-0 w-16 lg:w-20">
-                    <span
-                      className="text-5xl lg:text-6xl font-light text-gold/12 group-hover:text-gold/25 transition-colors duration-500 leading-none select-none"
-                      style={{ fontFamily: 'var(--font-display)' }}
-                    >
-                      {roman}
-                    </span>
-                  </div>
-
-                  {/* Expanding gold line */}
-                  <div className="hidden lg:block h-px bg-gold/25 w-12 group-hover:w-20 group-hover:bg-gold/60 transition-all duration-500 shrink-0" />
-
-                  {/* Icon + Title */}
-                  <div className="flex items-center gap-4 lg:w-60 shrink-0">
-                    <div className="w-11 h-11 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-400 shrink-0">
-                      <Icon size={18} className="text-gold" />
+          {/* Value rows */}
+          <div className="w-full max-w-6xl mx-auto divide-y divide-border border-y border-border">
+            {dict.about.values.map((value, index) => {
+              const Icon = valueIcons[index];
+              const roman = valueRoman[index];
+              return (
+                <AnimatedSection key={value.title} delay={index * 0.08}>
+                  <div className="group py-10 lg:py-12 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 hover:bg-surface/50 transition-colors duration-500 cursor-default px-4 -mx-4">
+                    {/* Roman numeral */}
+                    <div className="shrink-0 w-16 lg:w-20">
+                      <span
+                        className="text-5xl lg:text-6xl font-light text-gold/12 group-hover:text-gold/25 transition-colors duration-500 leading-none select-none"
+                        style={{ fontFamily: 'var(--font-display)' }}
+                      >
+                        {roman}
+                      </span>
                     </div>
-                    <h3
-                      className="text-xl font-light group-hover:text-gold transition-colors duration-300"
-                      style={{ fontFamily: 'var(--font-display)' }}
-                    >
-                      {value.title}
-                    </h3>
+
+                    {/* Expanding gold line */}
+                    <div className="hidden lg:block h-px bg-gold/25 w-12 group-hover:w-20 group-hover:bg-gold/60 transition-all duration-500 shrink-0" />
+
+                    {/* Icon + Title */}
+                    <div className="flex items-center gap-4 lg:w-56 shrink-0">
+                      <div className="w-11 h-11 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-300 shrink-0">
+                        <Icon size={18} className="text-gold" />
+                      </div>
+                      <h3
+                        className="text-xl font-light group-hover:text-gold transition-colors duration-300"
+                        style={{ fontFamily: 'var(--font-display)' }}
+                      >
+                        {value.title}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="flex-1 text-sm text-muted leading-relaxed">
+                      {value.desc}
+                    </p>
+
+                    {/* Hover arrow */}
+                    <div className="hidden lg:flex items-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-8 h-px bg-gold" />
+                      <div className="w-2 h-2 border-t border-r border-gold rotate-45 -ml-1" />
+                    </div>
                   </div>
-
-                  {/* Description */}
-                  <p className="flex-1 text-sm text-muted leading-relaxed max-w-2xl">
-                    {value.desc}
-                  </p>
-
-                  {/* Hover arrow indicator */}
-                  <div className="hidden lg:flex items-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </AnimatedSection>
+              );
+            })}
+          </div>
+        </div>
+      </section>
                     <div className="w-8 h-px bg-gold" />
                     <div className="w-2 h-2 border-t border-r border-gold rotate-45 -ml-1" />
                   </div>
