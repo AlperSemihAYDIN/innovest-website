@@ -30,9 +30,34 @@ export default function Footer({ dict, locale }: FooterProps) {
   ];
 
   return (
-    <footer className="footer-dark bg-background border-t border-border">
+    <footer className="footer-dark bg-background">
+      {/* Gold gradient separator — clear visual break from last section */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+
+      {/* Pre-footer CTA strip */}
+      <div className="border-b border-border/40">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xs text-gold tracking-[0.3em] uppercase font-semibold mb-1">
+              {locale === 'tr' ? 'Yatırım Fırsatlarını Keşfedin' : 'Explore Investment Opportunities'}
+            </p>
+            <p className="text-sm text-muted">
+              {locale === 'tr'
+                ? 'Uzman ekibimizle bugün iletişime geçin.'
+                : 'Speak with our expert team today.'}
+            </p>
+          </div>
+          <a
+            href={`${prefix}/contact`}
+            className="shrink-0 inline-flex items-center gap-2 px-8 py-3 border border-gold text-gold text-sm tracking-wider hover:bg-gold hover:text-white transition-all duration-300 whitespace-nowrap"
+          >
+            {locale === 'tr' ? 'Danışmanlık Al' : 'Get Consultation'}
+          </a>
+        </div>
+      </div>
+
       {/* Main Footer */}
-      <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-32 pb-24">
+      <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-20 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -194,8 +219,8 @@ export default function Footer({ dict, locale }: FooterProps) {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="border-t border-border/40">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted">{dict.footer.rights}</p>
           <div className="flex items-center gap-6 text-xs text-muted">
             <Link href={`${prefix}/`} className="hover:text-gold transition-colors">

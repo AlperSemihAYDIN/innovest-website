@@ -33,94 +33,53 @@ interface TestimonialsProps {
 
 export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
   const tr = locale === 'tr';
-  const [featured, ...rest] = testimonials;
-
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row bg-surface overflow-hidden">
-      {/* Left: full-height image with featured quote overlay */}
-      <div className="relative w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen flex flex-col justify-end">
-        <Image
-          src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=1200"
-          alt="Client Testimonial"
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
-
-        {/* Featured testimonial overlaid at bottom */}
-        <div className="relative p-8 md:p-12 lg:p-16 pb-12 lg:pb-16">
-          <span
-            className="text-7xl text-gold/30 leading-none block mb-3"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            &ldquo;
-          </span>
-          <p className="text-white/90 text-lg lg:text-xl font-light leading-relaxed mb-8 max-w-md">
-            {tr ? featured.quoteTr : featured.quoteEn}
-          </p>
-          <div className="flex items-center gap-4">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden border border-gold/40 shrink-0">
-              <Image
-                src={featured.image}
-                alt={featured.name}
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
-            </div>
-            <div>
-              <p className="text-white text-sm font-medium">{featured.name}</p>
-              <p className="text-white/60 text-xs">{featured.role}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Right: heading + remaining testimonials */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 py-24 lg:py-0 bg-surface">
+    <section className="min-h-screen flex flex-col py-24 bg-surface">
+      <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        {/* Heading — center top */}
         <AnimatedSection>
-          <div className="mb-12">
-            <div className="flex items-center gap-4 mb-6">
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <div className="flex items-center gap-4 justify-center mb-6">
               <div className="w-12 h-px bg-gold/50" />
               <span className="inline-block text-gold text-xs md:text-sm tracking-[0.35em] uppercase font-semibold">
                 {tr ? 'Müşteri Görüşleri' : 'Client Testimonials'}
               </span>
+              <div className="w-12 h-px bg-gold/50" />
             </div>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-light mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-light"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {tr ? 'Dünya Genelinde ' : 'Trusted by '}
-              <span className="text-gradient-gold">
-                {tr ? 'Yatırımcıların Güveni' : 'Investors Worldwide'}
-              </span>
+              <span className="text-gradient-gold">{tr ? 'Yatırımcıların Güveni' : 'Investors Worldwide'}</span>
             </h2>
-            <div className="w-16 h-px bg-gold/60" />
+            <div className="gold-line-center mt-8" />
           </div>
         </AnimatedSection>
 
-        <div className="space-y-6">
-          {rest.map((testimonial, index) => (
+        {/* Cards — slightly bigger */}
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          {testimonials.map((testimonial, index) => (
             <AnimatedSection key={testimonial.name} delay={index * 0.15}>
-              <div className="bg-background border border-border p-8 hover:border-gold/30 transition-all duration-500">
+              <div className="bg-background border border-border p-12 h-full flex flex-col">
+                {/* Quote mark */}
                 <span
-                  className="text-4xl text-gold/20 leading-none block mb-3"
+                  className="text-6xl text-gold/20 leading-none mb-6"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   &ldquo;
                 </span>
-                <p className="text-sm text-muted-light leading-relaxed mb-6">
+                <p className="text-base text-muted-light leading-relaxed flex-1 mb-8">
                   {tr ? testimonial.quoteTr : testimonial.quoteEn}
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
+                <div className="flex items-center gap-4 pt-6 border-t border-border">
+                  <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
                       fill
                       className="object-cover"
-                      sizes="40px"
+                      sizes="48px"
                     />
                   </div>
                   <div>
