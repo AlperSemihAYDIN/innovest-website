@@ -34,7 +34,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
       </div>
 
-      <div className="relative z-10 px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-36">
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-36">
         <div className="max-w-3xl mx-auto text-center">
           {mounted && (
             <>
