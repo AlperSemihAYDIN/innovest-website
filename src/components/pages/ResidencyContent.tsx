@@ -54,7 +54,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* Programmes */}
-      <section className="py-56 md:py-80 bg-background">
+      <section className="py-64 md:py-96 bg-background">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.residencyPage.programmes.map((programme, index) => (
@@ -113,7 +113,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* How it works */}
-      <section className="py-56 md:py-80 bg-surface">
+      <section className="py-64 md:py-96 bg-surface">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -152,7 +152,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* CTA */}
-      <section className="py-48 md:py-64 bg-background border-t border-border">
+      <section className="py-56 md:py-80 bg-background border-t border-border">
         <div className="px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>

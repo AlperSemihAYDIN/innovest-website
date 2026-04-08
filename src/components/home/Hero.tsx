@@ -124,7 +124,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] text-muted tracking-widest uppercase">Scroll</span>
+        <span className="text-[10px] text-muted tracking-widest uppercase">{locale === 'tr' ? 'Kaydır' : 'Scroll'}</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

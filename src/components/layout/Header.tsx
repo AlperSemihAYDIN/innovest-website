@@ -107,7 +107,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                   INNOVEST
                 </span>
                 <span className="text-[9px] tracking-[0.25em] text-muted uppercase">
-                  Investment Advisory
+                  {locale === 'tr' ? 'Yatırım Danışmanlığı' : 'Investment Advisory'}
                 </span>
               </div>
             </Link>

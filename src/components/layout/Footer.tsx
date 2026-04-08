@@ -47,7 +47,7 @@ export default function Footer({ dict, locale }: FooterProps) {
               <div className="flex flex-col">
                 <span className="text-lg font-semibold tracking-[0.2em]">INNOVEST</span>
                 <span className="text-[9px] tracking-[0.25em] text-muted uppercase">
-                  Investment Advisory
+                  {locale === 'tr' ? 'Yatırım Danışmanlığı' : 'Investment Advisory'}
                 </span>
               </div>
             </Link>
