@@ -23,17 +23,6 @@ export default function Process({ dict }: ProcessProps) {
         {/* Dark gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent lg:bg-gradient-to-l lg:from-surface/90 lg:via-surface/40 lg:to-transparent" />
 
-        {/* Floating stat on image */}
-        <div className="absolute bottom-10 left-10 hidden lg:block">
-          <div className="border border-gold/40 bg-black/60 backdrop-blur-sm px-8 py-6">
-            <div className="text-4xl font-light text-gold mb-1" style={{ fontFamily: 'var(--font-display)' }}>
-              {dict.process.steps.length}
-            </div>
-            <div className="text-xs text-white/60 tracking-widest uppercase">
-              {dict.process.tagline}
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Right: heading + steps */}
