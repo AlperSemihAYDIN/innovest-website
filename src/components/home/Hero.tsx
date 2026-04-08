@@ -34,15 +34,15 @@ export default function Hero({ dict, locale }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
       </div>
 
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-36">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="relative z-10 w-full py-36">
+        <div className="max-w-3xl mx-auto px-6 text-center">
           {mounted && (
             <>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="mb-6"
+                className="mb-8"
               >
                 <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase">
                   {dict.hero.tagline}
@@ -53,7 +53,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-8"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {dict.hero.title}
@@ -65,7 +65,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto mb-12"
+                className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto mb-14"
               >
                 {dict.hero.subtitle}
               </motion.p>
@@ -74,7 +74,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45 }}
-                className="flex flex-wrap justify-center gap-4 mb-20"
+                className="flex flex-wrap justify-center gap-5 mb-24"
               >
                 <Link
                   href={`${prefix}/contact`}
@@ -99,7 +99,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-wrap justify-center gap-10 md:gap-16 pt-10 border-t border-border/50"
+                className="flex flex-wrap justify-center gap-12 md:gap-20 pt-12 border-t border-border/50"
               >
                 {[
                   { value: dict.hero.stat1Value, label: dict.hero.stat1Label },
@@ -107,7 +107,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                   { value: dict.hero.stat3Value, label: dict.hero.stat3Label },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-2xl md:text-3xl font-light text-gold mb-1" style={{ fontFamily: 'var(--font-display)' }}>
+                    <div className="text-2xl md:text-3xl font-light text-gold mb-2" style={{ fontFamily: 'var(--font-display)' }}>
                       {stat.value}
                     </div>
                     <div className="text-xs text-muted tracking-wider uppercase">{stat.label}</div>
