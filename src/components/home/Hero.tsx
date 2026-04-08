@@ -19,7 +19,7 @@ export default function Hero({ dict, locale }: HeroProps) {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="hero-dark relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="hero-dark relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -34,8 +34,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
       </div>
 
-      <div className="relative z-10 w-full py-36">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <div className="relative z-10 w-full max-w-3xl px-6 py-36 text-center">
           {mounted && (
             <>
               <motion.div
@@ -116,7 +115,6 @@ export default function Hero({ dict, locale }: HeroProps) {
               </motion.div>
             </>
           )}
-        </div>
       </div>
 
       {/* Scroll indicator */}
