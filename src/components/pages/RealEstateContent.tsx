@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import InvestmentMap from '@/components/home/InvestmentMap';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface RealEstateContentProps {
@@ -114,6 +115,8 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
           ))}
         </div>
       </section>
+
+      <InvestmentMap locale={locale} />
     </>
   );
 }

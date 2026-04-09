@@ -10,7 +10,6 @@ import Process from '@/components/home/Process';
 import Testimonials from '@/components/home/Testimonials';
 import CallToAction from '@/components/home/CallToAction';
 import AIChat from '@/components/chat/AIChat';
-import InvestmentMap from '@/components/home/InvestmentMap';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -29,7 +28,6 @@ export default function HomeTR() {
         <Services dict={dict} locale="tr" />
         <Stats locale="tr" />
         <FeaturedInvestments dict={dict} locale="tr" />
-        <InvestmentMap locale="tr" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
         <Testimonials locale="tr" />

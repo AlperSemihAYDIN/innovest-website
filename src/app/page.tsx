@@ -10,7 +10,6 @@ import Process from '@/components/home/Process';
 import Testimonials from '@/components/home/Testimonials';
 import CallToAction from '@/components/home/CallToAction';
 import AIChat from '@/components/chat/AIChat';
-import InvestmentMap from '@/components/home/InvestmentMap';
 
 export default function Home() {
   const dict = getDictionary('en');
@@ -23,7 +22,6 @@ export default function Home() {
         <Services dict={dict} locale="en" />
         <Stats locale="en" />
         <FeaturedInvestments dict={dict} locale="en" />
-        <InvestmentMap locale="en" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
         <Testimonials locale="en" />
