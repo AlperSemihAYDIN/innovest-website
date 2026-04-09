@@ -34,6 +34,7 @@ export default function Process({ dict }: ProcessProps) {
               title={dict.process.title}
               titleHighlight={dict.process.titleHighlight}
               subtitle={dict.process.subtitle}
+              center
             />
           </div>
         </AnimatedSection>
