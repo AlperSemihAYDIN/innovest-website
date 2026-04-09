@@ -28,7 +28,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800',
     price: '£550,000',
     yield: '5.2%',
-    href: { en: '/real-estate/london', tr: '/tr/real-estate/london' },
+    href: { en: '/real-estate/london/westminster-tower', tr: '/tr/real-estate/london/westminster-tower' },
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800',
     price: '£725,000',
     yield: '4.8%',
-    href: { en: '/real-estate/london', tr: '/tr/real-estate/london' },
+    href: { en: '/real-estate/london/ransomes-wharf', tr: '/tr/real-estate/london/ransomes-wharf' },
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800',
     price: '£380,000',
     yield: '5.5%',
-    href: { en: '/real-estate/london', tr: '/tr/real-estate/london' },
+    href: { en: '/real-estate/london/woolwich-central', tr: '/tr/real-estate/london/woolwich-central' },
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800',
     price: '£850,000',
     yield: '4.5%',
-    href: { en: '/real-estate/london', tr: '/tr/real-estate/london' },
+    href: { en: '/real-estate/london/prince-of-wales-drive', tr: '/tr/real-estate/london/prince-of-wales-drive' },
   },
   {
     id: 5,
@@ -80,7 +80,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=800',
     price: '£420,000',
     yield: '5.0%',
-    href: { en: '/real-estate/london', tr: '/tr/real-estate/london' },
+    href: { en: '/real-estate/london/sterling-place', tr: '/tr/real-estate/london/sterling-place' },
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800',
     price: '£650,000',
     yield: '4.6%',
-    href: { en: '/real-estate/london', tr: '/tr/real-estate/london' },
+    href: { en: '/real-estate/london/white-city-living', tr: '/tr/real-estate/london/white-city-living' },
   },
   // Dubai / UAE
   {
@@ -107,7 +107,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800',
     price: '$380,000',
     yield: '8.5%',
-    href: { en: '/real-estate/dubai', tr: '/tr/real-estate/dubai' },
+    href: { en: '/real-estate/dubai/binghatti-flare', tr: '/tr/real-estate/dubai/binghatti-flare' },
   },
   {
     id: 8,
@@ -120,7 +120,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=800',
     price: '$1,200,000',
     yield: '7.2%',
-    href: { en: '/real-estate/dubai', tr: '/tr/real-estate/dubai' },
+    href: { en: '/real-estate/dubai/the-alba', tr: '/tr/real-estate/dubai/the-alba' },
   },
   {
     id: 9,
@@ -133,7 +133,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800',
     price: '$290,000',
     yield: '9.0%',
-    href: { en: '/real-estate/dubai', tr: '/tr/real-estate/dubai' },
+    href: { en: '/real-estate/dubai/binghatti-aquarise', tr: '/tr/real-estate/dubai/binghatti-aquarise' },
   },
   {
     id: 10,
@@ -146,7 +146,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800',
     price: '$750,000',
     yield: '7.5%',
-    href: { en: '/real-estate/dubai', tr: '/tr/real-estate/dubai' },
+    href: { en: '/real-estate/dubai/mercedes-benz-places', tr: '/tr/real-estate/dubai/mercedes-benz-places' },
   },
   {
     id: 11,
@@ -159,7 +159,7 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800',
     price: '$350,000',
     yield: '8.2%',
-    href: { en: '/real-estate/dubai', tr: '/tr/real-estate/dubai' },
+    href: { en: '/real-estate/dubai/belgrove-residences', tr: '/tr/real-estate/dubai/belgrove-residences' },
   },
   {
     id: 12,
@@ -172,6 +172,32 @@ export const mapProperties: MapProperty[] = [
     image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800',
     price: '$620,000',
     yield: '7.8%',
-    href: { en: '/real-estate/dubai', tr: '/tr/real-estate/dubai' },
+    href: { en: '/real-estate/dubai/one-river-point', tr: '/tr/real-estate/dubai/one-river-point' },
+  },
+  {
+    id: 13,
+    name: 'Cala Del Mar',
+    developer: 'Ellington',
+    location: 'Marjan Island, RAK',
+    region: 'UAE',
+    lat: 25.6786,
+    lng: 55.9428,
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800',
+    price: '$474,000',
+    yield: '9.0%',
+    href: { en: '/real-estate/dubai/cala-del-mar', tr: '/tr/real-estate/dubai/cala-del-mar' },
+  },
+  {
+    id: 14,
+    name: 'Solaya',
+    developer: 'Meraas',
+    location: 'Jumeirah, Dubai',
+    region: 'UAE',
+    lat: 25.2226,
+    lng: 55.2456,
+    image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=800',
+    price: '$950,000',
+    yield: '6.8%',
+    href: { en: '/real-estate/dubai/solaya', tr: '/tr/real-estate/dubai/solaya' },
   },
 ];

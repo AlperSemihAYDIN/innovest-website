@@ -15,6 +15,7 @@ interface Property {
   completion: string;
   beds: string;
   image: string;
+  slug?: string;
 }
 
 interface CityContentProps {
@@ -136,7 +137,7 @@ export default function CityContent({
                       </div>
                     </div>
                     <Link
-                      href={`${prefix}/contact`}
+                      href={property.slug ? `${prefix}/real-estate/${city.toLowerCase() === 'londra' ? 'london' : city.toLowerCase()}/${property.slug}` : `${prefix}/contact`}
                       className="mt-4 w-full inline-flex items-center justify-center gap-2 py-3 border border-border text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn"
                     >
                       {locale === 'en' ? 'Enquire Now' : 'Bilgi Al'}
