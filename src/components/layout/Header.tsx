@@ -95,15 +95,15 @@ export default function Header({ dict, locale }: HeaderProps) {
             {/* Logo — sol, sabit genişlik */}
             <Link href={`${prefix}/`} className="shrink-0 flex items-center gap-3 group">
               <Image
-                src="/logo.jpg"
-                alt="Innovest"
-                width={44}
-                height={44}
-                className="rounded-sm"
+                src="/logo-icon.png"
+                alt="Innovest Capital"
+                width={40}
+                height={40}
+                className="rounded-sm bg-[#F7F5EF] p-0.5"
                 priority
               />
               <div className="flex flex-col">
-                <span className="text-lg font-semibold tracking-[0.2em] text-foreground">
+                <span className="text-lg font-semibold tracking-[0.2em] text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                   INNOVEST
                 </span>
                 <span className="text-[9px] tracking-[0.25em] text-muted uppercase">

@@ -63,18 +63,12 @@ export default function Footer({ dict, locale }: FooterProps) {
           <div className="lg:col-span-1">
             <Link href={`${prefix}/`} className="flex items-center gap-3 mb-6">
               <Image
-                src="/logo.jpg"
-                alt="Innovest"
-                width={44}
-                height={44}
-                className="rounded-sm"
+                src="/logo-primary.png"
+                alt="Innovest Capital"
+                width={140}
+                height={70}
+                className="bg-[#F7F5EF] rounded-sm px-2 py-1 object-contain"
               />
-              <div className="flex flex-col">
-                <span className="text-lg font-semibold tracking-[0.2em]">INNOVEST</span>
-                <span className="text-[9px] tracking-[0.25em] text-muted uppercase">
-                  {locale === 'tr' ? 'Yatırım Danışmanlığı' : 'Investment Advisory'}
-                </span>
-              </div>
             </Link>
             <p className="text-sm text-muted leading-relaxed mb-6">
               {dict.footer.description}
