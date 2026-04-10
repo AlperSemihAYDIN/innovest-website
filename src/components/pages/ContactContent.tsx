@@ -97,7 +97,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       {/* Contact Form + Info — Modern Premium Layout */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Left — Form */}
             <div className="bg-surface p-10 md:p-14 lg:p-16">
               <AnimatedSection>

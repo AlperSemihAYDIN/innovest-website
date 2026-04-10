@@ -47,7 +47,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       {/* Services */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.businessPage.services.map((service, index) => {
               const Icon = serviceIcons[index];
               return (
@@ -87,7 +87,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { name: 'United Kingdom', flag: '🇬🇧' },
               { name: 'United Arab Emirates', flag: '🇦🇪' },
@@ -110,7 +110,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-32 bg-background border-t border-border">
+      <section className="py-24 bg-background border-t border-border">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>

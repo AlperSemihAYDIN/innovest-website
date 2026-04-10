@@ -56,7 +56,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       {/* Programmes */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.residencyPage.programmes.map((programme, index) => (
               <AnimatedSection key={programme.country} delay={index * 0.1}>
                 <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500">

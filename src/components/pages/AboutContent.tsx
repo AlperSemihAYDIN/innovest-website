@@ -142,7 +142,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       {/* Story section */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <div className="relative">
                 <Image

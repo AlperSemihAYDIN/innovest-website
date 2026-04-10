@@ -38,7 +38,7 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
       <div className="w-full px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
         {/* Heading — centered */}
         <AnimatedSection className="w-full flex justify-center">
-          <div className="text-center mb-28 max-w-3xl w-full">
+          <div className="text-center mb-16 max-w-3xl w-full">
             <div className="flex items-center gap-4 justify-center mb-6">
               <div className="w-12 h-px bg-gold/50" />
               <span className="inline-block text-gold text-xs md:text-sm tracking-[0.35em] uppercase font-semibold">

@@ -126,10 +126,10 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
 
       {/* Featured article */}
       {featuredArticle && (
-        <section className="py-36 md:py-48 bg-background">
+        <section className="py-24 bg-background">
           <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
             <AnimatedSection>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border overflow-hidden group">
+              <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border overflow-hidden group">
                 <div className="relative h-72 lg:h-auto overflow-hidden">
                   <Image
                     src={featuredArticle.image}
@@ -183,7 +183,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredArticles.filter((a) => !a.featured).map((article, index) => (
               <AnimatedSection key={article.id} delay={index * 0.1}>
                 <article className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">

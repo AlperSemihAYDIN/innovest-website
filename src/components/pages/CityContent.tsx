@@ -83,7 +83,7 @@ export default function CityContent({
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <AnimatedSection>
-            <div className="text-center mb-20">
+            <div className="text-center mb-16">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
                 {locale === 'en' ? 'Available Developments' : 'Mevcut Projeler'}
               </span>
@@ -97,7 +97,7 @@ export default function CityContent({
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {properties.map((property, index) => (
               <AnimatedSection key={property.name} delay={index * 0.1}>
                 <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">

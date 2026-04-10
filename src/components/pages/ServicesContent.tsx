@@ -96,7 +96,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       {/* Services Grid */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {allServices.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.08}>
                 <Link href={service.href} className="block group h-full">
@@ -124,7 +124,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-32 bg-surface border-t border-border">
+      <section className="py-24 bg-surface border-t border-border">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
