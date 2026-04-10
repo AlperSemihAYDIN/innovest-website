@@ -32,7 +32,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="relative site-container flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.about.tagline}
@@ -141,7 +141,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* Story section */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <div className="relative">
@@ -192,7 +192,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* Values */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           {/* Heading */}
           <AnimatedSection className="w-full max-w-6xl mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 pb-12 border-b border-border">
@@ -275,7 +275,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
       {/* CTA */}
       <section className="py-32 md:py-40 bg-surface border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2

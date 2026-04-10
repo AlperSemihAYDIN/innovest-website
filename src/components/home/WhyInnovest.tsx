@@ -19,7 +19,7 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
         backgroundSize: '40px 40px',
       }} />
 
-      <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+      <div className="relative site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>
             <SectionHeading

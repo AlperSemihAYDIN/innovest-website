@@ -38,7 +38,7 @@ export default function Stats({ locale = 'en' }: StatsProps) {
 
   return (
     <section className="py-24 bg-background border-y border-border">
-      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
+      <div className="site-container">
         <AnimatedSection>
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-border">
             {stats.map((stat) => (

@@ -35,7 +35,7 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
   const tr = locale === 'tr';
   return (
     <section className="min-h-screen flex flex-col items-center justify-center py-24 bg-surface">
-      <div className="w-full px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+      <div className="site-container flex flex-col items-center">
         {/* Heading — centered */}
         <AnimatedSection className="w-full flex justify-center">
           <div className="text-center mb-16 max-w-3xl w-full">

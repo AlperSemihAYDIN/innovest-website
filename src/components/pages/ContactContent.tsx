@@ -81,7 +81,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-6 md:px-12 lg:px-16 xl:px-20">
+        <div className="relative site-container">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.contactPage.tagline}
@@ -96,7 +96,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
 
       {/* Contact Form + Info — Modern Premium Layout */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Left — Form */}
             <div className="bg-surface p-10 md:p-14 lg:p-16">
