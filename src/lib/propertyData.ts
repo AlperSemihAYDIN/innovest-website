@@ -331,12 +331,12 @@ export const allProperties: PropertyData[] = [
     totalUnits: '226',
     lat: 25.1858,
     lng: 55.2625,
-    heroImage: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1600',
+    heroImage: '/images/dubai/dubai-1.jpeg',
     images: [
-      'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=900',
-      'https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=900',
-      'https://images.unsplash.com/photo-1600573472550-8090733a21e0?q=80&w=900',
-      'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=900',
+      '/images/dubai/dubai-1.jpeg',
+      '/images/dubai/dubai-2.jpeg',
+      '/images/dubai/dubai-3.jpeg',
+      '/images/dubai/dubai-4.jpeg',
     ],
     description: {
       en: "Binghatti Flare rises dramatically above the Dubai Canal in Business Bay, offering a striking architectural statement in one of Dubai's most connected and commercially vibrant districts. Designed by Binghatti Developers — renowned for their bold, signature façade language — Flare combines the group's signature jewel-inspired cladding with interior spaces that balance open-plan living with meticulous detail.\n\nBusiness Bay's transformation into Dubai's premier business and lifestyle destination makes Binghatti Flare a compelling investment proposition, with strong short-term rental performance and projected yields exceeding 8.5%. Tax-free income, affordable entry pricing and Dubai's investor-friendly regulatory environment complete the picture.",

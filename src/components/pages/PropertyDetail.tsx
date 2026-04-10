@@ -146,13 +146,13 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Overview ──────────────────────────────────────────────── */}
-      <section className="py-24 bg-background">
+      <section className="py-32 md:py-40 bg-background">
         <div className="site-container flex flex-col items-center">
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
 
             {/* Description — 2 cols */}
             <AnimatedSection className="lg:col-span-2">
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {paragraphs.map((para, i) => (
                   <p key={i} className="text-muted leading-relaxed text-base">
                     {para}
@@ -219,18 +219,18 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Project Highlights ────────────────────────────────────── */}
-      <section className="py-24 bg-surface border-t border-border">
+      <section className="py-32 md:py-40 bg-surface border-t border-border">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
-                className="text-2xl md:text-3xl font-light mb-10 text-center"
+                className="text-2xl md:text-3xl font-light mb-14 text-center"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {t.highlights}
               </h2>
             </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {highlights.map((item, i) => (
                 <AnimatedSection key={i} delay={i * 0.07}>
                   <div className="flex items-start gap-3">
@@ -245,12 +245,12 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Gallery ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-32 md:py-40 bg-background border-t border-border">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
-                className="text-2xl md:text-3xl font-light mb-10 text-center"
+                className="text-2xl md:text-3xl font-light mb-14 text-center"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {t.gallery}
@@ -258,7 +258,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             </AnimatedSection>
 
             {/* 2×2 grid for first 4 images */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
               {property.images.map((src, i) => (
                 <AnimatedSection key={i} delay={i * 0.1}>
                   <div
@@ -282,17 +282,17 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Location Map ──────────────────────────────────────────── */}
-      <section className="py-24 bg-surface border-t border-border">
+      <section className="py-32 md:py-40 bg-surface border-t border-border">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
-                className="text-2xl md:text-3xl font-light mb-3 text-center"
+                className="text-2xl md:text-3xl font-light mb-5 text-center"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {t.location}
               </h2>
-              <p className="text-muted text-sm mb-8 text-center">{property.fullAddress}</p>
+              <p className="text-muted text-sm mb-12 text-center">{property.fullAddress}</p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>

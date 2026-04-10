@@ -37,19 +37,24 @@ export default function Header({ dict, locale }: HeaderProps) {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { label: dict.nav.home, href: `${prefix}/` },
     { label: dict.nav.about, href: `${prefix}/about` },
     {
-      label: dict.nav.realEstate,
+      label: locale === 'tr' ? 'Gayrimenkul' : 'Real Estate',
       href: `${prefix}/real-estate`,
       children: [
         { label: dict.nav.london, href: `${prefix}/real-estate/london` },
         { label: dict.nav.dubai, href: `${prefix}/real-estate/dubai` },
       ],
     },
-    { label: dict.nav.residency, href: `${prefix}/residency` },
-    { label: dict.nav.businessExpansion, href: `${prefix}/business-expansion` },
-    { label: dict.nav.services, href: `${prefix}/services` },
+    {
+      label: locale === 'tr' ? 'Hizmetler' : 'Services',
+      href: `${prefix}/services`,
+      children: [
+        { label: dict.nav.residency, href: `${prefix}/residency` },
+        { label: dict.nav.businessExpansion, href: `${prefix}/business-expansion` },
+        { label: locale === 'tr' ? 'Tüm Hizmetler' : 'All Services', href: `${prefix}/services` },
+      ],
+    },
     { label: dict.nav.insights, href: `${prefix}/insights` },
     { label: dict.nav.contact, href: `${prefix}/contact` },
   ];
@@ -112,8 +117,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               </div>
             </Link>
 
-            {/* Desktop Navigation — flex-1 ile tüm alanı kaplar, öğeler justify-evenly ile yayılır */}
-            <nav className="hidden lg:flex flex-1 items-center justify-evenly mx-8">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-10 mx-8">
               {navItems.map((item) => (
                 <div
                   key={item.href}
@@ -123,7 +128,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1.5 px-3 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
+                    className="flex items-center gap-1.5 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
                   >
                     {item.label}
                     {item.children && <ChevronDown size={14} className="opacity-50" />}
@@ -137,13 +142,13 @@ export default function Header({ dict, locale }: HeaderProps) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-0 w-56 py-2 bg-background border border-border rounded-sm shadow-xl shadow-black/8"
+                        className="absolute top-full left-0 mt-0 min-w-[220px] py-2 bg-background border border-border shadow-xl shadow-black/20"
                       >
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="block px-4 py-2.5 text-sm text-muted-light hover:text-gold hover:bg-surface-light transition-colors"
+                            className="block px-5 py-3 text-sm text-muted-light hover:text-gold hover:bg-surface-light transition-colors"
                           >
                             {child.label}
                           </Link>
