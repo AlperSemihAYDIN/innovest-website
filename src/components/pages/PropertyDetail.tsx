@@ -146,9 +146,9 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Overview ──────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+      <section className="py-24 bg-background">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
             {/* Description — 2 cols */}
             <AnimatedSection className="lg:col-span-2">
@@ -219,90 +219,96 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Project Highlights ────────────────────────────────────── */}
-      <section className="py-20 bg-surface border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 max-w-6xl mx-auto">
-          <AnimatedSection>
-            <h2
-              className="text-2xl md:text-3xl font-light mb-10"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t.highlights}
-            </h2>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {highlights.map((item, i) => (
-              <AnimatedSection key={i} delay={i * 0.07}>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
-                  <p className="text-muted leading-relaxed">{item}</p>
-                </div>
-              </AnimatedSection>
-            ))}
+      <section className="py-24 bg-surface border-t border-border">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="max-w-5xl mx-auto w-full">
+            <AnimatedSection>
+              <h2
+                className="text-2xl md:text-3xl font-light mb-10 text-center"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {t.highlights}
+              </h2>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {highlights.map((item, i) => (
+                <AnimatedSection key={i} delay={i * 0.07}>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
+                    <p className="text-muted leading-relaxed">{item}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ─── Gallery ───────────────────────────────────────────────── */}
-      <section className="py-20 bg-background border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 max-w-6xl mx-auto">
-          <AnimatedSection>
-            <h2
-              className="text-2xl md:text-3xl font-light mb-10"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t.gallery}
-            </h2>
-          </AnimatedSection>
+      <section className="py-24 bg-background border-t border-border">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="max-w-5xl mx-auto w-full">
+            <AnimatedSection>
+              <h2
+                className="text-2xl md:text-3xl font-light mb-10 text-center"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {t.gallery}
+              </h2>
+            </AnimatedSection>
 
-          {/* 2×2 grid for first 4 images */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {property.images.map((src, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div
-                  className={`relative overflow-hidden bg-surface ${
-                    i === 0 ? 'col-span-2 row-span-2 aspect-square md:aspect-auto md:h-[420px]' : 'aspect-square'
-                  }`}
-                >
-                  <Image
-                    src={src}
-                    alt={`${property.name} ${i + 1}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                </div>
-              </AnimatedSection>
-            ))}
+            {/* 2×2 grid for first 4 images */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              {property.images.map((src, i) => (
+                <AnimatedSection key={i} delay={i * 0.1}>
+                  <div
+                    className={`relative overflow-hidden bg-surface ${
+                      i === 0 ? 'col-span-2 row-span-2 aspect-square md:aspect-auto md:h-[420px]' : 'aspect-square'
+                    }`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${property.name} ${i + 1}`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ─── Location Map ──────────────────────────────────────────── */}
-      <section className="py-20 bg-surface border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 max-w-6xl mx-auto">
-          <AnimatedSection>
-            <h2
-              className="text-2xl md:text-3xl font-light mb-3"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t.location}
-            </h2>
-            <p className="text-muted text-sm mb-8">{property.fullAddress}</p>
-          </AnimatedSection>
+      <section className="py-24 bg-surface border-t border-border">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="max-w-5xl mx-auto w-full">
+            <AnimatedSection>
+              <h2
+                className="text-2xl md:text-3xl font-light mb-3 text-center"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {t.location}
+              </h2>
+              <p className="text-muted text-sm mb-8 text-center">{property.fullAddress}</p>
+            </AnimatedSection>
 
-          <AnimatedSection delay={0.1}>
-            <div className="w-full h-[400px] md:h-[500px] border border-border overflow-hidden">
-              <iframe
-                title={`${property.name} location`}
-                src={gmapSrc}
-                className="w-full h-full"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <div className="w-full h-[400px] md:h-[500px] border border-border overflow-hidden">
+                <iframe
+                  title={`${property.name} location`}
+                  src={gmapSrc}
+                  className="w-full h-full"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

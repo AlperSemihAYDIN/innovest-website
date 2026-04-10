@@ -35,7 +35,7 @@ export default function Footer({ dict, locale }: FooterProps) {
       <div className="h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
       {/* Main Footer */}
-      <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-20 pb-16">
+      <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-36 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
