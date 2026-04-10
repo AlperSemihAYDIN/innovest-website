@@ -38,9 +38,9 @@ export default function Stats({ locale = 'en' }: StatsProps) {
 
   return (
     <section className="py-24 bg-background border-y border-border">
-      <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
         <AnimatedSection>
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border w-full">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-background">
                 <AnimatedStat value={stat.value} label={stat.label} />

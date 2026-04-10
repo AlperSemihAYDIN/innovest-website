@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/447491510941"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-24 right-6 z-50 flex items-center gap-0 overflow-hidden shadow-lg shadow-black/20"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-0 overflow-hidden shadow-lg shadow-black/20"
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileTap={{ scale: 0.95 }}
