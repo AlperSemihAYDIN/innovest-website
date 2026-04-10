@@ -313,7 +313,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-32 md:py-40 bg-background border-t border-border">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 max-w-3xl mx-auto text-center">
           <AnimatedSection>
             <span

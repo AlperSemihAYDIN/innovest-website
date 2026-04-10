@@ -11,14 +11,14 @@ interface StatItemProps {
 
 function AnimatedStat({ value, label }: StatItemProps) {
   return (
-    <div className="text-center p-8">
+    <div className="flex flex-col items-center text-center p-8 md:p-12">
       <div
-        className="text-4xl md:text-5xl font-light text-gold mb-2"
+        className="text-4xl md:text-5xl font-light text-gold mb-3"
         style={{ fontFamily: 'var(--font-display)' }}
       >
         {value}
       </div>
-      <div className="text-sm text-muted tracking-wider uppercase">{label}</div>
+      <div className="text-sm text-muted tracking-wider uppercase max-w-[160px] leading-snug">{label}</div>
     </div>
   );
 }

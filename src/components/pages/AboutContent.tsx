@@ -274,7 +274,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-32 bg-surface border-t border-border">
+      <section className="py-32 md:py-40 bg-surface border-t border-border">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>

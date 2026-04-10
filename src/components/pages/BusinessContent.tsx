@@ -110,7 +110,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-32 md:py-40 bg-background border-t border-border">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
