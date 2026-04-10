@@ -36,7 +36,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
       {/* Main Footer */}
       <div className="px-6 md:px-12 lg:px-16 xl:px-20 pt-52 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`${prefix}/`} className="flex items-center gap-3 mb-6">
@@ -192,15 +192,17 @@ export default function Footer({ dict, locale }: FooterProps) {
 
       {/* Bottom bar */}
       <div className="border-t border-border/40">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted">{dict.footer.rights}</p>
-          <div className="flex items-center gap-6 text-xs text-muted">
-            <Link href={`${prefix}/`} className="hover:text-gold transition-colors">
-              {dict.footer.privacy}
-            </Link>
-            <Link href={`${prefix}/`} className="hover:text-gold transition-colors">
-              {dict.footer.terms}
-            </Link>
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 py-7">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-muted">{dict.footer.rights}</p>
+            <div className="flex items-center gap-6 text-xs text-muted">
+              <Link href={`${prefix}/`} className="hover:text-gold transition-colors">
+                {dict.footer.privacy}
+              </Link>
+              <Link href={`${prefix}/`} className="hover:text-gold transition-colors">
+                {dict.footer.terms}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

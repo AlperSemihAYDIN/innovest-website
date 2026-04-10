@@ -38,11 +38,11 @@ export default function Stats({ locale = 'en' }: StatsProps) {
 
   return (
     <section className="py-24 bg-background border-y border-border">
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20">
         <AnimatedSection>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border w-full">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-border">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-background">
+              <div key={stat.label}>
                 <AnimatedStat value={stat.value} label={stat.label} />
               </div>
             ))}
