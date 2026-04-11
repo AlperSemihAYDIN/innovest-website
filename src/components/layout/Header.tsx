@@ -160,15 +160,8 @@ export default function Header({ dict, locale }: HeaderProps) {
               ))}
             </nav>
 
-            {/* CTA — sağ, sabit, navdan tamamen ayrı */}
+            {/* CTA area removed — İletişim already in nav */}
             <div className="shrink-0 flex items-center gap-4">
-              <Link
-                href={`${prefix}/contact`}
-                className="hidden lg:inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 btn-shine whitespace-nowrap"
-              >
-                {dict.nav.getConsultation}
-              </Link>
-
               {/* Language switcher mobile */}
               <Link
                 href={`${altPrefix}/`}
@@ -235,13 +228,6 @@ export default function Header({ dict, locale }: HeaderProps) {
                 </nav>
 
                 <div className="mt-8 space-y-4">
-                  <Link
-                    href={`${prefix}/contact`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full text-center py-3 bg-gold text-white font-medium hover:bg-gold-light transition-colors"
-                  >
-                    {dict.nav.getConsultation}
-                  </Link>
                   <div className="text-center">
                     <Link
                       href={`${altPrefix}/`}

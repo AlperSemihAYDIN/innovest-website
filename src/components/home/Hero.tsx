@@ -20,18 +20,20 @@ export default function Hero({ dict, locale }: HeroProps) {
 
   return (
     <section className="hero-dark relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
-          alt="Modern architecture"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
+          className="w-full h-full object-cover"
+        >
+          <source src="https://videos.pexels.com/video-files/3629519/3629519-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
       </div>
 
       <div className="relative z-10 w-full max-w-3xl px-6 py-36 text-center">

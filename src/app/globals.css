@@ -144,6 +144,36 @@ body {
   .parallax-bg {
     background-attachment: scroll;
   }
+
+  /* Mobile spacing fixes — prevent content squishing */
+  body {
+    font-size: 15px;
+  }
+
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Ensure min-h-screen sections still breathe on mobile */
+  section.min-h-screen,
+  section[class*="min-h-screen"] {
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  h1 { font-size: 2rem !important; line-height: 1.15 !important; }
+  h2 { font-size: 1.75rem !important; line-height: 1.2 !important; }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.5rem !important; }
 }
 
 /* ─── Sitewide Centered Container ──────────────────────────── */
