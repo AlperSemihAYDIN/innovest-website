@@ -320,6 +320,29 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
             </div>
           </div>
 
+          {/* Global Presence — structural placeholder, no content */}
+          <div className="max-w-6xl mx-auto w-full mt-24 pt-16 border-t border-border/40">
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-px bg-gold/30" />
+                <div className="w-32 h-3 bg-gold/0" />
+              </div>
+              <div className="w-48 h-0" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              <div className="p-8 border border-border/20 bg-surface/20 min-h-[180px]" />
+              <div className="p-8 border border-border/20 bg-surface/20 min-h-[180px]" />
+              <div className="p-8 border border-border/20 bg-surface/20 min-h-[180px]" />
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 py-10 border-t border-border/20">
+              <div className="flex gap-10">
+                <div className="w-32 h-0" />
+                <div className="w-32 h-0" />
+              </div>
+              <div className="w-36 h-0" />
+            </div>
+          </div>
+
           {/* Mobile-only contact info */}
           <div className="lg:hidden mt-10 space-y-6">
             <AnimatedSection>
