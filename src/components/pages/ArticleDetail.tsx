@@ -1,10 +1,22 @@
 'use client';
 
+import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import type { Article } from '@/lib/articleData';
+
+const categoryImages: Record<string, string> = {
+  'Market Reports':
+    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600',
+  'Investment Guides':
+    'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1600',
+  Residency:
+    'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600',
+  Business:
+    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600',
+};
 
 interface ArticleDetailProps {
   article: Article;
@@ -105,12 +117,34 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
                 {excerpt}
               </p>
 
-              {/* Body paragraphs */}
+              {/* Featured article photo */}
+              <div className="relative aspect-[16/9] overflow-hidden my-12">
+                <Image
+                  src={article.image}
+                  alt={title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                />
+              </div>
+
+              {/* Body paragraphs with mid-article image */}
               <div className="space-y-7">
                 {body.map((paragraph, i) => (
-                  <p key={i} className="text-base text-muted leading-[1.85] font-light">
-                    {paragraph}
-                  </p>
+                  <Fragment key={i}>
+                    <p className="text-base text-muted leading-[1.85] font-light">{paragraph}</p>
+                    {i === 1 && (
+                      <div className="relative aspect-[16/9] overflow-hidden my-4">
+                        <Image
+                          src={categoryImages[article.category] || article.image}
+                          alt={category}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 768px"
+                        />
+                      </div>
+                    )}
+                  </Fragment>
                 ))}
               </div>
             </AnimatedSection>

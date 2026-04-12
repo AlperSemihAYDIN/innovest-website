@@ -45,92 +45,85 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
         </div>
       </section>
 
-      {/* Mission & Vision — split screen with founder photo */}
-      <section className="min-h-screen flex flex-col lg:flex-row bg-background overflow-hidden">
-        {/* Left: founder photo with layered design elements */}
-        <div className="relative w-full lg:w-5/12 min-h-[50vh] lg:min-h-screen">
-          <Image
-            src="/founder.jpg"
-            alt="Innovest Founder – Dubai"
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 42vw"
-          />
-          {/* Dark gradient bottom-to-top */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          {/* Subtle right fade blending into content */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/60 hidden lg:block" />
-
-          {/* City label bottom-left */}
-          <div className="absolute bottom-8 left-8">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-px bg-gold" />
-              <span className="text-white/70 text-xs tracking-[0.3em] uppercase">Dubai, UAE</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: mission + vision content */}
-        <div className="w-full lg:w-7/12 flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-20 py-24 lg:py-0">
-          <AnimatedSection>
-            <div className="mb-14">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-px bg-gold/50" />
-                <span className="text-gold text-xs tracking-[0.35em] uppercase font-semibold">
-                  {locale === 'en' ? 'Who We Are' : 'Biz Kimiz'}
-                </span>
-              </div>
-              <h2
-                className="text-4xl md:text-5xl font-light mb-6"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {locale === 'en' ? 'A Vision Built on ' : 'Güven Üzerine İnşa Edilmiş '}
-                <span className="text-gradient-gold">
-                  {locale === 'en' ? 'Trust & Expertise' : 'Bir Vizyon'}
-                </span>
-              </h2>
-              <div className="w-16 h-px bg-gold/60 mb-10" />
-            </div>
-          </AnimatedSection>
-
-          <div className="space-y-6">
-            <AnimatedSection delay={0.1}>
-              <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500">
-                <div className="flex items-start gap-6">
-                  <div className="shrink-0 mt-1">
-                    <div className="w-10 h-10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
-                      <div className="w-4 h-px bg-gold" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3
-                      className="text-xl font-light mb-3 text-gold"
-                      style={{ fontFamily: 'var(--font-display)' }}
-                    >
-                      {dict.about.mission.title}
-                    </h3>
-                    <p className="text-muted leading-relaxed text-sm">{dict.about.mission.desc}</p>
+      {/* Who We Are — centred grid matching Story section layout */}
+      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div className="relative">
+                <Image
+                  src="/founder.jpg"
+                  alt="Innovest Founder"
+                  width={600}
+                  height={650}
+                  className="w-full h-[600px] object-cover object-top"
+                />
+                <div className="absolute bottom-6 left-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-px bg-gold" />
+                    <span className="text-white/70 text-xs tracking-[0.3em] uppercase">Dubai, UAE</span>
                   </div>
                 </div>
+                <div className="absolute -bottom-6 -right-6 w-48 h-48 border border-gold/20 -z-10" />
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500">
-                <div className="flex items-start gap-6">
-                  <div className="shrink-0 mt-1">
-                    <div className="w-10 h-10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
-                      <div className="w-4 h-px bg-gold" />
+              <div className="mb-12">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-px bg-gold/50" />
+                  <span className="text-gold text-xs tracking-[0.35em] uppercase font-semibold">
+                    {locale === 'en' ? 'Who We Are' : 'Biz Kimiz'}
+                  </span>
+                </div>
+                <h2
+                  className="text-4xl md:text-5xl font-light mb-6"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {locale === 'en' ? 'A Vision Built on ' : 'Güven Üzerine İnşa Edilmiş '}
+                  <span className="text-gradient-gold">
+                    {locale === 'en' ? 'Trust & Expertise' : 'Bir Vizyon'}
+                  </span>
+                </h2>
+                <div className="w-16 h-px bg-gold/60 mb-10" />
+              </div>
+
+              <div className="space-y-6">
+                <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500">
+                  <div className="flex items-start gap-6">
+                    <div className="shrink-0 mt-1">
+                      <div className="w-10 h-10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                        <div className="w-4 h-px bg-gold" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3
+                        className="text-xl font-light mb-3 text-gold"
+                        style={{ fontFamily: 'var(--font-display)' }}
+                      >
+                        {dict.about.mission.title}
+                      </h3>
+                      <p className="text-muted leading-relaxed text-sm">{dict.about.mission.desc}</p>
                     </div>
                   </div>
-                  <div>
-                    <h3
-                      className="text-xl font-light mb-3 text-gold"
-                      style={{ fontFamily: 'var(--font-display)' }}
-                    >
-                      {dict.about.vision.title}
-                    </h3>
-                    <p className="text-muted leading-relaxed text-sm">{dict.about.vision.desc}</p>
+                </div>
+
+                <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500">
+                  <div className="flex items-start gap-6">
+                    <div className="shrink-0 mt-1">
+                      <div className="w-10 h-10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                        <div className="w-4 h-px bg-gold" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3
+                        className="text-xl font-light mb-3 text-gold"
+                        style={{ fontFamily: 'var(--font-display)' }}
+                      >
+                        {dict.about.vision.title}
+                      </h3>
+                      <p className="text-muted leading-relaxed text-sm">{dict.about.vision.desc}</p>
+                    </div>
                   </div>
                 </div>
               </div>
