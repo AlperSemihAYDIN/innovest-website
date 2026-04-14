@@ -26,7 +26,7 @@ export default function WhatsAppButton() {
             animate={{ width: 'auto', opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="bg-[#1a1a1a] border border-[#25D366]/40 text-white text-xs tracking-widest uppercase px-4 h-14 flex items-center whitespace-nowrap border-r-0"
+            className="bg-[#0B2236] border border-[#25D366]/40 text-white text-xs tracking-widest uppercase px-4 h-14 flex items-center whitespace-nowrap border-r-0"
           >
             WhatsApp
           </motion.span>

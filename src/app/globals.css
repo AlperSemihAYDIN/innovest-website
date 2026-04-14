@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #09090b;
+  --color-background: #091B2A;
   --color-foreground: #fafafa;
   --color-gold: #C1A45D;
   --color-gold-light: #E0CFAB;
   --color-gold-dark: #A8893A;
-  --color-surface: #111113;
-  --color-surface-light: #1a1a1d;
-  --color-border: #27272a;
-  --color-border-light: #3f3f46;
-  --color-muted: #a1a1aa;
-  --color-muted-light: #d4d4d8;
+  --color-surface: #0B2236;
+  --color-surface-light: #102A40;
+  --color-border: #1A3A52;
+  --color-border-light: #2A4F6A;
+  --color-muted: #8A9BAA;
+  --color-muted-light: #C5D0DA;
   --font-sans: var(--font-baskerville);
   --font-display: var(--font-montserrat);
 }
@@ -47,10 +47,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #111113;
+  background: #0B2236;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: #1E3F58;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -59,26 +59,26 @@ body {
 
 /* Dark section overrides — for hero/CTA with image backgrounds */
 .hero-dark {
-  --color-background: #050507;
+  --color-background: #061420;
   --color-foreground: #ffffff;
-  --color-surface: #0a0a0d;
-  --color-surface-light: #121215;
-  --color-border: #1f1f23;
-  --color-border-light: #2d2d33;
-  --color-muted: #a1a1aa;
+  --color-surface: #081A2B;
+  --color-surface-light: #0B2236;
+  --color-border: #132E45;
+  --color-border-light: #1E3F58;
+  --color-muted: #8A9BAA;
   --color-muted-light: #e4e4e7;
 }
 
 /* Dark footer */
 .footer-dark {
-  --color-background: #060608;
+  --color-background: #051221;
   --color-foreground: #e4e4e7;
-  --color-surface: #0e0e11;
-  --color-surface-light: #161619;
-  --color-border: #1f1f23;
-  --color-border-light: #2d2d33;
-  --color-muted: #71717a;
-  --color-muted-light: #a1a1aa;
+  --color-surface: #081A2B;
+  --color-surface-light: #0B2236;
+  --color-border: #132E45;
+  --color-border-light: #1E3F58;
+  --color-muted: #6A7F90;
+  --color-muted-light: #8A9BAA;
 }
 
 .text-gradient-gold {
@@ -102,7 +102,7 @@ body {
 }
 
 .glass {
-  background: rgba(9, 9, 11, 0.92);
+  background: rgba(9, 27, 42, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);

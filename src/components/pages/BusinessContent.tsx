@@ -77,11 +77,11 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
           <AnimatedSection>
             <div className="text-center mb-20">
               <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
-                {locale === 'en' ? 'Markets We Cover' : 'Kapsadığımız Pazarlar'}
+                {locale === 'en' ? 'Markets We Cover' : 'Faaliyet Gösterdiğimiz Pazarlar'}
               </span>
               <h2 className="text-3xl md:text-4xl font-light" style={{ fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? 'Global ' : 'Küresel '}
-                <span className="text-gradient-gold">{locale === 'en' ? 'Reach' : 'Erişim'}</span>
+                <span className="text-gradient-gold">{locale === 'en' ? 'Reach' : 'Ağımız'}</span>
               </h2>
               <div className="gold-line-center mt-6" />
             </div>
@@ -121,7 +121,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
               <p className="text-muted mb-10 max-w-2xl mx-auto">
                 {locale === 'en'
                   ? "Let's discuss how we can help you enter new markets and grow your business internationally."
-                  : 'Yeni pazarlara girmenize ve işinizi uluslararası alanda büyütmenize nasıl yardımcı olabileceğimizi konuşalım.'}
+                  : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirelim.'}
               </p>
               <Link
                 href={`${prefix}/contact`}

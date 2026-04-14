@@ -193,7 +193,7 @@ export default function AIChat({ dict, locale }: AIChatProps) {
               animate={{ width: 'auto', opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="bg-[#1a1a1a] border border-gold/40 text-white text-xs tracking-widest uppercase px-4 h-14 flex items-center whitespace-nowrap border-r-0"
+              className="bg-[#0B2236] border border-gold/40 text-white text-xs tracking-widest uppercase px-4 h-14 flex items-center whitespace-nowrap border-r-0"
             >
               {tooltipLabel}
             </motion.span>
@@ -224,11 +224,11 @@ export default function AIChat({ dict, locale }: AIChatProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-44 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] bg-background border border-border shadow-2xl shadow-black/10 flex flex-col"
-            style={{ height: '520px' }}
+            className="fixed bottom-44 right-6 z-50 w-[400px] max-w-[calc(100vw-48px)] bg-background border border-border/50 shadow-2xl shadow-black/20 flex flex-col rounded-sm"
+            style={{ height: '560px' }}
           >
             {/* Header */}
-            <div className="flex items-center gap-3 px-5 py-4 border-b border-border">
+            <div className="flex items-center gap-3 px-6 py-5 border-b border-border/40">
               <div className="w-8 h-8 bg-gold/10 border border-gold/30 flex items-center justify-center">
                 <Bot size={18} className="text-gold" />
               </div>
@@ -249,7 +249,7 @@ export default function AIChat({ dict, locale }: AIChatProps) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div className="flex-1 overflow-y-auto p-5 space-y-4">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {msg.role === 'assistant' && (
@@ -258,10 +258,10 @@ export default function AIChat({ dict, locale }: AIChatProps) {
                     </div>
                   )}
                   <div
-                    className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed whitespace-pre-line ${
+                    className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed whitespace-pre-line rounded-sm ${
                       msg.role === 'user'
-                        ? 'bg-gold/10 text-foreground border border-gold/20'
-                        : 'bg-surface text-muted-light border border-border'
+                        ? 'bg-gold/8 text-foreground border border-gold/15'
+                        : 'bg-surface/60 text-muted-light border border-border/30'
                     }`}
                   >
                     {msg.content}
@@ -276,7 +276,7 @@ export default function AIChat({ dict, locale }: AIChatProps) {
                     <button
                       key={q}
                       onClick={() => sendMessage(q)}
-                      className="text-left text-xs px-3 py-2 border border-gold/30 text-gold hover:bg-gold/10 transition-colors leading-snug"
+                      className="text-left text-xs px-3 py-2.5 border border-gold/20 text-gold hover:bg-gold/5 transition-colors leading-snug rounded-sm"
                     >
                       {q}
                     </button>
@@ -289,7 +289,7 @@ export default function AIChat({ dict, locale }: AIChatProps) {
                   <div className="w-6 h-6 bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
                     <Bot size={12} className="text-gold" />
                   </div>
-                  <div className="bg-surface border border-border px-4 py-3 text-sm">
+                  <div className="bg-surface/60 border border-border/30 px-4 py-3 text-sm rounded-sm">
                     <div className="flex gap-1">
                       <span className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                       <span className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -302,7 +302,7 @@ export default function AIChat({ dict, locale }: AIChatProps) {
             </div>
 
             {/* Input */}
-            <div className="border-t border-border p-3">
+            <div className="border-t border-border/40 p-4">
               <form onSubmit={(e) => { e.preventDefault(); sendMessage(input); }} className="flex gap-2">
                 <input
                   ref={inputRef}
@@ -310,12 +310,12 @@ export default function AIChat({ dict, locale }: AIChatProps) {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={dict.chat.placeholder}
-                  className="flex-1 bg-background border border-border px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-gold/50 transition-colors"
+                  className="flex-1 bg-background border border-border/40 px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-gold/40 transition-colors rounded-sm"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="px-3 py-2.5 bg-gold text-white hover:bg-gold-light disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  className="px-4 py-3 bg-gold text-white hover:bg-gold-light disabled:opacity-30 disabled:cursor-not-allowed transition-colors rounded-sm"
                   aria-label="Send message"
                 >
                   <Send size={16} />

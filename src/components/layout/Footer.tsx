@@ -43,11 +43,11 @@ export default function Footer({ dict, locale }: FooterProps) {
           <div className="lg:col-span-1">
             <Link href={`${prefix}/`} className="flex items-center gap-3 mb-6">
               <Image
-                src="/logo-primary.png"
+                src="/logo-horizontal-transparent.png"
                 alt="Innovest Capital"
                 width={140}
                 height={70}
-                className="bg-[#F7F5EF] rounded-sm px-2 py-1 object-contain"
+                className="object-contain"
               />
             </Link>
             <p className="text-sm text-muted leading-relaxed mb-6">
@@ -203,6 +203,9 @@ export default function Footer({ dict, locale }: FooterProps) {
               </Link>
               <Link href={`${prefix}/`} className="hover:text-gold transition-colors">
                 {dict.footer.terms}
+              </Link>
+              <Link href={`${prefix}/disclaimer`} className="hover:text-gold transition-colors">
+                {locale === 'en' ? 'Disclaimer' : 'Sorumluluk Reddi'}
               </Link>
             </div>
           </div>

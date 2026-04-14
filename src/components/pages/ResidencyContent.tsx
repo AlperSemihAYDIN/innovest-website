@@ -130,10 +130,10 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { num: '01', title: locale === 'en' ? 'Initial Consultation' : 'İlk Danışmanlık', desc: locale === 'en' ? 'We assess your goals, budget and preferred destinations.' : 'Hedeflerinizi, bütçenizi ve tercih ettiğiniz destinasyonları değerlendiriyoruz.' },
-              { num: '02', title: locale === 'en' ? 'Programme Selection' : 'Program Seçimi', desc: locale === 'en' ? 'We recommend the most suitable residency programme for you.' : 'Size en uygun oturum programını öneriyoruz.' },
-              { num: '03', title: locale === 'en' ? 'Application & Investment' : 'Başvuru & Yatırım', desc: locale === 'en' ? 'We handle all documentation and guide you through the investment.' : 'Tüm belgeleri hazırlıyor ve yatırım sürecinde size rehberlik ediyoruz.' },
-              { num: '04', title: locale === 'en' ? 'Approval & Beyond' : 'Onay & Sonrası', desc: locale === 'en' ? 'From permit receipt to renewal and citizenship pathways.' : 'İzin alımından yenileme ve vatandaşlık yollarına kadar.' },
+              { num: '01', title: locale === 'en' ? 'Initial Consultation' : 'İlk Değerlendirme', desc: locale === 'en' ? 'We assess your goals, budget and preferred destinations.' : 'Hedeflerinizi, finansal çerçevenizi ve tercih ettiğiniz ülkeleri kapsamlı şekilde analiz ederiz.' },
+              { num: '02', title: locale === 'en' ? 'Programme Selection' : 'Strateji & Program Seçimi', desc: locale === 'en' ? 'We recommend the most suitable residency programme for you.' : 'Profilinize en uygun oturum programını belirler ve size özel bir yol haritası oluştururuz.' },
+              { num: '03', title: locale === 'en' ? 'Application & Investment' : 'Başvuru & Yatırım Süreci', desc: locale === 'en' ? 'We handle all documentation and guide you through the investment.' : 'Tüm başvuru ve yatırım süreçlerini titizlikle yönetir, her aşamada size rehberlik ederiz.' },
+              { num: '04', title: locale === 'en' ? 'Approval & Beyond' : 'Onay & Süreklilik', desc: locale === 'en' ? 'From permit receipt to renewal and citizenship pathways.' : 'Oturum izninin alınmasından yenileme ve vatandaşlık süreçlerine kadar uzun vadeli destek sunarız.' },
             ].map((step, index) => (
               <AnimatedSection key={step.num} delay={index * 0.15}>
                 <div className="text-center group">

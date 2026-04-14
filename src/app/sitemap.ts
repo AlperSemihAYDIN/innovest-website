@@ -13,7 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/business-expansion',
     '/services',
     '/insights',
+    '/knowledge-hub',
     '/contact',
+    '/disclaimer',
   ];
 
   const locales = ['', '/tr'];

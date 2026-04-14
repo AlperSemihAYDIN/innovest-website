@@ -56,13 +56,14 @@ export default function Header({ dict, locale }: HeaderProps) {
       ],
     },
     { label: dict.nav.insights, href: `${prefix}/insights` },
+    { label: dict.nav.knowledgeHub, href: `${prefix}/knowledge-hub` },
     { label: dict.nav.contact, href: `${prefix}/contact` },
   ];
 
   return (
     <>
       {/* Top bar — dark premium strip */}
-      <div className="hidden lg:block bg-[#0c0c10]">
+      <div className="hidden lg:block bg-[#051221]">
         <div className="site-container py-3 flex items-center justify-between text-[11px] tracking-[0.08em] text-white/60">
           <div className="flex items-center gap-8">
             <span className="flex items-center gap-2">
@@ -89,7 +90,7 @@ export default function Header({ dict, locale }: HeaderProps) {
 
       {/* Main header */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 bg-[rgba(9,9,11,0.95)] backdrop-blur-md border-b ${
+        className={`sticky top-0 z-50 transition-all duration-500 bg-[rgba(9,27,42,0.95)] backdrop-blur-md border-b ${
           isScrolled
             ? 'border-border shadow-lg shadow-black/20'
             : 'border-transparent'
@@ -100,11 +101,11 @@ export default function Header({ dict, locale }: HeaderProps) {
             {/* Logo — sol, sabit genişlik */}
             <Link href={`${prefix}/`} className="shrink-0 flex items-center gap-3 group">
               <Image
-                src="/logo-icon.png"
+                src="/logo-icon-transparent.png"
                 alt="Innovest Capital"
                 width={40}
                 height={40}
-                className="rounded-sm bg-[#F7F5EF] p-0.5"
+                className="rounded-sm"
                 priority
               />
               <div className="flex flex-col">

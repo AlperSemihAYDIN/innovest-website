@@ -24,43 +24,43 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
     {
       icon: BarChart3,
       title: locale === 'en' ? 'Investment Analysis' : 'Yatırım Analizi',
-      desc: locale === 'en' ? 'Comprehensive financial analysis, yield projections and risk assessment for every opportunity.' : 'Her fırsat için kapsamlı finansal analiz, getiri projeksiyonları ve risk değerlendirmesi.',
+      desc: locale === 'en' ? 'Comprehensive financial analysis, yield projections and risk assessment for every opportunity.' : 'Her fırsat için kapsamlı finansal değerlendirme, getiri projeksiyonları ve risk analizi.',
       href: `${prefix}/real-estate`,
     },
     {
       icon: Shield,
       title: locale === 'en' ? 'Residency Programmes' : 'Oturum Programları',
-      desc: locale === 'en' ? 'Expert guidance on Golden Visa and residency-by-investment programmes worldwide.' : 'Dünya genelinde Altın Vize ve yatırım yoluyla oturum programlarında uzman rehberliği.',
+      desc: locale === 'en' ? 'Expert guidance on Golden Visa and residency-by-investment programmes worldwide.' : 'Altın Vize ve yatırım yoluyla oturum programlarında uluslararası uzman rehberlik.',
       href: `${prefix}/residency`,
     },
     {
       icon: Briefcase,
       title: locale === 'en' ? 'Business Advisory' : 'İş Danışmanlığı',
-      desc: locale === 'en' ? 'Strategic consulting for market entry, business setup and commercial expansion.' : 'Pazar girişi, iş kurulumu ve ticari genişleme için stratejik danışmanlık.',
+      desc: locale === 'en' ? 'Strategic consulting for market entry, business setup and commercial expansion.' : 'Pazar girişi, şirket kurulumu ve ticari genişleme için stratejik danışmanlık.',
       href: `${prefix}/business-expansion`,
     },
     {
       icon: Scale,
       title: locale === 'en' ? 'Legal Support' : 'Hukuki Destek',
-      desc: locale === 'en' ? 'Access to specialised legal counsel for property transactions, immigration and company formation.' : 'Gayrimenkul işlemleri, göç ve şirket kuruluşu için uzman hukuk danışmanlığına erişim.',
+      desc: locale === 'en' ? 'Access to specialised legal counsel for property transactions, immigration and company formation.' : 'Gayrimenkul işlemleri, göç süreçleri ve şirket kuruluşları için uzman hukuk erişimi.',
       href: `${prefix}/contact`,
     },
     {
       icon: FileText,
       title: locale === 'en' ? 'Due Diligence' : 'Durum Tespiti',
-      desc: locale === 'en' ? 'Thorough verification of investments, developers, legal compliance and market conditions.' : 'Yatırımların, geliştiricilerin, yasal uyumluluğun ve pazar koşullarının kapsamlı doğrulanması.',
+      desc: locale === 'en' ? 'Thorough verification of investments, developers, legal compliance and market conditions.' : 'Yatırımların, geliştiricilerin, uyumluluğun ve piyasa koşullarının detaylı doğrulaması.',
       href: `${prefix}/contact`,
     },
     {
       icon: Users,
       title: locale === 'en' ? 'Partner Matching' : 'Partner Eşleştirme',
-      desc: locale === 'en' ? 'We connect you with vetted business partners, distributors and industry contacts globally.' : 'Sizi dünya genelinde doğrulanmış iş ortakları, distribütörler ve sektör bağlantılarıyla buluşturuyoruz.',
+      desc: locale === 'en' ? 'We connect you with vetted business partners, distributors and industry contacts globally.' : 'Dünya genelinde doğrulanmış iş ortakları, distribütörler ve sektör bağlantılarıyla stratejik eşleştirme.',
       href: `${prefix}/business-expansion`,
     },
     {
       icon: HeadphonesIcon,
       title: locale === 'en' ? 'Post-Investment Support' : 'Yatırım Sonrası Destek',
-      desc: locale === 'en' ? 'Ongoing portfolio management, tenant sourcing, property management and reporting.' : 'Sürekli portföy yönetimi, kiracı bulma, mülk yönetimi ve raporlama.',
+      desc: locale === 'en' ? 'Ongoing portfolio management, tenant sourcing, property management and reporting.' : 'Portföy yönetimi, kiracı bulma, mülk yönetimi ve performans raporlaması ile sürekli destek.',
       href: `${prefix}/contact`,
     },
   ];
@@ -147,7 +147,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
             <p className="text-muted text-lg mb-10 max-w-2xl mx-auto">
               {locale === 'en'
                 ? "Every client is unique. Let's discuss your specific needs and create a bespoke service package."
-                : 'Her müşteri benzersizdir. Özel ihtiyaçlarınızı görüşelim ve size özel bir hizmet paketi oluşturalım.'}
+                : 'Her yatırımcı ve her hedef benzersizdir. İhtiyaçlarınızı birlikte değerlendirerek size özel bir hizmet paketi oluşturalım.'}
             </p>
             <Link
               href={`${prefix}/contact`}
