@@ -346,6 +346,40 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
         </div>
       </section>
 
+      {/* Map Section */}
+      <section className="bg-background">
+        <div className="site-container py-20">
+          <AnimatedSection>
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <span className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-4 block">
+                  {locale === 'en' ? 'Find Us' : 'Bizi Bulun'}
+                </span>
+                <h3
+                  className="text-2xl font-light"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {locale === 'en' ? 'Berkeley Square, Mayfair' : 'Berkeley Square, Mayfair'}
+                </h3>
+              </div>
+              <div className="relative w-full aspect-[16/7] border border-border/30 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.2!2d-0.1460!3d51.5099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f4e8bbbe7%3A0x6f87e2f2a4e53e3b!2sBerkeley%20Square%20House!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Innovest Capital London Office"
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* WhatsApp CTA */}
       <section className="py-20 bg-background">
         <div className="site-container">
