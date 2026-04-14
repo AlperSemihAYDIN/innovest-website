@@ -80,7 +80,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         </div>
 
-        <div className="relative w-full px-6 md:px-12 lg:px-16 xl:px-20 pb-16 pt-32">
+        <div className="relative w-full site-container pb-16 pt-32">
           <AnimatedSection>
             {/* Back link */}
             <Link
@@ -149,7 +149,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
       {/* ─── Overview ──────────────────────────────────────────────── */}
       <section className="py-24 bg-background">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
             {/* Description — 2 cols */}
@@ -222,7 +222,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
       {/* ─── Project Highlights ────────────────────────────────────── */}
       <section className="py-24 bg-surface border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
@@ -248,7 +248,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
       {/* ─── Gallery ───────────────────────────────────────────────── */}
       <section className="py-24 bg-background border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
@@ -335,7 +335,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
       {/* ─── Location Map ──────────────────────────────────────────── */}
       <section className="py-24 bg-surface border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
@@ -376,7 +376,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
       {/* ─── CTA ───────────────────────────────────────────────────── */}
       <section className="py-24 bg-background border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 max-w-3xl mx-auto text-center">
+        <div className="site-container max-w-3xl text-center">
           <AnimatedSection>
             <span
               className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-4 block"

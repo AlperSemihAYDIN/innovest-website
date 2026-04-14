@@ -35,14 +35,14 @@ export default function CallToAction({ dict, locale }: CTAProps) {
           </span>
 
           <h2
-            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 w-full"
+            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 max-w-3xl"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {dict.cta.title}{' '}
             <span className="text-gradient-gold">{dict.cta.titleHighlight}</span>
           </h2>
 
-          <p className="text-muted text-lg w-full mb-10">
+          <p className="text-muted text-lg max-w-2xl mx-auto mb-10">
             {dict.cta.subtitle}
           </p>
 

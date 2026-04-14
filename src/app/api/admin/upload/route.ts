@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { adminStorage } from '@/lib/firebaseAdmin';
+import { uploadToCloudinary } from '@/lib/cloudinary';
 import { verifyAdmin, unauthorized } from '@/lib/adminAuth';
 
 export async function POST(req: NextRequest) {
@@ -27,18 +27,9 @@ export async function POST(req: NextRequest) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const ext = file.name.split('.').pop() || 'jpg';
-    const fileName = `${folder}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+    const { url } = await uploadToCloudinary(buffer, folder, file.type);
 
-    const bucket = adminStorage.bucket();
-    const fileRef = bucket.file(fileName);
-    await fileRef.save(buffer, {
-      metadata: { contentType: file.type },
-    });
-    await fileRef.makePublic();
-
-    const url = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
-    return Response.json({ url, fileName });
+    return Response.json({ url });
   } catch {
     return Response.json({ error: 'Upload failed' }, { status: 500 });
   }

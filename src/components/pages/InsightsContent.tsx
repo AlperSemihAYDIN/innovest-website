@@ -59,7 +59,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
           />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="relative site-container flex flex-col items-center">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.insightsPage.tagline}
@@ -75,7 +75,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       {/* Featured article */}
       {featuredArticle && (
         <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
-          <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="site-container flex flex-col items-center">
             <AnimatedSection>
               <Link
                 href={articleHref(featuredArticle.slug)}
@@ -117,7 +117,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
 
       {/* Category filter + Articles */}
       <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+        <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="flex flex-wrap gap-3 mb-12 justify-center">
               {categories.map((cat) => (

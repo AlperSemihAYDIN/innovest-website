@@ -1,12 +1,10 @@
 import { initializeApp, getApps, cert, type App } from 'firebase-admin/app';
 import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 import { getAuth, type Auth } from 'firebase-admin/auth';
-import { getStorage, type Storage } from 'firebase-admin/storage';
 
 let _app: App | undefined;
 let _db: Firestore | undefined;
 let _auth: Auth | undefined;
-let _storage: Storage | undefined;
 
 function getApp(): App {
   if (!_app) {
@@ -17,7 +15,6 @@ function getApp(): App {
           clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
           privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n'),
         }),
-        storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
       });
     } else {
       _app = getApps()[0];
@@ -37,12 +34,5 @@ export const adminAuth: Auth = new Proxy({} as Auth, {
   get(_, prop) {
     if (!_auth) _auth = getAuth(getApp());
     return Reflect.get(_auth, prop);
-  },
-});
-
-export const adminStorage: Storage = new Proxy({} as Storage, {
-  get(_, prop) {
-    if (!_storage) _storage = getStorage(getApp());
-    return Reflect.get(_storage, prop);
   },
 });
