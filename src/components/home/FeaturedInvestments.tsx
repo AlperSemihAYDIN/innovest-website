@@ -85,11 +85,11 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group">
-                <div className="bg-background border border-border hover:border-gold/30 overflow-hidden transition-all duration-500 card-hover">
+                <div className="bg-background border border-border/40 rounded-sm hover:border-gold/30 overflow-hidden transition-all duration-500 card-hover">
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image
@@ -105,7 +105,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-7">
                     <p className="text-xs text-muted mb-1">{property.developer}</p>
                     <h3
                       className="text-lg font-light mb-2 group-hover:text-gold transition-colors"
@@ -118,7 +118,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                       {property.location}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-3 pt-4 border-t border-border">
+                    <div className="grid grid-cols-3 gap-3 pt-5 border-t border-border/30">
                       <div>
                         <p className="text-xs text-muted mb-0.5">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>

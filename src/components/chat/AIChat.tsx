@@ -19,82 +19,135 @@ interface Message {
 // Patterns are checked in order; first match wins.
 // TR patterns must work with Turkish chars after message.toLowerCase().
 
-const ANSWERS_TR: [RegExp, string][] = [
+// ─── Property Database (14 projects) ─────────────────────────────────────────
+const LONDON_PROJECTS = [
+  { name: 'Westminster Tower', developer: 'London Square', location: 'SE1, Zone 1', price: '£550,000', yield: '5.2%', highlight: 'Thames manzarası, 218 daire' },
+  { name: "Ransome's Wharf", developer: 'London Square', location: 'Battersea SW11', price: '£725,000', yield: '4.8%', highlight: 'nehir kenarı, 152 daire' },
+  { name: 'Woolwich Central', developer: 'London Square', location: 'SE18', price: '£380,000', yield: '5.5%', highlight: 'Elizabeth Line, rekabetçi fiyat' },
+  { name: 'Prince of Wales Drive', developer: 'Berkeley Group', location: 'Battersea SW11', price: '£850,000', yield: '4.5%', highlight: 'Battersea Park karşısı' },
+  { name: 'Sterling Place', developer: 'Barratt London', location: 'Tooting SW17', price: '£420,000', yield: '5.0%', highlight: 'Northern Line bağlantısı' },
+  { name: 'White City Living', developer: 'Berkeley Group', location: 'W12', price: '£650,000', yield: '4.6%', highlight: 'Westfield komşusu, 1400+ konut' },
+];
+
+const DUBAI_PROJECTS = [
+  { name: 'Binghatti Flare', developer: 'Binghatti', location: 'Business Bay', price: '$380,000', yield: '8.5%', highlight: 'Dubai Kanalı manzarası' },
+  { name: 'The Alba', developer: 'Omniyat × Dorchester', location: 'Palm Jumeirah', price: '$1,200,000', yield: '7.2%', highlight: '80 premium rezidans' },
+  { name: 'Binghatti Aquarise', developer: 'Binghatti', location: 'Al Jaddaf', price: '$290,000', yield: '9.0%', highlight: 'en uygun fiyat, yüksek getiri' },
+  { name: 'Mercedes-Benz Places', developer: 'Binghatti', location: 'Downtown Dubai', price: '$750,000', yield: '7.5%', highlight: '65 kat, ikonik tasarım' },
+  { name: 'Belgrove Residences', developer: 'Ellington', location: 'JVC', price: '$350,000', yield: '8.2%', highlight: 'aile odaklı, modern yaşam' },
+  { name: 'Solaya', developer: 'Meraas', location: 'Jumeirah', price: '$950,000', yield: '6.8%', highlight: 'premium konum' },
+  { name: 'One River Point', developer: 'Ellington', location: 'Business Bay', price: '$620,000', yield: '7.8%', highlight: 'kanal cephesi' },
+  { name: 'Cala Del Mar', developer: 'Ellington', location: 'Al Marjan Island, RAK', price: '$474,000', yield: '9.0%', highlight: 'Wynn Resort yakını' },
+];
+
+function formatProjectList(projects: typeof LONDON_PROJECTS, locale: 'en' | 'tr'): string {
+  return projects.map(p =>
+    `• **${p.name}** — ${p.location}\n  ${locale === 'tr' ? 'Fiyat' : 'Price'}: ${p.price} | ${locale === 'tr' ? 'Getiri' : 'Yield'}: ${p.yield}\n  ${p.highlight}`
+  ).join('\n\n');
+}
+
+function findProjectByName(query: string): typeof LONDON_PROJECTS[0] | null {
+  const q = query.toLowerCase().replace(/['']/g, '');
+  const all = [...LONDON_PROJECTS, ...DUBAI_PROJECTS];
+  return all.find(p => q.includes(p.name.toLowerCase().replace(/['']/g, ''))) || null;
+}
+
+const ANSWERS_TR: [RegExp, string | ((msg: string) => string)][] = [
+  // 0. Specific project queries — must be first
+  [
+    /westminster tower|ransome|woolwich central|prince of wales|sterling place|white city|binghatti flare|the alba|binghatti aquarise|mercedes.?benz|belgrove|solaya|one river point|cala del mar/i,
+    (msg: string) => {
+      const project = findProjectByName(msg);
+      if (!project) return 'Bu proje hakkında bilgi bulunamadı. Lütfen proje adını kontrol ediniz.';
+      const isLondon = LONDON_PROJECTS.includes(project);
+      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 Başlangıç: ${project.price}\n📈 Beklenen Getiri: ${project.yield}\n✨ ${project.highlight}\n\n${isLondon ? '🇬🇧 Londra' : '🇦🇪 Dubai'} portföyümüzdeki bu proje hakkında detaylı bilgi almak ister misiniz?\n\n📧 info@innovest.uk | 📞 +44 7491 510941`;
+    },
+  ],
   // 1. Residency / Oturum
   [
     /oturum|golden visa|vize|ikamet|göç|pasaport|hangi.*ülke.*otur|yatırım yoluyla.*otur|residence/i,
-    'Yatırım yoluyla oturum izni alabileceğiniz ülkeler:\n\n• 🇵🇹 Portekiz Golden Visa: 500.000€\'dan\n• 🇬🇷 Yunanistan Golden Visa: 250.000€\'dan\n• 🇦🇪 BAE Golden Visa: AED 2.000.000\'dan\n• 🇬🇧 İngiltere Innovator Vizesi: £50.000\'dan\n\nHer programın farklı avantajları, süreleri ve aile dahil etme koşulları vardır. Hangi ülke sizi ilgilendiriyor?\n\nÜcretsiz danışmanlık için: info@innovest.uk',
+    'Yatırım yoluyla oturum izni alabileceğiniz ülkeler:\n\n• 🇵🇹 Portekiz Golden Visa: 500.000€\'dan\n• 🇬🇷 Yunanistan Golden Visa: 250.000€\'dan\n• 🇦🇪 BAE Golden Visa: AED 2.000.000\'dan\n• 🇬🇧 İngiltere Innovator Vizesi: İş planı onayına tabi\n\nHer programın farklı avantajları, süreleri ve aile dahil etme koşulları vardır. Hangi ülke sizi ilgilendiriyor?',
   ],
-  // 2. Business / İş kurma / Partner
+  // 2. Business / İş kurma
   [
-    /iş kur|partner bul|ticari bağlantı|ticari.*gelişt|yol gösteri|firma kur|şirket kur|yeni.*ülke.*iş|pazar.*giriş|ticari aracı|iş.*genişlet|iş ortağı|distribüt/i,
-    'Yeni bir ülkede iş kurma ve ticari genişleme hizmetlerimiz:\n\n• 🌍 Pazar Giriş Stratejisi (UK, BAE, AB, ABD)\n• 🤝 Partner & Distribütör Eşleştirme\n• 📋 Şirket Kurulumu ve yasal işlemler\n• 📊 Ticaret Kolaylaştırma & uyum danışmanlığı\n\nHedef pazarınız ve sektörünüze göre size özel strateji hazırlıyoruz. Hangi ülkede faaliyete geçmeyi düşünüyorsunuz?\n\nBize ulaşın: info@innovest.uk | +44 7491 510941',
+    /iş kur|partner bul|ticari bağlantı|ticari.*gelişt|firma kur|şirket kur|pazar.*giriş|iş.*genişlet|iş ortağı|distribüt/i,
+    'Uluslararası iş geliştirme hizmetlerimiz:\n\n• 🌍 Pazar Giriş Stratejisi (UK, BAE, AB, ABD)\n• 🤝 Partner & Distribütör Eşleştirme\n• 📋 Şirket Kurulumu ve yasal işlemler\n• 📊 Ticaret Kolaylaştırma & uyum danışmanlığı\n\nHedef pazarınız ve sektörünüze göre size özel strateji hazırlıyoruz. Hangi ülkede faaliyete geçmeyi düşünüyorsunuz?',
   ],
-  // 3. Dubai specific
+  // 3. Dubai specific — now with ALL projects
   [
     /dubai/i,
-    'Dubai\'de yatırım için en popüler bölgeler:\n\n• 🏙️ Business Bay – yüksek getiri, %7-9\n• 🌴 Palm Jumeirah – premium konut\n• 🛥️ Dubai Marina – kiracı talebi yüksek\n• 🏗️ Al Jaddaf – gelişen bölge, uygun fiyat\n\nBinghatti Aquarise (Al Jaddaf) – $290.000\'dan, %9 beklenen getiri\n\nDubai\'de vergisiz getiri ve Golden Visa imkânıyla yatırım yapabilirsiniz. Bütçenizi paylaşır mısınız?',
+    () => `Dubai portföyümüzdeki projeler:\n\n${formatProjectList(DUBAI_PROJECTS, 'tr')}\n\nDubai\'de vergisiz getiri ve Golden Visa imkânıyla yatırım yapabilirsiniz. Bütçenizi paylaşır mısınız?`,
   ],
-  // 4. London specific
+  // 4. London specific — now with ALL projects
   [
     /londra|london/i,
-    'Londra\'da yatırım için öne çıkan bölgeler:\n\n• 🏛️ Mayfair / Westminster – premium, uzun vadeli değer\n• 🔨 Woolwich / SE18 – £380K\'dan, gelişen bölge\n• 🌿 Battersea / SW11 – Thames kenarı, yüksek talep\n• 🏘️ Mill Hill / NW7 – aile konutu, istikrarlı getiri\n\nLondra\'da ortalama kira getirisi %4-6, uzun vadeli sermaye artışı %15+ beklenmektedir.\n\nHangi bütçe aralığı sizi ilgilendiriyor?',
+    () => `Londra portföyümüzdeki projeler:\n\n${formatProjectList(LONDON_PROJECTS, 'tr')}\n\n£285.000\'dan başlayan fiyatlarla Londra\'da yatırım yapabilirsiniz. Hangi bütçe aralığı sizi ilgilendiriyor?`,
   ],
-  // 5. Generic investment / where to invest
+  // 5. Generic investment
   [
     /nereye yatırım|yatırım.*nerede|yatırım.*yapabilir|gayrimenkul|emlak|mülk|proje|invest/i,
-    'Innovest olarak iki ana gayrimenkul pazarında hizmet veriyoruz:\n\n🇬🇧 **Londra** – £380.000\'dan başlayan projeler, %4-6 getiri\n🇦🇪 **Dubai** – $290.000\'dan başlayan projeler, %7-9 getiri\n\nÜç temel sorunuzu yanıtlıyoruz:\n1. Dubai veya Londra\'da nereye yatırım yapmalıyım?\n2. Hangi ülkelerde yatırımla oturum alabilirim?\n3. Yeni ülkede iş kurmak için nasıl destek alırım?\n\nHangi konuda daha fazla bilgi almak istiyorsunuz?',
+    'İki ana pazarda toplam 14 aktif projemiz var:\n\n🇬🇧 **Londra** — 6 proje, £380.000\'dan başlayan fiyatlar, %4-6 getiri\n🇦🇪 **Dubai** — 8 proje, $290.000\'dan başlayan fiyatlar, %7-9 getiri\n\nHangi pazarı incelemek istersiniz? Proje ismi de sorabilirsiniz (örn. "Westminster Tower", "Binghatti Aquarise").',
   ],
   // 6. Budget / price
   [
-    /bütçe|fiyat|£500|500k|minimum|uygun|kaç para|ne kadar/i,
-    '£500K altında önerdiğimiz projeler:\n\n• London Square Woolwich (SE18) – £380.000\'dan\n• Sterling Place, SW17 – £420.000\'dan  \n• Ridgeway Views, NW7 – £450.000\'dan\n\nDubai\'de $500K altı projeler:\n• Binghatti Aquarise – $290.000\'dan\n• Business Bay projeleri – $200.000\'dan\n\nBütçenizi ve tercih ettiğiniz pazarı belirtirseniz size özel seçenekler sunabiliriz.',
+    /bütçe|fiyat|£500|500k|minimum|uygun|kaç para|ne kadar|ucuz|pahalı/i,
+    '**£500K altı Londra projeleri:**\n• Woolwich Central — £380.000, %5.5 getiri\n• Sterling Place — £420.000, %5.0 getiri\n\n**$500K altı Dubai projeleri:**\n• Binghatti Aquarise — $290.000, %9.0 getiri\n• Belgrove Residences — $350.000, %8.2 getiri\n• Binghatti Flare — $380.000, %8.5 getiri\n• Cala Del Mar — $474.000, %9.0 getiri\n\nBütçenizi ve tercih ettiğiniz pazarı belirtirseniz size özel seçenekler sunabiliriz.',
   ],
   // 7. Yield / return
   [
     /getiri|kira|roi|kazanç|kar|yüzde|%/i,
-    'Güncel beklenen kira getirileri:\n\n🇬🇧 Londra: %4-6 (dış bölgelerde daha yüksek)\n🇦🇪 Dubai: %7-10 (bölgeye göre değişir)\n\n5 yıllık sermaye değer artışı tahmini:\n• Londra: ~%15\n• Dubai: ~%25\n\nBunlar piyasa ortalamalarıdır; belirli projelerde bu oranların üzerine çıkılabilir. Detaylı analiz için danışmanlık alın.',
+    'Portföyümüzdeki getiri aralıkları:\n\n🇬🇧 Londra: %4.5 – %5.5\n🇦🇪 Dubai: %6.8 – %9.0\n\n**En yüksek getirili projeler:**\n• Binghatti Aquarise — %9.0 ($290K)\n• Cala Del Mar — %9.0 ($474K)\n• Binghatti Flare — %8.5 ($380K)\n• Belgrove Residences — %8.2 ($350K)\n\nDetaylı getiri analizi için danışmanlık ekibimize ulaşın.',
   ],
   // 8. Contact
   [
     /iletişim|randevu|görüşme|telefon|email|adres|ulaş/i,
     'Ekibimize ulaşın:\n\n📍 Berkeley Square House, Mayfair, Londra\n📧 info@innovest.uk\n📞 +44 7491 510941 (İngiltere)\n📞 +971 54 755 0101 (BAE)\n📞 +90 531 420 0331 (Türkiye)\n\nÜcretsiz danışmanlık randevusu için İletişim sayfamızı ziyaret edin.',
   ],
-  // 9. Greeting
+  // 9. Greeting — SHORT, no heavy intro
   [
     /merhaba|selam|günaydın|iyi günler|iyi akşam|nasılsın|hello|hi\b/i,
-    'Merhaba! Innovest\'e hoş geldiniz. 👋\n\nSize şu konularda yardımcı olabilirim:\n\n1️⃣ Dubai veya Londra\'da gayrimenkul yatırımı\n2️⃣ Yatırım yoluyla oturum izni (Golden Visa)\n3️⃣ Yeni ülkede iş kurma & partner bulma\n\nHangi konuda bilgi almak istersiniz?',
+    'Merhaba! 👋 Size nasıl yardımcı olabilirim?\n\n1️⃣ Londra veya Dubai\'de gayrimenkul yatırımı\n2️⃣ Yatırım yoluyla oturum izni\n3️⃣ Uluslararası iş geliştirme',
   ],
 ];
 
-const ANSWERS_EN: [RegExp, string][] = [
+const ANSWERS_EN: [RegExp, string | ((msg: string) => string)][] = [
+  // 0. Specific project queries
+  [
+    /westminster tower|ransome|woolwich central|prince of wales|sterling place|white city|binghatti flare|the alba|binghatti aquarise|mercedes.?benz|belgrove|solaya|one river point|cala del mar/i,
+    (msg: string) => {
+      const project = findProjectByName(msg);
+      if (!project) return 'Project not found. Please check the project name.';
+      const isLondon = LONDON_PROJECTS.includes(project);
+      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 From: ${project.price}\n📈 Projected Yield: ${project.yield}\n✨ ${project.highlight}\n\nWould you like more details about this ${isLondon ? '🇬🇧 London' : '🇦🇪 Dubai'} project?\n\n📧 info@innovest.uk | 📞 +44 7491 510941`;
+    },
+  ],
   [
     /residency|golden visa|visa|citizenship|passport|which.*country.*reside|residence by invest/i,
-    'Countries where you can obtain residency through investment:\n\n• 🇵🇹 Portugal Golden Visa: From €500,000\n• 🇬🇷 Greece Golden Visa: From €250,000\n• 🇦🇪 UAE Golden Visa: From AED 2,000,000\n• 🇬🇧 UK Innovator Visa: From £50,000\n\nEach programme has different benefits, timelines and family inclusion options. Which country interests you?\n\nFor a free consultation: info@innovest.uk',
+    'Countries where you can obtain residency through investment:\n\n• 🇵🇹 Portugal Golden Visa: From €500,000\n• 🇬🇷 Greece Golden Visa: From €250,000\n• 🇦🇪 UAE Golden Visa: From AED 2,000,000\n• 🇬🇧 UK Innovator Visa: Subject to business plan approval\n\nEach programme has different benefits, timelines and family inclusion options. Which country interests you?',
   ],
   [
     /business setup|set up.*business|partner|trade connection|expand.*business|company formation|market entry|new.*market|trade facilit|distributor/i,
-    'Our Business Expansion services for entering new markets:\n\n• 🌍 Market Entry Strategy (UK, UAE, EU, US)\n• 🤝 Partner & Distributor Matching\n• 📋 Company Formation & legal support\n• 📊 Trade Facilitation & compliance advisory\n\nWe tailor strategies to your sector and target market. Which country are you considering?\n\nContact us: info@innovest.uk | +44 7491 510941',
+    'Our Business Expansion services:\n\n• 🌍 Market Entry Strategy (UK, UAE, EU, US)\n• 🤝 Partner & Distributor Matching\n• 📋 Company Formation & legal support\n• 📊 Trade Facilitation & compliance advisory\n\nWe tailor strategies to your sector and target market. Which country are you considering?',
   ],
   [
     /dubai/i,
-    'Top investment areas in Dubai:\n\n• 🏙️ Business Bay – high yield, 7-9%\n• 🌴 Palm Jumeirah – premium residential\n• 🛥️ Dubai Marina – strong tenant demand\n• 🏗️ Al Jaddaf – emerging area, accessible pricing\n\nBinghatti Aquarise (Al Jaddaf) – From $290,000, 9% projected yield\n\nDubai offers tax-free returns and a path to Golden Visa. What is your budget range?',
+    () => `Our Dubai portfolio:\n\n${formatProjectList(DUBAI_PROJECTS, 'en')}\n\nDubai offers tax-free returns and a path to Golden Visa. What is your budget range?`,
   ],
   [
     /london/i,
-    'Top investment areas in London:\n\n• 🏛️ Mayfair / Westminster – premium, long-term value\n• 🔨 Woolwich / SE18 – From £380K, up-and-coming\n• 🌿 Battersea / SW11 – Thames-side, high demand\n• 🏘️ Mill Hill / NW7 – family living, stable returns\n\nLondon average rental yield: 4-6%, 5-year capital growth: ~15%.\n\nWhat is your target budget?',
+    () => `Our London portfolio:\n\n${formatProjectList(LONDON_PROJECTS, 'en')}\n\nStarting from £285,000 in London. What is your target budget?`,
   ],
   [
     /where.*invest|invest.*where|property|real estate|apartment|development|invest/i,
-    'Innovest operates in two prime property markets:\n\n🇬🇧 **London** – From £380,000, 4-6% yield\n🇦🇪 **Dubai** – From $290,000, 7-9% yield\n\nWe answer three core questions:\n1. Where should I invest in Dubai or London?\n2. Which countries offer residency through investment?\n3. How can I set up a business in a new country?\n\nWhich topic would you like to explore?',
+    'We have 14 active projects across two markets:\n\n🇬🇧 **London** — 6 projects, from £380,000, 4-6% yield\n🇦🇪 **Dubai** — 8 projects, from $290,000, 7-9% yield\n\nWhich market interests you? You can also ask about a specific project (e.g. "Westminster Tower", "Binghatti Aquarise").',
   ],
   [
-    /budget|price|£500|500k|minimum|affordable|how much|cost/i,
-    'Our recommendations under £500K:\n\n• London Square Woolwich (SE18) – From £380,000\n• Sterling Place, SW17 – From £420,000\n• Ridgeway Views, NW7 – From £450,000\n\nIn Dubai under $500K:\n• Binghatti Aquarise – From $290,000\n• Business Bay developments – From $200,000\n\nShare your budget and preferred market and we\'ll find the best fit for you.',
+    /budget|price|£500|500k|minimum|affordable|how much|cost|cheap/i,
+    '**Under £500K in London:**\n• Woolwich Central — £380,000, 5.5% yield\n• Sterling Place — £420,000, 5.0% yield\n\n**Under $500K in Dubai:**\n• Binghatti Aquarise — $290,000, 9.0% yield\n• Belgrove Residences — $350,000, 8.2% yield\n• Binghatti Flare — $380,000, 8.5% yield\n• Cala Del Mar — $474,000, 9.0% yield\n\nShare your budget and preferred market for tailored recommendations.',
   ],
   [
     /yield|rental.*return|roi|return on invest/i,
-    'Current projected rental yields:\n\n🇬🇧 London: 4-6% (higher in outer zones)\n🇦🇪 Dubai: 7-10% (varies by area)\n\n5-year capital appreciation estimate:\n• London: ~15%\n• Dubai: ~25%\n\nThese are market averages; specific developments may exceed these figures. Speak to an advisor for a detailed analysis.',
+    'Yield ranges across our portfolio:\n\n🇬🇧 London: 4.5% – 5.5%\n🇦🇪 Dubai: 6.8% – 9.0%\n\n**Highest yielding projects:**\n• Binghatti Aquarise — 9.0% ($290K)\n• Cala Del Mar — 9.0% ($474K)\n• Binghatti Flare — 8.5% ($380K)\n• Belgrove Residences — 8.2% ($350K)\n\nSpeak to an advisor for a detailed project analysis.',
   ],
   [
     /contact|appointment|consult|phone|email|address|reach/i,
@@ -102,23 +155,27 @@ const ANSWERS_EN: [RegExp, string][] = [
   ],
   [
     /hello|hi\b|good morning|good afternoon|good evening|how are you/i,
-    'Hello! Welcome to Innovest. 👋\n\nI can help you with:\n\n1️⃣ Property investment in Dubai or London\n2️⃣ Residency by investment (Golden Visa)\n3️⃣ Setting up a business & finding partners\n\nWhat would you like to know?',
+    'Hello! 👋 How can I help you today?\n\n1️⃣ Property investment in London or Dubai\n2️⃣ Residency by investment (Golden Visa)\n3️⃣ International business expansion',
   ],
 ];
 
 function getAIResponse(message: string, locale: 'en' | 'tr'): string {
   const answers = locale === 'tr' ? ANSWERS_TR : ANSWERS_EN;
   for (const [pattern, response] of answers) {
-    if (pattern.test(message)) return response;
+    if (pattern.test(message)) {
+      return typeof response === 'function' ? response(message) : response;
+    }
   }
   // Fallback: try the other language set too
   const fallbackAnswers = locale === 'tr' ? ANSWERS_EN : ANSWERS_TR;
   for (const [pattern, response] of fallbackAnswers) {
-    if (pattern.test(message)) return response;
+    if (pattern.test(message)) {
+      return typeof response === 'function' ? response(message) : response;
+    }
   }
   return locale === 'tr'
-    ? 'Sorunuz için teşekkürler. Uzman danışmanlarımız size özel rehberlik yapabilir.\n\nBize ulaşın: info@innovest.uk\n📞 +44 7491 510941\n\nVeya şu konulardan birini seçin:\n1️⃣ Dubai veya Londra\'da gayrimenkul\n2️⃣ Yatırım ile oturum izni\n3️⃣ Yeni ülkede iş kurma'
-    : 'Thank you for your question. Our advisors are here to help.\n\nContact us: info@innovest.uk\n📞 +44 7491 510941\n\nOr choose a topic:\n1️⃣ Property in Dubai or London\n2️⃣ Residency by investment\n3️⃣ Business setup & expansion';
+    ? 'Bu konuda size en doğru bilgiyi danışmanlarımız verebilir.\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\nVeya şu konulardan birini seçin:\n1️⃣ Londra veya Dubai\'de gayrimenkul\n2️⃣ Yatırım ile oturum izni\n3️⃣ Uluslararası iş geliştirme'
+    : 'Our advisors can best help you with this.\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\nOr choose a topic:\n1️⃣ Property in London or Dubai\n2️⃣ Residency by investment\n3️⃣ International business expansion';
 }
 
 // Quick reply buttons shown beneath the greeting

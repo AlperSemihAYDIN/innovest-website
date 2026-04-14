@@ -97,10 +97,10 @@ export default function CityContent({
             </div>
           </AnimatedSection>
 
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {properties.map((property, index) => (
               <AnimatedSection key={property.name} delay={index * 0.1}>
-                <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">
+                <div className="bg-surface border border-border/40 rounded-sm overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">
                   <div className="relative h-60 overflow-hidden">
                     <Image
                       src={property.image}
@@ -117,12 +117,12 @@ export default function CityContent({
                       </h3>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-muted mb-4">
+                  <div className="p-7">
+                    <div className="flex items-center gap-4 text-xs text-muted mb-5">
                       <span className="flex items-center gap-1"><MapPin size={12} />{property.location}</span>
                       <span className="flex items-center gap-1"><BedDouble size={12} />{property.beds}</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-4 border-t border-border">
+                    <div className="grid grid-cols-3 gap-4 py-5 border-t border-border/30">
                       <div>
                         <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
@@ -138,7 +138,7 @@ export default function CityContent({
                     </div>
                     <Link
                       href={property.slug ? `${prefix}/real-estate/${city.toLowerCase() === 'londra' ? 'london' : city.toLowerCase()}/${property.slug}` : `${prefix}/contact`}
-                      className="mt-4 w-full inline-flex items-center justify-center gap-2 py-3 border border-border text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn"
+                      className="mt-5 w-full inline-flex items-center justify-center gap-2 py-3.5 border border-border/30 text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn"
                     >
                       {locale === 'en' ? 'Enquire Now' : 'Bilgi Al'}
                       <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
