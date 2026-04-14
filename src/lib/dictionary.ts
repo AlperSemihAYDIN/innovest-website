@@ -302,7 +302,7 @@ const dictionaries = {
       tagline: 'Uluslararası Yatırım Danışmanlığı',
       title: 'Global Yatırımların',
       titleHighlight: 'Başlangıç Noktası',
-      subtitle: 'İngiltere, BAE, Avrupa ve ABD başta olmak üzere önde gelen global pazarlarda stratejik yatırım çözümleri sunuyoruz. Gayrimenkul, oturum programları ve uluslararası genişleme alanlarında, yatırımcıların varlıklarını sürdürülebilir şekilde büyütmelerine rehberlik ediyoruz.',
+      subtitle: 'İngiltere, BAE, Avrupa ve ABD başta olmak üzere önde gelen global pazarlarda stratejik yatırım çözümleri sunuyoruz. Gayrimenkul, oturum programları ve uluslararası genişleme alanlarında, yatırımcıların yatırım portföylerini güvenli ve sürdürülebilir şekilde büyütmelerine rehberlik ediyoruz.',
       cta: 'Danışmanlık Randevusu Al',
       ctaSecondary: 'Hizmetleri Keşfet',
       stat1Label: 'Danışmanlık Altındaki Varlıklar',
