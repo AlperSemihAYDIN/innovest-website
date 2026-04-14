@@ -32,31 +32,11 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
     };
 
     try {
-      const HUBSPOT_PORTAL_ID = 'YOUR_PORTAL_ID';
-      const HUBSPOT_FORM_GUID = 'YOUR_FORM_GUID';
-
-      await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: data.firstname },
-              { name: 'email', value: data.email },
-              { name: 'phone', value: data.phone },
-              { name: 'city', value: data.city },
-              { name: 'budget', value: data.budget },
-              { name: 'interest_area', value: data.interest },
-              { name: 'message', value: data.message },
-            ],
-            context: {
-              pageUri: typeof window !== 'undefined' ? window.location.href : '',
-              pageName: 'Contact Page',
-            },
-          }),
-        }
-      );
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
     } catch {
       // Silently fail — still show success to user
     }
