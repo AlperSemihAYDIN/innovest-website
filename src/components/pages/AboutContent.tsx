@@ -267,33 +267,44 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* CTA */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-surface border-t border-border">
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
-          <div className="flex flex-col items-center text-center">
-            <AnimatedSection>
-              <h2
-                className="text-3xl md:text-4xl font-light mb-6"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {locale === 'en' ? 'Ready to Partner with ' : 'Innovest ile '}
-                <span className="text-gradient-gold">
-                  {locale === 'en' ? 'Innovest?' : 'Ortaklığa Hazır mısınız?'}
-                </span>
-              </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto">
-                {locale === 'en'
-                  ? 'Schedule a complimentary consultation and discover how we can help achieve your investment goals.'
-                  : 'Ücretsiz bir danışmanlık görüşmesi planlayın ve yatırım hedeflerinize nasıl ulaşabileceğinizi keşfedin.'}
-              </p>
-              <Link
-                href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group"
-              >
-                {dict.nav.getConsultation}
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </AnimatedSection>
-          </div>
+      <section className="hero-dark relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2070"
+            alt="Partner with Innovest"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-background/70" />
+        </div>
+        <div className="relative site-container flex flex-col items-center text-center py-24">
+          <AnimatedSection>
+            <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
+              {locale === 'en' ? 'Get Started' : 'Başlayın'}
+            </span>
+            <h2
+              className="text-3xl md:text-5xl font-light mb-6"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              {locale === 'en' ? 'Ready to Partner with ' : 'Innovest ile '}
+              <span className="text-gradient-gold">
+                {locale === 'en' ? 'Innovest?' : 'Ortaklığa Hazır mısınız?'}
+              </span>
+            </h2>
+            <p className="text-muted text-lg mb-10 max-w-2xl mx-auto">
+              {locale === 'en'
+                ? 'Schedule a complimentary consultation and discover how we can help achieve your investment goals.'
+                : 'Ücretsiz bir danışmanlık görüşmesi planlayın ve yatırım hedeflerinize nasıl ulaşabileceğinizi keşfedin.'}
+            </p>
+            <Link
+              href={`${prefix}/contact`}
+              className="inline-flex items-center gap-2 px-10 py-4 bg-gold text-white font-medium text-lg hover:bg-gold-light transition-all duration-300 btn-shine group"
+            >
+              {dict.nav.getConsultation}
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </>

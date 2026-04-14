@@ -31,11 +31,13 @@ export default function Footer({ dict, locale }: FooterProps) {
 
   return (
     <footer className="footer-dark bg-background">
-      {/* Gold gradient separator — clear visual break from last section */}
-      <div className="h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+      {/* Breathing room + gold separator */}
+      <div className="pt-20">
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      </div>
 
       {/* Main Footer */}
-      <div className="site-container pt-20 pb-16">
+      <div className="site-container pt-16 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
