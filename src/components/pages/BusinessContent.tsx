@@ -45,7 +45,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Services */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+      <section className="py-24 bg-background">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.businessPage.services.map((service, index) => {
@@ -72,7 +72,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Markets we cover */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-surface">
+      <section className="py-24 bg-surface">
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -115,7 +115,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-                {locale === 'en' ? 'Ready to Expand ' : 'İşinizi Genişletmeye '}
+                {locale === 'en' ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Globally?' : 'Hazır mısınız?'}</span>
               </h2>
               <p className="text-muted mb-10 max-w-2xl mx-auto">

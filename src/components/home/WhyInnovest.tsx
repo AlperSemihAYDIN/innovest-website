@@ -12,7 +12,7 @@ const icons = [Target, Users, Globe, Award, Handshake, Eye];
 
 export default function WhyInnovest({ dict }: WhyUsProps) {
   return (
-    <section className="min-h-screen flex flex-col justify-center py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,

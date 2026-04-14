@@ -6,8 +6,8 @@ import BusinessContent from '@/components/pages/BusinessContent';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Ticari Genişleme & Danışmanlık',
-  description: 'İngiltere, BAE, AB ve ABD pazarlarına girmek isteyen şirketler için stratejik ticari genişleme danışmanlığı.',
+  title: 'Uluslararası İş Geliştirme ve Genişleme',
+  description: 'İngiltere, BAE, AB ve ABD pazarlarına girmek isteyen şirketler için stratejik uluslararası iş geliştirme danışmanlığı.',
 };
 
 export default function BusinessPageTR() {

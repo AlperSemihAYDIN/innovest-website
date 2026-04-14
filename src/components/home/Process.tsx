@@ -10,9 +10,9 @@ interface ProcessProps {
 
 export default function Process({ dict }: ProcessProps) {
   return (
-    <section className="min-h-screen flex flex-col lg:flex-row bg-surface overflow-hidden">
+    <section className="flex flex-col lg:flex-row bg-surface overflow-hidden">
       {/* Left: full-height image */}
-      <div className="relative w-full lg:w-1/2 min-h-[40vh] lg:min-h-screen">
+      <div className="relative w-full lg:w-1/2 min-h-[40vh] lg:min-h-[600px]">
         <Image
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200"
           alt="Investment Process"

@@ -74,7 +74,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
 
       {/* Featured article */}
       {featuredArticle && (
-        <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+        <section className="py-24 bg-background">
           <div className="site-container flex flex-col items-center">
             <AnimatedSection>
               <Link
@@ -116,7 +116,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       )}
 
       {/* Category filter + Articles */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+      <section className="py-24 bg-background">
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="flex flex-wrap gap-3 mb-12 justify-center">

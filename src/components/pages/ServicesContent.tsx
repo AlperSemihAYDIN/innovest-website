@@ -94,7 +94,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       </section>
 
       {/* Services Grid */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+      <section className="py-24 bg-background">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {allServices.map((service, index) => (

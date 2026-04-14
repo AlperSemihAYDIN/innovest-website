@@ -249,9 +249,9 @@ export default function AIChat({ dict, locale }: AIChatProps) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-4">
+            <div className="flex-1 overflow-y-auto p-5 space-y-5">
               {messages.map((msg, i) => (
-                <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div key={i} className={`flex gap-2.5 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {msg.role === 'assistant' && (
                     <div className="w-6 h-6 bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
                       <Bot size={12} className="text-gold" />
@@ -260,8 +260,8 @@ export default function AIChat({ dict, locale }: AIChatProps) {
                   <div
                     className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed whitespace-pre-line rounded-sm ${
                       msg.role === 'user'
-                        ? 'bg-gold/8 text-foreground border border-gold/15'
-                        : 'bg-surface/60 text-muted-light border border-border/30'
+                        ? 'bg-gold/5 text-foreground border border-gold/10'
+                        : 'bg-surface/40 text-muted-light border border-border/15'
                     }`}
                   >
                     {msg.content}
@@ -271,12 +271,12 @@ export default function AIChat({ dict, locale }: AIChatProps) {
 
               {/* Quick reply buttons — shown only after greeting */}
               {showQuickReplies && (
-                <div className="flex flex-col gap-2 mt-2">
+                <div className="flex flex-col gap-2.5 mt-3">
                   {quickReplies.map((q) => (
                     <button
                       key={q}
                       onClick={() => sendMessage(q)}
-                      className="text-left text-xs px-3 py-2.5 border border-gold/20 text-gold hover:bg-gold/5 transition-colors leading-snug rounded-sm"
+                      className="text-left text-xs px-4 py-3 border border-border/20 text-muted hover:text-gold hover:border-gold/20 hover:bg-gold/3 transition-all duration-300 leading-snug rounded-sm"
                     >
                       {q}
                     </button>

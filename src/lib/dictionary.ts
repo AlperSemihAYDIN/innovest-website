@@ -18,7 +18,7 @@ const dictionaries = {
       tagline: 'Cross-Border Investment Advisory',
       title: 'Where Insight Becomes',
       titleHighlight: 'Opportunity',
-      subtitle: 'Strategic investment solutions across the UK, UAE, EU, USA and key global markets. We help high-net-worth individuals build wealth through real estate, residency programmes and business expansion.',
+      subtitle: 'Strategic investment solutions across the UK, UAE, EU, USA and key global markets. We help investors grow their portfolios through real estate, residency programmes and business expansion.',
       cta: 'Schedule a Consultation',
       ctaSecondary: 'Explore Services',
       stat1Label: 'Assets Under Advisory',
@@ -35,12 +35,12 @@ const dictionaries = {
       subtitle: 'Three core pillars designed to maximise your global investment potential.',
       realEstate: {
         title: 'Real Estate Investment Advisory',
-        desc: 'Premium property opportunities in London and Dubai. From off-plan developments to luxury residences, we identify high-yield investments tailored to your portfolio.',
+        desc: 'Premium property opportunities in London and Dubai. We identify high-yield investments tailored to your portfolio.',
         cta: 'Explore Properties',
       },
       residency: {
         title: 'Residency by Investment',
-        desc: 'Secure residency and citizenship through strategic investments. We guide you through Golden Visa programmes across Portugal, Greece, UAE, UK and more.',
+        desc: 'Secure residency and citizenship through strategic investments. We guide you through Golden Visa programmes across Portugal, Greece, UAE and more.',
         cta: 'Learn More',
       },
       business: {
@@ -67,7 +67,7 @@ const dictionaries = {
       items: [
         {
           title: 'Market Expertise',
-          desc: 'Deep knowledge of UK, UAE, EU and US markets with on-the-ground presence and local partnerships.',
+          desc: 'Deep knowledge of UK, UAE, EU and US markets with strong local partnerships.',
         },
         {
           title: 'Bespoke Strategies',
@@ -83,7 +83,7 @@ const dictionaries = {
         },
         {
           title: 'Global Network',
-          desc: 'Strong relationships with leading developers, legal firms and financial institutions worldwide.',
+          desc: 'Strong relationships with leading firms, legal practices and financial institutions worldwide.',
         },
         {
           title: 'Transparent Process',
@@ -105,7 +105,7 @@ const dictionaries = {
         {
           num: '02',
           title: 'Strategy & Analysis',
-          desc: 'Our experts develop a bespoke investment strategy, backed by comprehensive market analysis and due diligence.',
+          desc: 'Our experts develop a bespoke investment strategy, backed by comprehensive market analysis.',
         },
         {
           num: '03',
@@ -167,7 +167,7 @@ const dictionaries = {
         titleHighlight: 'London',
         subtitle: 'One of the world\'s most resilient property markets. From luxury developments in Mayfair to high-yield opportunities in emerging boroughs.',
         stats: [
-          { value: '£850K', label: 'Average Price' },
+          { value: '£285K', label: 'Starting Price' },
           { value: '4-6%', label: 'Rental Yield' },
           { value: '15%', label: '5yr Capital Growth' },
         ],
@@ -451,7 +451,7 @@ const dictionaries = {
         titleHighlight: 'Yatırım Yapın',
         subtitle: 'Dünyanın en istikrarlı ve dayanıklı gayrimenkul pazarlarından biri. Mayfair\'in seçkin projelerinden, gelişen bölgelerde öne çıkan yüksek getiri potansiyelli fırsatlara kadar uzanan ayrıcalıklı bir portföy.',
         stats: [
-          { value: '£850K', label: 'Ortalama Fiyat' },
+          { value: '£285K', label: 'Başlangıç Fiyatı' },
           { value: '%4-6', label: 'Kira Getirisi' },
           { value: '%15', label: '5 Yıllık Değer Artışı' },
         ],

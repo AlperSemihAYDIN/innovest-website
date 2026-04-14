@@ -80,7 +80,7 @@ export default function CityContent({
       </section>
 
       {/* Properties Grid */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-background">
+      <section className="py-24 bg-background">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -152,7 +152,7 @@ export default function CityContent({
       </section>
 
       {/* CTA */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-surface border-t border-border">
+      <section className="py-24 bg-surface border-t border-border">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection>

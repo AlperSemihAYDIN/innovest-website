@@ -165,10 +165,10 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
             {/* Sidebar — 1 col */}
             <AnimatedSection delay={0.15}>
-              <div className="bg-surface border border-border p-6 space-y-5">
+              <div className="bg-surface border border-border/40 p-8 space-y-6">
                 {/* Extra stats */}
                 {property.floors && (
-                  <div className="flex items-center justify-between py-3 border-b border-border">
+                  <div className="flex items-center justify-between py-3 border-b border-border/30">
                     <div className="flex items-center gap-2 text-sm text-muted">
                       <Building2 size={14} className="text-gold" />
                       {t.floors}
@@ -177,7 +177,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
                   </div>
                 )}
                 {property.totalUnits && (
-                  <div className="flex items-center justify-between py-3 border-b border-border">
+                  <div className="flex items-center justify-between py-3 border-b border-border/30">
                     <span className="text-sm text-muted">{t.totalUnits}</span>
                     <span className="text-foreground font-medium">{property.totalUnits}</span>
                   </div>
@@ -185,12 +185,12 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
                 {/* Amenities */}
                 <div>
-                  <p className="text-xs text-gold tracking-widest uppercase mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+                  <p className="text-xs text-gold tracking-widest uppercase mb-4" style={{ fontFamily: 'var(--font-display)' }}>
                     Amenities
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {property.amenities.map((a) => (
-                      <span key={a} className="text-xs text-muted border border-border px-3 py-1">
+                      <span key={a} className="text-xs text-muted border border-border/30 px-3 py-1.5">
                         {a}
                       </span>
                     ))}
@@ -198,7 +198,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
                 </div>
 
                 {/* Address */}
-                <div className="pt-2 border-t border-border">
+                <div className="pt-3 border-t border-border/30">
                   <p className="text-xs text-gold tracking-widest uppercase mb-2" style={{ fontFamily: 'var(--font-display)' }}>
                     {t.address}
                   </p>
