@@ -74,14 +74,14 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
 
       {/* Featured article */}
       {featuredArticle && (
-        <section className="py-24 bg-background">
+        <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
           <div className="site-container flex flex-col items-center">
             <AnimatedSection>
               <Link
                 href={articleHref(featuredArticle.slug)}
                 className="block max-w-6xl mx-auto w-full"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border overflow-hidden group">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border overflow-hidden group rounded-xl">
                   <div className="relative h-72 lg:h-auto overflow-hidden">
                     <Image
                       src={featuredArticle.image}
@@ -116,7 +116,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       )}
 
       {/* Category filter + Articles */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="flex flex-wrap gap-3 mb-12 justify-center">
@@ -124,7 +124,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2 text-sm border transition-all duration-300 ${
+                  className={`px-5 py-2 text-sm border transition-all duration-300 rounded-lg ${
                     activeCategory === cat
                       ? 'border-gold text-gold bg-gold/5'
                       : 'border-border text-muted hover:border-gold/50 hover:text-gold'
@@ -140,7 +140,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
             {filteredArticles.filter((a) => !a.featured).map((article, index) => (
               <AnimatedSection key={article.id} delay={index * 0.1}>
                 <Link href={articleHref(article.slug)} className="block group">
-                  <article className="bg-surface border border-border overflow-hidden group-hover:border-gold/30 transition-all duration-500 card-hover">
+                  <article className="bg-surface border border-border overflow-hidden group-hover:border-gold/30 transition-all duration-500 card-hover rounded-xl">
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={article.image}
@@ -153,7 +153,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                         {categoryDisplayMap[article.category] || article.category}
                       </span>
                     </div>
-                    <div className="p-6">
+                    <div className="p-8">
                       <div className="flex items-center gap-4 text-xs text-muted mb-3">
                         <span className="flex items-center gap-1"><Calendar size={11} />{locale === 'tr' ? article.dateTr : article.date}</span>
                         <span className="flex items-center gap-1"><Clock size={11} />{locale === 'tr' ? article.readTimeTr : article.readTime}</span>

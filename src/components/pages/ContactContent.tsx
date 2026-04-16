@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Globe, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Globe, ArrowRight, ChevronDown } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import type { Dictionary } from '@/lib/dictionary';
 
@@ -78,7 +78,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Main Content — Two Column Premium Layout */}
-      <section className="py-32 md:py-40 bg-background">
+      <section className="py-32 md:py-40 bg-background min-h-[80vh] flex flex-col justify-center">
         <div className="site-container">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-20 lg:gap-24">
@@ -146,31 +146,37 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           </div>
                           <div className="py-3">
                             <label htmlFor="budget" className={labelClass}>{form.budget} *</label>
-                            <select
-                              id="budget"
-                              name="budget"
-                              required
-                              className={`${inputClass} appearance-none cursor-pointer`}
-                            >
-                              <option value="">{locale === 'en' ? 'Select budget range' : 'Bütçe aralığı seçin'}</option>
-                              {form.budgetOptions.map((opt) => (
-                                <option key={opt} value={opt}>{opt}</option>
-                              ))}
-                            </select>
+                            <div className="relative">
+                              <select
+                                id="budget"
+                                name="budget"
+                                required
+                                className="w-full bg-[#091B2A] border border-gold/15 px-4 py-4 pr-10 text-sm text-foreground focus:outline-none focus:border-gold/60 transition-colors duration-500 appearance-none cursor-pointer rounded-lg"
+                              >
+                                <option value="" className="bg-[#091B2A] text-muted">{locale === 'en' ? 'Select budget range' : 'Bütçe aralığı seçin'}</option>
+                                {form.budgetOptions.map((opt) => (
+                                  <option key={opt} value={opt} className="bg-[#091B2A] text-foreground">{opt}</option>
+                                ))}
+                              </select>
+                              <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gold/50 pointer-events-none" />
+                            </div>
                           </div>
                           <div className="py-3">
                             <label htmlFor="interest" className={labelClass}>{form.interest} *</label>
-                            <select
-                              id="interest"
-                              name="interest"
-                              required
-                              className={`${inputClass} appearance-none cursor-pointer`}
-                            >
-                              <option value="">{locale === 'en' ? 'Select area of interest' : 'İlgi alanı seçin'}</option>
-                              {form.interestOptions.map((opt) => (
-                                <option key={opt} value={opt}>{opt}</option>
-                              ))}
-                            </select>
+                            <div className="relative">
+                              <select
+                                id="interest"
+                                name="interest"
+                                required
+                                className="w-full bg-[#091B2A] border border-gold/15 px-4 py-4 pr-10 text-sm text-foreground focus:outline-none focus:border-gold/60 transition-colors duration-500 appearance-none cursor-pointer rounded-lg"
+                              >
+                                <option value="" className="bg-[#091B2A] text-muted">{locale === 'en' ? 'Select area of interest' : 'İlgi alanı seçin'}</option>
+                                {form.interestOptions.map((opt) => (
+                                  <option key={opt} value={opt} className="bg-[#091B2A] text-foreground">{opt}</option>
+                                ))}
+                              </select>
+                              <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gold/50 pointer-events-none" />
+                            </div>
                           </div>
                         </div>
 
@@ -188,7 +194,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="inline-flex items-center justify-center gap-3 px-16 py-5 bg-gold text-white text-sm font-medium tracking-[0.15em] uppercase hover:bg-gold-light disabled:opacity-50 transition-all duration-300"
+                            className="inline-flex items-center justify-center gap-3 px-16 py-5 bg-gold text-white text-sm font-medium tracking-[0.15em] uppercase hover:bg-gold-light disabled:opacity-50 transition-all duration-300 rounded-lg"
                           >
                             {isSubmitting ? (
                               <span className="flex items-center gap-2.5">
@@ -302,7 +308,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Offices Section */}
-      <section className="py-28 md:py-36 bg-surface">
+      <section className="py-28 md:py-36 bg-surface min-h-[60vh] flex flex-col justify-center">
         <div className="site-container">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -325,7 +331,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* London */}
             <AnimatedSection delay={0}>
-              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500">
+              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500 rounded-xl">
                 <div className="w-11 h-11 rounded-full bg-gold/8 flex items-center justify-center mb-8">
                   <Globe size={18} className="text-gold" />
                 </div>
@@ -360,7 +366,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
 
             {/* Dubai */}
             <AnimatedSection delay={0.1}>
-              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500">
+              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500 rounded-xl">
                 <div className="w-11 h-11 rounded-full bg-gold/8 flex items-center justify-center mb-8">
                   <Globe size={18} className="text-gold" />
                 </div>
@@ -388,7 +394,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
 
             {/* Turkey */}
             <AnimatedSection delay={0.2}>
-              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500">
+              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500 rounded-xl">
                 <div className="w-11 h-11 rounded-full bg-gold/8 flex items-center justify-center mb-8">
                   <Globe size={18} className="text-gold" />
                 </div>
@@ -418,7 +424,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Map Section */}
-      <section className="bg-background">
+      <section className="bg-background border-t border-border">
         <div className="site-container py-24">
           <AnimatedSection>
             <div className="max-w-5xl mx-auto">
@@ -427,15 +433,18 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                   {locale === 'en' ? 'Find Us' : 'Bizi Bulun'}
                 </span>
                 <h3
-                  className="text-2xl font-light"
+                  className="text-2xl font-light mb-3"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Berkeley Square, Mayfair
                 </h3>
+                <p className="text-sm text-muted">
+                  Berkeley Square House, 2nd Floor, London W1J 6BE
+                </p>
               </div>
-              <div className="relative w-full aspect-[16/7] border border-border/20 overflow-hidden">
+              <div className="relative w-full aspect-[16/7] border border-border/20 overflow-hidden rounded-xl">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.2!2d-0.1460!3d51.5099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f4e8bbbe7%3A0x6f87e2f2a4e53e3b!2sBerkeley%20Square%20House!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.2!2d-0.14601!3d51.50990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f4e8bbbe7%3A0x6f87e2f2a4e53e3b!2sBerkeley%20Square%20House%2C%20Berkeley%20Square%2C%20London%20W1J%206BE!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
                   width="100%"
                   height="100%"
                   style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
@@ -445,6 +454,16 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                   title="Innovest Capital London Office"
                   className="absolute inset-0 w-full h-full"
                 />
+                {/* Get Directions overlay */}
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Berkeley+Square+House,Mayfair,London+W1J+6BE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 left-4 inline-flex items-center gap-2 px-5 py-3 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 shadow-lg z-10 rounded-lg"
+                >
+                  <MapPin size={15} />
+                  {locale === 'en' ? 'Get Directions' : 'Yol Tarifi Al'}
+                </a>
               </div>
             </div>
           </AnimatedSection>

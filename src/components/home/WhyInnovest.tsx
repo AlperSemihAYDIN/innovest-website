@@ -12,7 +12,7 @@ const icons = [Target, Users, Globe, Award, Handshake, Eye];
 
 export default function WhyInnovest({ dict }: WhyUsProps) {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
@@ -37,8 +37,8 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
             const Icon = icons[index];
             return (
               <AnimatedSection key={item.title} delay={index * 0.1}>
-                <div className="group p-10 bg-surface/50 border border-border hover:border-gold/30 transition-all duration-500 text-center">
-                  <div className="w-14 h-14 mb-6 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                <div className="group p-10 bg-surface/50 border border-border hover:border-gold/30 transition-all duration-500 text-center rounded-xl">
+                  <div className="w-14 h-14 mb-6 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
                     <Icon size={24} className="text-gold" />
                   </div>
                   <h3

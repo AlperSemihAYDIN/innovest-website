@@ -67,7 +67,7 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
       </section>
 
       {/* Category Filter + Guides Grid */}
-      <section className="py-28 md:py-36 bg-background">
+      <section className="py-28 md:py-36 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container">
           {/* Category Pills */}
           <AnimatedSection>
@@ -79,7 +79,7 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
                   <button
                     key={cat.en}
                     onClick={() => setActiveCategory(value)}
-                    className={`px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-medium transition-all duration-300 border ${
+                    className={`px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-medium transition-all duration-300 border rounded-lg ${
                       isActive
                         ? 'bg-gold text-white border-gold'
                         : 'bg-transparent text-muted border-border/50 hover:border-gold/50 hover:text-gold'
@@ -116,35 +116,34 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-surface">
-        <div className="site-container">
-          <AnimatedSection>
-            <div className="max-w-3xl mx-auto text-center">
-              <span className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-5 block">
-                {locale === 'en' ? 'Need Personalised Advice?' : 'Kişiselleştirilmiş Danışmanlık mı Gerekiyor?'}
+      <section className="py-32 bg-surface border-t border-border min-h-[50vh] flex flex-col justify-center">
+        <div className="site-container flex flex-col items-center">
+          <AnimatedSection className="flex flex-col items-center text-center w-full">
+            <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.25em] uppercase font-medium mb-6">
+              {locale === 'en' ? 'Need Personalised Advice?' : 'Kişiselleştirilmiş Danışmanlık mı Gerekiyor?'}
+            </span>
+            <h2
+              className="text-3xl md:text-4xl font-light mb-4 text-center"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              {locale === 'en' ? 'Get a Tailored ' : 'Kişiye Özel '}
+              <span className="text-gradient-gold">
+                {locale === 'en' ? 'Investment Plan' : 'Yatırım Planı Alın'}
               </span>
-              <h2
-                className="text-3xl md:text-4xl font-light mb-6"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {locale === 'en'
-                  ? 'Get a Tailored Investment Plan'
-                  : 'Kişiye Özel Yatırım Planı Alın'}
-              </h2>
-              <div className="gold-line-center mb-6" />
-              <p className="text-muted text-sm leading-relaxed mb-10 max-w-xl mx-auto">
-                {locale === 'en'
-                  ? 'Our advisory team can provide a personalised investment breakdown based on your goals, budget and timeline.'
-                  : 'Danışmanlık ekibimiz, hedeflerinize, bütçenize ve zaman çizelgenize göre kişiselleştirilmiş bir yatırım analizi sunabilir.'}
-              </p>
-              <Link
-                href={locale === 'tr' ? '/tr/contact' : '/contact'}
-                className="inline-flex items-center gap-3 px-12 py-4 bg-gold text-white text-sm font-medium tracking-widest uppercase hover:bg-gold-light transition-all duration-300"
-              >
-                {locale === 'en' ? 'Book Free Consultation' : 'Ücretsiz Danışmanlık Alın'}
-                <ArrowRight size={16} />
-              </Link>
-            </div>
+            </h2>
+            <div className="gold-line-center mb-8" />
+            <p className="text-muted leading-relaxed mb-10 text-center max-w-xl mx-auto">
+              {locale === 'en'
+                ? 'Our advisory team can provide a personalised investment breakdown based on your goals, budget and timeline.'
+                : 'Danışmanlık ekibimiz, hedeflerinize, bütçenize ve zaman çizelgenize göre kişiselleştirilmiş bir yatırım analizi sunabilir.'}
+            </p>
+            <Link
+              href={locale === 'tr' ? '/tr/contact' : '/contact'}
+              className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+            >
+              {locale === 'en' ? 'Book Free Consultation' : 'Ücretsiz Danışmanlık Alın'}
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </AnimatedSection>
         </div>
       </section>
@@ -170,7 +169,7 @@ function GuideCard({
   return (
     <AnimatedSection delay={delay}>
       <Link href={href} className="group block h-full">
-        <div className="bg-surface border border-border/40 h-full flex flex-col hover:border-gold/30 transition-all duration-300">
+        <div className="bg-surface border border-border/40 h-full flex flex-col hover:border-gold/30 transition-all duration-300 rounded-xl">
           <div className="relative h-48 overflow-hidden">
             <Image
               src={guide.image}

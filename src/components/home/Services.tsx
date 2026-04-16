@@ -44,7 +44,7 @@ export default function Services({ dict, locale }: ServicesProps) {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
       <div className="site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>
@@ -62,7 +62,7 @@ export default function Services({ dict, locale }: ServicesProps) {
           {services.map((service, index) => (
             <AnimatedSection key={service.title} delay={index * 0.15}>
               <Link href={service.href} className="block group">
-                <div className="relative overflow-hidden bg-surface border border-border hover:border-gold/30 transition-all duration-500 card-hover">
+                <div className="relative overflow-hidden bg-surface border border-border hover:border-gold/30 transition-all duration-500 card-hover rounded-xl">
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <Image

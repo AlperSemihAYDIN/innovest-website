@@ -54,12 +54,12 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* Programmes */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.residencyPage.programmes.map((programme, index) => (
               <AnimatedSection key={programme.country} delay={index * 0.1}>
-                <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500">
+                <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 rounded-xl">
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={countryImages[programme.country] || countryImages['Portugal']}
@@ -99,7 +99,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
 
                     <Link
                       href={`${prefix}/contact`}
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 border border-border text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 border border-border text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn rounded-lg"
                     >
                       {locale === 'en' ? 'Get Expert Guidance' : 'Uzman Rehberliği Alın'}
                       <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -113,7 +113,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-surface">
+      <section className="py-24 bg-surface min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -152,22 +152,22 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-24 bg-background border-t border-border min-h-[40vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
-            <AnimatedSection>
-              <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+            <AnimatedSection className="flex flex-col items-center text-center w-full">
+              <h2 className="text-3xl md:text-4xl font-light mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? 'Start Your Residency ' : 'Oturum Yolculuğunuza '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Journey' : 'Başlayın'}</span>
               </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto">
+              <p className="text-muted mb-10 max-w-2xl mx-auto text-center">
                 {locale === 'en'
                   ? 'Our immigration and investment experts are ready to guide you through the entire process.'
                   : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.'}
               </p>
               <Link
                 href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
               >
                 {dict.nav.getConsultation}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

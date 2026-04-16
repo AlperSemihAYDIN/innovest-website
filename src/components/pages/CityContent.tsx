@@ -80,7 +80,7 @@ export default function CityContent({
       </section>
 
       {/* Properties Grid */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -100,7 +100,7 @@ export default function CityContent({
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {properties.map((property, index) => (
               <AnimatedSection key={property.name} delay={index * 0.1}>
-                <div className="bg-surface border border-border/40 rounded-sm overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">
+                <div className="bg-surface border border-border/40 rounded-xl overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">
                   <div className="relative h-60 overflow-hidden">
                     <Image
                       src={property.image}
@@ -138,7 +138,7 @@ export default function CityContent({
                     </div>
                     <Link
                       href={property.slug ? `${prefix}/real-estate/${city.toLowerCase() === 'londra' ? 'london' : city.toLowerCase()}/${property.slug}` : `${prefix}/contact`}
-                      className="mt-5 w-full inline-flex items-center justify-center gap-2 py-3.5 border border-border/30 text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn"
+                      className="mt-5 w-full inline-flex items-center justify-center gap-2 py-3.5 border border-border/30 text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn rounded-lg"
                     >
                       {locale === 'en' ? 'Enquire Now' : 'Bilgi Al'}
                       <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -152,24 +152,24 @@ export default function CityContent({
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-surface border-t border-border">
+      <section className="py-24 bg-surface border-t border-border min-h-[40vh] flex flex-col justify-center">
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
-            <AnimatedSection>
-              <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+            <AnimatedSection className="flex flex-col items-center text-center w-full">
+              <h2 className="text-3xl md:text-4xl font-light mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? `Interested in ${city} ` : `${city} `}
                 <span className="text-gradient-gold">
                   {locale === 'en' ? 'Property?' : 'Gayrimenkulü ile İlgileniyor musunuz?'}
                 </span>
               </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto">
+              <p className="text-muted mb-10 max-w-2xl mx-auto text-center">
                 {locale === 'en'
                   ? 'Our expert advisors can provide personalised guidance and access to exclusive off-market opportunities.'
                   : 'Uzman danışmanlarımız kişiselleştirilmiş rehberlik ve özel fırsatlara erişim sağlayabilir.'}
               </p>
               <Link
                 href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
               >
                 {dict.nav.getConsultation}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

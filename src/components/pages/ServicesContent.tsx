@@ -94,14 +94,14 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {allServices.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.08}>
                 <Link href={service.href} className="block group h-full">
-                  <div className="p-8 bg-surface border border-border group-hover:border-gold/30 transition-all duration-500 h-full flex flex-col">
-                    <div className="w-12 h-12 mb-6 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                  <div className="p-8 bg-surface border border-border group-hover:border-gold/30 transition-all duration-500 h-full flex flex-col rounded-xl">
+                    <div className="w-12 h-12 mb-6 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
                       <service.icon size={22} className="text-gold" />
                     </div>
                     <h3
@@ -136,7 +136,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
           <div className="absolute inset-0 bg-background/70" />
         </div>
         <div className="relative site-container flex flex-col items-center text-center py-24">
-          <AnimatedSection>
+          <AnimatedSection className="flex flex-col items-center text-center w-full">
             <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
               {locale === 'en' ? 'Get Started' : 'Başlayın'}
             </span>
@@ -144,14 +144,14 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
               {locale === 'en' ? "Need a Service That's " : 'Size Özel Bir Hizmet mi '}
               <span className="text-gradient-gold">{locale === 'en' ? 'Tailored to You?' : 'Arıyorsunuz?'}</span>
             </h2>
-            <p className="text-muted text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-muted text-lg mb-10 max-w-2xl mx-auto text-center">
               {locale === 'en'
                 ? "Every client is unique. Let's discuss your specific needs and create a bespoke service package."
                 : 'Her yatırımcı ve her hedef benzersizdir. İhtiyaçlarınızı birlikte değerlendirerek size özel bir hizmet paketi oluşturalım.'}
             </p>
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 px-10 py-4 bg-gold text-white font-medium text-lg hover:bg-gold-light transition-all duration-300 btn-shine group"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-gold text-white font-medium text-lg hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
             >
               {dict.nav.getConsultation}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

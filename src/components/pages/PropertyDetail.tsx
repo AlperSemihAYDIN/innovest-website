@@ -148,7 +148,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Overview ──────────────────────────────────────────────── */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
@@ -165,7 +165,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
             {/* Sidebar — 1 col */}
             <AnimatedSection delay={0.15}>
-              <div className="bg-surface border border-border/40 p-8 space-y-6">
+              <div className="bg-surface border border-border/40 p-8 space-y-6 rounded-xl">
                 {/* Extra stats */}
                 {property.floors && (
                   <div className="flex items-center justify-between py-3 border-b border-border/30">
@@ -208,7 +208,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
                 {/* CTA */}
                 <Link
                   href={`${prefix}/contact`}
-                  className="mt-2 w-full flex items-center justify-center gap-2 bg-gold text-[#09090b] py-3 text-sm tracking-widest uppercase hover:bg-gold-light transition-colors duration-300"
+                  className="mt-2 w-full flex items-center justify-center gap-2 bg-gold text-[#09090b] py-3 text-sm tracking-widest uppercase hover:bg-gold-light transition-colors duration-300 rounded-lg"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {t.contact}
@@ -221,7 +221,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Project Highlights ────────────────────────────────────── */}
-      <section className="py-24 bg-surface border-t border-border">
+      <section className="py-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
@@ -247,7 +247,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Gallery ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-24 bg-background border-t border-border min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
@@ -334,7 +334,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       )}
 
       {/* ─── Location Map ──────────────────────────────────────────── */}
-      <section className="py-24 bg-surface border-t border-border">
+      <section className="py-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
@@ -375,7 +375,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border">
+      <section className="py-24 bg-background border-t border-border min-h-[40vh] flex flex-col justify-center">
         <div className="site-container max-w-3xl text-center">
           <AnimatedSection>
             <span
@@ -393,7 +393,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             <p className="text-muted mb-10 leading-relaxed">{t.enquireDesc}</p>
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-[#09090b] font-medium hover:bg-gold-light transition-all duration-300 group"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-[#09090b] font-medium hover:bg-gold-light transition-all duration-300 group rounded-lg"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {t.consultant}

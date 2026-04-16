@@ -45,15 +45,15 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Services */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.businessPage.services.map((service, index) => {
               const Icon = serviceIcons[index];
               return (
                 <AnimatedSection key={service.title} delay={index * 0.1}>
-                  <div className="p-10 bg-surface border border-border group hover:border-gold/30 transition-all duration-500 h-full">
-                    <div className="w-14 h-14 mb-6 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
+                  <div className="p-10 bg-surface border border-border group hover:border-gold/30 transition-all duration-500 h-full rounded-xl">
+                    <div className="w-14 h-14 mb-6 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
                       <Icon size={24} className="text-gold" />
                     </div>
                     <h3
@@ -72,7 +72,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Markets we cover */}
-      <section className="py-24 bg-surface">
+      <section className="py-24 bg-surface min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-20">
@@ -99,7 +99,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
               { name: 'Singapore', flag: '🇸🇬' },
             ].map((market, index) => (
               <AnimatedSection key={market.name} delay={index * 0.05}>
-                <div className="p-6 bg-background border border-border text-center group hover:border-gold/30 transition-all duration-300">
+                <div className="p-6 bg-background border border-border text-center group hover:border-gold/30 transition-all duration-300 rounded-xl">
                   <span className="text-3xl mb-3 block">{market.flag}</span>
                   <p className="text-sm text-muted group-hover:text-gold transition-colors">{market.name}</p>
                 </div>
@@ -110,22 +110,22 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-40 bg-background border-t border-border">
+      <section className="py-32 md:py-40 bg-background border-t border-border min-h-[40vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
-            <AnimatedSection>
-              <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+            <AnimatedSection className="flex flex-col items-center text-center w-full">
+              <h2 className="text-3xl md:text-4xl font-light mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Globally?' : 'Hazır mısınız?'}</span>
               </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto">
+              <p className="text-muted mb-10 max-w-2xl mx-auto text-center">
                 {locale === 'en'
                   ? "Let's discuss how we can help you enter new markets and grow your business internationally."
                   : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirelim.'}
               </p>
               <Link
                 href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
               >
                 {dict.nav.getConsultation}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

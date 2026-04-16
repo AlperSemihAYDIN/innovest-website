@@ -34,7 +34,7 @@ interface TestimonialsProps {
 export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
   const tr = locale === 'tr';
   return (
-    <section className="py-32 md:py-40 bg-surface">
+    <section className="py-32 md:py-40 bg-surface min-h-[60vh] flex flex-col justify-center">
       <div className="site-container flex flex-col items-center">
         {/* Heading — centered */}
         <AnimatedSection className="w-full flex justify-center">
@@ -61,7 +61,7 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
         <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={testimonial.name} delay={index * 0.15}>
-              <div className="bg-background border border-border p-12 h-full flex flex-col">
+              <div className="bg-background border border-border p-12 h-full flex flex-col rounded-xl">
                 {/* Quote mark */}
                 <span
                   className="text-6xl text-gold/20 leading-none mb-6"

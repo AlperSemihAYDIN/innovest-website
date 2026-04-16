@@ -62,7 +62,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
   return (
-    <section className="py-24 bg-surface">
+    <section className="pt-32 pb-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
       <div className="site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>
@@ -89,7 +89,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group">
-                <div className="bg-background border border-border/40 rounded-sm hover:border-gold/30 overflow-hidden transition-all duration-500 card-hover">
+                <div className="bg-background border border-border/40 rounded-xl hover:border-gold/30 overflow-hidden transition-all duration-500 card-hover">
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image

@@ -37,7 +37,7 @@ export default function Footer({ dict, locale }: FooterProps) {
       </div>
 
       {/* Main Footer */}
-      <div className="site-container pt-16 pb-20">
+      <div className="site-container pt-16 pb-20 min-h-[40vh] flex flex-col justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">

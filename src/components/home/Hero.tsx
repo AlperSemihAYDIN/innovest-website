@@ -36,7 +36,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
       </div>
 
-      <div className="relative z-10 w-full max-w-3xl px-6 py-36 text-center">
+      <div className="relative z-10 w-full max-w-4xl px-6 py-36 text-center mx-auto">
           {mounted && (
             <>
               <motion.div
@@ -54,7 +54,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-8"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-8 mx-auto w-full"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {dict.hero.title}
@@ -62,14 +62,16 @@ export default function Hero({ dict, locale }: HeroProps) {
                 <span className="text-gradient-gold">{dict.hero.titleHighlight}</span>
               </motion.h1>
 
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto mb-14"
+                className="flex justify-center mb-14"
               >
-                {dict.hero.subtitle}
-              </motion.p>
+                <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl text-center">
+                  {dict.hero.subtitle}
+                </p>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -79,7 +81,7 @@ export default function Hero({ dict, locale }: HeroProps) {
               >
                 <Link
                   href={`${prefix}/contact`}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
                 >
                   {dict.hero.cta}
                   <ArrowRight
@@ -89,7 +91,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 </Link>
                 <Link
                   href={`${prefix}/services`}
-                  className="inline-flex items-center gap-2 px-8 py-4 border border-border text-foreground hover:border-gold hover:text-gold transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-8 py-4 border border-border text-foreground hover:border-gold hover:text-gold transition-all duration-300 rounded-lg"
                 >
                   {dict.hero.ctaSecondary}
                 </Link>

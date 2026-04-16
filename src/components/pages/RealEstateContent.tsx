@@ -65,12 +65,12 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
       </section>
 
       {/* Markets */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center space-y-20">
           {markets.map((market, index) => (
             <AnimatedSection key={market.city} className="w-full max-w-6xl mx-auto">
               <Link href={market.href} className="block group">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border hover:border-gold/30 overflow-hidden transition-all duration-500 ${index % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border hover:border-gold/30 overflow-hidden transition-all duration-500 rounded-xl ${index % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
                   <div className="relative h-80 lg:h-[500px] overflow-hidden">
                     <Image
                       src={market.image}
