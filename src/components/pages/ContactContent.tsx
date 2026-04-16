@@ -14,6 +14,7 @@ interface ContactContentProps {
 export default function ContactContent({ dict, locale }: ContactContentProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const form = dict.contactPage.form;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,13 +33,20 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
     };
 
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
+      if (!res.ok) {
+        setSubmitError(true);
+        setIsSubmitting(false);
+        return;
+      }
     } catch {
-      // Silently fail — still show success to user
+      setSubmitError(true);
+      setIsSubmitting(false);
+      return;
     }
 
     setIsSubmitting(false);
@@ -102,6 +110,20 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           ? "We've received your enquiry and will be in touch within 24 hours."
                           : 'Talebinizi aldık, 24 saat içinde sizinle iletişime geçeceğiz.'}
                       </p>
+                    </div>
+                  ) : submitError ? (
+                    <div className="flex flex-col items-center justify-center py-28 text-center">
+                      <p className="text-red-400 text-base max-w-md leading-relaxed mb-6">
+                        {locale === 'en'
+                          ? 'Something went wrong. Please try again or contact us directly.'
+                          : 'Bir hata oluştu. Lütfen tekrar deneyin veya bize doğrudan ulaşın.'}
+                      </p>
+                      <button
+                        onClick={() => setSubmitError(false)}
+                        className="text-gold text-sm underline underline-offset-4"
+                      >
+                        {locale === 'en' ? 'Try again' : 'Tekrar dene'}
+                      </button>
                     </div>
                   ) : (
                     <>

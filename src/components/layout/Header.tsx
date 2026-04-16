@@ -131,7 +131,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                     href={item.href}
                     className="flex items-center gap-1.5 py-2 text-[12px] tracking-[0.08em] uppercase text-muted-light hover:text-gold transition-colors duration-300 whitespace-nowrap"
                   >
-                    {item.label}
+                    {locale === 'tr' ? item.label.toLocaleUpperCase('tr-TR') : item.label}
                     {item.children && <ChevronDown size={14} className="opacity-50" />}
                   </Link>
 

@@ -30,7 +30,9 @@ export async function POST(req: NextRequest) {
     });
 
     return Response.json({ success: true }, { status: 201 });
-  } catch {
-    return Response.json({ error: 'Server error' }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error('[contact] Error:', msg);
+    return Response.json({ error: 'Server error', detail: msg }, { status: 500 });
   }
 }
