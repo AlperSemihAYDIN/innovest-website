@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { AuthProvider, useAuth } from '@/components/admin/AuthProvider';
 import Sidebar from '@/components/admin/Sidebar';
@@ -9,12 +9,28 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     if (!loading && !user && pathname !== '/admin/login') {
       router.replace('/admin/login');
     }
   }, [user, loading, pathname, router]);
+
+  // Sync collapsed state from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('admin-sidebar-collapsed');
+    if (saved !== null) setCollapsed(saved === 'true');
+    // Watch for storage changes (sidebar toggle)
+    const handler = () => {
+      const val = localStorage.getItem('admin-sidebar-collapsed');
+      if (val !== null) setCollapsed(val === 'true');
+    };
+    window.addEventListener('storage', handler);
+    // Also poll since same-tab localStorage changes don't fire 'storage'
+    const interval = setInterval(handler, 150);
+    return () => { window.removeEventListener('storage', handler); clearInterval(interval); };
+  }, []);
 
   if (loading) {
     return (
@@ -29,7 +45,6 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
 
   if (!user && pathname !== '/admin/login') return null;
 
-  // Login page — no sidebar
   if (pathname === '/admin/login') {
     return <>{children}</>;
   }
@@ -37,7 +52,10 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[#060e1a]">
       <Sidebar />
-      <main className="ml-64 min-h-screen">
+      <main
+        className="min-h-screen transition-all duration-300"
+        style={{ marginLeft: collapsed ? '4rem' : '14rem' }}
+      >
         <div className="p-8">{children}</div>
       </main>
     </div>

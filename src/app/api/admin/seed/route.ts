@@ -51,6 +51,12 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  await batch.commit();
-  return Response.json({ success: true, message: `Seeded: ${collection}` });
+  try {
+    await batch.commit();
+    return Response.json({ success: true, message: `Seeded: ${collection}` });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('[seed] batch.commit error:', message);
+    return Response.json({ success: false, error: message }, { status: 500 });
+  }
 }
