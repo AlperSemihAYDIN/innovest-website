@@ -132,14 +132,18 @@ export default function ContactsPage() {
               {/* Expanded Detail */}
               {expandedId === contact.id && (
                 <div className="px-6 pb-5 pt-2 border-t border-white/5">
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 mb-5">
+                    <div>
+                      <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Ad Soyad</p>
+                      <p className="text-sm text-white/70">{contact.firstname || '—'}</p>
+                    </div>
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">E-posta</p>
                       <a href={`mailto:${contact.email}`} className="text-sm text-[#C1A45D] hover:underline break-all">{contact.email || '—'}</a>
                     </div>
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Telefon</p>
-                      <p className="text-sm text-white/70">{contact.phone || '—'}</p>
+                      <a href={`tel:${contact.phone}`} className="text-sm text-white/70 hover:text-white transition-colors">{contact.phone || '—'}</a>
                     </div>
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Şehir</p>
@@ -150,8 +154,16 @@ export default function ContactsPage() {
                       <p className="text-sm text-white/70">{contact.budget || '—'}</p>
                     </div>
                     <div>
+                      <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">İlgi Alanı</p>
+                      <p className="text-sm text-white/70">{contact.interest || '—'}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Tarih</p>
+                      <p className="text-sm text-white/70">{contact.createdAt ? new Date(contact.createdAt).toLocaleString('tr-TR') : '—'}</p>
+                    </div>
+                    <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Kaynak</p>
-                      <p className="text-sm text-white/70 truncate">{contact.source || '—'}</p>
+                      <p className="text-sm text-white/70">{contact.source || '—'}</p>
                     </div>
                   </div>
                   {contact.message && (
