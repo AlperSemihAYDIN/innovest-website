@@ -3,18 +3,31 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import CityContent from '@/components/pages/CityContent';
-import { getPropertiesByCity } from '@/lib/propertyData';
+import { allProperties } from '@/lib/propertyData';
+import type { PropertyData } from '@/lib/propertyData';
+import { adminDb } from '@/lib/firebaseAdmin';
 import type { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Dubai Gayrimenkul Yatırımı',
   description: "Dubai'de premium gayrimenkul yatırım fırsatları. Dünyanın en hızlı büyüyen lüks pazarında vergisiz getiriler.",
 };
 
-export default function DubaiPageTR() {
+export default async function DubaiPageTR() {
   const dict = getDictionary('tr');
   const d = dict.realEstatePage.dubai;
-  const properties = getPropertiesByCity('dubai').map((p) => ({
+
+  let rawProperties: PropertyData[] = allProperties.filter((p) => p.city === 'dubai');
+  try {
+    const snap = await adminDb.collection('properties').where('city', '==', 'dubai').get();
+    if (!snap.empty) {
+      rawProperties = snap.docs.map((doc) => doc.data() as PropertyData);
+    }
+  } catch { /* use static fallback */ }
+
+  const properties = rawProperties.map((p) => ({
     name: p.name,
     developer: p.developer,
     location: p.location,

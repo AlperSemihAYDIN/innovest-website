@@ -11,6 +11,21 @@ interface InvestmentMapProps {
   locale: 'en' | 'tr';
 }
 
+interface FirestoreProperty {
+  slug: string;
+  name: string;
+  developer: string;
+  location: string;
+  region: 'UK' | 'UAE';
+  city: string;
+  lat: number;
+  lng: number;
+  heroImage?: string;
+  images?: string[];
+  price: string;
+  yield: string;
+}
+
 const REGION_CENTERS: Record<'UK' | 'UAE', [number, number]> = {
   UK: [51.505, -0.09],
   UAE: [25.2048, 55.2708],
@@ -25,13 +40,42 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
   const [activeRegion, setActiveRegion] = useState<'UK' | 'UAE'>('UK');
   const [selected, setSelected] = useState<MapProperty | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [allMapProps, setAllMapProps] = useState<MapProperty[]>(mapProperties);
   // mapReady tracks when Leaflet is fully initialised — fixes initial marker bug
   const [mapReady, setMapReady] = useState(false);
   const mapRef = useRef<import('leaflet').Map | null>(null);
   const markersRef = useRef<import('leaflet').Marker[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const filtered = mapProperties.filter((p) => p.region === activeRegion);
+  const filtered = allMapProps.filter((p) => p.region === activeRegion);
+
+  // Fetch live properties from Firestore via public API
+  useEffect(() => {
+    fetch('/api/properties')
+      .then((r) => r.json())
+      .then((data: FirestoreProperty[]) => {
+        const converted: MapProperty[] = data
+          .filter((p) => p.lat && p.lng)
+          .map((p, i) => ({
+            id: 2000 + i,
+            name: p.name,
+            developer: p.developer,
+            location: p.location,
+            region: p.region,
+            lat: p.lat,
+            lng: p.lng,
+            image: p.heroImage || p.images?.[0] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800',
+            price: p.price,
+            yield: p.yield,
+            href: {
+              en: `/real-estate/${p.city}/${p.slug}`,
+              tr: `/tr/real-estate/${p.city}/${p.slug}`,
+            },
+          }));
+        if (converted.length > 0) setAllMapProps(converted);
+      })
+      .catch(() => { /* keep static */ });
+  }, []);
 
   const t = {
     en: {
@@ -138,7 +182,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         popupAnchor: [0, -28],
       });
 
-      mapProperties
+      allMapProps
         .filter((p) => p.region === activeRegion)
         .forEach((property) => {
           const marker = L.marker([property.lat, property.lng], { icon: goldIcon });
@@ -152,7 +196,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
     };
 
     update();
-  }, [mapReady, activeRegion]);
+  }, [mapReady, activeRegion, allMapProps]);
 
   return (
     <section className="flex flex-col justify-center py-24 bg-surface">

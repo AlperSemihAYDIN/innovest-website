@@ -3,18 +3,31 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import CityContent from '@/components/pages/CityContent';
-import { getPropertiesByCity } from '@/lib/propertyData';
+import { allProperties } from '@/lib/propertyData';
+import type { PropertyData } from '@/lib/propertyData';
+import { adminDb } from '@/lib/firebaseAdmin';
 import type { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'London Real Estate Investment',
   description: "Premium property investment opportunities in London. High-yield developments in one of the world's most resilient markets.",
 };
 
-export default function LondonPage() {
+export default async function LondonPage() {
   const dict = getDictionary('en');
   const d = dict.realEstatePage.london;
-  const properties = getPropertiesByCity('london').map((p) => ({
+
+  let rawProperties: PropertyData[] = allProperties.filter((p) => p.city === 'london');
+  try {
+    const snap = await adminDb.collection('properties').where('city', '==', 'london').get();
+    if (!snap.empty) {
+      rawProperties = snap.docs.map((doc) => doc.data() as PropertyData);
+    }
+  } catch { /* use static fallback */ }
+
+  const properties = rawProperties.map((p) => ({
     name: p.name,
     developer: p.developer,
     location: p.location,
