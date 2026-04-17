@@ -132,7 +132,11 @@ export default function ContactsPage() {
               {/* Expanded Detail */}
               {expandedId === contact.id && (
                 <div className="px-6 pb-5 pt-2 border-t border-white/5">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                      <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">E-posta</p>
+                      <a href={`mailto:${contact.email}`} className="text-sm text-[#C1A45D] hover:underline break-all">{contact.email || '—'}</a>
+                    </div>
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Telefon</p>
                       <p className="text-sm text-white/70">{contact.phone || '—'}</p>
