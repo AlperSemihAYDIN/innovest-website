@@ -6,6 +6,14 @@ let _app: App | undefined;
 let _db: Firestore | undefined;
 let _auth: Auth | undefined;
 
+function getPrivateKey(): string {
+  // Try base64-encoded key first (production-safe)
+  const b64 = process.env.FIREBASE_ADMIN_PRIVATE_KEY_B64;
+  if (b64) return Buffer.from(b64, 'base64').toString('utf-8');
+  // Fallback to raw key (local dev)
+  return process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n') || '';
+}
+
 function getApp(): App {
   if (!_app) {
     if (getApps().length === 0) {
@@ -13,7 +21,7 @@ function getApp(): App {
         credential: cert({
           projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
           clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
-          privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+          privateKey: getPrivateKey(),
         }),
       });
     } else {
