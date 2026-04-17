@@ -3,9 +3,12 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import ArticleDetail from '@/components/pages/ArticleDetail';
-import { articles, getArticleBySlug } from '@/lib/articleData';
+import { articles, getArticleBySlug, type Article } from '@/lib/articleData';
+import { adminDb } from '@/lib/firebaseAdmin';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+
+export const dynamicParams = true;
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -27,7 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function InsightsArticlePageTr({ params }: Props) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  let article: Article | null = getArticleBySlug(slug) ?? null;
+
+  if (!article) {
+    try {
+      const snap = await adminDb.collection('articles').where('slug', '==', slug).limit(1).get();
+      if (!snap.empty) article = snap.docs[0].data() as Article;
+    } catch { /* use notFound */ }
+  }
+
   if (!article) notFound();
 
   const dict = getDictionary('tr');

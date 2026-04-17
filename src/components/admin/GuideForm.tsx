@@ -79,7 +79,9 @@ export default function GuideForm({ id, onSaved }: GuideFormProps) {
     try {
       const result = await adminApi.upload(file, `guides/${data.slug || 'new'}`);
       update('image', result.url);
-    } catch { alert('Yükleme hatası'); }
+    } catch {
+      alert('Dosya yükleme yapılandırılmamış. Lütfen "Kapak Görseli" alanına doğrudan bir resim URL\'si yapıştırın.\n\nÖrnek: https://images.unsplash.com/photo-...');
+    }
     e.target.value = '';
   }
 

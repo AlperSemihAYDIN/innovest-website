@@ -3,9 +3,12 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import GuideDetail from '@/components/pages/GuideDetail';
-import { guides, getGuideBySlug } from '@/lib/knowledgeHubData';
+import { guides, getGuideBySlug, type Guide } from '@/lib/knowledgeHubData';
+import { adminDb } from '@/lib/firebaseAdmin';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+
+export const dynamicParams = true;
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -27,7 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GuideDetailPage({ params }: Props) {
   const { slug } = await params;
-  const guide = getGuideBySlug(slug);
+  let guide: Guide | null = getGuideBySlug(slug) ?? null;
+
+  if (!guide) {
+    try {
+      const snap = await adminDb.collection('guides').where('slug', '==', slug).limit(1).get();
+      if (!snap.empty) guide = snap.docs[0].data() as Guide;
+    } catch { /* use notFound */ }
+  }
+
   if (!guide) notFound();
 
   const dict = getDictionary('en');

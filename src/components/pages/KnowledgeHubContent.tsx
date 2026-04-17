@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, ExternalLink } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import type { Dictionary } from '@/lib/dictionary';
-import { guides, knowledgeCategories, type Guide } from '@/lib/knowledgeHubData';
+import { guides as staticGuides, knowledgeCategories, type Guide } from '@/lib/knowledgeHubData';
 
 interface KnowledgeHubContentProps {
   dict: Dictionary;
@@ -15,14 +15,22 @@ interface KnowledgeHubContentProps {
 
 export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubContentProps) {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [guideList, setGuideList] = useState<Guide[]>(staticGuides);
+
+  useEffect(() => {
+    fetch('/api/guides')
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data) && data.length > 0) setGuideList(data); })
+      .catch(() => {});
+  }, []);
 
   const guideHref = (slug: string) =>
     locale === 'tr' ? `/tr/knowledge-hub/${slug}` : `/knowledge-hub/${slug}`;
 
   const filteredGuides =
     activeCategory === 'All' || activeCategory === 'Tümü'
-      ? guides
-      : guides.filter((g) =>
+      ? guideList
+      : guideList.filter((g) =>
           locale === 'tr'
             ? g.categoryTr === activeCategory
             : g.category === activeCategory

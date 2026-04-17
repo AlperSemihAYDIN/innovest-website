@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import type { Dictionary } from '@/lib/dictionary';
-import { articles } from '@/lib/articleData';
+import { articles as staticArticles, type Article } from '@/lib/articleData';
 
 interface InsightsContentProps {
   dict: Dictionary;
@@ -16,6 +16,14 @@ interface InsightsContentProps {
 export default function InsightsContent({ dict, locale }: InsightsContentProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const categories = dict.insightsPage.categories;
+  const [articleList, setArticleList] = useState<Article[]>(staticArticles);
+
+  useEffect(() => {
+    fetch('/api/articles')
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data) && data.length > 0) setArticleList(data); })
+      .catch(() => {});
+  }, []);
 
   const categoryMap: Record<string, string> = {
     'Market Reports': 'Market Reports',
@@ -39,10 +47,10 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
     locale === 'tr' ? `/tr/insights/${slug}` : `/insights/${slug}`;
 
   const filteredArticles = activeCategory === 'All' || activeCategory === 'Tümü'
-    ? articles
-    : articles.filter((a) => a.category === (categoryMap[activeCategory] || activeCategory));
+    ? articleList
+    : articleList.filter((a) => a.category === (categoryMap[activeCategory] || activeCategory));
 
-  const featuredArticle = articles.find((a) => a.featured);
+  const featuredArticle = articleList.find((a) => a.featured);
 
   return (
     <>

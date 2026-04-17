@@ -80,7 +80,7 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
       const result = await adminApi.upload(file, `articles/${data.slug || 'new'}`);
       update('image', result.url);
     } catch {
-      alert('Yükleme hatası');
+      alert('Dosya yükleme yapılandırılmamış. Lütfen "Kapak Görseli" alanına doğrudan bir resim URL\'si yapıştırın.\n\nÖrnek: https://images.unsplash.com/photo-...');
     }
     e.target.value = '';
   }
