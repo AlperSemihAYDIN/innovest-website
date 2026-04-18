@@ -101,7 +101,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             {/* Logo — sol, sabit genişlik */}
             <Link href={`${prefix}/`} className="shrink-0 flex items-center group">
               <Image
-                src="/logo10.png"
+                src="/logo-nav-transparent.png"
                 alt="Innovest Capital"
                 width={130}
                 height={40}
