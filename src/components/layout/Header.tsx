@@ -99,23 +99,15 @@ export default function Header({ dict, locale }: HeaderProps) {
         <div className="site-container flex items-center h-[72px]">
 
             {/* Logo — sol, sabit genişlik */}
-            <Link href={`${prefix}/`} className="shrink-0 flex items-center gap-3 group">
+            <Link href={`${prefix}/`} className="shrink-0 flex items-center group">
               <Image
-                src="/logo-icon-transparent.png"
+                src="/logo10.png"
                 alt="Innovest Capital"
-                width={40}
+                width={130}
                 height={40}
-                className="rounded-sm"
+                className="object-contain"
                 priority
               />
-              <div className="flex flex-col">
-                <span className="text-lg font-semibold tracking-[0.2em] text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
-                  INNOVEST
-                </span>
-                <span className="text-[9px] tracking-[0.25em] text-muted uppercase">
-                  {locale === 'tr' ? 'Yatırım Danışmanlığı' : 'Investment Advisory'}
-                </span>
-              </div>
             </Link>
 
             {/* Desktop Navigation */}

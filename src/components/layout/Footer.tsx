@@ -43,7 +43,7 @@ export default function Footer({ dict, locale }: FooterProps) {
           <div className="lg:col-span-1">
             <Link href={`${prefix}/`} className="flex items-center gap-3 mb-6">
               <Image
-                src="/logo-horizontal-transparent.png"
+                src="/logo16.png"
                 alt="Innovest Capital"
                 width={140}
                 height={70}
