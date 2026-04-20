@@ -44,7 +44,7 @@ export default function Services({ dict, locale }: ServicesProps) {
   ];
 
   return (
-    <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+    <section className="py-24 bg-background">
       <div className="site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>

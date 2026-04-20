@@ -62,7 +62,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
   return (
-    <section className="pt-32 pb-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
+    <section className="py-24 bg-surface border-t border-border">
       <div className="site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>

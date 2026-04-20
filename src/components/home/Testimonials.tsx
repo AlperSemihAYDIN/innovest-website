@@ -34,7 +34,7 @@ interface TestimonialsProps {
 export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
   const tr = locale === 'tr';
   return (
-    <section className="py-32 md:py-40 bg-surface min-h-[60vh] flex flex-col justify-center">
+    <section className="py-32 md:py-40 bg-surface">
       <div className="site-container flex flex-col items-center">
         {/* Heading — centered */}
         <AnimatedSection className="w-full flex justify-center">
