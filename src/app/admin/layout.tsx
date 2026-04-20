@@ -53,10 +53,13 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-[#060e1a]">
       <Sidebar />
       <main
-        className="min-h-screen transition-all duration-300"
-        style={{ marginLeft: collapsed ? '4rem' : '14rem' }}
+        className={`min-h-screen transition-all duration-300 pt-14 lg:pt-0 ml-0 ${
+          collapsed ? 'lg:ml-16' : 'lg:ml-56'
+        }`}
       >
-        <div className="p-8">{children}</div>
+        <div className="px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10 max-w-[1600px] mx-auto">
+          {children}
+        </div>
       </main>
     </div>
   );
