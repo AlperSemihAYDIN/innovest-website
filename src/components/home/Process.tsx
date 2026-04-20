@@ -26,9 +26,9 @@ export default function Process({ dict }: ProcessProps) {
       </div>
 
       {/* Right: heading + steps */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 pt-32 pb-24 lg:py-0">
+      <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 pt-8 pb-24 lg:pt-0 lg:pb-0 border-t border-border lg:border-t-0">
         <AnimatedSection>
-          <div className="mb-16">
+          <div className="mb-8 lg:mb-16">
             <SectionHeading
               tagline={dict.process.tagline}
               title={dict.process.title}
