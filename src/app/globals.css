@@ -195,3 +195,10 @@ body {
 @media (min-width: 1280px) {
   .site-container { padding-left: 5rem; padding-right: 5rem; }
 }
+
+/* ─── Admin Panel Layout ──────────────────────────── */
+@media (min-width: 1024px) {
+  .admin-main {
+    margin-left: var(--sidebar-ml, 14rem);
+  }
+}
