@@ -149,24 +149,24 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       </div>
 
                       <form onSubmit={handleSubmit} className="space-y-2">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-2">
-                          <div className="py-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-4">
+                          <div className="py-5">
                             <label className={labelClass}>{form.name} *</label>
                             <input type="text" name="firstname" required className={inputClass} placeholder={form.name} />
                           </div>
-                          <div className="py-3">
+                          <div className="py-5">
                             <label className={labelClass}>{form.email} *</label>
                             <input type="email" name="email" required className={inputClass} placeholder={form.email} />
                           </div>
-                          <div className="py-3">
+                          <div className="py-5">
                             <label className={labelClass}>{form.phone} *</label>
                             <input type="tel" name="phone" required className={inputClass} placeholder={form.phone} />
                           </div>
-                          <div className="py-3">
+                          <div className="py-5">
                             <label className={labelClass}>{form.location}</label>
                             <input type="text" name="city" className={inputClass} placeholder={form.location} />
                           </div>
-                          <div className="py-3">
+                          <div className="py-5">
                             <label htmlFor="budget" className={labelClass}>{form.budget} *</label>
                             <div className="relative">
                               <select
@@ -183,7 +183,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                               <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gold/50 pointer-events-none" />
                             </div>
                           </div>
-                          <div className="py-3">
+                          <div className="py-5">
                             <label htmlFor="interest" className={labelClass}>{form.interest} *</label>
                             <div className="relative">
                               <select
@@ -202,7 +202,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           </div>
                         </div>
 
-                        <div className="py-3">
+                        <div className="py-5">
                           <label className={labelClass}>{form.message}</label>
                           <textarea
                             name="message"
