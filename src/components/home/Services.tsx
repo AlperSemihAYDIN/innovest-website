@@ -12,9 +12,9 @@ interface ServicesProps {
 }
 
 const serviceImages = [
-  'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000',
-  'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000',
+  '/stocks/real-estate.jpg',
+  '/stocks/residency.jpg',
+  '/stocks/business.jpg',
 ];
 
 const serviceIcons = [Building2, Shield, Briefcase];
