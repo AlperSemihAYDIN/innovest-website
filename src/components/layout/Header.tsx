@@ -131,17 +131,17 @@ export default function Header({ dict, locale }: HeaderProps) {
                   <AnimatePresence>
                     {item.children && activeDropdown === item.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8 }}
+                        initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-0 min-w-[220px] py-2 bg-background border border-border shadow-xl shadow-black/20"
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute top-full left-0 mt-2 min-w-[180px] py-3 bg-background/95 backdrop-blur-sm shadow-2xl shadow-black/30"
                       >
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="block px-5 py-3 text-sm text-muted-light hover:text-gold hover:bg-surface-light transition-colors"
+                            className="block px-6 py-3 text-sm text-muted-light tracking-wide hover:text-gold transition-colors duration-200"
                           >
                             {child.label}
                           </Link>
