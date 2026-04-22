@@ -56,7 +56,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   alt="Innovest Founder"
                   width={600}
                   height={650}
-                  className="w-full h-[600px] object-cover object-top"
+                  className="w-full h-[600px] object-cover object-center"
                 />
                 <div className="absolute -bottom-6 -right-6 w-48 h-48 border border-gold/20 -z-10" />
               </div>
