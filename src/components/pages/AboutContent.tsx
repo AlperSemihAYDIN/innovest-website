@@ -52,18 +52,12 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             <AnimatedSection>
               <div className="relative">
                 <Image
-                  src="/stocks/adeolu-eletu.jpg"
+                  src="/stocks/campaign-creators.jpg"
                   alt="Innovest Founder"
                   width={600}
                   height={650}
                   className="w-full h-[600px] object-cover object-top"
                 />
-                <div className="absolute bottom-6 left-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-px bg-gold" />
-                    <span className="text-white/70 text-xs tracking-[0.3em] uppercase">Dubai, UAE</span>
-                  </div>
-                </div>
                 <div className="absolute -bottom-6 -right-6 w-48 h-48 border border-gold/20 -z-10" />
               </div>
             </AnimatedSection>
@@ -139,7 +133,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             <AnimatedSection>
               <div className="relative">
                 <Image
-                  src="/stocks/campaign-creators.jpg"
+                  src="/stocks/adeolu-eletu.jpg"
                   alt="Innovest team"
                   width={600}
                   height={500}
