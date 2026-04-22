@@ -64,7 +64,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
             region: p.region,
             lat: p.lat,
             lng: p.lng,
-            image: p.heroImage || p.images?.[0] || '/stocks/photo-realestate.jpg',
+            image: p.heroImage || p.images?.[0] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800',
             price: p.price,
             yield: p.yield,
             href: {

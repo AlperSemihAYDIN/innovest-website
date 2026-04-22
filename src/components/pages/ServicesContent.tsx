@@ -71,7 +71,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/stocks/scott-graham.jpg"
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
             alt="Services"
             fill
             className="object-cover"
@@ -127,7 +127,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       <section className="hero-dark relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/stocks/charlesdeluvio.jpg"
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
             alt="Bespoke service"
             fill
             className="object-cover"

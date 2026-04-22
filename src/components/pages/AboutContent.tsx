@@ -23,7 +23,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/stocks/scott-graham.jpg"
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
             alt="About Innovest"
             fill
             className="object-cover"
@@ -139,7 +139,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             <AnimatedSection>
               <div className="relative">
                 <Image
-                  src="/stocks/campaign-creators.jpg"
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000"
                   alt="Innovest team"
                   width={600}
                   height={500}
@@ -270,7 +270,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       <section className="hero-dark relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/stocks/photo-cityscape.jpg"
+            src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2070"
             alt="Partner with Innovest"
             fill
             className="object-cover"

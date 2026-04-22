@@ -18,7 +18,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
   const markets = [
     {
       city: 'London',
-      image: '/stocks/jakub-zerdzicki.jpg',
+      image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200',
       href: `${prefix}/real-estate/london`,
       desc: locale === 'en'
         ? 'One of the most resilient and sought-after property markets globally. Premium developments across central and greater London.'
@@ -27,7 +27,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
     },
     {
       city: 'Dubai',
-      image: '/stocks/adeolu-eletu.jpg',
+      image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200',
       href: `${prefix}/real-estate/dubai`,
       desc: locale === 'en'
         ? "The world's fastest-growing luxury real estate market. Tax-free investments with world-class developments and exceptional yields."
@@ -42,7 +42,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
       <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/stocks/photo-realestate.jpg"
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
             alt="Real Estate"
             fill
             className="object-cover"

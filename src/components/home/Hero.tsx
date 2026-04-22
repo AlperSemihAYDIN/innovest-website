@@ -27,7 +27,7 @@ export default function Hero({ dict, locale }: HeroProps) {
           muted
           loop
           playsInline
-          poster="/stocks/photo-realestate.jpg"
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
           className="w-full h-full object-cover"
         >
           <source src="https://videos.pexels.com/video-files/3629519/3629519-uhd_2560_1440_25fps.mp4" type="video/mp4" />

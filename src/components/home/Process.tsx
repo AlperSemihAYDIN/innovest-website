@@ -14,7 +14,7 @@ export default function Process({ dict }: ProcessProps) {
       {/* Left: full-height image */}
       <div className="relative w-full lg:w-1/2 min-h-[40vh] lg:min-h-[600px]">
         <Image
-          src="/stocks/mario-gogh.jpg"
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200"
           alt="Investment Process"
           fill
           className="object-cover"

@@ -12,14 +12,14 @@ interface ResidencyContentProps {
 }
 
 const countryImages: Record<string, string> = {
-  Portugal: '/stocks/omid-armin.jpg',
-  Portekiz: '/stocks/omid-armin.jpg',
-  Greece: '/stocks/photo-architecture-1.jpg',
-  Yunanistan: '/stocks/photo-architecture-1.jpg',
-  UAE: '/stocks/adeolu-eletu.jpg',
-  BAE: '/stocks/adeolu-eletu.jpg',
-  'United Kingdom': '/stocks/jakub-zerdzicki.jpg',
-  'İngiltere': '/stocks/jakub-zerdzicki.jpg',
+  Portugal: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=800',
+  Portekiz: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=800',
+  Greece: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800',
+  Yunanistan: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800',
+  UAE: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800',
+  BAE: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800',
+  'United Kingdom': 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800',
+  'İngiltere': 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800',
 };
 
 export default function ResidencyContent({ dict, locale }: ResidencyContentProps) {
@@ -31,7 +31,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/stocks/photo-architecture-2.jpg"
+            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070"
             alt="Residency by Investment"
             fill
             className="object-cover"
