@@ -45,7 +45,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 transition={{ duration: 0.6 }}
                 className="mb-8"
               >
-                <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase">
+                <span className="inline-flex items-center text-gold text-xs tracking-[0.35em] uppercase font-semibold">
                   {dict.hero.tagline}
                 </span>
               </motion.div>
@@ -81,7 +81,7 @@ export default function Hero({ dict, locale }: HeroProps) {
               >
                 <Link
                   href={`${prefix}/contact`}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+                  className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white text-sm font-medium tracking-wide hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
                 >
                   {dict.hero.cta}
                   <ArrowRight
@@ -91,9 +91,13 @@ export default function Hero({ dict, locale }: HeroProps) {
                 </Link>
                 <Link
                   href={`${prefix}/services`}
-                  className="inline-flex items-center gap-2 px-8 py-4 border border-border text-foreground hover:border-gold hover:text-gold transition-all duration-300 rounded-lg"
+                  className="inline-flex items-center gap-3 px-10 py-4 text-sm text-foreground/80 tracking-wide hover:text-gold transition-all duration-300 rounded-lg"
                 >
                   {dict.hero.ctaSecondary}
+                  <ArrowRight
+                    size={18}
+                    className="opacity-50 group-hover:opacity-100"
+                  />
                 </Link>
               </motion.div>
 
