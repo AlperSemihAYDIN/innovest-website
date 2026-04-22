@@ -84,41 +84,23 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
               <div className="space-y-6">
                 <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500 rounded-xl">
-                  <div className="flex items-start gap-6">
-                    <div className="shrink-0 mt-1">
-                      <div className="w-10 h-10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
-                        <div className="w-4 h-px bg-gold" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3
-                        className="text-xl font-light mb-3 text-gold"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                      >
-                        {dict.about.mission.title}
-                      </h3>
-                      <p className="text-muted leading-relaxed text-sm">{dict.about.mission.desc}</p>
-                    </div>
-                  </div>
+                  <h3
+                    className="text-xl font-light mb-3 text-gold"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    {dict.about.mission.title}
+                  </h3>
+                  <p className="text-muted leading-relaxed text-sm">{dict.about.mission.desc}</p>
                 </div>
 
                 <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500 rounded-xl">
-                  <div className="flex items-start gap-6">
-                    <div className="shrink-0 mt-1">
-                      <div className="w-10 h-10 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300">
-                        <div className="w-4 h-px bg-gold" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3
-                        className="text-xl font-light mb-3 text-gold"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                      >
-                        {dict.about.vision.title}
-                      </h3>
-                      <p className="text-muted leading-relaxed text-sm">{dict.about.vision.desc}</p>
-                    </div>
-                  </div>
+                  <h3
+                    className="text-xl font-light mb-3 text-gold"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    {dict.about.vision.title}
+                  </h3>
+                  <p className="text-muted leading-relaxed text-sm">{dict.about.vision.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
