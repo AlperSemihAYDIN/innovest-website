@@ -53,7 +53,7 @@ export default async function LondonPageTR() {
           subtitle={d.subtitle}
           stats={d.stats}
           properties={properties}
-          heroImage="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070"
+          heroImage="/stocks/jakub-zerdzicki.jpg"
         />
       </main>
       <Footer dict={dict} locale="tr" />

@@ -9,21 +9,21 @@ const testimonials = [
     quoteTr: "Innovest ile çalışmak portföyüm için dönüştürücü oldu. Londra pazarını derin anlayışları ve kişiselleştirilmiş yaklaşımları, getiri beklentilerimi aşan iki premium mülk edinmemi sağladı.",
     name: "James Richardson",
     role: "Private Investor, London",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
+    image: "/stocks/charlesdeluvio.jpg",
   },
   {
     quoteEn: "Innovest made the Golden Visa process seamless. From initial consultation to receiving my residence permit, their team handled everything with exceptional professionalism and attention to detail.",
     quoteTr: "Innovest, Altın Vize sürecini sorunsuz hale getirdi. İlk danışmanlıktan oturma iznime kadar ekip her şeyi olağanüstü profesyonellik ve dikkatle yönetti.",
     name: "Ayşe Demir",
     role: "Girişimci, İstanbul",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
+    image: "/stocks/sasun-bughdaryan.jpg",
   },
   {
     quoteEn: "Their business expansion advisory was invaluable for our UAE market entry. The local connections and strategic guidance they provided accelerated our timeline by at least six months.",
     quoteTr: "İş genişleme danışmanlıkları BAE pazarına girişimiz için paha biçilmezdi. Sağladıkları yerel bağlantılar ve stratejik rehberlik sürecimizi en az altı ay hızlandırdı.",
     name: "Michael Chen",
     role: "CEO, Tech Ventures",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200",
+    image: "/stocks/obi.jpg",
   },
 ];
 

@@ -53,7 +53,7 @@ export default async function DubaiPageTR() {
           subtitle={d.subtitle}
           stats={d.stats}
           properties={properties}
-          heroImage="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070"
+          heroImage="/stocks/adeolu-eletu.jpg"
         />
       </main>
       <Footer dict={dict} locale="tr" />

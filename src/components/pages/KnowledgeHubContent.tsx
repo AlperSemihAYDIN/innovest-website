@@ -48,7 +48,7 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
       <section className="hero-dark relative py-44 md:py-56 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2069"
+            src="/stocks/mario-gogh.jpg"
             alt="Knowledge Hub"
             fill
             className="object-cover"

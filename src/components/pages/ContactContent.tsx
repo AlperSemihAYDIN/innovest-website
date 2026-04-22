@@ -63,7 +63,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       <section className="hero-dark relative py-44 md:py-56 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069"
+            src="/stocks/scott-graham.jpg"
             alt="Contact"
             fill
             className="object-cover"

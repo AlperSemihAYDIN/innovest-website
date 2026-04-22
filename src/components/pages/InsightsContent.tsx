@@ -58,7 +58,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1504711434969-e33886168d5c?q=80&w=2070"
+            src="/stocks/microsoft-copilot.jpg"
             alt="Insights"
             fill
             className="object-cover"

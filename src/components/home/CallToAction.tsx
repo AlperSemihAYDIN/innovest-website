@@ -19,7 +19,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2070"
+          src="/stocks/photo-cityscape.jpg"
           alt="Investment"
           fill
           className="object-cover"

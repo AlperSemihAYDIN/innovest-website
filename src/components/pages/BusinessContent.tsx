@@ -22,7 +22,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070"
+            src="/stocks/campaign-creators.jpg"
             alt="Business Expansion"
             fill
             className="object-cover"

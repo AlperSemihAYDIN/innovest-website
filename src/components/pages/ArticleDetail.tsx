@@ -9,13 +9,13 @@ import type { Article } from '@/lib/articleData';
 
 const categoryImages: Record<string, string> = {
   'Market Reports':
-    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1600',
+    '/stocks/obi.jpg',
   'Investment Guides':
-    'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1600',
+    '/stocks/sasun-bughdaryan.jpg',
   Residency:
-    'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600',
+    '/stocks/mario-gogh.jpg',
   Business:
-    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600',
+    '/stocks/microsoft-copilot.jpg',
 };
 
 interface ArticleDetailProps {
