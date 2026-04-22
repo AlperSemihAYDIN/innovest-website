@@ -133,7 +133,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             <AnimatedSection>
               <div className="relative">
                 <Image
-                  src="/founder.jpg"
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000"
                   alt="Innovest team"
                   width={600}
                   height={500}
