@@ -100,14 +100,14 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                     />
                   </div>
                   <div className="p-10 lg:p-16 flex flex-col justify-center">
-                    <span className="text-xs text-gold tracking-widest uppercase mb-4">
+                    <span className="text-xs text-gold tracking-widest uppercase mb-6">
                       {locale === 'en' ? 'Featured Article' : 'Öne Çıkan Makale'}
                     </span>
-                    <h2 className="text-2xl md:text-3xl font-light mb-4 group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h2 className="text-2xl md:text-3xl font-light mb-6 group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
                       {locale === 'tr' ? featuredArticle.titleTr : featuredArticle.title}
                     </h2>
-                    <p className="text-muted leading-relaxed mb-6">{locale === 'tr' ? featuredArticle.excerptTr : featuredArticle.excerpt}</p>
-                    <div className="flex items-center gap-4 text-xs text-muted mb-6">
+                    <p className="text-muted leading-[1.85] mb-8">{locale === 'tr' ? featuredArticle.excerptTr : featuredArticle.excerpt}</p>
+                    <div className="flex items-center gap-4 text-xs text-muted mb-8">
                       <span className="flex items-center gap-1"><Calendar size={12} />{locale === 'tr' ? featuredArticle.dateTr : featuredArticle.date}</span>
                       <span className="flex items-center gap-1"><Clock size={12} />{locale === 'tr' ? featuredArticle.readTimeTr : featuredArticle.readTime}</span>
                     </div>
