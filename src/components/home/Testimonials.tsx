@@ -58,21 +58,21 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
         </AnimatedSection>
 
         {/* Cards — slightly bigger */}
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={testimonial.name} delay={index * 0.15}>
-              <div className="bg-background border border-border p-12 h-full flex flex-col rounded-xl">
+              <div className="bg-background/60 hover:bg-background transition-colors duration-500 px-10 py-14 h-full flex flex-col rounded-2xl">
                 {/* Quote mark */}
                 <span
-                  className="text-6xl text-gold/20 leading-none mb-6"
+                  className="text-7xl text-gold/25 leading-none mb-8 block"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   &ldquo;
                 </span>
-                <p className="text-base text-muted-light leading-relaxed flex-1 mb-8">
+                <p className="text-base text-muted-light leading-[1.85] flex-1 mb-10">
                   {tr ? testimonial.quoteTr : testimonial.quoteEn}
                 </p>
-                <div className="flex items-center gap-4 pt-6 border-t border-border">
+                <div className="flex items-center gap-4 pt-8 border-t border-border/40">
                   <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0">
                     <Image
                       src={testimonial.image}
@@ -84,7 +84,7 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
                   </div>
                   <div>
                     <p className="text-sm font-medium">{testimonial.name}</p>
-                    <p className="text-xs text-muted">{testimonial.role}</p>
+                    <p className="text-xs text-muted mt-0.5">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
