@@ -85,11 +85,11 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-fr">
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
-              <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group">
-                <div className="bg-background border border-border/40 rounded-xl hover:border-gold/30 overflow-hidden transition-all duration-500 card-hover">
+              <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group h-full">
+                <div className="h-full flex flex-col bg-background/60 hover:bg-background rounded-2xl overflow-hidden transition-all duration-500 card-hover">
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image
@@ -99,36 +99,36 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
-                    <span className="absolute top-3 right-3 px-3 py-1 bg-gold/90 text-white text-xs font-medium">
+                    <span className="absolute top-3 right-3 px-3 py-1 bg-gold/90 text-white text-xs font-medium rounded">
                       {property.tag}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <div className="p-7">
-                    <p className="text-xs text-muted mb-1">{property.developer}</p>
+                  <div className="flex-1 flex flex-col p-8">
+                    <p className="text-xs text-muted mb-2">{property.developer}</p>
                     <h3
-                      className="text-lg font-light mb-2 group-hover:text-gold transition-colors"
+                      className="text-lg font-light mb-3 group-hover:text-gold transition-colors"
                       style={{ fontFamily: 'var(--font-display)' }}
                     >
                       {property.name}
                     </h3>
-                    <p className="flex items-center gap-1 text-xs text-muted mb-4">
+                    <p className="flex items-center gap-1 text-xs text-muted mb-6">
                       <MapPin size={12} />
                       {property.location}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-3 pt-5 border-t border-border/30">
+                    <div className="grid grid-cols-3 gap-3 pt-6 mt-auto border-t border-border/30">
                       <div>
-                        <p className="text-xs text-muted mb-0.5">{dict.featured.from}</p>
+                        <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-muted mb-0.5">{dict.featured.yield}</p>
+                        <p className="text-xs text-muted mb-1">{dict.featured.yield}</p>
                         <p className="text-sm font-medium">{property.yield}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-muted mb-0.5">{dict.featured.completion}</p>
+                        <p className="text-xs text-muted mb-1">{dict.featured.completion}</p>
                         <p className="text-sm font-medium">{property.completion}</p>
                       </div>
                     </div>

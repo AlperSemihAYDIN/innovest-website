@@ -58,11 +58,11 @@ export default function Services({ dict, locale }: ServicesProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr">
           {services.map((service, index) => (
             <AnimatedSection key={service.title} delay={index * 0.15}>
-              <Link href={service.href} className="block group">
-                <div className="relative overflow-hidden bg-surface border border-border hover:border-gold/30 transition-all duration-500 card-hover rounded-xl">
+              <Link href={service.href} className="block group h-full">
+                <div className="relative h-full flex flex-col overflow-hidden bg-surface/40 hover:bg-surface/70 transition-all duration-500 card-hover rounded-2xl">
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <Image
@@ -72,26 +72,26 @@ export default function Services({ dict, locale }: ServicesProps) {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                      <div className="w-12 h-12 bg-gold/10 border border-gold/30 flex items-center justify-center backdrop-blur-sm">
-                        <service.Icon size={24} className="text-gold" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2">
+                      <div className="w-14 h-14 bg-background border border-gold/40 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <service.Icon size={22} className="text-gold" />
                       </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-8 text-center">
+                  <div className="flex-1 flex flex-col px-8 pt-12 pb-10 text-center">
                     <h3
-                      className="text-xl font-light mb-3 group-hover:text-gold transition-colors duration-300"
+                      className="text-xl font-light mb-5 group-hover:text-gold transition-colors duration-300"
                       style={{ fontFamily: 'var(--font-display)' }}
                     >
                       {service.title}
                     </h3>
-                    <p className="text-sm text-muted leading-relaxed mb-5">
+                    <p className="text-sm text-muted leading-relaxed mb-7 flex-1">
                       {service.desc}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-sm text-gold group-hover:gap-3 transition-all duration-300">
+                    <span className="inline-flex items-center justify-center gap-2 text-sm text-gold group-hover:gap-3 transition-all duration-300">
                       {service.cta}
                       <ArrowRight size={16} />
                     </span>

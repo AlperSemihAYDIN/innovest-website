@@ -32,17 +32,17 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
           {dict.whyUs.items.map((item, index) => {
             const Icon = icons[index];
             return (
               <AnimatedSection key={item.title} delay={index * 0.1}>
-                <div className="group p-10 bg-surface/50 border border-border hover:border-gold/30 transition-all duration-500 text-center rounded-xl">
-                  <div className="w-14 h-14 mb-6 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
-                    <Icon size={24} className="text-gold" />
+                <div className="group h-full p-12 bg-surface/40 hover:bg-surface/70 transition-all duration-500 text-center rounded-2xl flex flex-col items-center">
+                  <div className="w-16 h-16 mb-8 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-300 rounded-full">
+                    <Icon size={26} className="text-gold" />
                   </div>
                   <h3
-                    className="text-lg font-light mb-3 group-hover:text-gold transition-colors duration-300"
+                    className="text-lg font-light mb-5 group-hover:text-gold transition-colors duration-300"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {item.title}
