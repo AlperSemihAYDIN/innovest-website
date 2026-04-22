@@ -56,10 +56,10 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       {/* Programmes */}
       <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr">
             {dict.residencyPage.programmes.map((programme, index) => (
-              <AnimatedSection key={programme.country} delay={index * 0.1}>
-                <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 rounded-xl">
+              <AnimatedSection key={programme.country} delay={index * 0.1} className="h-full">
+                <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 rounded-xl h-full flex flex-col">
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={countryImages[programme.country] || countryImages['Portugal']}
@@ -76,7 +76,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
                       </h3>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-8 flex flex-col flex-1">
                     <div className="flex items-center gap-6 mb-6 text-sm">
                       <span className="flex items-center gap-2 text-gold">
                         <Banknote size={16} />
@@ -88,10 +88,10 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
                       </span>
                     </div>
 
-                    <ul className="space-y-3 mb-6">
+                    <ul className="space-y-4 mb-8 flex-1">
                       {programme.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-center gap-2 text-sm text-muted">
-                          <Check size={14} className="text-gold flex-shrink-0" />
+                        <li key={benefit} className="flex items-start gap-3 text-sm text-muted leading-relaxed">
+                          <Check size={14} className="text-gold flex-shrink-0 mt-0.5" />
                           {benefit}
                         </li>
                       ))}
