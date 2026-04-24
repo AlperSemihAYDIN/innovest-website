@@ -46,7 +46,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Who We Are — centred grid matching Story section layout */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="pt-24 pb-0 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -109,7 +109,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* ─── Team section ──────────────────────────────────────────── */}
-      <section className="pt-10 md:pt-[1cm] pb-24 bg-surface">
+      <section className="pt-[1cm] pb-24 bg-surface">
         <div className="site-container">
           <AnimatedSection>
             <div className="w-full text-center mb-16 px-4 flex flex-col items-center">
