@@ -102,8 +102,9 @@ export default function PropertyForm({ id, onSaved }: PropertyFormProps) {
         } else {
           setData(prev => ({ ...prev, images: [...prev.images, result.url] }));
         }
-      } catch {
-        alert('Yükleme hatası');
+      } catch (err) {
+        const message = err instanceof Error ? err.message : 'Bilinmeyen hata';
+        alert(`Yükleme hatası: ${message}\n\nDosya: ${file.name}`);
       }
     }
     e.target.value = '';

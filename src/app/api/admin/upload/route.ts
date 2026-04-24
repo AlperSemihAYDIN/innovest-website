@@ -30,7 +30,9 @@ export async function POST(req: NextRequest) {
     const { url } = await uploadToCloudinary(buffer, folder, file.type);
 
     return Response.json({ url });
-  } catch {
-    return Response.json({ error: 'Upload failed' }, { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Upload failed';
+    console.error('[admin/upload] error:', message);
+    return Response.json({ error: message }, { status: 500 });
   }
 }

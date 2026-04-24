@@ -69,7 +69,14 @@ export const adminApi = {
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
     });
-    if (!res.ok) throw new Error('Upload failed');
+    if (!res.ok) {
+      let message = `Upload failed (${res.status})`;
+      try {
+        const data = await res.json();
+        if (data?.error) message = data.error;
+      } catch {}
+      throw new Error(message);
+    }
     return res.json();
   },
 };

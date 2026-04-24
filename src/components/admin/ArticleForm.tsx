@@ -79,8 +79,9 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
     try {
       const result = await adminApi.upload(file, `articles/${data.slug || 'new'}`);
       update('image', result.url);
-    } catch {
-      alert('Dosya yükleme yapılandırılmamış. Lütfen "Kapak Görseli" alanına doğrudan bir resim URL\'si yapıştırın.\n\nÖrnek: https://images.unsplash.com/photo-...');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Bilinmeyen hata';
+      alert(`Yükleme hatası: ${message}\n\nAlternatif: "Kapak Görseli" alanına doğrudan bir resim URL'si yapıştırabilirsiniz.`);
     }
     e.target.value = '';
   }
