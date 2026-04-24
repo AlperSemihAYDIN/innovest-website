@@ -109,7 +109,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* ─── Team section ──────────────────────────────────────────── */}
-      <section className="pt-40 md:pt-72 lg:pt-[24rem] pb-24 bg-surface">
+      <section className="pt-10 md:pt-[1cm] pb-24 bg-surface">
         <div className="site-container">
           <AnimatedSection>
             <div className="w-full text-center mb-16 px-4 flex flex-col items-center">
