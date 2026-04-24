@@ -109,7 +109,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* ─── Team section ──────────────────────────────────────────── */}
-      <section className="py-24 bg-surface">
+      <section className="pt-40 pb-24 bg-surface">
         <div className="site-container">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -149,7 +149,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                       src={member.image}
                       alt={member.name}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
