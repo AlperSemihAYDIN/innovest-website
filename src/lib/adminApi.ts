@@ -58,25 +58,52 @@ export const adminApi = {
   // Seed
   seed: (collection: string) => apiFetch('/api/admin/seed', { method: 'POST', body: JSON.stringify({ collection }) }),
 
-  // Upload
+  // Upload — direct-to-Cloudinary (bypasses Vercel's 4.5MB serverless body limit)
   upload: async (file: File, folder: string) => {
+    // Client-side size guard (Cloudinary free tier max 10MB image; raise if needed)
+    const MAX_BYTES = 10 * 1024 * 1024;
+    if (file.size > MAX_BYTES) {
+      throw new Error(`Dosya çok büyük (${(file.size / 1024 / 1024).toFixed(1)}MB). Maks 10MB.`);
+    }
+
+    // 1) Get signed payload from our server (auth required)
     const token = await getToken();
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('folder', folder);
-    const res = await fetch('/api/admin/upload', {
+    const sigRes = await fetch('/api/admin/upload-signature', {
       method: 'POST',
-      headers: { Authorization: `Bearer ${token}` },
-      body: formData,
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ folder }),
     });
-    if (!res.ok) {
-      let message = `Upload failed (${res.status})`;
+    if (!sigRes.ok) {
+      let message = `Signature failed (${sigRes.status})`;
       try {
-        const data = await res.json();
+        const data = await sigRes.json();
         if (data?.error) message = data.error;
       } catch {}
       throw new Error(message);
     }
-    return res.json();
+    const { cloudName, apiKey, timestamp, signature, folder: signedFolder } = await sigRes.json();
+
+    // 2) Upload directly to Cloudinary
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('api_key', apiKey);
+    formData.append('timestamp', timestamp);
+    formData.append('folder', signedFolder);
+    formData.append('signature', signature);
+
+    const cloudRes = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: 'POST',
+      body: formData,
+    });
+    if (!cloudRes.ok) {
+      let message = `Cloudinary upload failed (${cloudRes.status})`;
+      try {
+        const data = await cloudRes.json();
+        if (data?.error?.message) message = data.error.message;
+      } catch {}
+      throw new Error(message);
+    }
+    const data = await cloudRes.json();
+    return { url: data.secure_url as string, publicId: data.public_id as string };
   },
 };
