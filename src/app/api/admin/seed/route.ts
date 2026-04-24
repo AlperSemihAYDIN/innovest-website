@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   let skipped = 0;
 
   // Helper: only write if doc does NOT already exist (preserves admin edits).
-  async function addIfMissing(collectionName: string, docId: string, data: Record<string, unknown>) {
+  async function addIfMissing(collectionName: string, docId: string, data: object) {
     const ref = adminDb.collection(collectionName).doc(docId);
     const snap = await ref.get();
     if (snap.exists) {
