@@ -20,7 +20,7 @@ const properties = [
     price: '£550,000',
     yield: '5.2%',
     completion: 'Q2 2026',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000',
+    image: '/images/properties/london/westminster-tower/4296-westminster-tower-view-01-hummingbird-sunset-04-dfrc-final.jpg',
     tag: 'UK',
   },
   {
@@ -31,7 +31,7 @@ const properties = [
     price: '£725,000',
     yield: '4.8%',
     completion: 'Q4 2026',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000',
+    image: '/images/properties/london/ransomes-wharf/rsw-ext-dusk-hero-final-2k.jpg',
     tag: 'UK',
   },
   {
@@ -42,7 +42,7 @@ const properties = [
     price: '$380,000',
     yield: '8.5%',
     completion: 'Q1 2027',
-    image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1000',
+    image: '/images/properties/dubai/binghatti-flare/flare-exterior-1.jpg',
     tag: 'UAE',
   },
   {
@@ -53,7 +53,7 @@ const properties = [
     price: '$1,200,000',
     yield: '7.2%',
     completion: 'Q3 2026',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1000',
+    image: '/images/properties/dubai/the-alba/main.jpg',
     tag: 'UAE',
   },
 ];
