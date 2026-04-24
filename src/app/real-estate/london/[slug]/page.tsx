@@ -9,6 +9,7 @@ import { adminDb } from '@/lib/firebaseAdmin';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
 interface Props {
@@ -19,15 +20,23 @@ export async function generateStaticParams() {
   return getPropertiesByCity('london').map((p) => ({ slug: p.slug }));
 }
 
+async function loadProperty(slug: string): Promise<PropertyData | null> {
+  // Firestore is the source of truth — read it first so admin updates show up live.
+  try {
+    const snap = await adminDb
+      .collection('properties')
+      .where('slug', '==', slug)
+      .where('city', '==', 'london')
+      .limit(1)
+      .get();
+    if (!snap.empty) return snap.docs[0].data() as PropertyData;
+  } catch { /* fall through to seed */ }
+  return getPropertyBySlug(slug) ?? null;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  let property = getPropertyBySlug(slug);
-  if (!property) {
-    try {
-      const snap = await adminDb.collection('properties').where('slug', '==', slug).limit(1).get();
-      if (!snap.empty) property = snap.docs[0].data() as PropertyData;
-    } catch { /* */ }
-  }
+  const property = await loadProperty(slug);
   if (!property) return {};
   return {
     title: `${property.name} — London Real Estate Investment`,
@@ -37,13 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LondonPropertyPage({ params }: Props) {
   const { slug } = await params;
-  let property = getPropertyBySlug(slug);
-  if (!property) {
-    try {
-      const snap = await adminDb.collection('properties').where('slug', '==', slug).where('city', '==', 'london').limit(1).get();
-      if (!snap.empty) property = snap.docs[0].data() as PropertyData;
-    } catch { /* */ }
-  }
+  const property = await loadProperty(slug);
   if (!property || property.city !== 'london') notFound();
 
   const dict = getDictionary('en');
