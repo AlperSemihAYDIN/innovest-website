@@ -1,4 +1,5 @@
 import { getFirebaseAuth } from '@/lib/firebase';
+import { compressImage } from '@/lib/imageCompression';
 
 async function getToken(): Promise<string> {
   const auth = getFirebaseAuth();
@@ -59,11 +60,22 @@ export const adminApi = {
   seed: (collection: string) => apiFetch('/api/admin/seed', { method: 'POST', body: JSON.stringify({ collection }) }),
 
   // Upload — direct-to-Cloudinary (bypasses Vercel's 4.5MB serverless body limit)
-  upload: async (file: File, folder: string) => {
-    // Client-side size guard (Cloudinary free tier max 10MB image; raise if needed)
+  upload: async (rawFile: File, folder: string) => {
+    // Auto-compress oversized photos client-side before upload (max 2560px, JPEG q=0.85)
+    let file: File;
+    try {
+      file = await compressImage(rawFile);
+    } catch {
+      file = rawFile;
+    }
+
+    // Hard cap (Cloudinary free tier ≈ 10MB). After compression this is rarely hit.
     const MAX_BYTES = 10 * 1024 * 1024;
     if (file.size > MAX_BYTES) {
-      throw new Error(`Dosya çok büyük (${(file.size / 1024 / 1024).toFixed(1)}MB). Maks 10MB.`);
+      throw new Error(
+        `Sıkıştırma sonrası dosya hâlâ çok büyük (${(file.size / 1024 / 1024).toFixed(1)}MB). ` +
+          `Lütfen daha küçük bir görsel deneyin.`,
+      );
     }
 
     // 1) Get signed payload from our server (auth required)
