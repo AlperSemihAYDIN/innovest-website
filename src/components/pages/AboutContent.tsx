@@ -109,10 +109,10 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* ─── Team section ──────────────────────────────────────────── */}
-      <section className="pt-72 pb-24 bg-surface">
+      <section className="pt-40 md:pt-72 lg:pt-[24rem] pb-24 bg-surface">
         <div className="site-container">
           <AnimatedSection>
-            <div className="max-w-6xl mx-auto text-center mb-16 px-4">
+            <div className="w-full text-center mb-16 px-4 flex flex-col items-center">
               <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">
                 {locale === 'en' ? 'Our People' : 'Ekibimiz'}
               </p>
@@ -122,12 +122,12 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               >
                 {locale === 'en' ? 'Our Expert Team' : 'Uzman Ekibimiz'}
               </h2>
-              <p className="text-muted max-w-2xl mx-auto leading-[1.85]">
+              <p className="text-muted max-w-2xl mx-auto leading-[1.85] text-center">
                 {locale === 'en'
                   ? 'A team of seasoned professionals based in the United Kingdom'
                   : 'Birleşik Krallık’ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
               </p>
-              <div className="w-16 h-px bg-gold/40 mx-auto mt-8" />
+              <div className="w-16 h-px bg-gold/40 mt-8" />
             </div>
           </AnimatedSection>
 
