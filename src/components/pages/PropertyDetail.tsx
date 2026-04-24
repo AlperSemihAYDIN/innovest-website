@@ -265,9 +265,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
                 <AnimatedSection key={i} delay={i * 0.1}>
                   <button
                     onClick={() => setLightboxIndex(i)}
-                    className={`relative overflow-hidden bg-surface cursor-pointer group w-full ${
-                      i === 0 ? 'col-span-2 row-span-2 aspect-square md:aspect-auto md:h-[420px]' : 'aspect-square'
-                    }`}
+                    className="relative overflow-hidden bg-surface cursor-pointer group w-full aspect-square"
                   >
                     <Image
                       src={src}
