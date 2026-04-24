@@ -134,7 +134,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
             {[
               { name: 'Buhari Burak', image: '/team/bbtweb.png' },
-              { name: 'Asel', image: '/team/atweb.png' },
+              { name: 'Asel', image: '/team/at.png' },
               { name: 'Ceylin', image: '/team/coweb.png' },
               { name: 'Ali', image: '/team/akweb.png' },
               { name: 'Tarık', image: '/team/ttweb.png' },
