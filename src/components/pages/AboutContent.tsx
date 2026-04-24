@@ -108,6 +108,68 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
         </div>
       </section>
 
+      {/* ─── Team section ──────────────────────────────────────────── */}
+      <section className="py-24 bg-surface">
+        <div className="site-container">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">
+                {locale === 'en' ? 'Our People' : 'Ekibimiz'}
+              </p>
+              <h2
+                className="text-4xl md:text-5xl font-light mb-5 text-gold"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {locale === 'en' ? 'Our Expert Team' : 'Uzman Ekibimiz'}
+              </h2>
+              <p className="text-muted max-w-2xl mx-auto leading-[1.85]">
+                {locale === 'en'
+                  ? 'A team of seasoned professionals based in the United Kingdom'
+                  : 'Birleşik Krallık’ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
+              </p>
+              <div className="w-16 h-px bg-gold/40 mx-auto mt-8" />
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+            {[
+              { name: 'Buhari Burak', image: '/team/bbtweb.png' },
+              { name: 'Asel', image: '/team/atweb.png' },
+              { name: 'Ceylin', image: '/team/coweb.png' },
+              { name: 'Ali', image: '/team/akweb.png' },
+              { name: 'Tarık', image: '/team/ttweb.png' },
+              { name: 'Efe', image: '/team/etweb.png' },
+              { name: 'Zehra', image: '/team/zkweb.png' },
+              { name: 'Berat', image: '/team/bweb.png' },
+            ].map((member, i) => (
+              <AnimatedSection key={member.name} delay={i * 0.06}>
+                <div className="group">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-background border border-border group-hover:border-gold/40 transition-colors duration-500 rounded-lg">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                  <div className="mt-5 text-center">
+                    <h3
+                      className="text-lg text-foreground font-light tracking-wide"
+                      style={{ fontFamily: 'var(--font-display)' }}
+                    >
+                      {member.name}
+                    </h3>
+                    <div className="w-8 h-px bg-gold/40 mx-auto mt-3" />
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Story section */}
       <section className="py-24 bg-surface min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
