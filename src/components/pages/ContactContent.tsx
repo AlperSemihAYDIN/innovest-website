@@ -266,6 +266,17 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             <p className="text-sm text-foreground group-hover:text-gold transition-colors">+44 7491 510941</p>
                           </div>
                         </a>
+                        <a href="tel:+447769212877" className="flex items-center gap-5 group">
+                          <div className="w-12 h-12 rounded-full bg-gold/8 flex items-center justify-center group-hover:bg-gold/15 transition-colors duration-300">
+                            <Phone size={18} className="text-gold" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] text-muted/60 uppercase tracking-[0.15em] mb-1">
+                              {locale === 'en' ? 'Phone' : 'Telefon'}
+                            </p>
+                            <p className="text-sm text-foreground group-hover:text-gold transition-colors">+44 7769 212877</p>
+                          </div>
+                        </a>
                         <a href="mailto:info@innovest.uk" className="flex items-center gap-5 group">
                           <div className="w-12 h-12 rounded-full bg-gold/8 flex items-center justify-center group-hover:bg-gold/15 transition-colors duration-300">
                             <Mail size={18} className="text-gold" />
@@ -377,6 +388,10 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                   <div className="flex items-center gap-3.5">
                     <Phone size={15} className="text-gold/50 flex-shrink-0" />
                     <a href="tel:+447491510941" className="text-[13px] text-muted/80 hover:text-gold transition-colors">+44 7491 510941</a>
+                  </div>
+                  <div className="flex items-center gap-3.5">
+                    <Phone size={15} className="text-gold/50 flex-shrink-0" />
+                    <a href="tel:+447769212877" className="text-[13px] text-muted/80 hover:text-gold transition-colors">+44 7769 212877</a>
                   </div>
                   <div className="flex items-center gap-3.5">
                     <Mail size={15} className="text-gold/50 flex-shrink-0" />
