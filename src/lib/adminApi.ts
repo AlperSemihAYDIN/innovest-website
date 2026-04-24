@@ -61,6 +61,16 @@ export const adminApi = {
 
   // Upload — direct-to-Cloudinary (bypasses Vercel's 4.5MB serverless body limit)
   upload: async (rawFile: File, folder: string) => {
+    // Reject formats browsers can't decode/compress (TIFF, HEIC, RAW, BMP)
+    const SUPPORTED = /^image\/(jpeg|png|webp|gif|svg\+xml|avif)$/;
+    if (!SUPPORTED.test(rawFile.type)) {
+      throw new Error(
+        `Desteklenmeyen dosya formatı (${rawFile.type || rawFile.name.split('.').pop()}). ` +
+          `Lütfen JPG, PNG veya WebP formatında bir görsel yükleyin. ` +
+          `TIFF/HEIC/RAW dosyalarını önce JPG'ye dönüştürün.`,
+      );
+    }
+
     // Auto-compress oversized photos client-side before upload (max 2560px, JPEG q=0.85)
     let file: File;
     try {
