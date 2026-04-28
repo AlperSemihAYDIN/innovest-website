@@ -36,7 +36,7 @@ export default function Hero({ dict, locale }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl px-6 py-44 lg:py-52 text-center mx-auto">
+      <div className="relative z-10 w-full max-w-4xl px-6 py-36 text-center mx-auto">
           {mounted && (
             <>
               <motion.div
@@ -54,7 +54,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] mb-10 mx-auto w-full"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-8 mx-auto w-full"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {dict.hero.title}
@@ -66,9 +66,9 @@ export default function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex justify-center mb-16"
+                className="flex justify-center mb-14"
               >
-                <p className="text-base md:text-lg lg:text-xl text-muted leading-relaxed max-w-2xl text-center">
+                <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl text-center">
                   {dict.hero.subtitle}
                 </p>
               </motion.div>

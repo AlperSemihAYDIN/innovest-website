@@ -12,7 +12,7 @@ const icons = [Target, Users, Globe, Award, Handshake, Eye];
 
 export default function WhyInnovest({ dict }: WhyUsProps) {
   return (
-    <section className="py-32 lg:py-40 bg-background relative overflow-hidden">
+    <section className="pt-32 pb-24 bg-background relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
@@ -20,7 +20,7 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
       }} />
 
       <div className="relative site-container flex flex-col items-center">
-        <div className="w-full max-w-3xl mx-auto text-center mb-20 lg:mb-24">
+        <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>
             <SectionHeading
               tagline={dict.whyUs.tagline}
@@ -32,22 +32,22 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 auto-rows-fr">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
           {dict.whyUs.items.map((item, index) => {
             const Icon = icons[index];
             return (
               <AnimatedSection key={item.title} delay={index * 0.1}>
-                <div className="group h-full p-14 lg:p-16 bg-surface/40 hover:bg-surface/70 transition-all duration-500 text-center rounded-2xl flex flex-col items-center">
-                  <div className="w-20 h-20 mb-10 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-300 rounded-full">
-                    <Icon size={30} className="text-gold" />
+                <div className="group h-full p-12 bg-surface/40 hover:bg-surface/70 transition-all duration-500 text-center rounded-2xl flex flex-col items-center">
+                  <div className="w-16 h-16 mb-8 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-300 rounded-full">
+                    <Icon size={26} className="text-gold" />
                   </div>
                   <h3
-                    className="text-xl lg:text-2xl font-light mb-6 group-hover:text-gold transition-colors duration-300"
+                    className="text-lg font-light mb-5 group-hover:text-gold transition-colors duration-300"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm lg:text-base text-muted leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
                 </div>
               </AnimatedSection>
             );

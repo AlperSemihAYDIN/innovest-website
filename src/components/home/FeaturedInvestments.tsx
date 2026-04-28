@@ -62,9 +62,9 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
   return (
-    <section className="py-32 lg:py-40 bg-surface border-t border-border">
+    <section className="pt-32 pb-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
       <div className="site-container flex flex-col items-center">
-        <div className="w-full max-w-3xl mx-auto text-center mb-20 lg:mb-24">
+        <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>
             <div className="flex flex-col items-center gap-8">
               <SectionHeading
@@ -85,13 +85,13 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 auto-rows-fr">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-fr">
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group h-full">
                 <div className="h-full flex flex-col bg-background/60 hover:bg-background rounded-2xl overflow-hidden transition-all duration-500 card-hover">
                   {/* Image */}
-                  <div className="relative h-64 lg:h-72 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <Image
                       src={property.image}
                       alt={property.name}
