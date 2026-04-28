@@ -199,10 +199,10 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
   }, [mapReady, activeRegion, allMapProps]);
 
   return (
-    <section className="flex flex-col justify-center py-24 bg-surface">
+    <section className="py-32 lg:py-40 bg-surface">
       <div className="site-container flex flex-col items-center">
         {/* Heading */}
-        <div className="w-full max-w-3xl mx-auto text-center mb-16">
+        <div className="w-full max-w-3xl mx-auto text-center mb-20 lg:mb-24">
           <span
             className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-4 block"
             style={{ fontFamily: 'var(--font-display)' }}
@@ -241,9 +241,9 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         </div>
 
         {/* Map + Side Panel */}
-        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row border border-border overflow-hidden">
+        <div className="w-full flex flex-col lg:flex-row border border-border overflow-hidden rounded-2xl">
           {/* Map — responsive heights */}
-          <div className="relative flex-1 h-[320px] sm:h-[420px] lg:h-[580px]">
+          <div className="relative flex-1 h-[360px] sm:h-[480px] lg:h-[640px]">
             {/* Override Leaflet styles for brand-aligned warm light theme */}
             <style>{`
               .leaflet-container { background: #f0ede6; }
@@ -267,7 +267,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
           </div>
 
           {/* Side Panel */}
-          <div className="w-full lg:w-80 bg-background border-t lg:border-t-0 lg:border-l border-border flex flex-col">
+          <div className="w-full lg:w-96 bg-background border-t lg:border-t-0 lg:border-l border-border flex flex-col">
             {selected ? (
               <div className="flex flex-col h-full">
                 {/* Thumbnail — click opens lightbox */}

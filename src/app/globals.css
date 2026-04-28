@@ -180,7 +180,7 @@ body {
 /* Kullanım: className="site-container" — tüm section içeriklerinde  */
 .site-container {
   width: 100%;
-  max-width: 72rem; /* 1152px — max-w-6xl eşdeğeri */
+  max-width: 90rem; /* 1440px — ferah, geniş yerleşim */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
@@ -193,7 +193,23 @@ body {
   .site-container { padding-left: 4rem; padding-right: 4rem; }
 }
 @media (min-width: 1280px) {
-  .site-container { padding-left: 5rem; padding-right: 5rem; }
+  .site-container { padding-left: 6rem; padding-right: 6rem; }
+}
+@media (min-width: 1536px) {
+  .site-container { padding-left: 7rem; padding-right: 7rem; }
+}
+
+/* Dar varyant — uzun metin / form / makale gibi okuma odaklı içerik */
+.site-container-narrow {
+  width: 100%;
+  max-width: 56rem; /* 896px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 640px) {
+  .site-container-narrow { padding-left: 2.5rem; padding-right: 2.5rem; }
 }
 
 /* ─── Admin Panel Layout ──────────────────────────── */
