@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
       phoneTurkey: '+90 531 420 0331',
       whatsapp: '+447491510941',
       addressLondon: 'Berkeley Square House, 2nd Floor, Berkeley Square, Mayfair, London W1J 6BE',
-      socialLinkedin: '',
+      socialLinkedin: 'https://www.linkedin.com/company/innovest-capital/posts/?feedView=all',
       socialInstagram: '',
       socialTwitter: '',
     });
