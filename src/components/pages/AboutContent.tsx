@@ -46,7 +46,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Who We Are — centred grid matching Story section layout */}
-      <section className="pt-24 pb-0 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="pt-24 pb-24 bg-background min-h-[60vh] flex flex-col justify-center">
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -109,10 +109,10 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* ─── Team section ──────────────────────────────────────────── */}
-      <section className="pt-[1cm] pb-24 bg-surface">
+      <section className="bg-surface" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
         <div className="site-container">
           <AnimatedSection>
-            <div className="w-full text-center mb-16 px-4 flex flex-col items-center">
+            <div className="w-full text-center mb-20 px-4 flex flex-col items-center">
               <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">
                 {locale === 'en' ? 'Our People' : 'Ekibimiz'}
               </p>
@@ -125,7 +125,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               <p className="text-muted max-w-2xl mx-auto leading-[1.85] text-center">
                 {locale === 'en'
                   ? 'A team of seasoned professionals based in the United Kingdom'
-                  : 'Birleşik Krallık’ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
+                  : 'Birleşik Krallık\'ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
               </p>
               <div className="w-16 h-px bg-gold/40 mt-8" />
             </div>

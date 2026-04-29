@@ -199,7 +199,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
   }, [mapReady, activeRegion, allMapProps]);
 
   return (
-    <section className="flex flex-col justify-center py-24 bg-surface">
+    <section className="bg-surface" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
       <div className="site-container flex flex-col items-center">
         {/* Heading */}
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
