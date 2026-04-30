@@ -30,7 +30,7 @@ interface StatsProps {
 export default function Stats({ locale = 'en' }: StatsProps) {
   const tr = locale === 'tr';
   const stats = [
-    { value: '£500M+', label: tr ? 'Danışmanlık Altındaki Varlık' : 'Assets Under Advisory' },
+    { value: '£100M+', label: tr ? 'Danışmanlık Altındaki Varlık' : 'Assets Under Advisory' },
     { value: '25+', label: tr ? 'Kapsanan Ülke' : 'Countries Covered' },
     { value: '500+', label: tr ? 'Başarılı Yatırım' : 'Successful Investments' },
     { value: '%98', label: tr ? 'Müşteri Memnuniyeti' : 'Client Satisfaction' },

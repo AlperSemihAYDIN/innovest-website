@@ -9,7 +9,7 @@ describe('Stats component', () => {
   });
 
   it('renders Assets Under Advisory stat', () => {
-    expect(screen.getByText('£500M+')).toBeInTheDocument();
+    expect(screen.getByText('£100M+')).toBeInTheDocument();
   });
 
   it('renders Countries Covered stat', () => {

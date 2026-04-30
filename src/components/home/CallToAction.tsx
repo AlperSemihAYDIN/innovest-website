@@ -25,12 +25,12 @@ export default function CallToAction({ dict, locale }: CTAProps) {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-background/65" />
+        <div className="absolute inset-0 bg-background/40" />
       </div>
 
       <div className="relative site-container flex flex-col items-center text-center py-24">
         <AnimatedSection className="flex flex-col items-center text-center w-full">
-          <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
+          <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-6 block">
             {locale === 'en' ? 'Get Started' : 'Başlayın'}
           </span>
 
@@ -46,17 +46,18 @@ export default function CallToAction({ dict, locale }: CTAProps) {
             {dict.cta.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 px-10 py-4 bg-gold text-white font-medium text-lg hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+              className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-lg font-semibold text-sm bg-gold text-background hover:bg-gold-light transition-all duration-300 btn-shine group"
+              style={{ minWidth: '220px', whiteSpace: 'nowrap' }}
             >
               {dict.cta.button}
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <p className="text-xs text-muted tracking-wider text-center">{dict.cta.note}</p>
+          <p className="mt-4 text-xs text-white/50 tracking-wide text-center">{dict.cta.note}</p>
         </AnimatedSection>
       </div>
     </section>

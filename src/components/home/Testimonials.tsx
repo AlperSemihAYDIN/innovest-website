@@ -61,18 +61,29 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
         <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr">
           {testimonials.map((testimonial, index) => (
             <AnimatedSection key={testimonial.name} delay={index * 0.15}>
-              <div className="bg-background/60 hover:bg-background transition-colors duration-500 px-10 py-14 h-full flex flex-col rounded-2xl">
+              <div
+                className="h-full flex flex-col transition-colors duration-500"
+                style={{
+                  padding: '36px 32px',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  borderRadius: '16px',
+                  background: 'rgba(255,255,255,0.03)',
+                }}
+              >
                 {/* Quote mark */}
                 <span
-                  className="text-7xl text-gold/25 leading-none mb-8 block"
+                  className="text-7xl text-gold/25 leading-none mb-2 block"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   &ldquo;
                 </span>
-                <p className="text-base text-muted-light leading-[1.85] flex-1 mb-10">
+                <p className="text-base text-white/80 leading-[1.85] flex-1">
                   {tr ? testimonial.quoteTr : testimonial.quoteEn}
                 </p>
-                <div className="flex items-center gap-4 pt-8 border-t border-border/40">
+                <div
+                  className="flex items-center gap-4"
+                  style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.10)' }}
+                >
                   <div className="w-12 h-12 rounded-full overflow-hidden relative shrink-0">
                     <Image
                       src={testimonial.image}
@@ -83,8 +94,8 @@ export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
                     />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">{testimonial.name}</p>
-                    <p className="text-xs text-muted mt-0.5">{testimonial.role}</p>
+                    <p className="text-base font-semibold text-white">{testimonial.name}</p>
+                    <p className="text-sm text-white/55 mt-0.5">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
