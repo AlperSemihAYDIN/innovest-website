@@ -75,12 +75,12 @@ export default function ContactsPage() {
         <div className="relative flex-1">
           <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
           <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="İsim, e-posta veya ilgi alanı ara..."
-            className="w-full bg-[#0a1628] border border-white/5 rounded-lg pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C1A45D]/30 transition-colors" />
+            className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/30 transition-colors" />
         </div>
-        <div className="flex gap-1 bg-[#0a1628] border border-white/5 rounded-lg p-1">
+        <div className="flex gap-1 bg-white/[0.04] border border-white/[0.08] rounded-lg p-1">
           {(['all', 'unread', 'read'] as const).map(f => (
             <button key={f} onClick={() => setFilter(f)}
-              className={`px-4 py-2 rounded-md text-xs font-medium transition-all ${filter === f ? 'bg-[#C1A45D]/15 text-[#C1A45D]' : 'text-white/40 hover:text-white/60'}`}>
+              className={`px-4 py-2 rounded-md text-xs font-medium transition-all ${filter === f ? 'bg-[#C9A84C]/15 text-[#C9A84C]' : 'text-white/40 hover:text-white/60'}`}>
               {f === 'all' ? 'Tümü' : f === 'unread' ? 'Okunmamış' : 'Okunmuş'}
             </button>
           ))}
@@ -88,15 +88,15 @@ export default function ContactsPage() {
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-20"><div className="w-8 h-8 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" /></div>
+        <div className="flex justify-center py-20"><div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" /></div>
       ) : filtered.length === 0 ? (
-        <div className="bg-[#0a1628] border border-white/5 rounded-xl py-20 text-center">
+        <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl py-20 text-center">
           <p className="text-white/30 text-sm">{search || filter !== 'all' ? 'Sonuç bulunamadı' : 'Henüz iletişim talebi yok'}</p>
         </div>
       ) : (
         <div className="space-y-3">
           {filtered.map(contact => (
-            <div key={contact.id} className={`bg-[#0a1628] border rounded-xl overflow-hidden transition-all ${!contact.read ? 'border-[#C1A45D]/20' : 'border-white/5'}`}>
+            <div key={contact.id} className={`bg-white/[0.04] border rounded-xl overflow-hidden transition-all ${!contact.read ? 'border-[#C9A84C]/20' : 'border-white/[0.08]'}`}>
               {/* Header Row */}
               <div
                 className="px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-white/[0.02] transition-colors"
@@ -107,7 +107,7 @@ export default function ContactsPage() {
               >
                 <div className="flex items-center gap-4">
                   {!contact.read ? (
-                    <Mail size={16} className="text-[#C1A45D]" />
+                    <Mail size={16} className="text-[#C9A84C]" />
                   ) : (
                     <MailOpen size={16} className="text-white/20" />
                   )}
@@ -131,7 +131,7 @@ export default function ContactsPage() {
 
               {/* Expanded Detail */}
               {expandedId === contact.id && (
-                <div className="px-6 pb-5 pt-2 border-t border-white/5">
+                <div className="px-6 pb-5 pt-2 border-t border-white/[0.08]">
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 mb-5">
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Ad Soyad</p>
@@ -139,7 +139,7 @@ export default function ContactsPage() {
                     </div>
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">E-posta</p>
-                      <a href={`mailto:${contact.email}`} className="text-sm text-[#C1A45D] hover:underline break-all">{contact.email || '—'}</a>
+                      <a href={`mailto:${contact.email}`} className="text-sm text-[#C9A84C] hover:underline break-all">{contact.email || '—'}</a>
                     </div>
                     <div>
                       <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Telefon</p>

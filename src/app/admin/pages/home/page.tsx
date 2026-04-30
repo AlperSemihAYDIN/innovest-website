@@ -7,14 +7,14 @@ import { adminApi } from '@/lib/adminApi';
 import { homeDefaults, type HomePageContent } from '@/lib/pageDefaults';
 
 const inputClass =
-  'w-full bg-white/[0.04] border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#C1A45D]/60 focus:bg-white/[0.06] transition-colors';
+  'w-full bg-white/[0.04] border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#C9A84C]/60 focus:bg-white/[0.06] transition-colors';
 const textareaClass = `${inputClass} resize-y min-h-[72px] leading-relaxed`;
 const labelClass = 'block uppercase font-semibold mb-1.5 text-white/45';
 const labelStyle: React.CSSProperties = { fontSize: '10px', letterSpacing: '0.1em' };
-const sectionCard = 'bg-[#0a1628] border border-white/[0.06] rounded-2xl';
+const sectionCard = 'bg-white/[0.04] border border-white/[0.06] rounded-2xl';
 const sectionInner = 'p-7';
 const sectionTitleClass =
-  'flex items-center gap-3 uppercase font-bold text-[#C1A45D] border-b border-white/[0.08] pb-2.5';
+  'flex items-center gap-3 uppercase font-bold text-[#C9A84C] border-b border-white/[0.08] pb-2.5';
 const sectionTitleStyle: React.CSSProperties = { fontSize: '13px', letterSpacing: '0.08em', marginBottom: '20px' };
 const subBlock = 'border border-white/[0.06] rounded-xl p-5 bg-white/[0.015] space-y-4 relative';
 const subBlockTitle = 'text-[11px] uppercase tracking-[0.12em] text-white/35 font-semibold';
@@ -84,7 +84,7 @@ export default function HomePageEditor() {
   }
 
   if (loading) {
-    return <div className="flex justify-center py-20"><div className="w-8 h-8 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" /></div>;
+    return <div className="flex justify-center py-20"><div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" /></div>;
   }
 
   return (
@@ -108,7 +108,7 @@ export default function HomePageEditor() {
             <button onClick={handleReset} disabled={saving} title="Orijinal içeriklere geri dön" className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-[12px] text-white/50 hover:text-red-300 transition-colors disabled:opacity-50">
               <RotateCcw size={12} /> Sıfırla
             </button>
-            <button onClick={handleSave} disabled={saving} className="inline-flex items-center gap-2 bg-[#C1A45D] hover:bg-[#d4b87a] text-[#060e1a] font-semibold rounded-lg transition-all disabled:opacity-50" style={{ padding: '10px 28px', fontSize: '13px' }}>
+            <button onClick={handleSave} disabled={saving} className="inline-flex items-center gap-2 bg-[#C9A84C] hover:bg-[#d4b87a] text-[#060e1a] font-semibold rounded-lg transition-all disabled:opacity-50" style={{ padding: '10px 28px', fontSize: '13px' }}>
               <Save size={14} />
               {saving ? 'Kaydediliyor...' : saved ? 'Kaydedildi ✓' : 'Kaydet'}
             </button>
@@ -121,7 +121,7 @@ export default function HomePageEditor() {
         <section className={sectionCard}>
           <div className={sectionInner}>
             <h2 className={sectionTitleClass} style={sectionTitleStyle}>
-              <span className="w-1 h-3.5 bg-[#C1A45D] rounded-full" /> Hero (Üst Banner)
+              <span className="w-1 h-3.5 bg-[#C9A84C] rounded-full" /> Hero (Üst Banner)
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
               <Field label="Başlık (TR)" value={data.hero.titleTr} onChange={(v) => setField('hero', { ...data.hero, titleTr: v })} />
@@ -142,8 +142,8 @@ export default function HomePageEditor() {
         <section className={sectionCard}>
           <div className={sectionInner}>
             <div className="flex items-center justify-between border-b border-white/[0.08] pb-2.5" style={{ marginBottom: '20px' }}>
-              <h2 className="flex items-center gap-3 uppercase font-bold text-[#C1A45D]" style={{ fontSize: '13px', letterSpacing: '0.08em' }}>
-                <span className="w-1 h-3.5 bg-[#C1A45D] rounded-full" /> İstatistikler
+              <h2 className="flex items-center gap-3 uppercase font-bold text-[#C9A84C]" style={{ fontSize: '13px', letterSpacing: '0.08em' }}>
+                <span className="w-1 h-3.5 bg-[#C9A84C] rounded-full" /> İstatistikler
               </h2>
               <button onClick={() => setField('stats', [...data.stats, { value: '', labelEn: '', labelTr: '' }])} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-white/70 rounded-md transition-all uppercase tracking-wider font-medium">
                 <Plus size={11} /> Yeni
@@ -173,7 +173,7 @@ export default function HomePageEditor() {
         <section className={sectionCard}>
           <div className={sectionInner}>
             <h2 className={sectionTitleClass} style={sectionTitleStyle}>
-              <span className="w-1 h-3.5 bg-[#C1A45D] rounded-full" /> Hizmetler Bölümü
+              <span className="w-1 h-3.5 bg-[#C9A84C] rounded-full" /> Hizmetler Bölümü
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
               <Field label="Etiket (TR)" value={data.services.taglineTr} onChange={(v) => setField('services', { ...data.services, taglineTr: v })} />
@@ -208,8 +208,8 @@ export default function HomePageEditor() {
         <section className={sectionCard}>
           <div className={sectionInner}>
             <div className="flex items-center justify-between border-b border-white/[0.08] pb-2.5" style={{ marginBottom: '20px' }}>
-              <h2 className="flex items-center gap-3 uppercase font-bold text-[#C1A45D]" style={{ fontSize: '13px', letterSpacing: '0.08em' }}>
-                <span className="w-1 h-3.5 bg-[#C1A45D] rounded-full" /> Müşteri Görüşleri
+              <h2 className="flex items-center gap-3 uppercase font-bold text-[#C9A84C]" style={{ fontSize: '13px', letterSpacing: '0.08em' }}>
+                <span className="w-1 h-3.5 bg-[#C9A84C] rounded-full" /> Müşteri Görüşleri
               </h2>
               <button onClick={() => setField('testimonials', [...data.testimonials, { quoteEn: '', quoteTr: '', name: '', role: '', image: '' }])} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-white/70 rounded-md transition-all uppercase tracking-wider font-medium">
                 <Plus size={11} /> Yeni
@@ -243,7 +243,7 @@ export default function HomePageEditor() {
         <section className={sectionCard}>
           <div className={sectionInner}>
             <h2 className={sectionTitleClass} style={sectionTitleStyle}>
-              <span className="w-1 h-3.5 bg-[#C1A45D] rounded-full" /> Alt CTA Bölümü
+              <span className="w-1 h-3.5 bg-[#C9A84C] rounded-full" /> Alt CTA Bölümü
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
               <Field label="Başlık (TR)" value={data.cta.titleTr} onChange={(v) => setField('cta', { ...data.cta, titleTr: v })} />
@@ -264,7 +264,7 @@ export default function HomePageEditor() {
           <button onClick={handleReset} disabled={saving} className="inline-flex items-center gap-2 px-4 py-2.5 text-[12px] text-white/50 hover:text-red-300 transition-colors disabled:opacity-50">
             <RotateCcw size={13} /> Tüm içerikleri sıfırla
           </button>
-          <button onClick={handleSave} disabled={saving} className="inline-flex items-center gap-2 bg-[#C1A45D] hover:bg-[#d4b87a] text-[#060e1a] font-semibold rounded-lg transition-all disabled:opacity-50" style={{ padding: '12px 32px', fontSize: '13px' }}>
+          <button onClick={handleSave} disabled={saving} className="inline-flex items-center gap-2 bg-[#C9A84C] hover:bg-[#d4b87a] text-[#060e1a] font-semibold rounded-lg transition-all disabled:opacity-50" style={{ padding: '12px 32px', fontSize: '13px' }}>
             <Save size={14} />
             {saving ? 'Kaydediliyor...' : saved ? 'Kaydedildi ✓' : 'Tüm Değişiklikleri Kaydet'}
           </button>

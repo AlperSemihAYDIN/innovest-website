@@ -70,7 +70,7 @@ export default function AdminDashboard() {
   }
 
   const statCards = [
-    { label: 'Gayrimenkul', value: stats.properties, icon: Building2, href: '/admin/properties', color: '#C1A45D' },
+    { label: 'Gayrimenkul', value: stats.properties, icon: Building2, href: '/admin/properties', color: '#C9A84C' },
     { label: 'Makale', value: stats.articles, icon: FileText, href: '/admin/articles', color: '#3B82F6' },
     { label: 'Rehber', value: stats.guides, icon: BookOpen, href: '/admin/guides', color: '#10B981' },
     { label: 'İletişim', value: stats.contacts, icon: MessageSquare, href: '/admin/contacts', color: '#F59E0B', badge: stats.unreadContacts },
@@ -79,7 +79,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="w-8 h-8 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" />
       </div>
     );
   }
@@ -110,7 +110,7 @@ export default function AdminDashboard() {
             <Link
               key={card.label}
               href={card.href}
-              className="bg-[#0a1628] border border-white/5 rounded-xl p-6 hover:border-white/10 transition-all group"
+              className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6 hover:border-white/10 transition-all group"
             >
               <div className="flex items-center justify-between mb-4">
                 <div
@@ -127,7 +127,7 @@ export default function AdminDashboard() {
               </div>
               <p className="text-3xl font-semibold text-white mb-1">{card.value}</p>
               <p className="text-xs text-white/40">{card.label}</p>
-              <div className="flex items-center gap-1 mt-3 text-xs text-white/30 group-hover:text-[#C1A45D] transition-colors">
+              <div className="flex items-center gap-1 mt-3 text-xs text-white/30 group-hover:text-[#C9A84C] transition-colors">
                 <TrendingUp size={12} />
                 Yönet
               </div>
@@ -137,10 +137,10 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Contacts */}
-      <div className="bg-[#0a1628] border border-white/5 rounded-xl">
-        <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+      <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl">
+        <div className="px-6 py-4 border-b border-white/[0.08] flex items-center justify-between">
           <h2 className="text-sm font-medium text-white">Son İletişim Talepleri</h2>
-          <Link href="/admin/contacts" className="text-xs text-[#C1A45D] hover:text-[#d4b76e] transition-colors">
+          <Link href="/admin/contacts" className="text-xs text-[#C9A84C] hover:text-[#b8963e] transition-colors">
             Tümünü Gör
           </Link>
         </div>
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
               <div key={contact.id} className="px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   {!contact.read && (
-                    <div className="w-2 h-2 rounded-full bg-[#C1A45D]" />
+                    <div className="w-2 h-2 rounded-full bg-[#C9A84C]" />
                   )}
                   <div>
                     <p className="text-sm text-white">{contact.firstname}</p>

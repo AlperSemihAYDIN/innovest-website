@@ -63,7 +63,7 @@ export default function GuidesPage() {
           <h1 className="text-2xl font-semibold text-white">Rehberler</h1>
           <p className="text-white/40 text-sm mt-1">{guides.length} rehber</p>
         </div>
-        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-5 py-2.5 bg-[#C1A45D] hover:bg-[#d4b76e] text-white text-sm font-medium rounded-lg transition-colors">
+        <button onClick={() => setShowForm(true)} className="flex items-center gap-2 px-5 py-2.5 bg-[#C9A84C] hover:bg-[#b8963e] text-white text-sm font-medium rounded-lg transition-colors">
           <Plus size={16} /> Yeni Ekle
         </button>
       </div>
@@ -71,20 +71,20 @@ export default function GuidesPage() {
       <div className="relative">
         <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
         <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Rehber ara..."
-          className="w-full bg-[#0a1628] border border-white/5 rounded-lg pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C1A45D]/30 transition-colors" />
+          className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/30 transition-colors" />
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-20"><div className="w-8 h-8 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" /></div>
+        <div className="flex justify-center py-20"><div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" /></div>
       ) : filtered.length === 0 ? (
-        <div className="bg-[#0a1628] border border-white/5 rounded-xl py-20 text-center">
+        <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl py-20 text-center">
           <p className="text-white/30 text-sm">{search ? 'Sonuç bulunamadı' : 'Henüz rehber eklenmedi'}</p>
         </div>
       ) : (
-        <div className="bg-[#0a1628] border border-white/5 rounded-xl overflow-hidden">
+        <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-white/5">
+              <tr className="border-b border-white/[0.08]">
                 <th className="text-left px-6 py-4 text-xs text-white/40 font-medium uppercase tracking-wider">Başlık</th>
                 <th className="text-left px-6 py-4 text-xs text-white/40 font-medium uppercase tracking-wider">Kategori</th>
                 <th className="text-left px-6 py-4 text-xs text-white/40 font-medium uppercase tracking-wider">CTA</th>

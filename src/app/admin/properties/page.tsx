@@ -89,7 +89,7 @@ export default function PropertiesPage() {
         </div>
         <button
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C1A45D] hover:bg-[#d4b76e] text-white text-sm font-medium rounded-lg transition-colors self-start sm:self-auto"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#C9A84C] hover:bg-[#b8963e] text-white text-sm font-medium rounded-lg transition-colors self-start sm:self-auto"
         >
           <Plus size={16} /> Yeni Ekle
         </button>
@@ -103,17 +103,17 @@ export default function PropertiesPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Gayrimenkul ara..."
-          className="w-full bg-[#0a1628] border border-white/5 rounded-lg pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C1A45D]/30 transition-colors"
+          className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C9A84C]/30 transition-colors"
         />
       </div>
 
       {/* Table */}
       {loading ? (
         <div className="flex justify-center py-20">
-          <div className="w-8 h-8 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" />
         </div>
       ) : filtered.length === 0 ? (
-        <div className="bg-[#0a1628] border border-white/5 rounded-xl py-20 text-center">
+        <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl py-20 text-center">
           <p className="text-white/30 text-sm">
             {search ? 'Sonuç bulunamadı' : 'Henüz gayrimenkul eklenmedi'}
           </p>
@@ -124,11 +124,11 @@ export default function PropertiesPage() {
           )}
         </div>
       ) : (
-        <div className="bg-[#0a1628] border border-white/5 rounded-xl overflow-hidden">
+        <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[720px]">
               <thead>
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-white/[0.08]">
                   <th className="text-left px-6 py-4 text-xs text-white/40 font-medium uppercase tracking-wider">Proje</th>
                   <th className="text-left px-6 py-4 text-xs text-white/40 font-medium uppercase tracking-wider">Konum</th>
                   <th className="text-left px-6 py-4 text-xs text-white/40 font-medium uppercase tracking-wider">Fiyat</th>
@@ -152,7 +152,7 @@ export default function PropertiesPage() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm text-white/70 whitespace-nowrap">{prop.price}</td>
-                    <td className="px-6 py-4 text-sm text-[#C1A45D] whitespace-nowrap">{prop.yield}</td>
+                    <td className="px-6 py-4 text-sm text-[#C9A84C] whitespace-nowrap">{prop.yield}</td>
                     <td className="px-6 py-4 text-sm text-white/50 whitespace-nowrap">{prop.completion}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center justify-end gap-2">

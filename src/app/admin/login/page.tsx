@@ -35,13 +35,13 @@ export default function AdminLoginPage() {
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-2xl font-semibold text-white tracking-wide mb-2">
-            Innovest <span className="text-[#C1A45D]">Admin</span>
+            Innovest <span className="text-[#C9A84C]">Admin</span>
           </h1>
           <p className="text-white/40 text-sm">Yönetim paneline giriş yapın</p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-[#0a1628] border border-white/5 rounded-xl p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-8 space-y-6">
           {error && (
             <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3 text-red-400 text-sm">
               {error}
@@ -59,7 +59,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C1A45D]/50 transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-lg pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
                 placeholder="admin@innovest.uk"
               />
             </div>
@@ -76,7 +76,7 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-11 pr-12 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C1A45D]/50 transition-colors"
+                className="w-full bg-white/5 border border-white/10 rounded-lg pl-11 pr-12 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
                 placeholder="••••••••"
               />
               <button
@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#C1A45D] hover:bg-[#d4b76e] disabled:opacity-50 text-white font-medium py-3.5 rounded-lg text-sm tracking-wide transition-colors duration-200"
+            className="w-full bg-[#C9A84C] hover:bg-[#b8963e] disabled:opacity-50 text-white font-medium py-3.5 rounded-lg text-sm tracking-wide transition-colors duration-200"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">

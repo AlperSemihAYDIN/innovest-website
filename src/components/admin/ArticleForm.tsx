@@ -28,7 +28,7 @@ const defaultData = {
 
 type FormData = typeof defaultData;
 
-const inputClass = 'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C1A45D]/50 transition-colors';
+const inputClass = 'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/50 transition-colors';
 const labelClass = 'block text-xs text-white/50 uppercase tracking-wider mb-2 font-medium';
 
 export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
@@ -106,7 +106,7 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
   if (loading) {
     return (
       <div className="flex justify-center py-20">
-        <div className="w-8 h-8 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" />
       </div>
     );
   }
@@ -114,14 +114,14 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Tabs */}
-      <div className="flex gap-1 bg-[#0a1628] border border-white/5 rounded-xl p-1.5">
+      <div className="flex gap-1 bg-white/[0.04] border border-white/[0.08] rounded-xl p-1.5">
         {(['general', 'en', 'tr'] as const).map(t => (
           <button
             key={t}
             type="button"
             onClick={() => setTab(t)}
             className={`flex-1 px-4 py-2.5 rounded-lg text-xs font-medium transition-all ${
-              tab === t ? 'bg-[#C1A45D]/15 text-[#C1A45D]' : 'text-white/40 hover:text-white/60'
+              tab === t ? 'bg-[#C9A84C]/15 text-[#C9A84C]' : 'text-white/40 hover:text-white/60'
             }`}
           >
             {t === 'general' ? 'Genel' : t === 'en' ? 'English' : 'Türkçe'}
@@ -129,7 +129,7 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
         ))}
       </div>
 
-      <div className="bg-[#0a1628] border border-white/5 rounded-xl p-6 space-y-6">
+      <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6 space-y-6">
         {tab === 'general' && (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -190,7 +190,7 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <label className={labelClass + ' mb-0'}>Body Paragraphs (EN)</label>
-                <button type="button" onClick={() => addParagraph('bodyEn')} className="text-xs text-[#C1A45D] hover:text-[#d4b76e] flex items-center gap-1">
+                <button type="button" onClick={() => addParagraph('bodyEn')} className="text-xs text-[#C9A84C] hover:text-[#b8963e] flex items-center gap-1">
                   <Plus size={12} /> Paragraf Ekle
                 </button>
               </div>
@@ -223,7 +223,7 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <label className={labelClass + ' mb-0'}>İçerik Paragrafları (TR)</label>
-                <button type="button" onClick={() => addParagraph('bodyTr')} className="text-xs text-[#C1A45D] hover:text-[#d4b76e] flex items-center gap-1">
+                <button type="button" onClick={() => addParagraph('bodyTr')} className="text-xs text-[#C9A84C] hover:text-[#b8963e] flex items-center gap-1">
                   <Plus size={12} /> Paragraf Ekle
                 </button>
               </div>
@@ -245,7 +245,7 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
       </div>
 
       <div className="flex justify-end">
-        <button type="submit" disabled={saving} className="px-8 py-3 bg-[#C1A45D] hover:bg-[#d4b76e] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors">
+        <button type="submit" disabled={saving} className="px-8 py-3 bg-[#C9A84C] hover:bg-[#b8963e] disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors">
           {saving ? 'Kaydediliyor...' : id ? 'Güncelle' : 'Oluştur'}
         </button>
       </div>

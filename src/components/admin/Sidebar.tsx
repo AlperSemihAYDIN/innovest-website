@@ -59,7 +59,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 h-14 bg-[#0a1628] border-b border-white/5 flex items-center justify-between px-4">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 h-14 bg-[#0a1628] border-b border-white/[0.08] flex items-center justify-between px-4">
         <button
           onClick={() => setMobileOpen(true)}
           className="w-9 h-9 rounded-md flex items-center justify-center text-white/70 hover:text-white hover:bg-white/5 transition-all"
@@ -68,7 +68,7 @@ export default function Sidebar() {
           <Menu size={20} />
         </button>
         <h1 className="text-sm font-semibold text-white tracking-wide">
-          Innovest <span className="text-[#C1A45D]">Admin</span>
+          Innovest <span className="text-[#C9A84C]">Admin</span>
         </h1>
         <div className="w-9" />
       </div>
@@ -81,15 +81,15 @@ export default function Sidebar() {
       )}
 
       <aside
-        className={`fixed left-0 top-0 h-screen w-56 ${lgWidth} bg-[#0a1628] border-r border-white/5 flex flex-col z-50 transition-all duration-300 ${
+        className={`fixed left-0 top-0 h-screen w-56 ${lgWidth} bg-[#0a1628] border-r border-white/[0.08] flex flex-col z-50 transition-all duration-300 ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
         style={lgWidthStyle}
       >
-        <div className="flex items-center border-b border-white/5 h-16 px-5 justify-between">
+        <div className="flex items-center border-b border-white/[0.08] h-16 px-5 justify-between">
           {showLabel && (
             <h1 className="text-sm font-semibold text-white tracking-wide">
-              Innovest <span className="text-[#C1A45D]">Admin</span>
+              Innovest <span className="text-[#C9A84C]">Admin</span>
             </h1>
           )}
           <div className="flex items-center gap-1 ml-auto">
@@ -147,7 +147,7 @@ export default function Sidebar() {
           })}
         </nav>
 
-        <div className="px-2 py-3 border-t border-white/5 space-y-0.5">
+        <div className="px-2 py-3 border-t border-white/[0.08] space-y-0.5">
           <Link
             href="/"
             target="_blank"

@@ -25,18 +25,18 @@ export default function PagesIndex() {
           const isActive = p.status === 'active';
           const card = (
             <div
-              className={`bg-[#0a1628] border rounded-xl p-6 transition-all ${
+              className={`bg-white/[0.04] border rounded-xl p-6 transition-all ${
                 isActive
-                  ? 'border-white/5 hover:border-[#C1A45D]/40 cursor-pointer'
-                  : 'border-white/5 opacity-50 cursor-not-allowed'
+                  ? 'border-white/[0.08] hover:border-[#C9A84C]/40 cursor-pointer'
+                  : 'border-white/[0.08] opacity-50 cursor-not-allowed'
               }`}
             >
               <div className="flex items-start gap-4">
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: '#C1A45D15' }}
+                  style={{ background: '#C9A84C15' }}
                 >
-                  <Icon size={20} style={{ color: '#C1A45D' }} />
+                  <Icon size={20} style={{ color: '#C9A84C' }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">

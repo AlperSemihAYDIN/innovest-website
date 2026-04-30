@@ -36,7 +36,7 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
     return (
       <div className="min-h-screen bg-[#060e1a] flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 border-2 border-[#C1A45D]/30 border-t-[#C1A45D] rounded-full animate-spin" />
+          <div className="w-10 h-10 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" />
           <p className="text-white/40 text-sm">Yükleniyor...</p>
         </div>
       </div>
@@ -58,7 +58,7 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
       >
         <div
           className="mx-auto"
-          style={{ maxWidth: '860px', padding: '40px 24px' }}
+          style={{ maxWidth: '780px', padding: '40px 24px' }}
         >
           {children}
         </div>
