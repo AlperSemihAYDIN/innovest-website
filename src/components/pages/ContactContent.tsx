@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Globe, ArrowRight, ChevronDown } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import type { Dictionary } from '@/lib/dictionary';
 
@@ -54,13 +54,13 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
   };
 
   const inputClass =
-    'w-full bg-transparent border-b border-gold/15 px-0 py-5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold/60 transition-colors duration-500';
-  const labelClass = 'block text-[10px] text-gold/70 uppercase tracking-[0.2em] mb-2 font-medium';
+    'w-full bg-white/[0.02] border border-white/10 rounded-lg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold/60 focus:bg-white/[0.04] transition-all duration-300';
+  const labelClass = 'block text-sm font-medium text-foreground/80 mb-2';
 
   return (
     <>
-      {/* Hero */}
-      <section className="hero-dark relative py-44 md:py-56 overflow-hidden">
+      {/* Hero — compact */}
+      <section className="hero-dark relative py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069"
@@ -86,10 +86,10 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Main Content — Two Column Premium Layout */}
-      <section className="py-32 md:py-40 bg-background min-h-[80vh] flex flex-col justify-center">
+      <section className="py-20 bg-background">
         <div className="site-container">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-20 lg:gap-24">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
 
               {/* LEFT — Form (3 cols) */}
               <div className="lg:col-span-3">
@@ -127,12 +127,12 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     </div>
                   ) : (
                     <>
-                      <div className="mb-14">
-                        <span className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-5 block">
+                      <div className="mb-10">
+                        <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-5 block">
                           {locale === 'en' ? 'Get In Touch' : 'İletişime Geçin'}
                         </span>
                         <h2
-                          className="text-3xl md:text-4xl font-light mb-5"
+                          className="text-3xl md:text-4xl font-bold mb-4"
                           style={{ fontFamily: 'var(--font-display)' }}
                         >
                           {locale === 'en' ? 'Request a ' : 'Danışmanlık '}
@@ -140,40 +140,39 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             {locale === 'en' ? 'Consultation' : 'Talep Edin'}
                           </span>
                         </h2>
-                        <div className="w-12 h-px bg-gold/40 mb-7" />
-                        <p className="text-muted text-sm leading-relaxed max-w-lg">
+                        <p className="text-base text-white/70 leading-relaxed mt-4 mb-2 max-w-lg">
                           {locale === 'en'
                             ? 'Complete the form below and a member of our advisory team will be in touch shortly.'
                             : 'Aşağıdaki formu doldurun, danışmanlık ekibimizden biri en kısa sürede sizinle iletişime geçecektir.'}
                         </p>
                       </div>
 
-                      <form onSubmit={handleSubmit} className="space-y-2">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-4">
-                          <div className="py-5">
+                      <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
                             <label className={labelClass}>{form.name} *</label>
                             <input type="text" name="firstname" required className={inputClass} placeholder={form.name} />
                           </div>
-                          <div className="py-5">
+                          <div>
                             <label className={labelClass}>{form.email} *</label>
                             <input type="email" name="email" required className={inputClass} placeholder={form.email} />
                           </div>
-                          <div className="py-5">
+                          <div>
                             <label className={labelClass}>{form.phone} *</label>
                             <input type="tel" name="phone" required className={inputClass} placeholder={form.phone} />
                           </div>
-                          <div className="py-5">
+                          <div>
                             <label className={labelClass}>{form.location}</label>
                             <input type="text" name="city" className={inputClass} placeholder={form.location} />
                           </div>
-                          <div className="py-5">
+                          <div>
                             <label htmlFor="budget" className={labelClass}>{form.budget} *</label>
                             <div className="relative">
                               <select
                                 id="budget"
                                 name="budget"
                                 required
-                                className="w-full bg-[#091B2A] border border-gold/15 px-4 py-4 pr-10 text-sm text-foreground focus:outline-none focus:border-gold/60 transition-colors duration-500 appearance-none cursor-pointer rounded-lg"
+                                className={`${inputClass} appearance-none cursor-pointer pr-10`}
                               >
                                 <option value="" className="bg-[#091B2A] text-muted">{locale === 'en' ? 'Select budget range' : 'Bütçe aralığı seçin'}</option>
                                 {form.budgetOptions.map((opt) => (
@@ -183,14 +182,14 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                               <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-gold/50 pointer-events-none" />
                             </div>
                           </div>
-                          <div className="py-5">
+                          <div>
                             <label htmlFor="interest" className={labelClass}>{form.interest} *</label>
                             <div className="relative">
                               <select
                                 id="interest"
                                 name="interest"
                                 required
-                                className="w-full bg-[#091B2A] border border-gold/15 px-4 py-4 pr-10 text-sm text-foreground focus:outline-none focus:border-gold/60 transition-colors duration-500 appearance-none cursor-pointer rounded-lg"
+                                className={`${inputClass} appearance-none cursor-pointer pr-10`}
                               >
                                 <option value="" className="bg-[#091B2A] text-muted">{locale === 'en' ? 'Select area of interest' : 'İlgi alanı seçin'}</option>
                                 {form.interestOptions.map((opt) => (
@@ -202,21 +201,23 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           </div>
                         </div>
 
-                        <div className="py-5">
+                        <div>
                           <label className={labelClass}>{form.message}</label>
                           <textarea
                             name="message"
-                            rows={4}
+                            rows={6}
                             className={`${inputClass} resize-none`}
+                            style={{ minHeight: '160px', padding: '18px' }}
                             placeholder={form.message}
                           />
                         </div>
 
-                        <div className="pt-10">
+                        <div className="pt-4">
                           <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="inline-flex items-center justify-center gap-3 px-16 py-5 bg-gold text-white text-sm font-medium tracking-[0.15em] uppercase hover:bg-gold-light disabled:opacity-50 transition-all duration-300 rounded-lg"
+                            className="w-full inline-flex items-center justify-center gap-3 bg-gold text-white uppercase hover:bg-gold-light disabled:opacity-50 transition-all duration-300 rounded-lg"
+                            style={{ padding: '16px 0', fontSize: '14px', fontWeight: 600, letterSpacing: '0.08em' }}
                           >
                             {isSubmitting ? (
                               <span className="flex items-center gap-2.5">
@@ -227,13 +228,10 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                                 {locale === 'en' ? 'Sending...' : 'Gönderiliyor...'}
                               </span>
                             ) : (
-                              <>
-                                <Send size={15} />
-                                {form.submit}
-                              </>
+                              <>{form.submit}</>
                             )}
                           </button>
-                          <p className="text-[11px] text-muted/50 mt-6">{form.note}</p>
+                          <p className="mt-4 text-sm text-white/50 text-center">{form.note}</p>
                         </div>
                       </form>
                     </>
@@ -244,59 +242,67 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
               {/* RIGHT — Contact Info (2 cols) */}
               <div className="lg:col-span-2">
                 <AnimatedSection delay={0.15}>
-                  <div className="lg:sticky lg:top-32 space-y-12">
+                  <div
+                    className="lg:sticky lg:top-32"
+                    style={{
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: '16px',
+                      padding: '32px',
+                    }}
+                  >
 
                     {/* Direct Contact */}
                     <div>
                       <h3
-                        className="text-lg font-light mb-8"
+                        className="text-lg font-semibold mb-8"
                         style={{ fontFamily: 'var(--font-display)' }}
                       >
                         {locale === 'en' ? 'Direct Contact' : 'Doğrudan İletişim'}
                       </h3>
-                      <div className="space-y-7">
-                        <a href="tel:+447491510941" className="flex items-center gap-5 group">
-                          <div className="w-12 h-12 rounded-full bg-gold/8 flex items-center justify-center group-hover:bg-gold/15 transition-colors duration-300">
-                            <Phone size={18} className="text-gold" />
+                      <div>
+                        <a href="tel:+447491510941" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                          <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
+                            <Phone size={22} className="text-gold" />
                           </div>
                           <div>
-                            <p className="text-[10px] text-muted/60 uppercase tracking-[0.15em] mb-1">
+                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">
                               {locale === 'en' ? 'Phone' : 'Telefon'}
                             </p>
-                            <p className="text-sm text-foreground group-hover:text-gold transition-colors">+44 7491 510941</p>
+                            <p className="text-base font-medium text-white group-hover:text-gold transition-colors">+44 7491 510941</p>
                           </div>
                         </a>
-                        <a href="tel:+447769212877" className="flex items-center gap-5 group">
-                          <div className="w-12 h-12 rounded-full bg-gold/8 flex items-center justify-center group-hover:bg-gold/15 transition-colors duration-300">
-                            <Phone size={18} className="text-gold" />
+                        <a href="tel:+447769212877" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                          <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
+                            <Phone size={22} className="text-gold" />
                           </div>
                           <div>
-                            <p className="text-[10px] text-muted/60 uppercase tracking-[0.15em] mb-1">
+                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">
                               {locale === 'en' ? 'Phone' : 'Telefon'}
                             </p>
-                            <p className="text-sm text-foreground group-hover:text-gold transition-colors">+44 7769 212877</p>
+                            <p className="text-base font-medium text-white group-hover:text-gold transition-colors">+44 7769 212877</p>
                           </div>
                         </a>
-                        <a href="mailto:info@innovest.uk" className="flex items-center gap-5 group">
-                          <div className="w-12 h-12 rounded-full bg-gold/8 flex items-center justify-center group-hover:bg-gold/15 transition-colors duration-300">
-                            <Mail size={18} className="text-gold" />
+                        <a href="mailto:info@innovest.uk" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                          <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
+                            <Mail size={22} className="text-gold" />
                           </div>
                           <div>
-                            <p className="text-[10px] text-muted/60 uppercase tracking-[0.15em] mb-1">
+                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">
                               {locale === 'en' ? 'Email' : 'E-posta'}
                             </p>
-                            <p className="text-sm text-foreground group-hover:text-gold transition-colors">info@innovest.uk</p>
+                            <p className="text-base font-medium text-white group-hover:text-gold transition-colors">info@innovest.uk</p>
                           </div>
                         </a>
-                        <a href="https://wa.me/447491510941" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group">
-                          <div className="w-12 h-12 rounded-full bg-gold/8 flex items-center justify-center group-hover:bg-gold/15 transition-colors duration-300">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-gold">
+                        <a href="https://wa.me/447491510941" target="_blank" rel="noopener noreferrer" className="flex items-center group" style={{ gap: '16px' }}>
+                          <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-gold">
                               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                             </svg>
                           </div>
                           <div>
-                            <p className="text-[10px] text-muted/60 uppercase tracking-[0.15em] mb-1">WhatsApp</p>
-                            <p className="text-sm text-foreground group-hover:text-gold transition-colors">
+                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">WhatsApp</p>
+                            <p className="text-base font-medium text-white group-hover:text-gold transition-colors">
                               {locale === 'en' ? 'Send a message' : 'Mesaj gönderin'}
                             </p>
                           </div>
@@ -304,28 +310,25 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       </div>
                     </div>
 
-                    {/* Divider */}
-                    <div className="h-px bg-border/20" />
-
                     {/* Headquarters */}
-                    <div>
+                    <div className="border-t border-white/10 mt-8 pt-8">
                       <h3
-                        className="text-lg font-light mb-6"
+                        className="text-lg font-semibold mb-6"
                         style={{ fontFamily: 'var(--font-display)' }}
                       >
                         {locale === 'en' ? 'Headquarters' : 'Merkez Ofis'}
                       </h3>
                       <div className="flex items-start gap-4 mb-5">
-                        <MapPin size={16} className="text-gold/60 mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-muted leading-relaxed">
+                        <MapPin size={18} className="text-gold mt-0.5 flex-shrink-0" />
+                        <p className="text-sm text-white/80 leading-relaxed">
                           Berkeley Square House, 2nd Floor,<br />
                           Berkeley Square, Mayfair,<br />
                           London W1J 6BE
                         </p>
                       </div>
                       <div className="flex items-center gap-4">
-                        <Clock size={16} className="text-gold/60 flex-shrink-0" />
-                        <p className="text-sm text-muted">
+                        <Clock size={18} className="text-gold flex-shrink-0" />
+                        <p className="text-sm text-white/80">
                           {locale === 'en' ? 'Mon – Fri: 9:00 – 18:00' : 'Pzt – Cum: 9:00 – 18:00'}
                         </p>
                       </div>
@@ -341,15 +344,15 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Offices Section */}
-      <section className="py-28 md:py-36 bg-surface min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-surface" style={{ paddingTop: '128px', paddingBottom: '128px' }}>
         <div className="site-container">
           <AnimatedSection>
-            <div className="text-center mb-20">
-              <span className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-5 block">
+            <div className="text-center mb-14">
+              <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-3 block">
                 {locale === 'en' ? 'Our Offices' : 'Ofislerimiz'}
               </span>
               <h2
-                className="text-3xl md:text-4xl font-light"
+                className="text-4xl md:text-5xl font-bold"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {locale === 'en' ? 'Global ' : 'Küresel '}
@@ -361,41 +364,47 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
             </div>
           </AnimatedSection>
 
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             {/* London */}
             <AnimatedSection delay={0}>
-              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500 rounded-xl">
-                <div className="w-11 h-11 rounded-full bg-gold/8 flex items-center justify-center mb-8">
-                  <Globe size={18} className="text-gold" />
+              <div
+                className="h-full flex flex-col transition-all duration-500"
+                style={{
+                  padding: '40px',
+                  borderRadius: '16px',
+                  border: '1px solid var(--gold)',
+                  background: 'rgba(255,255,255,0.04)',
+                  boxShadow: '0 0 40px rgba(201, 168, 76, 0.08)',
+                }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl" aria-hidden="true">&#x1F1EC;&#x1F1E7;</span>
+                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                    {locale === 'en' ? 'London' : 'Londra'}
+                  </h3>
                 </div>
-                <h3
-                  className="text-xl font-light mb-1.5"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  {locale === 'en' ? 'London' : 'Londra'}
-                </h3>
-                <span className="text-gold text-[10px] tracking-[0.2em] uppercase mb-8">
+                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
                   {locale === 'en' ? 'Headquarters' : 'Merkez Ofis'}
                 </span>
                 <div className="space-y-5 mt-auto">
-                  <div className="flex items-start gap-3.5">
-                    <MapPin size={15} className="text-gold/50 mt-0.5 flex-shrink-0" />
-                    <p className="text-[13px] text-muted/80 leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <MapPin size={16} className="text-gold opacity-80 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-white/70 leading-relaxed">
                       Berkeley Square House,<br />
                       Mayfair, London W1J 6BE
                     </p>
                   </div>
-                  <div className="flex items-center gap-3.5">
-                    <Phone size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="tel:+447491510941" className="text-[13px] text-muted/80 hover:text-gold transition-colors">+44 7491 510941</a>
+                  <div className="flex items-center gap-3">
+                    <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="tel:+447491510941" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+44 7491 510941</a>
                   </div>
-                  <div className="flex items-center gap-3.5">
-                    <Phone size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="tel:+447769212877" className="text-[13px] text-muted/80 hover:text-gold transition-colors">+44 7769 212877</a>
+                  <div className="flex items-center gap-3">
+                    <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="tel:+447769212877" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+44 7769 212877</a>
                   </div>
-                  <div className="flex items-center gap-3.5">
-                    <Mail size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="mailto:info@innovest.uk" className="text-[13px] text-muted/80 hover:text-gold transition-colors">info@innovest.uk</a>
+                  <div className="flex items-center gap-3">
+                    <Mail size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">info@innovest.uk</a>
                   </div>
                 </div>
               </div>
@@ -403,27 +412,32 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
 
             {/* Dubai */}
             <AnimatedSection delay={0.1}>
-              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500 rounded-xl">
-                <div className="w-11 h-11 rounded-full bg-gold/8 flex items-center justify-center mb-8">
-                  <Globe size={18} className="text-gold" />
+              <div
+                className="h-full flex flex-col transition-all duration-500"
+                style={{
+                  padding: '40px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.04)',
+                }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl" aria-hidden="true">&#x1F1E6;&#x1F1EA;</span>
+                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                    Dubai
+                  </h3>
                 </div>
-                <h3
-                  className="text-xl font-light mb-1.5"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  Dubai
-                </h3>
-                <span className="text-gold text-[10px] tracking-[0.2em] uppercase mb-8">
+                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
                   {locale === 'en' ? 'Middle East' : 'Orta Doğu'}
                 </span>
                 <div className="space-y-5 mt-auto">
-                  <div className="flex items-center gap-3.5">
-                    <Phone size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="tel:+971547550101" className="text-[13px] text-muted/80 hover:text-gold transition-colors">+971 54 755 0101</a>
+                  <div className="flex items-center gap-3">
+                    <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="tel:+971547550101" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+971 54 755 0101</a>
                   </div>
-                  <div className="flex items-center gap-3.5">
-                    <Mail size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="mailto:info@innovest.uk" className="text-[13px] text-muted/80 hover:text-gold transition-colors">info@innovest.uk</a>
+                  <div className="flex items-center gap-3">
+                    <Mail size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">info@innovest.uk</a>
                   </div>
                 </div>
               </div>
@@ -431,27 +445,32 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
 
             {/* Turkey */}
             <AnimatedSection delay={0.2}>
-              <div className="bg-background border border-border/30 p-12 h-full flex flex-col hover:border-gold/25 transition-all duration-500 rounded-xl">
-                <div className="w-11 h-11 rounded-full bg-gold/8 flex items-center justify-center mb-8">
-                  <Globe size={18} className="text-gold" />
+              <div
+                className="h-full flex flex-col transition-all duration-500"
+                style={{
+                  padding: '40px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.04)',
+                }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl" aria-hidden="true">&#x1F1F9;&#x1F1F7;</span>
+                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                    {locale === 'en' ? 'Turkey' : 'Türkiye'}
+                  </h3>
                 </div>
-                <h3
-                  className="text-xl font-light mb-1.5"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  {locale === 'en' ? 'Turkey' : 'Türkiye'}
-                </h3>
-                <span className="text-gold text-[10px] tracking-[0.2em] uppercase mb-8">
+                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
                   {locale === 'en' ? 'Representative' : 'Temsilcilik'}
                 </span>
                 <div className="space-y-5 mt-auto">
-                  <div className="flex items-center gap-3.5">
-                    <Phone size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="tel:+905314200331" className="text-[13px] text-muted/80 hover:text-gold transition-colors">+90 531 420 0331</a>
+                  <div className="flex items-center gap-3">
+                    <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="tel:+905314200331" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+90 531 420 0331</a>
                   </div>
-                  <div className="flex items-center gap-3.5">
-                    <Mail size={15} className="text-gold/50 flex-shrink-0" />
-                    <a href="mailto:info@innovest.uk" className="text-[13px] text-muted/80 hover:text-gold transition-colors">info@innovest.uk</a>
+                  <div className="flex items-center gap-3">
+                    <Mail size={16} className="text-gold opacity-80 flex-shrink-0" />
+                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">info@innovest.uk</a>
                   </div>
                 </div>
               </div>
@@ -461,27 +480,34 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Map Section */}
-      <section className="bg-background border-t border-border">
-        <div className="site-container py-24">
+      <section className="bg-background border-t border-border" style={{ paddingTop: '80px', paddingBottom: '96px' }}>
+        <div className="site-container">
           <AnimatedSection>
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-14">
-                <span className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-4 block">
+              <div className="text-center">
+                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-2 block">
                   {locale === 'en' ? 'Find Us' : 'Bizi Bulun'}
                 </span>
                 <h3
-                  className="text-2xl font-light mb-3"
+                  className="text-4xl font-bold mb-3"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Berkeley Square, Mayfair
                 </h3>
-                <p className="text-sm text-muted">
+                <p className="text-base text-white/60">
                   Berkeley Square House, 2nd Floor, London W1J 6BE
                 </p>
               </div>
-              <div className="relative w-full aspect-[16/7] border border-border/20 overflow-hidden rounded-xl">
+              <div
+                className="relative w-full h-[480px] mt-10"
+                style={{
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.2!2d-0.14601!3d51.50990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876052f4e8bbbe7%3A0x6f87e2f2a4e53e3b!2sBerkeley%20Square%20House%2C%20Berkeley%20Square%2C%20London%20W1J%206BE!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                  src="https://maps.google.com/maps?q=Berkeley+Square+House,+Mayfair,+London+W1J+6BE&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
@@ -491,16 +517,6 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                   title="Innovest Capital London Office"
                   className="absolute inset-0 w-full h-full"
                 />
-                {/* Get Directions overlay */}
-                <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Berkeley+Square+House,Mayfair,London+W1J+6BE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-4 left-4 inline-flex items-center gap-2 px-5 py-3 bg-gold text-white text-sm font-medium hover:bg-gold-light transition-colors duration-300 shadow-lg z-10 rounded-lg"
-                >
-                  <MapPin size={15} />
-                  {locale === 'en' ? 'Get Directions' : 'Yol Tarifi Al'}
-                </a>
               </div>
             </div>
           </AnimatedSection>

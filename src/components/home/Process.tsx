@@ -26,7 +26,11 @@ export default function Process({ dict }: ProcessProps) {
       </div>
 
       {/* Right: heading + steps */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 pt-8 pb-24 lg:pt-0 lg:pb-0 border-t border-border lg:border-t-0">
+      <div
+        className="process-content w-full lg:w-1/2 flex flex-col justify-start lg:justify-center px-8 md:px-12 lg:px-16 pb-24 lg:pb-0 border-t border-border lg:border-t-0"
+      >
+        {/* Mobile/tablet top spacer — hidden on desktop */}
+        <div className="h-20 lg:hidden" aria-hidden="true" />
         <AnimatedSection>
           <div className="mb-8 lg:mb-16">
             <SectionHeading

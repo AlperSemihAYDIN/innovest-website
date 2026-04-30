@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface FooterProps {
@@ -10,8 +11,31 @@ interface FooterProps {
   locale: 'en' | 'tr';
 }
 
+const DEFAULT_SOCIALS = {
+  instagram: 'https://www.instagram.com/innovestcapital',
+  facebook: 'https://www.facebook.com/people/I-N-N-O-V-E-S-T/61552674123444/',
+  youtube: 'https://www.youtube.com/@InnovestUK',
+  linkedin: 'https://www.linkedin.com/company/innovest-capital/posts/?feedView=all',
+};
+
 export default function Footer({ dict, locale }: FooterProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
+  const [socials, setSocials] = useState(DEFAULT_SOCIALS);
+
+  useEffect(() => {
+    fetch('/api/public/socials')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (!data) return;
+        setSocials({
+          instagram: data.instagram || DEFAULT_SOCIALS.instagram,
+          facebook: DEFAULT_SOCIALS.facebook,
+          youtube: DEFAULT_SOCIALS.youtube,
+          linkedin: data.linkedin || DEFAULT_SOCIALS.linkedin,
+        });
+      })
+      .catch(() => {});
+  }, []);
 
   const quickLinks = [
     { label: dict.nav.home, href: `${prefix}/` },
@@ -38,7 +62,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
       {/* Main Footer */}
       <div className="site-container pt-16 pb-20 min-h-[40vh] flex flex-col justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: '48px', rowGap: '64px' }}>
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`${prefix}/`} className="flex items-center gap-3 mb-6">
@@ -55,7 +79,7 @@ export default function Footer({ dict, locale }: FooterProps) {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://www.instagram.com/innovestuk/"
+                href={socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-gold hover:border-gold transition-colors"
@@ -68,7 +92,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://www.facebook.com/people/I-N-N-O-V-E-S-T/61552674123444/"
+                href={socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-gold hover:border-gold transition-colors"
@@ -79,7 +103,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@InnovestUK"
+                href={socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-gold hover:border-gold transition-colors"
@@ -91,7 +115,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/innovest-capital/posts/?feedView=all"
+                href={socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-gold hover:border-gold transition-colors"
@@ -111,7 +135,7 @@ export default function Footer({ dict, locale }: FooterProps) {
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-foreground">
               {dict.footer.quickLinks}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3" style={{ lineHeight: 2 }}>
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -134,7 +158,7 @@ export default function Footer({ dict, locale }: FooterProps) {
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-foreground">
               {dict.footer.ourServices}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3" style={{ lineHeight: 2 }}>
               {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -157,18 +181,21 @@ export default function Footer({ dict, locale }: FooterProps) {
             <h4 className="text-sm font-semibold tracking-wider uppercase mb-6 text-foreground">
               {dict.footer.contactInfo}
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-5" style={{ lineHeight: 2 }}>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-gold mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted leading-relaxed">
+                <span className="text-sm text-muted" style={{ lineHeight: 2 }}>
                   {dict.footer.address}
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-gold flex-shrink-0" />
-                <div className="text-sm text-muted space-y-1">
+              <li className="flex items-start gap-3">
+                <Phone size={16} className="text-gold mt-1 flex-shrink-0" />
+                <div className="text-sm text-muted" style={{ lineHeight: 2 }}>
                   <a href="tel:+447491510941" className="block hover:text-gold transition-colors">
                     +44 7491 510941
+                  </a>
+                  <a href="tel:+447769212877" className="block hover:text-gold transition-colors">
+                    +44 7769 212877
                   </a>
                   <a href="tel:+971547550101" className="block hover:text-gold transition-colors">
                     +971 54 755 0101

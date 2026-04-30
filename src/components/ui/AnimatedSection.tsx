@@ -63,7 +63,7 @@ export function SectionHeading({
         <span className="text-gradient-gold">{titleHighlight}</span>
       </h2>
       {subtitle && (
-        <p className={`text-muted-light text-lg md:text-xl leading-relaxed font-light italic ${center ? 'mx-auto text-center' : ''}`}>
+        <p className={`text-muted-light text-lg md:text-xl leading-relaxed font-light ${center ? 'mx-auto text-center' : ''}`}>
           {subtitle}
         </p>
       )}

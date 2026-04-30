@@ -12,7 +12,7 @@
   --color-border-light: #2A4F6A;
   --color-muted: #8A9BAA;
   --color-muted-light: #C5D0DA;
-  --font-sans: var(--font-baskerville);
+  --font-sans: var(--font-montserrat);
   --font-display: var(--font-montserrat);
 }
 
@@ -30,12 +30,29 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-montserrat), 'Montserrat', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 0;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.75;
+  font-style: normal;
+}
+
+/* Disable italic globally per design system */
+* { font-style: normal !important; }
+
+/* Headings: tighter weight, modest tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+h1 { line-height: 1.15; }
+
+/* Uppercase labels — wider tracking */
+.uppercase, [class*="tracking-widest"] {
+  letter-spacing: 0.18em;
 }
 
 ::selection {
@@ -151,16 +168,16 @@ body {
   }
 
   section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   /* Ensure min-h-screen sections still breathe on mobile */
   section.min-h-screen,
   section[class*="min-h-screen"] {
     min-height: auto;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   h1 { font-size: 2rem !important; line-height: 1.15 !important; }
@@ -169,8 +186,8 @@ body {
 
 @media (max-width: 480px) {
   section {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   h1 { font-size: 1.75rem !important; }
   h2 { font-size: 1.5rem !important; }
@@ -180,25 +197,76 @@ body {
 /* Kullanım: className="site-container" — tüm section içeriklerinde  */
 .site-container {
   width: 100%;
-  max-width: 72rem; /* 1152px — max-w-6xl eşdeğeri */
+  max-width: 78rem; /* 1248px */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-@media (min-width: 640px) {
-  .site-container { padding-left: 2.5rem; padding-right: 2.5rem; }
+@media (min-width: 768px) {
+  .site-container { padding-left: 3rem; padding-right: 3rem; }
 }
 @media (min-width: 1024px) {
-  .site-container { padding-left: 4rem; padding-right: 4rem; }
+  .site-container { padding-left: 5rem; padding-right: 5rem; }
 }
 @media (min-width: 1280px) {
-  .site-container { padding-left: 5rem; padding-right: 5rem; }
+  .site-container { padding-left: 6rem; padding-right: 6rem; }
 }
 
 /* ─── Admin Panel Layout ──────────────────────────── */
 @media (min-width: 1024px) {
   .admin-main {
     margin-left: var(--sidebar-ml, 14rem);
+  }
+}
+
+.process-content {
+  padding-top: 5rem;
+}
+@media (min-width: 1024px) {
+  .process-content {
+    padding-top: 0;
+  }
+}
+
+/* ─── Buttons (design system) ──────────────────────────── */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-radius: 0.5rem; /* rounded-lg */
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background-color: var(--color-gold);
+  color: #fff;
+  min-width: 220px;
+}
+.btn-primary:hover {
+  background-color: var(--color-gold-light);
+}
+.btn-ghost {
+  color: var(--color-foreground);
+  opacity: 0.85;
+}
+.btn-ghost:hover {
+  color: var(--color-gold);
+  opacity: 1;
+}
+
+/* ─── Desktop section breathing room ────────────────────── */
+@media (min-width: 1024px) {
+  /* General sections — extra breathing room */
+  section[class*="py-16"]:not([class*="lg:py"]),
+  section[class*="py-20"]:not([class*="lg:py"]),
+  section[class*="py-24"]:not([class*="lg:py"]) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
 }

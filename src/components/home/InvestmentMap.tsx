@@ -214,7 +214,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {t.title}{' '}
-            <span className="text-gold italic">{t.titleHighlight}</span>
+            <span className="text-gold">{t.titleHighlight}</span>
           </h2>
           <p className="text-muted leading-relaxed">{t.subtitle}</p>
         </div>

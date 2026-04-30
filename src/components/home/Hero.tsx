@@ -81,7 +81,7 @@ export default function Hero({ dict, locale }: HeroProps) {
               >
                 <Link
                   href={`${prefix}/contact`}
-                  className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white text-sm font-medium tracking-wide hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+                  className="btn-base btn-primary btn-shine group"
                 >
                   {dict.hero.cta}
                   <ArrowRight
@@ -91,7 +91,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 </Link>
                 <Link
                   href={`${prefix}/services`}
-                  className="inline-flex items-center gap-3 px-10 py-4 text-sm text-foreground/80 tracking-wide hover:text-gold transition-all duration-300 rounded-lg"
+                  className="btn-base btn-ghost group"
                 >
                   {dict.hero.ctaSecondary}
                   <ArrowRight

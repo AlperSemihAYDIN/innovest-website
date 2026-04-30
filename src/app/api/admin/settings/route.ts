@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
       whatsapp: '+447491510941',
       addressLondon: 'Berkeley Square House, 2nd Floor, Berkeley Square, Mayfair, London W1J 6BE',
       socialLinkedin: 'https://www.linkedin.com/company/innovest-capital/posts/?feedView=all',
-      socialInstagram: '',
+      socialInstagram: 'https://www.instagram.com/innovestcapital',
       socialTwitter: '',
     });
   }
