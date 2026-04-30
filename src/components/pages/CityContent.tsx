@@ -162,7 +162,7 @@ export default function CityContent({
                   {locale === 'en' ? 'Property?' : 'Gayrimenkulü ile İlgileniyor musunuz?'}
                 </span>
               </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto text-center">
+              <p className="text-muted mb-10 max-w-xl mx-auto text-center">
                 {locale === 'en'
                   ? 'Our expert advisors can provide personalised guidance and access to exclusive off-market opportunities.'
                   : 'Uzman danışmanlarımız kişiselleştirilmiş rehberlik ve özel fırsatlara erişim sağlayabilir.'}

@@ -216,7 +216,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
             {t.title}{' '}
             <span className="text-gold">{t.titleHighlight}</span>
           </h2>
-          <p className="text-muted leading-relaxed">{t.subtitle}</p>
+          <p className="text-muted leading-loose">{t.subtitle}</p>
         </div>
 
         {/* Region Tabs */}
@@ -351,7 +351,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
               /* Empty state with property list */
               <div className="flex flex-col items-center justify-center h-full py-12 px-6 text-center gap-4">
                 <MapPin size={36} className="text-gold/40" />
-                <p className="text-muted text-sm leading-relaxed">
+                <p className="text-muted text-sm leading-loose">
                   {locale === 'en'
                     ? 'Click a marker on the map to see property details.'
                     : 'Proje detaylarını görmek için haritadaki işarete tıklayın.'}
@@ -388,7 +388,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
           onClick={() => setLightboxOpen(false)}
         >
           <div
-            className="relative max-w-2xl w-full aspect-video bg-surface border border-border overflow-hidden shadow-2xl"
+            className="relative max-w-xl w-full aspect-video bg-surface border border-border overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image

@@ -98,7 +98,7 @@ export default function Services({ dict, locale }: ServicesProps) {
                     >
                       {service.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-white/75 mb-6 flex-1">
+                    <p className="text-sm leading-loose text-white/75 mb-6 flex-1">
                       {service.desc}
                     </p>
                     <span className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-gold group-hover:gap-3 transition-all duration-300">

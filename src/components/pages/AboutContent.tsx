@@ -75,7 +75,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   >
                     {dict.about.mission.title}
                   </h3>
-                  <p className="text-muted leading-relaxed text-sm">{dict.about.mission.desc}</p>
+                  <p className="text-muted leading-loose text-sm">{dict.about.mission.desc}</p>
                 </div>
 
                 <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500 rounded-xl">
@@ -85,7 +85,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   >
                     {dict.about.vision.title}
                   </h3>
-                  <p className="text-muted leading-relaxed text-sm">{dict.about.vision.desc}</p>
+                  <p className="text-muted leading-loose text-sm">{dict.about.vision.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -107,7 +107,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               >
                 {locale === 'en' ? 'Our Expert Team' : 'Uzman Ekibimiz'}
               </h2>
-              <p className="text-muted max-w-2xl mx-auto leading-[1.85] text-center">
+              <p className="text-muted max-w-xl mx-auto leading-[1.85] text-center">
                 {locale === 'en'
                   ? 'A team of seasoned professionals based in the United Kingdom'
                   : 'Birleşik Krallık\'ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
@@ -184,7 +184,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   {locale === 'en' ? 'Global Markets' : 'Köprüler Kuruyoruz'}
                 </span>
               </h2>
-              <div className="space-y-4 text-muted leading-relaxed">
+              <div className="space-y-4 text-muted leading-loose">
                 <p>
                   {locale === 'en'
                     ? 'Founded with a clear vision to bridge the gap between international investors and premium global opportunities, Innovest has established itself as a trusted name in cross-border investment advisory.'
@@ -229,7 +229,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   </span>
                 </h2>
               </div>
-              <p className="text-muted text-sm max-w-sm leading-relaxed lg:text-right lg:pb-2">
+              <p className="text-muted text-sm max-w-sm leading-loose lg:text-right lg:pb-2">
                 {locale === 'en'
                   ? 'The principles that shape how we work, how we decide, and what we stand for.'
                   : 'Nasıl çalıştığımızı, nasıl karar verdiğimizi ve neye inandığımızı şekillendiren ilkeler.'}
@@ -244,7 +244,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               const roman = valueRoman[index];
               return (
                 <AnimatedSection key={value.title} delay={index * 0.08}>
-                  <div className="group py-10 lg:py-12 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 hover:bg-surface/50 transition-colors duration-500 cursor-default px-4 -mx-4">
+                  <div className="group py-10 lg:py-12 flex flex-col lg:flex-row lg:items-center gap-8 md:gap-12 lg:gap-12 hover:bg-surface/50 transition-colors duration-500 cursor-default px-4 -mx-4">
                     {/* Roman numeral */}
                     <div className="shrink-0 w-16 lg:w-20">
                       <span
@@ -272,7 +272,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                     </div>
 
                     {/* Description */}
-                    <p className="flex-1 text-sm text-muted leading-relaxed">
+                    <p className="flex-1 text-sm text-muted leading-loose">
                       {value.desc}
                     </p>
 
@@ -315,7 +315,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                 {locale === 'en' ? 'Innovest?' : 'Ortaklığa Hazır mısınız?'}
               </span>
             </h2>
-            <p className="text-muted text-lg mb-10 max-w-2xl mx-auto text-center">
+            <p className="text-muted text-lg mb-10 max-w-xl mx-auto text-center">
               {locale === 'en'
                 ? 'Schedule a complimentary consultation and discover how we can help achieve your investment goals.'
                 : 'Ücretsiz bir danışmanlık görüşmesi planlayın ve yatırım hedeflerinize nasıl ulaşabileceğinizi keşfedin.'}

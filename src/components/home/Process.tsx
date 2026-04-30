@@ -62,7 +62,7 @@ export default function Process({ dict }: ProcessProps) {
                   >
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed">{step.desc}</p>
+                  <p className="text-sm text-muted leading-loose">{step.desc}</p>
                 </div>
               </div>
             </AnimatedSection>

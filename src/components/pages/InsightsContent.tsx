@@ -61,7 +61,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
         title={dict.insightsPage.title}
         titleHighlight={dict.insightsPage.titleHighlight}
         subtitle={dict.insightsPage.subtitle}
-        image="https://images.unsplash.com/photo-1504711434969-e33886168d5c?q=80&w=2070"
+        image="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070"
         imageAlt="Insights"
       />
 
@@ -154,7 +154,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                       <h3 className="text-base font-light mb-3 group-hover:text-gold transition-colors leading-snug" style={{ fontFamily: 'var(--font-display)' }}>
                         {locale === 'tr' ? article.titleTr : article.title}
                       </h3>
-                      <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">{locale === 'tr' ? article.excerptTr : article.excerpt}</p>
+                      <p className="text-sm text-muted leading-loose mb-4 line-clamp-2">{locale === 'tr' ? article.excerptTr : article.excerpt}</p>
                       <span className="inline-flex items-center gap-1 text-sm text-gold">
                         {dict.insightsPage.readMore}
                         <ArrowRight size={14} />

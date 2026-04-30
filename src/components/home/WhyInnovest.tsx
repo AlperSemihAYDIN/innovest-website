@@ -47,7 +47,7 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-muted leading-loose">{item.desc}</p>
                 </div>
               </AnimatedSection>
             );

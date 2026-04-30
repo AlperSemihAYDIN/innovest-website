@@ -55,7 +55,7 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
             ? 'In-depth guides to help you navigate property investment, residency programmes and international business expansion.'
             : 'Gayrimenkul yatırımı, oturum programları ve uluslararası iş geliştirme konularında kapsamlı rehberler.'
         }
-        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2069"
+        image="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=2070"
         imageAlt="Knowledge Hub"
       />
 
@@ -99,7 +99,7 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
           </div>
 
           {filteredGuides.length === 0 && (
-            <div className="text-center py-20">
+            <div className="text-center py-28 md:py-36">
               <p className="text-muted text-sm">
                 {locale === 'en' ? 'No guides found in this category.' : 'Bu kategoride rehber bulunamadı.'}
               </p>
@@ -125,7 +125,7 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
               </span>
             </h2>
             <div className="gold-line-center mb-8" />
-            <p className="text-muted leading-relaxed mb-10 text-center max-w-xl mx-auto">
+            <p className="text-muted leading-loose mb-10 text-center max-w-xl mx-auto">
               {locale === 'en'
                 ? 'Our advisory team can provide a personalised investment breakdown based on your goals, budget and timeline.'
                 : 'Danışmanlık ekibimiz, hedeflerinize, bütçenize ve zaman çizelgenize göre kişiselleştirilmiş bir yatırım analizi sunabilir.'}
@@ -183,7 +183,7 @@ function GuideCard({
             >
               {title}
             </h3>
-            <p className="text-muted text-xs leading-relaxed flex-1 mb-5">{excerpt}</p>
+            <p className="text-muted text-xs leading-loose flex-1 mb-5">{excerpt}</p>
             <div className="flex items-center gap-2 text-gold text-xs font-medium tracking-wide">
               <BookOpen size={14} />
               {locale === 'en' ? 'Read Guide' : 'Rehberi Oku'}

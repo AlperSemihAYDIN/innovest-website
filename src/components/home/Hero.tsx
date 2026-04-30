@@ -68,7 +68,7 @@ export default function Hero({ dict, locale }: HeroProps) {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex justify-center mb-14"
               >
-                <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl text-center">
+                <p className="text-base md:text-lg text-muted leading-loose max-w-xl text-center">
                   {dict.hero.subtitle}
                 </p>
               </motion.div>

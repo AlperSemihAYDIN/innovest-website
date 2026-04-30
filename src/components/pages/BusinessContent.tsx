@@ -47,7 +47,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
                     >
                       {service.title}
                     </h3>
-                    <p className="text-muted leading-relaxed">{service.desc}</p>
+                    <p className="text-muted leading-loose">{service.desc}</p>
                   </div>
                 </AnimatedSection>
               );
@@ -103,7 +103,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
                 {locale === 'en' ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Globally?' : 'Hazır mısınız?'}</span>
               </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto text-center">
+              <p className="text-muted mb-10 max-w-xl mx-auto text-center">
                 {locale === 'en'
                   ? "Let's discuss how we can help you enter new markets and grow your business internationally."
                   : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirelim.'}

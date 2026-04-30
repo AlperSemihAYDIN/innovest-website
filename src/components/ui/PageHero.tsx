@@ -40,7 +40,13 @@ export default function PageHero({
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.50) 50%, rgba(0,0,0,0.68) 100%)',
+          }}
+        />
       </div>
 
       <div
@@ -53,11 +59,11 @@ export default function PageHero({
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex items-center justify-center gap-3 mb-5"
         >
-          <span className="block w-10 h-px bg-amber-400/70" />
-          <span className="text-xs font-semibold tracking-[0.3em] uppercase text-amber-400">
+          <span className="block w-10 h-px bg-gold/70" />
+          <span className="text-xs font-semibold tracking-[0.3em] uppercase text-gold">
             {eyebrow}
           </span>
-          <span className="block w-10 h-px bg-amber-400/70" />
+          <span className="block w-10 h-px bg-gold/70" />
         </motion.div>
 
         <motion.h1
@@ -70,7 +76,7 @@ export default function PageHero({
           {titleHighlight ? (
             <>
               {' '}
-              <span className="text-amber-400">{titleHighlight}</span>
+              <span className="text-gold">{titleHighlight}</span>
             </>
           ) : null}
         </motion.h1>
@@ -80,7 +86,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-base text-white/65 max-w-xl mx-auto leading-relaxed"
+            className="text-base text-white/65 max-w-xl mx-auto leading-loose mt-6 md:mt-8"
           >
             {subtitle}
           </motion.p>

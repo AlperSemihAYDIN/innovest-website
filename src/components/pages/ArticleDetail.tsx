@@ -108,12 +108,12 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
       </section>
 
       {/* Article body */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-28 md:py-36 md:py-28 bg-background">
         <div className="site-container">
           <div className="max-w-3xl mx-auto">
             <AnimatedSection>
               {/* Lead / excerpt */}
-              <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-12 font-light border-l-2 border-gold pl-6">
+              <p className="text-lg md:text-xl text-foreground/80 leading-loose mb-12 font-light border-l-2 border-gold pl-6">
                 {excerpt}
               </p>
 
@@ -183,7 +183,7 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
                 >
                   {ctaTitle}
                 </h2>
-                <p className="text-muted text-sm leading-relaxed max-w-lg">{ctaBody}</p>
+                <p className="text-muted text-sm leading-loose max-w-lg">{ctaBody}</p>
               </div>
               <Link
                 href={contactHref}

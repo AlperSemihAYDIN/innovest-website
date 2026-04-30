@@ -65,12 +65,12 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
       </section>
 
       {/* Guide body */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-28 md:py-36 md:py-28 bg-background">
         <div className="site-container">
           <div className="max-w-3xl mx-auto">
             <AnimatedSection>
               {/* Lead excerpt */}
-              <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-12 font-light border-l-2 border-gold pl-6">
+              <p className="text-lg md:text-xl text-foreground/80 leading-loose mb-12 font-light border-l-2 border-gold pl-6">
                 {excerpt}
               </p>
 
@@ -95,7 +95,7 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
                         </h3>
                         <ul className="space-y-3">
                           {keyPoints.map((point, j) => (
-                            <li key={j} className="flex items-start gap-3 text-sm text-muted leading-relaxed">
+                            <li key={j} className="flex items-start gap-3 text-sm text-muted leading-loose">
                               <span className="w-1.5 h-1.5 bg-gold/60 rounded-full mt-2 flex-shrink-0" />
                               {point}
                             </li>
@@ -189,7 +189,7 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
                 >
                   {locale === 'en' ? 'Want to Learn More About This Topic?' : 'Bu Konuda Daha Fazla Bilgi Almak İster Misiniz?'}
                 </h2>
-                <p className="text-muted text-sm leading-relaxed max-w-lg">
+                <p className="text-muted text-sm leading-loose max-w-lg">
                   {locale === 'en'
                     ? 'Our expert advisors provide personalised guidance tailored to your investment objectives.'
                     : 'Uzman danışmanlarımız, yatırım hedefleriniz doğrultusunda kişiselleştirilmiş rehberlik sunar.'}

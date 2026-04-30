@@ -156,7 +156,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             <AnimatedSection className="lg:col-span-2">
               <div className="space-y-6">
                 {paragraphs.map((para, i) => (
-                  <p key={i} className="text-muted leading-relaxed text-base">
+                  <p key={i} className="text-muted leading-loose text-base">
                     {para}
                   </p>
                 ))}
@@ -232,12 +232,12 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
                 {t.highlights}
               </h2>
             </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:gap-12">
               {highlights.map((item, i) => (
                 <AnimatedSection key={i} delay={i * 0.07}>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
-                    <p className="text-muted leading-relaxed">{item}</p>
+                    <p className="text-muted leading-loose">{item}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -388,7 +388,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             >
               {property.name}
             </h2>
-            <p className="text-muted mb-10 leading-relaxed">{t.enquireDesc}</p>
+            <p className="text-muted mb-10 leading-loose">{t.enquireDesc}</p>
             <Link
               href={`${prefix}/contact`}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-[#09090b] font-medium hover:bg-gold-light transition-all duration-300 group rounded-lg"

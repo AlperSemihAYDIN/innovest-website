@@ -95,7 +95,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
                     >
                       {service.title}
                     </h3>
-                    <p className="text-sm text-muted leading-relaxed flex-1">{service.desc}</p>
+                    <p className="text-sm text-muted leading-loose flex-1">{service.desc}</p>
                     <span className="inline-flex items-center gap-1 text-xs text-gold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                       {locale === 'en' ? 'Learn more' : 'Daha fazla'}
                       <ArrowRight size={12} />
@@ -129,7 +129,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
               {locale === 'en' ? "Need a Service That's " : 'Size Özel Bir Hizmet mi '}
               <span className="text-gradient-gold">{locale === 'en' ? 'Tailored to You?' : 'Arıyorsunuz?'}</span>
             </h2>
-            <p className="text-muted text-lg mb-10 max-w-2xl mx-auto text-center">
+            <p className="text-muted text-lg mb-10 max-w-xl mx-auto text-center">
               {locale === 'en'
                 ? "Every client is unique. Let's discuss your specific needs and create a bespoke service package."
                 : 'Her yatırımcı ve her hedef benzersizdir. İhtiyaçlarınızı birlikte değerlendirerek size özel bir hizmet paketi oluşturalım.'}

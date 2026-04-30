@@ -42,7 +42,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
             <span className="text-gradient-gold">{dict.cta.titleHighlight}</span>
           </h2>
 
-          <p className="text-muted text-lg max-w-2xl mx-auto mb-10 text-center">
+          <p className="text-muted text-lg max-w-xl mx-auto mb-10 text-center">
             {dict.cta.subtitle}
           </p>
 

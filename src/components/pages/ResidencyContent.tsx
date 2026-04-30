@@ -62,7 +62,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
                     </div>
                   </div>
                   <div className="p-8 flex flex-col flex-1">
-                    <div className="flex items-center gap-6 mb-6 text-sm">
+                    <div className="flex items-center gap-8 md:gap-12 mb-6 text-sm">
                       <span className="flex items-center gap-2 text-gold">
                         <Banknote size={16} />
                         {programme.investment}
@@ -75,7 +75,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
 
                     <ul className="space-y-4 mb-8 flex-1">
                       {programme.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-start gap-3 text-sm text-muted leading-relaxed">
+                        <li key={benefit} className="flex items-start gap-3 text-sm text-muted leading-loose">
                           <Check size={14} className="text-gold flex-shrink-0 mt-0.5" />
                           {benefit}
                         </li>
@@ -128,7 +128,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
                   <h3 className="text-lg font-light mb-3 group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed">{step.desc}</p>
+                  <p className="text-sm text-muted leading-loose">{step.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -145,7 +145,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
                 {locale === 'en' ? 'Start Your Residency ' : 'Oturum Yolculuğunuza '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Journey' : 'Başlayın'}</span>
               </h2>
-              <p className="text-muted mb-10 max-w-2xl mx-auto text-center">
+              <p className="text-muted mb-10 max-w-xl mx-auto text-center">
                 {locale === 'en'
                   ? 'Our immigration and investment experts are ready to guide you through the entire process.'
                   : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.'}

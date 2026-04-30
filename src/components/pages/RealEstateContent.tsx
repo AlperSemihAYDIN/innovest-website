@@ -76,9 +76,9 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
                     >
                       {market.city}
                     </h3>
-                    <p className="text-muted leading-relaxed mb-8">{market.desc}</p>
+                    <p className="text-muted leading-loose mb-8">{market.desc}</p>
 
-                    <div className="grid grid-cols-3 gap-6 py-6 border-t border-b border-border mb-8">
+                    <div className="grid grid-cols-3 gap-8 md:gap-12 py-6 border-t border-b border-border mb-8">
                       {market.stats.map((stat) => (
                         <div key={stat.label}>
                           <div className="text-xl md:text-2xl font-light text-gold" style={{ fontFamily: 'var(--font-display)' }}>
