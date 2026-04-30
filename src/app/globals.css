@@ -214,11 +214,8 @@ h1 { line-height: 1.15; }
 }
 
 /* ─── Admin Panel Layout ──────────────────────────── */
-@media (min-width: 1024px) {
-  .admin-main {
-    margin-left: var(--sidebar-ml, 200px);
-  }
-}
+/* Sidebar is fixed; <main> uses flex justify-center so the 780px content
+   wrapper sits in the optical centre of the viewport (independent of sidebar). */
 
 /* ─── Admin form primitives (shared across all admin pages) ─── */
 .admin-section-title {

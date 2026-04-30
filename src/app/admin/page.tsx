@@ -85,74 +85,80 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-8">
+    <div>
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold text-white">Dashboard</h1>
-          <p className="text-white/40 text-sm mt-1">Genel bakış ve istatistikler</p>
+      <div className="admin-sticky-bar" style={{ marginBottom: '24px' }}>
+        <div className="mr-auto">
+          <h1 className="text-lg font-semibold text-white">Dashboard</h1>
+          <p className="text-white/40 text-[11px] mt-0.5">Genel bakış ve istatistikler</p>
         </div>
         <button
           onClick={handleSeed}
           disabled={seeding}
-          className="flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-xs text-white/60 hover:text-white transition-all disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-xs text-white/60 hover:text-white transition-all disabled:opacity-50"
         >
-          <Database size={14} />
+          <Database size={13} />
           {seeding ? 'Aktarılıyor...' : 'Verileri Firestore\'a Aktar'}
         </button>
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {statCards.map((card) => {
-          const Icon = card.icon;
-          return (
-            <Link
-              key={card.label}
-              href={card.href}
-              className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6 hover:border-white/10 transition-all group"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ background: `${card.color}15` }}
-                >
-                  <Icon size={20} style={{ color: card.color }} />
+      <div className="admin-card">
+        <h2 className="admin-section-title">İstatistikler</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {statCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <Link
+                key={card.label}
+                href={card.href}
+                className="rounded-lg p-5 hover:bg-white/[0.03] transition-all group"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div
+                    className="w-9 h-9 rounded-lg flex items-center justify-center"
+                    style={{ background: `${card.color}15` }}
+                  >
+                    <Icon size={18} style={{ color: card.color }} />
+                  </div>
+                  {card.badge ? (
+                    <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      {card.badge}
+                    </span>
+                  ) : null}
                 </div>
-                {card.badge ? (
-                  <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                    {card.badge}
-                  </span>
-                ) : null}
-              </div>
-              <p className="text-3xl font-semibold text-white mb-1">{card.value}</p>
-              <p className="text-xs text-white/40">{card.label}</p>
-              <div className="flex items-center gap-1 mt-3 text-xs text-white/30 group-hover:text-[#C9A84C] transition-colors">
-                <TrendingUp size={12} />
-                Yönet
-              </div>
-            </Link>
-          );
-        })}
+                <p className="text-2xl font-semibold text-white mb-1">{card.value}</p>
+                <p className="text-xs text-white/45">{card.label}</p>
+                <div className="flex items-center gap-1 mt-3 text-[11px] text-white/30 group-hover:text-[#C9A84C] transition-colors">
+                  <TrendingUp size={11} />
+                  Yönet
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
 
       {/* Recent Contacts */}
-      <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl">
-        <div className="px-6 py-4 border-b border-white/[0.08] flex items-center justify-between">
-          <h2 className="text-sm font-medium text-white">Son İletişim Talepleri</h2>
+      <div className="admin-card">
+        <div className="flex items-center justify-between" style={{ marginBottom: '16px' }}>
+          <h2 className="admin-section-title" style={{ marginTop: 0, marginBottom: 0, borderBottom: 'none', paddingBottom: 0 }}>
+            Son İletişim Talepleri
+          </h2>
           <Link href="/admin/contacts" className="text-xs text-[#C9A84C] hover:text-[#b8963e] transition-colors">
-            Tümünü Gör
+            Tümünü Gör →
           </Link>
         </div>
         {recentContacts.length === 0 ? (
-          <div className="px-6 py-12 text-center text-white/30 text-sm">
+          <div className="py-10 text-center text-white/30 text-sm">
             Henüz iletişim talebi yok
           </div>
         ) : (
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-white/[0.06]">
             {recentContacts.map((contact) => (
-              <div key={contact.id} className="px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-4">
+              <div key={contact.id} className="py-3 flex items-center justify-between">
+                <div className="flex items-center gap-3">
                   {!contact.read && (
                     <div className="w-2 h-2 rounded-full bg-[#C9A84C]" />
                   )}
