@@ -60,7 +60,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
   return (
     <>
       {/* Hero — compact */}
-      <section className="hero-dark relative py-28 md:py-36 md:py-24 overflow-hidden">
+      <section className="hero-dark relative py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069"
@@ -86,7 +86,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Main Content — Two Column Premium Layout */}
-      <section className="py-28 md:py-36 bg-background">
+      <section className="py-20 bg-background">
         <div className="site-container">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
@@ -105,7 +105,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       >
                         {locale === 'en' ? 'Thank You' : 'Teşekkürler'}
                       </h3>
-                      <p className="text-muted text-base max-w-md leading-loose">
+                      <p className="text-muted text-base max-w-md leading-relaxed">
                         {locale === 'en'
                           ? "We've received your enquiry and will be in touch within 24 hours."
                           : 'Talebinizi aldık, 24 saat içinde sizinle iletişime geçeceğiz.'}
@@ -113,7 +113,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     </div>
                   ) : submitError ? (
                     <div className="flex flex-col items-center justify-center py-28 text-center">
-                      <p className="text-red-400 text-base max-w-md leading-loose mb-6">
+                      <p className="text-red-400 text-base max-w-md leading-relaxed mb-6">
                         {locale === 'en'
                           ? 'Something went wrong. Please try again or contact us directly.'
                           : 'Bir hata oluştu. Lütfen tekrar deneyin veya bize doğrudan ulaşın.'}
@@ -140,7 +140,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             {locale === 'en' ? 'Consultation' : 'Talep Edin'}
                           </span>
                         </h2>
-                        <p className="text-base text-white/70 leading-loose mt-4 mb-2 max-w-lg">
+                        <p className="text-base text-white/70 leading-relaxed mt-4 mb-2 max-w-lg">
                           {locale === 'en'
                             ? 'Complete the form below and a member of our advisory team will be in touch shortly.'
                             : 'Aşağıdaki formu doldurun, danışmanlık ekibimizden biri en kısa sürede sizinle iletişime geçecektir.'}
@@ -148,7 +148,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       </div>
 
                       <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                             <label className={labelClass}>{form.name} *</label>
                             <input type="text" name="firstname" required className={inputClass} placeholder={form.name} />
@@ -320,7 +320,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       </h3>
                       <div className="flex items-start gap-4 mb-5">
                         <MapPin size={18} className="text-gold mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-white/80 leading-loose">
+                        <p className="text-sm text-white/80 leading-relaxed">
                           Berkeley Square House, 2nd Floor,<br />
                           Berkeley Square, Mayfair,<br />
                           London W1J 6BE
@@ -389,22 +389,22 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 <div className="space-y-5 mt-auto">
                   <div className="flex items-start gap-3">
                     <MapPin size={16} className="text-gold opacity-80 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-white/70 leading-loose">
+                    <p className="text-sm text-white/70 leading-relaxed">
                       Berkeley Square House,<br />
                       Mayfair, London W1J 6BE
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="tel:+447491510941" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">+44 7491 510941</a>
+                    <a href="tel:+447491510941" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+44 7491 510941</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="tel:+447769212877" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">+44 7769 212877</a>
+                    <a href="tel:+447769212877" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+44 7769 212877</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">info@innovest.uk</a>
+                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">info@innovest.uk</a>
                   </div>
                 </div>
               </div>
@@ -433,11 +433,11 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 <div className="space-y-5 mt-auto">
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="tel:+971547550101" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">+971 54 755 0101</a>
+                    <a href="tel:+971547550101" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+971 54 755 0101</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">info@innovest.uk</a>
+                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">info@innovest.uk</a>
                   </div>
                 </div>
               </div>
@@ -466,11 +466,11 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 <div className="space-y-5 mt-auto">
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="tel:+905314200331" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">+90 531 420 0331</a>
+                    <a href="tel:+905314200331" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">+90 531 420 0331</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={16} className="text-gold opacity-80 flex-shrink-0" />
-                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">info@innovest.uk</a>
+                    <a href="mailto:info@innovest.uk" className="text-sm text-white/70 hover:text-gold transition-colors leading-relaxed">info@innovest.uk</a>
                   </div>
                 </div>
               </div>
