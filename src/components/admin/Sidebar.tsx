@@ -17,10 +17,12 @@ import {
   ChevronRight,
   Menu,
   X,
+  FileEdit,
 } from 'lucide-react';
 
 const navItems = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { label: 'Sayfa İçerikleri', href: '/admin/pages', icon: FileEdit },
   { label: 'Gayrimenkuller', href: '/admin/properties', icon: Building2 },
   { label: 'Makaleler', href: '/admin/articles', icon: FileText },
   { label: 'Rehberler', href: '/admin/guides', icon: BookOpen },

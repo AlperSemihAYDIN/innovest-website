@@ -1,4 +1,6 @@
 import { getDictionary } from '@/lib/dictionary';
+import { getHomeContent } from '@/lib/pageContent';
+import { mergeHomeIntoDict, localizedStats, localizedTestimonials } from '@/lib/mergeHomeContent';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
@@ -17,8 +19,12 @@ export const metadata: Metadata = {
   description: 'İngiltere, BAE ve küresel pazarlarda gayrimenkul yatırımı, oturum programları ve ticari genişleme danışmanlığı.',
 };
 
-export default function HomeTR() {
-  const dict = getDictionary('tr');
+export default async function HomeTR() {
+  const baseDict = getDictionary('tr');
+  const content = await getHomeContent();
+  const dict = mergeHomeIntoDict(baseDict, content, 'tr');
+  const statsOverride = localizedStats(content, 'tr');
+  const testimonialsOverride = localizedTestimonials(content);
 
   return (
     <>
@@ -26,11 +32,11 @@ export default function HomeTR() {
       <main className="flex-1">
         <Hero dict={dict} locale="tr" />
         <Services dict={dict} locale="tr" />
-        <Stats locale="tr" />
+        <Stats locale="tr" stats={statsOverride} />
         <FeaturedInvestments dict={dict} locale="tr" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
-        <Testimonials locale="tr" />
+        <Testimonials locale="tr" testimonials={testimonialsOverride} />
         <CallToAction dict={dict} locale="tr" />
       </main>
       <Footer dict={dict} locale="tr" />

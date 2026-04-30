@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
-const testimonials = [
+const defaultTestimonials = [
   {
     quoteEn: "Working with Innovest was transformative for my portfolio. Their deep understanding of the London market and personalised approach helped me secure two premium properties that have exceeded yield expectations.",
     quoteTr: "Innovest ile çalışmak portföyüm için dönüştürücü oldu. Londra pazarını derin anlayışları ve kişiselleştirilmiş yaklaşımları, getiri beklentilerimi aşan iki premium mülk edinmemi sağladı.",
@@ -29,10 +29,18 @@ const testimonials = [
 
 interface TestimonialsProps {
   locale?: 'en' | 'tr';
+  testimonials?: Array<{
+    quoteEn: string;
+    quoteTr: string;
+    name: string;
+    role: string;
+    image: string;
+  }> | null;
 }
 
-export default function Testimonials({ locale = 'en' }: TestimonialsProps) {
+export default function Testimonials({ locale = 'en', testimonials: override }: TestimonialsProps) {
   const tr = locale === 'tr';
+  const testimonials = override && override.length > 0 ? override : defaultTestimonials;
   return (
     <section className="py-32 md:py-40 bg-surface min-h-[60vh] flex flex-col justify-center">
       <div className="site-container flex flex-col items-center">

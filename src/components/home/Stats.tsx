@@ -25,16 +25,18 @@ function AnimatedStat({ value, label }: StatItemProps) {
 
 interface StatsProps {
   locale?: 'en' | 'tr';
+  stats?: Array<{ value: string; label: string }> | null;
 }
 
-export default function Stats({ locale = 'en' }: StatsProps) {
+export default function Stats({ locale = 'en', stats: override }: StatsProps) {
   const tr = locale === 'tr';
-  const stats = [
+  const defaults = [
     { value: '£100M+', label: tr ? 'Danışmanlık Altındaki Varlık' : 'Assets Under Advisory' },
     { value: '25+', label: tr ? 'Kapsanan Ülke' : 'Countries Covered' },
     { value: '500+', label: tr ? 'Başarılı Yatırım' : 'Successful Investments' },
     { value: '%98', label: tr ? 'Müşteri Memnuniyeti' : 'Client Satisfaction' },
   ];
+  const stats = override && override.length > 0 ? override : defaults;
 
   return (
     <section className="py-24 bg-background border-y border-border min-h-[30vh] flex flex-col justify-center">

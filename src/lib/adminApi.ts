@@ -56,6 +56,11 @@ export const adminApi = {
   getSettings: () => apiFetch('/api/admin/settings'),
   updateSettings: (data: Record<string, unknown>) => apiFetch('/api/admin/settings', { method: 'PUT', body: JSON.stringify(data) }),
 
+  // Pages (editable site content)
+  getPage: (slug: string) => apiFetch(`/api/admin/pages/${slug}`),
+  updatePage: (slug: string, data: Record<string, unknown>) =>
+    apiFetch(`/api/admin/pages/${slug}`, { method: 'PUT', body: JSON.stringify(data) }),
+
   // Seed
   seed: (collection: string) => apiFetch('/api/admin/seed', { method: 'POST', body: JSON.stringify({ collection }) }),
 
