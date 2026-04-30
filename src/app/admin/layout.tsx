@@ -54,9 +54,12 @@ function AdminGuard({ children }: { children: React.ReactNode }) {
       <Sidebar />
       <main
         className="admin-main min-h-screen transition-all duration-300 pt-14 lg:pt-0"
-        style={{ '--sidebar-ml': collapsed ? '4rem' : '14rem' } as React.CSSProperties}
+        style={{ '--sidebar-ml': collapsed ? '4rem' : '200px' } as React.CSSProperties}
       >
-        <div className="px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10 max-w-[1600px] mx-auto">
+        <div
+          className="mx-auto"
+          style={{ maxWidth: '860px', padding: '40px 24px' }}
+        >
           {children}
         </div>
       </main>

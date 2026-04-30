@@ -88,7 +88,7 @@ export default function HomePageEditor() {
   }
 
   return (
-    <div className="mx-auto" style={{ maxWidth: '900px' }}>
+    <div>
       {/* Sticky header */}
       <div className="sticky z-30 -mx-2 px-2 py-3 bg-[#060e1a]/95 backdrop-blur-md border-b border-white/[0.06] mb-8" style={{ top: '0px' }}>
         <div className="flex items-center justify-between gap-4">

@@ -52,7 +52,8 @@ export default function Sidebar() {
     });
   }
 
-  const lgWidth = collapsed ? 'lg:w-16' : 'lg:w-56';
+  const lgWidth = collapsed ? 'lg:w-16' : '';
+  const lgWidthStyle: React.CSSProperties = collapsed ? {} : { width: '200px' };
   const showLabel = !collapsed || mobileOpen;
   const collapsedOnly = collapsed && !mobileOpen;
 
@@ -83,6 +84,7 @@ export default function Sidebar() {
         className={`fixed left-0 top-0 h-screen w-56 ${lgWidth} bg-[#0a1628] border-r border-white/5 flex flex-col z-50 transition-all duration-300 ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
+        style={lgWidthStyle}
       >
         <div className="flex items-center border-b border-white/5 h-16 px-5 justify-between">
           {showLabel && (
@@ -117,18 +119,24 @@ export default function Sidebar() {
                 key={item.href}
                 href={item.href}
                 title={collapsedOnly ? item.label : undefined}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-200 ${
-                  collapsedOnly ? 'lg:justify-center' : ''
+                className={`flex items-center rounded-md text-sm transition-all duration-200 ${
+                  collapsedOnly ? 'lg:justify-center px-3 py-2.5' : 'py-2.5 pl-3.5 pr-3'
                 } ${
                   isActive
-                    ? 'bg-[#C1A45D]/[0.08] text-[#C1A45D] font-semibold'
-                    : 'text-white/55 hover:text-white hover:bg-white/[0.05]'
+                    ? 'text-[#C9A84C] font-semibold'
+                    : 'text-white/55 hover:text-white'
                 }`}
-                style={
-                  isActive
-                    ? { borderLeft: '3px solid #C1A45D', paddingLeft: collapsedOnly ? '0.75rem' : '0.6rem' }
-                    : { borderLeft: '3px solid transparent' }
-                }
+                style={{
+                  gap: '10px',
+                  borderLeft: isActive ? '3px solid #C9A84C' : '3px solid transparent',
+                  background: isActive ? 'rgba(255,255,255,0.06)' : 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) e.currentTarget.style.background = 'transparent';
+                }}
               >
                 <Icon size={17} className="flex-shrink-0" />
                 <span className={`truncate ${collapsedOnly ? 'lg:hidden' : ''}`}>
