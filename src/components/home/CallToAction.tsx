@@ -28,25 +28,25 @@ export default function CallToAction({ dict, locale }: CTAProps) {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(6,14,26,0.78) 0%, rgba(10,22,40,0.85) 100%)' }} />
       </div>
 
-      <div className="relative site-container flex flex-col items-center text-center py-24">
+      <div className="relative site-container flex flex-col items-center text-center py-24 md:py-32">
         <AnimatedSection className="flex flex-col items-center text-center w-full">
-          <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-6 block">
+          <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-4 block">
             {locale === 'en' ? 'Get Started' : 'Başlayın'}
           </span>
 
           <h2
-            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 max-w-3xl mx-auto text-center"
+            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             {dict.cta.title}{' '}
             <span className="text-gradient-gold">{dict.cta.titleHighlight}</span>
           </h2>
 
-          <p className="text-muted text-lg max-w-xl mx-auto mb-10 text-center">
+          <p className="text-muted text-lg max-w-xl mx-auto mt-4 mb-6 text-center leading-loose">
             {dict.cta.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <Link
               href={`${prefix}/contact`}
               className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-lg font-semibold text-sm bg-gold text-background hover:bg-gold-light transition-all duration-300 btn-shine group"
@@ -57,7 +57,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
             </Link>
           </div>
 
-          <p className="mt-4 text-xs text-white/50 tracking-wide text-center">{dict.cta.note}</p>
+          <p className="mt-5 text-xs text-white/50 tracking-wide text-center">{dict.cta.note}</p>
         </AnimatedSection>
       </div>
     </section>

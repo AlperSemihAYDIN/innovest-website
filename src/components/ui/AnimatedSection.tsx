@@ -46,7 +46,7 @@ export function SectionHeading({
   return (
     <div className={`w-full mb-16 ${center ? 'text-center' : ''}`}>
       {/* Tagline with decorative lines */}
-      <div className={`flex items-center gap-4 mb-6 ${center ? 'justify-center' : ''}`}>
+      <div className={`flex items-center gap-4 mb-4 ${center ? 'justify-center' : ''}`}>
         {center && <div className="w-12 h-px bg-gold/50" />}
         <span className="inline-block text-gold text-xs md:text-sm tracking-[0.35em] uppercase font-semibold">
           {tagline}
@@ -54,7 +54,7 @@ export function SectionHeading({
         <div className="w-12 h-px bg-gold/50" />
       </div>
       <h2
-        className={`text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 ${
+        className={`text-4xl md:text-5xl lg:text-6xl font-light leading-tight ${
           light ? 'text-foreground' : 'text-foreground'
         }`}
         style={{ fontFamily: 'var(--font-display)' }}
@@ -63,7 +63,7 @@ export function SectionHeading({
         <span className="text-gradient-gold">{titleHighlight}</span>
       </h2>
       {subtitle && (
-        <p className={`text-muted-light text-lg md:text-xl leading-relaxed font-light ${center ? 'mx-auto text-center' : ''}`}>
+        <p className={`text-muted-light text-lg md:text-xl leading-loose font-light mt-5 mb-8 ${center ? 'mx-auto text-center max-w-2xl' : 'max-w-2xl'}`}>
           {subtitle}
         </p>
       )}

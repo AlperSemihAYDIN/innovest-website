@@ -60,7 +60,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
   return (
     <>
       {/* Hero — compact */}
-      <section className="hero-dark relative py-28 md:py-36 md:py-24 overflow-hidden">
+      <section className="hero-dark relative py-28 md:py-36 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069"
@@ -89,7 +89,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       <section className="py-28 md:py-36 bg-background">
         <div className="site-container">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-20">
 
               {/* LEFT — Form (3 cols) */}
               <div className="lg:col-span-3">
@@ -127,12 +127,12 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     </div>
                   ) : (
                     <>
-                      <div className="mb-10">
-                        <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-5 block">
+                      <div className="mb-12">
+                        <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-3 block">
                           {locale === 'en' ? 'Get In Touch' : 'İletişime Geçin'}
                         </span>
                         <h2
-                          className="text-3xl md:text-4xl font-bold mb-4"
+                          className="text-3xl md:text-4xl font-bold"
                           style={{ fontFamily: 'var(--font-display)' }}
                         >
                           {locale === 'en' ? 'Request a ' : 'Danışmanlık '}
@@ -140,15 +140,15 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             {locale === 'en' ? 'Consultation' : 'Talep Edin'}
                           </span>
                         </h2>
-                        <p className="text-base text-white/70 leading-loose mt-4 mb-2 max-w-lg">
+                        <p className="text-base text-white/70 leading-loose mt-5 mb-10 max-w-lg">
                           {locale === 'en'
                             ? 'Complete the form below and a member of our advisory team will be in touch shortly.'
                             : 'Aşağıdaki formu doldurun, danışmanlık ekibimizden biri en kısa sürede sizinle iletişime geçecektir.'}
                         </p>
                       </div>
 
-                      <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                      <form onSubmit={handleSubmit} className="space-y-7">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7">
                           <div>
                             <label className={labelClass}>{form.name} *</label>
                             <input type="text" name="firstname" required className={inputClass} placeholder={form.name} />
@@ -212,7 +212,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           />
                         </div>
 
-                        <div className="pt-4">
+                        <div className="mt-8">
                           <button
                             type="submit"
                             disabled={isSubmitting}
@@ -231,7 +231,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                               <>{form.submit}</>
                             )}
                           </button>
-                          <p className="mt-4 text-sm text-white/50 text-center">{form.note}</p>
+                          <p className="mt-5 text-sm text-white/50 text-center">{form.note}</p>
                         </div>
                       </form>
                     </>
@@ -261,7 +261,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                         {locale === 'en' ? 'Direct Contact' : 'Doğrudan İletişim'}
                       </h3>
                       <div>
-                        <a href="tel:+447491510941" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                        <a href="tel:+447491510941" className="flex items-center group" style={{ gap: '16px', marginBottom: '28px' }}>
                           <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
                             <Phone size={22} className="text-gold" />
                           </div>
@@ -272,7 +272,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             <p className="text-base font-medium text-white group-hover:text-gold transition-colors">+44 7491 510941</p>
                           </div>
                         </a>
-                        <a href="tel:+447769212877" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                        <a href="tel:+447769212877" className="flex items-center group" style={{ gap: '16px', marginBottom: '28px' }}>
                           <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
                             <Phone size={22} className="text-gold" />
                           </div>
@@ -283,7 +283,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             <p className="text-base font-medium text-white group-hover:text-gold transition-colors">+44 7769 212877</p>
                           </div>
                         </a>
-                        <a href="mailto:info@innovest.uk" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                        <a href="mailto:info@innovest.uk" className="flex items-center group" style={{ gap: '16px', marginBottom: '28px' }}>
                           <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
                             <Mail size={22} className="text-gold" />
                           </div>
@@ -311,7 +311,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     </div>
 
                     {/* Headquarters */}
-                    <div className="border-t border-white/10 mt-8 pt-8">
+                    <div className="pt-8 mt-8 border-t border-white/10">
                       <h3
                         className="text-lg font-semibold mb-6"
                         style={{ fontFamily: 'var(--font-display)' }}
@@ -370,7 +370,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
               <div
                 className="h-full flex flex-col transition-all duration-500"
                 style={{
-                  padding: '40px',
+                  padding: '36px 32px',
                   borderRadius: '16px',
                   border: '1px solid var(--gold)',
                   background: 'rgba(255,255,255,0.04)',
@@ -386,7 +386,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
                   {locale === 'en' ? 'Headquarters' : 'Merkez Ofis'}
                 </span>
-                <div className="space-y-5 mt-auto">
+                <div className="space-y-4 mt-auto">
                   <div className="flex items-start gap-3">
                     <MapPin size={16} className="text-gold opacity-80 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-white/70 leading-loose">
@@ -415,7 +415,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
               <div
                 className="h-full flex flex-col transition-all duration-500"
                 style={{
-                  padding: '40px',
+                  padding: '36px 32px',
                   borderRadius: '16px',
                   border: '1px solid rgba(255,255,255,0.08)',
                   background: 'rgba(255,255,255,0.04)',
@@ -430,7 +430,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
                   {locale === 'en' ? 'Middle East' : 'Orta Doğu'}
                 </span>
-                <div className="space-y-5 mt-auto">
+                <div className="space-y-4 mt-auto">
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
                     <a href="tel:+971547550101" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">+971 54 755 0101</a>
@@ -448,7 +448,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
               <div
                 className="h-full flex flex-col transition-all duration-500"
                 style={{
-                  padding: '40px',
+                  padding: '36px 32px',
                   borderRadius: '16px',
                   border: '1px solid rgba(255,255,255,0.08)',
                   background: 'rgba(255,255,255,0.04)',
@@ -463,7 +463,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
                   {locale === 'en' ? 'Representative' : 'Temsilcilik'}
                 </span>
-                <div className="space-y-5 mt-auto">
+                <div className="space-y-4 mt-auto">
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-gold opacity-80 flex-shrink-0" />
                     <a href="tel:+905314200331" className="text-sm text-white/70 hover:text-gold transition-colors leading-loose">+90 531 420 0331</a>

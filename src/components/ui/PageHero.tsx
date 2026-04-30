@@ -44,7 +44,7 @@ export default function PageHero({
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.50) 50%, rgba(0,0,0,0.68) 100%)',
+              'linear-gradient(to bottom, rgba(5,15,35,0.72) 0%, rgba(5,15,35,0.58) 45%, rgba(5,15,35,0.75) 100%)',
           }}
         />
       </div>
