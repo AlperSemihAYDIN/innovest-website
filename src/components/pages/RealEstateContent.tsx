@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import PageHero from '@/components/ui/PageHero';
 import InvestmentMap from '@/components/home/InvestmentMap';
 import type { Dictionary } from '@/lib/dictionary';
 
@@ -39,30 +40,14 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
   return (
     <>
       {/* Hero */}
-      <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
-            alt="Real Estate"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-background/85" />
-        </div>
-        <div className="relative site-container flex flex-col items-center">
-          <AnimatedSection>
-            <SectionHeading
-              tagline={dict.realEstatePage.tagline}
-              title={dict.realEstatePage.title}
-              titleHighlight={dict.realEstatePage.titleHighlight}
-              subtitle={dict.realEstatePage.subtitle}
-              center
-            />
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={locale === 'tr' ? 'GAYRİMENKUL' : 'REAL ESTATE'}
+        title={dict.realEstatePage.title}
+        titleHighlight={dict.realEstatePage.titleHighlight}
+        subtitle={dict.realEstatePage.subtitle}
+        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
+        imageAlt="Real Estate"
+      />
 
       {/* Markets */}
       <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">

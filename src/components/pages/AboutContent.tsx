@@ -7,6 +7,7 @@ import { ArrowRight, Shield, Award, Zap, Users } from 'lucide-react';
 const valueIcons = [Shield, Award, Zap, Users];
 const valueRoman = ['I', 'II', 'III', 'IV'];
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface AboutContentProps {
@@ -20,30 +21,14 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
   return (
     <>
       {/* Hero */}
-      <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
-            alt="About Innovest"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(6,14,26,0.85) 0%, rgba(10,22,40,0.92) 100%)' }} />
-        </div>
-        <div className="relative site-container flex flex-col items-center">
-          <AnimatedSection>
-            <SectionHeading
-              tagline={dict.about.tagline}
-              title={dict.about.title}
-              titleHighlight={dict.about.titleHighlight}
-              subtitle={dict.about.subtitle}
-              center
-            />
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={locale === 'tr' ? 'HAKKIMIZDA' : 'ABOUT US'}
+        title={dict.about.title}
+        titleHighlight={dict.about.titleHighlight}
+        subtitle={dict.about.subtitle}
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
+        imageAlt="About Innovest"
+      />
 
       {/* Who We Are — centred grid matching Story section layout */}
       <section className="pt-24 pb-24 bg-background min-h-[60vh] flex flex-col justify-center">

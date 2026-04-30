@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Globe, Users, FileCheck, Building } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface BusinessContentProps {
@@ -19,30 +20,14 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
   return (
     <>
       {/* Hero */}
-      <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070"
-            alt="Business Expansion"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-background/85" />
-        </div>
-        <div className="relative site-container flex flex-col items-center">
-          <AnimatedSection>
-            <SectionHeading
-              tagline={dict.businessPage.tagline}
-              title={dict.businessPage.title}
-              titleHighlight={dict.businessPage.titleHighlight}
-              subtitle={dict.businessPage.subtitle}
-              center
-            />
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={locale === 'tr' ? 'İŞ GELİŞTİRME' : 'BUSINESS DEVELOPMENT'}
+        title={dict.businessPage.title}
+        titleHighlight={dict.businessPage.titleHighlight}
+        subtitle={dict.businessPage.subtitle}
+        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070"
+        imageAlt="Business Expansion"
+      />
 
       {/* Services */}
       <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Building2, Shield, Briefcase, Search, BarChart3, FileText, Scale, Users, HeadphonesIcon } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface ServicesContentProps {
@@ -68,30 +69,14 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
   return (
     <>
       {/* Hero */}
-      <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
-            alt="Services"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-background/85" />
-        </div>
-        <div className="relative site-container flex flex-col items-center">
-          <AnimatedSection>
-            <SectionHeading
-              tagline={dict.servicesPage.tagline}
-              title={dict.servicesPage.title}
-              titleHighlight={dict.servicesPage.titleHighlight}
-              subtitle={dict.servicesPage.subtitle}
-              center
-            />
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={locale === 'tr' ? 'HİZMETLERİMİZ' : 'OUR SERVICES'}
+        title={dict.servicesPage.title}
+        titleHighlight={dict.servicesPage.titleHighlight}
+        subtitle={dict.servicesPage.subtitle}
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
+        imageAlt="Services"
+      />
 
       {/* Services Grid */}
       <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">

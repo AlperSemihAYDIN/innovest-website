@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, ExternalLink } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
 import { guides as staticGuides, knowledgeCategories, type Guide } from '@/lib/knowledgeHubData';
 
@@ -45,34 +46,18 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
   return (
     <>
       {/* Hero */}
-      <section className="hero-dark relative py-44 md:py-56 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2069"
-            alt="Knowledge Hub"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-background/90" />
-        </div>
-        <div className="relative site-container">
-          <AnimatedSection>
-            <SectionHeading
-              tagline={locale === 'en' ? 'Knowledge Hub' : 'Bilgi Merkezi'}
-              title={locale === 'en' ? 'Investment Guides &' : 'Yatırım Rehberleri &'}
-              titleHighlight={locale === 'en' ? 'Expert Resources' : 'Uzman Kaynaklar'}
-              subtitle={
-                locale === 'en'
-                  ? 'In-depth guides to help you navigate property investment, residency programmes and international business expansion.'
-                  : 'Gayrimenkul yatırımı, oturum programları ve uluslararası iş geliştirme konularında kapsamlı rehberler.'
-              }
-              center
-            />
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={locale === 'tr' ? 'BİLGİ MERKEZİ' : 'KNOWLEDGE HUB'}
+        title={locale === 'en' ? 'Investment Guides &' : 'Yatırım Rehberleri &'}
+        titleHighlight={locale === 'en' ? 'Expert Resources' : 'Uzman Kaynaklar'}
+        subtitle={
+          locale === 'en'
+            ? 'In-depth guides to help you navigate property investment, residency programmes and international business expansion.'
+            : 'Gayrimenkul yatırımı, oturum programları ve uluslararası iş geliştirme konularında kapsamlı rehberler.'
+        }
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2069"
+        imageAlt="Knowledge Hub"
+      />
 
       {/* Category Filter + Guides Grid */}
       <section className="py-28 md:py-36 bg-background min-h-[60vh] flex flex-col justify-center">

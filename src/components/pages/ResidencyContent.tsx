@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Check, Clock, Banknote } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface ResidencyContentProps {
@@ -28,30 +29,14 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
   return (
     <>
       {/* Hero */}
-      <section className="hero-dark relative py-40 md:py-52 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070"
-            alt="Residency by Investment"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-background/85" />
-        </div>
-        <div className="relative site-container flex flex-col items-center">
-          <AnimatedSection>
-            <SectionHeading
-              tagline={dict.residencyPage.tagline}
-              title={dict.residencyPage.title}
-              titleHighlight={dict.residencyPage.titleHighlight}
-              subtitle={dict.residencyPage.subtitle}
-              center
-            />
-          </AnimatedSection>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={locale === 'tr' ? 'OTURUM & VATANDAŞLIK' : 'RESIDENCY & CITIZENSHIP'}
+        title={dict.residencyPage.title}
+        titleHighlight={dict.residencyPage.titleHighlight}
+        subtitle={dict.residencyPage.subtitle}
+        image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070"
+        imageAlt="Residency by Investment"
+      />
 
       {/* Programmes */}
       <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
