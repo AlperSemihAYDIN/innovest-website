@@ -25,7 +25,7 @@ export default function CallToAction({ dict, locale }: CTAProps) {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(6,14,26,0.78) 0%, rgba(10,22,40,0.85) 100%)' }} />
       </div>
 
       <div className="relative site-container flex flex-col items-center text-center py-24">

@@ -121,9 +121,14 @@ export default function Sidebar() {
                   collapsedOnly ? 'lg:justify-center' : ''
                 } ${
                   isActive
-                    ? 'bg-[#C1A45D]/15 text-[#C1A45D] font-medium'
-                    : 'text-white/50 hover:text-white hover:bg-white/5'
+                    ? 'bg-[#C1A45D]/[0.08] text-[#C1A45D] font-semibold'
+                    : 'text-white/55 hover:text-white hover:bg-white/[0.05]'
                 }`}
+                style={
+                  isActive
+                    ? { borderLeft: '3px solid #C1A45D', paddingLeft: collapsedOnly ? '0.75rem' : '0.6rem' }
+                    : { borderLeft: '3px solid transparent' }
+                }
               >
                 <Icon size={17} className="flex-shrink-0" />
                 <span className={`truncate ${collapsedOnly ? 'lg:hidden' : ''}`}>
