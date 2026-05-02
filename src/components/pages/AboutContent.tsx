@@ -116,7 +116,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto" style={{ marginTop: '64px' }}>
             {[
               { name: 'Buhari Burak', image: '/team/bbtweb.png' },
               { name: 'Asel', image: '/team/at.png' },
@@ -126,6 +126,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               { name: 'Efe', image: '/team/etweb.png' },
               { name: 'Zehra', image: '/team/zkweb.png' },
               { name: 'Berat', image: '/team/bweb.png' },
+              { name: 'Salih', image: '/team/skweb.jpeg' },
             ].map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.06}>
                 <div className="group">
@@ -139,14 +140,14 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-                  <div className="mt-5 text-center">
+                  <div className="mt-4 text-center">
                     <h3
-                      className="text-lg text-foreground font-light tracking-wide"
+                      className="text-base font-semibold text-foreground tracking-wide mb-2"
                       style={{ fontFamily: 'var(--font-display)' }}
                     >
                       {member.name}
                     </h3>
-                    <div className="w-8 h-px bg-gold/40 mx-auto mt-3" />
+                    <div className="w-8 h-px bg-gold/40 mx-auto" />
                   </div>
                 </div>
               </AnimatedSection>
@@ -290,7 +291,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* CTA */}
-      <section className="hero-dark relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
+      <section className="hero-dark relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2070"
@@ -301,13 +302,13 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(6,14,26,0.78) 0%, rgba(10,22,40,0.85) 100%)' }} />
         </div>
-        <div className="relative site-container flex flex-col items-center text-center py-24">
+        <div className="relative site-container flex flex-col items-center text-center py-24 md:py-32">
           <AnimatedSection className="flex flex-col items-center text-center w-full">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
+            <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-4 block">
               {locale === 'en' ? 'Get Started' : 'Başlayın'}
             </span>
             <h2
-              className="text-3xl md:text-5xl font-light mb-6 mx-auto text-center"
+              className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight max-w-3xl mx-auto text-center"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {locale === 'en' ? 'Ready to Partner with ' : 'Innovest ile '}
@@ -315,18 +316,24 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                 {locale === 'en' ? 'Innovest?' : 'Ortaklığa Hazır mısınız?'}
               </span>
             </h2>
-            <p className="text-muted text-lg mb-10 max-w-xl mx-auto text-center">
+            <p className="text-muted text-lg max-w-xl mx-auto mt-4 mb-6 text-center leading-loose">
               {locale === 'en'
                 ? 'Schedule a complimentary consultation and discover how we can help achieve your investment goals.'
                 : 'Ücretsiz bir danışmanlık görüşmesi planlayın ve yatırım hedeflerinize nasıl ulaşabileceğinizi keşfedin.'}
             </p>
-            <Link
-              href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 px-10 py-4 bg-gold text-white font-medium text-lg hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
-            >
-              {dict.nav.getConsultation}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <Link
+                href={`${prefix}/contact`}
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-lg font-semibold text-sm bg-gold text-background hover:bg-gold-light transition-all duration-300 btn-shine group"
+                style={{ minWidth: '220px', whiteSpace: 'nowrap' }}
+              >
+                {dict.nav.getConsultation}
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+            <p className="mt-5 text-xs text-white/50 tracking-wide text-center">
+              {locale === 'en' ? 'No commitment · Confidential · Worldwide' : 'Bağlayıcı değil · Gizli · Dünya genelinde'}
+            </p>
           </AnimatedSection>
         </div>
       </section>

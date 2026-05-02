@@ -53,7 +53,8 @@ export default function CityContent({
           <Image src={heroImage} alt={city} fill className="object-cover" priority sizes="100vw" />
           <div className="absolute inset-0 bg-background/80" />
         </div>
-        <div className="relative px-6 md:px-12 lg:px-16 xl:px-20">
+        <div className="relative px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
+          <div className="w-full max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <SectionHeading
               tagline={tagline}
@@ -76,6 +77,7 @@ export default function CityContent({
               ))}
             </div>
           </AnimatedSection>
+          </div>
         </div>
       </section>
 

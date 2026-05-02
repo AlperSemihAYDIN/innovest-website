@@ -86,7 +86,8 @@ export default function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-base text-white/65 max-w-xl mx-auto leading-loose mt-6 md:mt-8"
+            className="text-lg md:text-xl font-light tracking-wide text-center max-w-2xl mx-auto leading-loose"
+            style={{ color: 'rgba(255,255,255,0.85)', marginTop: '24px', marginBottom: '8px' }}
           >
             {subtitle}
           </motion.p>

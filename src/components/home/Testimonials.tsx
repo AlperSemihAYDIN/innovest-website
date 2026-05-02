@@ -55,7 +55,7 @@ export default function Testimonials({ locale = 'en', testimonials: override }: 
               <div className="w-12 h-px bg-gold/50" />
             </div>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-light"
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-center"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {tr ? 'Dünya Genelinde ' : 'Trusted by '}

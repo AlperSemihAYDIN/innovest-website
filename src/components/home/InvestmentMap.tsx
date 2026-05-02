@@ -127,7 +127,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
 
       // Carto Voyager — clean, modern, warm-toned tile
       L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        'https://{s}.basemaps.cartocdn.com/dark_matter/{z}/{x}/{y}{r}.png',
         {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -199,13 +199,13 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
   }, [mapReady, activeRegion, allMapProps]);
 
   return (
-    <section className="bg-surface" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+    <section className="bg-surface" style={{ paddingTop: '96px', paddingBottom: '128px' }}>
       <div className="site-container flex flex-col items-center">
         {/* Heading */}
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <span
-            className="text-gold text-xs tracking-[0.25em] uppercase font-medium mb-4 block"
-            style={{ fontFamily: 'var(--font-display)' }}
+            className="text-gold text-xs tracking-widest uppercase font-semibold mb-4 block"
+            style={{ fontStyle: 'normal' }}
           >
             {t.tagline}
           </span>
@@ -220,7 +220,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         </div>
 
         {/* Region Tabs */}
-        <div className="flex mb-10 border border-border overflow-hidden">
+        <div className="flex gap-3 mb-8">
           {(['UK', 'UAE'] as const).map((region) => (
             <button
               key={region}
@@ -228,12 +228,12 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
                 setActiveRegion(region);
                 setSelected(null);
               }}
-              className={`px-6 sm:px-10 py-3 text-sm tracking-widest uppercase transition-all duration-300 ${
+              className={`rounded-full py-2.5 px-8 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
                 activeRegion === region
-                  ? 'bg-gold text-[#09090b] font-semibold'
+                  ? 'bg-gold text-background'
                   : 'bg-transparent text-muted hover:text-foreground'
               }`}
-              style={{ fontFamily: 'var(--font-display)' }}
+              style={activeRegion !== region ? { border: '1px solid rgba(255,255,255,0.15)' } : {}}
             >
               {region === 'UK' ? t.uk : t.uae}
             </button>
@@ -241,33 +241,33 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         </div>
 
         {/* Map + Side Panel */}
-        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row border border-border overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
           {/* Map — responsive heights */}
           <div className="relative flex-1 h-[320px] sm:h-[420px] lg:h-[580px]">
-            {/* Override Leaflet styles for brand-aligned warm light theme */}
+            {/* Override Leaflet styles for dark theme */}
             <style>{`
-              .leaflet-container { background: #f0ede6; }
-              .leaflet-tile-pane { filter: sepia(12%) contrast(0.92) brightness(1.03) saturate(0.82); }
+              .leaflet-container { background: #060E1A; }
               .leaflet-control-attribution {
                 font-size: 10px;
-                background: rgba(247,245,239,0.85) !important;
-                color: #8A7A63;
+                background: rgba(6,14,26,0.80) !important;
+                color: rgba(255,255,255,0.35);
               }
+              .leaflet-control-attribution a { color: rgba(193,164,93,0.7); }
               .leaflet-bar a {
-                background: #F7F5EF !important;
-                color: #091B2A !important;
-                border-color: #C1A45D !important;
+                background: #0A1628 !important;
+                color: #C1A45D !important;
+                border-color: rgba(193,164,93,0.3) !important;
               }
               .leaflet-bar a:hover {
                 background: #C1A45D !important;
-                color: #F7F5EF !important;
+                color: #060E1A !important;
               }
             `}</style>
             <div ref={containerRef} className="w-full h-full" />
           </div>
 
           {/* Side Panel */}
-          <div className="w-full lg:w-80 bg-background border-t lg:border-t-0 lg:border-l border-border flex flex-col">
+          <div className="w-full lg:w-80 flex flex-col" style={{ background: 'rgba(10,22,40,0.95)', borderLeft: '1px solid rgba(255,255,255,0.08)' }}>
             {selected ? (
               <div className="flex flex-col h-full">
                 {/* Thumbnail — click opens lightbox */}
@@ -349,28 +349,28 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
               </div>
             ) : (
               /* Empty state with property list */
-              <div className="flex flex-col items-center justify-center h-full py-12 px-6 text-center gap-4">
+              <div className="flex flex-col items-center justify-center h-full text-center" style={{ padding: '36px 32px' }}>
                 <MapPin size={36} className="text-gold/40" />
-                <p className="text-muted text-sm leading-loose">
+                <p className="text-sm text-center leading-loose mt-4" style={{ color: 'rgba(255,255,255,0.50)' }}>
                   {locale === 'en'
                     ? 'Click a marker on the map to see property details.'
                     : 'Proje detaylarını görmek için haritadaki işarete tıklayın.'}
                 </p>
-                <div className="mt-2 flex flex-col gap-1 w-full">
+                <div className="mt-6 flex flex-col w-full" style={{ gap: '16px' }}>
                   {filtered.slice(0, 5).map((p) => (
                     <button
                       key={p.id}
                       onClick={() => setSelected(p)}
-                      className="flex items-center gap-3 px-2 py-2 text-left hover:bg-surface transition-colors group rounded-sm"
+                      className="flex items-center gap-3 px-2 py-1 text-left hover:bg-white/5 transition-colors group rounded-sm"
                     >
                       <span className="w-2 h-2 rounded-full bg-gold shrink-0 group-hover:scale-125 transition-transform" />
-                      <span className="text-sm text-muted group-hover:text-foreground transition-colors truncate">
+                      <span className="text-sm text-white/70 group-hover:text-white transition-colors truncate">
                         {p.name}
                       </span>
                     </button>
                   ))}
                   {filtered.length > 5 && (
-                    <p className="text-xs text-muted/50 pl-5 mt-1">
+                    <p className="text-xs pl-5" style={{ color: 'rgba(193,164,93,0.70)', marginTop: '4px' }}>
                       +{filtered.length - 5} {locale === 'en' ? 'more' : 'proje daha'}
                     </p>
                   )}

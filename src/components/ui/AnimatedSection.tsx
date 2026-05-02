@@ -56,14 +56,14 @@ export function SectionHeading({
       <h2
         className={`text-4xl md:text-5xl lg:text-6xl font-light leading-tight ${
           light ? 'text-foreground' : 'text-foreground'
-        }`}
+        } ${center ? 'text-center' : ''}`}
         style={{ fontFamily: 'var(--font-display)' }}
       >
         {title}{' '}
         <span className="text-gradient-gold">{titleHighlight}</span>
       </h2>
       {subtitle && (
-        <p className={`text-muted-light text-lg md:text-xl leading-loose font-light mt-5 mb-8 ${center ? 'mx-auto text-center max-w-2xl' : 'max-w-2xl'}`}>
+        <p className="text-muted-light text-lg md:text-xl leading-loose font-light mt-5 mb-8 text-center mx-auto max-w-3xl" style={{ textAlign: 'center' }}>
           {subtitle}
         </p>
       )}

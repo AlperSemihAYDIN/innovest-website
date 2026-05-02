@@ -50,48 +50,68 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
       />
 
       {/* Markets */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
-        <div className="site-container flex flex-col items-center space-y-20">
-          {markets.map((market, index) => (
-            <AnimatedSection key={market.city} className="w-full max-w-6xl mx-auto">
+      <section className="bg-background" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+        <div className="site-container flex flex-col" style={{ gap: '40px' }}>
+          {markets.map((market) => (
+            <AnimatedSection key={market.city} className="w-full">
               <Link href={market.href} className="block group">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-border hover:border-gold/30 overflow-hidden transition-all duration-500 rounded-xl ${index % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
-                  <div className="relative h-80 lg:h-[500px] overflow-hidden">
+                <div
+                  className="grid grid-cols-2 overflow-hidden"
+                  style={{
+                    minHeight: '420px',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                  }}
+                >
+                  {/* Left: Image */}
+                  <div className="relative overflow-hidden">
                     <Image
                       src={market.image}
                       alt={market.city}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="50vw"
                     />
-
                   </div>
-                  <div className="p-10 lg:p-16 flex flex-col justify-center" style={{ direction: 'ltr' }}>
-                    <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4">
-                      {locale === 'en' ? 'Invest in' : 'Yatırım Yap'}
+
+                  {/* Right: Content */}
+                  <div
+                    className="flex flex-col justify-center"
+                    style={{ background: 'rgba(10,22,40,0.97)', padding: '56px 48px' }}
+                  >
+                    <span className="text-gold text-xs font-semibold tracking-widest uppercase" style={{ marginBottom: '16px' }}>
+                      {locale === 'en' ? 'INVEST IN' : 'YATIRIM YAP'}
                     </span>
                     <h3
-                      className="text-3xl md:text-4xl font-light mb-4 group-hover:text-gold transition-colors"
-                      style={{ fontFamily: 'var(--font-display)' }}
+                      className="text-white"
+                      style={{ fontSize: '3rem', fontWeight: 700, lineHeight: 1.1, marginBottom: '20px', fontFamily: 'var(--font-display)' }}
                     >
                       {market.city}
                     </h3>
-                    <p className="text-muted leading-loose mb-8">{market.desc}</p>
+                    <p
+                      className="leading-loose"
+                      style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.65)', marginBottom: '32px' }}
+                    >
+                      {market.desc}
+                    </p>
 
-                    <div className="grid grid-cols-3 gap-8 md:gap-12 py-6 border-t border-b border-border mb-8">
+                    {/* Stats */}
+                    <div className="flex" style={{ gap: '40px', marginBottom: '32px' }}>
                       {market.stats.map((stat) => (
                         <div key={stat.label}>
-                          <div className="text-xl md:text-2xl font-light text-gold" style={{ fontFamily: 'var(--font-display)' }}>
+                          <div className="text-white" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
                             {stat.value}
                           </div>
-                          <div className="text-xs text-muted mt-1">{stat.label}</div>
+                          <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.50)', letterSpacing: '0.05em', marginTop: '4px' }}>
+                            {stat.label}
+                          </div>
                         </div>
                       ))}
                     </div>
 
-                    <span className="inline-flex items-center gap-2 text-gold group-hover:gap-3 transition-all duration-300">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-gold group-hover:gap-3 transition-all duration-300">
                       {locale === 'en' ? 'Explore Properties' : 'Gayrimenkulleri Keşfet'}
-                      <ArrowRight size={18} />
+                      <ArrowRight size={16} />
                     </span>
                   </div>
                 </div>
