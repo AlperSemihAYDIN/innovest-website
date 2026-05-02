@@ -42,7 +42,7 @@ export default function Testimonials({ locale = 'en', testimonials: override }: 
   const tr = locale === 'tr';
   const testimonials = override && override.length > 0 ? override : defaultTestimonials;
   return (
-    <section className="py-32 md:py-40 bg-surface min-h-[60vh] flex flex-col justify-center">
+    <section className="py-36 md:py-44 bg-surface min-h-[60vh] flex flex-col justify-center">
       <div className="site-container flex flex-col items-center">
         {/* Heading — centered */}
         <AnimatedSection className="w-full flex justify-center">
