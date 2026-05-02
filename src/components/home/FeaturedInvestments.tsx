@@ -85,7 +85,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           </AnimatedSection>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-fr mt-16">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-fr" style={{ marginTop: '64px' }}>
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group h-full">
