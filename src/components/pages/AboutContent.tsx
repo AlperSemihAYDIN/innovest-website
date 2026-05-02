@@ -31,7 +31,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       />
 
       {/* Who We Are — centred grid matching Story section layout */}
-      <section className="pt-24 pb-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -67,25 +67,25 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                 <div className="w-16 h-px bg-gold/60 mb-10" />
               </div>
 
-              <div className="space-y-6">
-                <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500 rounded-xl">
+              <div className="flex flex-col gap-5">
+                <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '28px 32px', marginBottom: '0' }}>
                   <h3
-                    className="text-xl font-light mb-3 text-gold"
-                    style={{ fontFamily: 'var(--font-display)' }}
+                    className="text-gold mb-3"
+                    style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', fontStyle: 'normal' }}
                   >
                     {dict.about.mission.title}
                   </h3>
-                  <p className="text-muted leading-loose text-sm">{dict.about.mission.desc}</p>
+                  <p className="text-sm leading-loose text-white/70">{dict.about.mission.desc}</p>
                 </div>
 
-                <div className="group p-8 border border-border hover:border-gold/40 bg-surface/30 hover:bg-surface/60 transition-all duration-500 rounded-xl">
+                <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '28px 32px', marginBottom: '0' }}>
                   <h3
-                    className="text-xl font-light mb-3 text-gold"
-                    style={{ fontFamily: 'var(--font-display)' }}
+                    className="text-gold mb-3"
+                    style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', fontStyle: 'normal' }}
                   >
                     {dict.about.vision.title}
                   </h3>
-                  <p className="text-muted leading-loose text-sm">{dict.about.vision.desc}</p>
+                  <p className="text-sm leading-loose text-white/70">{dict.about.vision.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
