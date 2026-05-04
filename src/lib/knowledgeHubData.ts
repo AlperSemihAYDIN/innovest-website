@@ -52,7 +52,7 @@ export const guides: Guide[] = [
     ctaText: 'Calculate your stamp duty',
     ctaTextTr: 'Damga verginizi hesaplayın',
     ctaLink: 'https://www.gov.uk/stamp-duty-land-tax/residential-property-rates',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600',
+    image: '/guides/sasun-bughdaryan-MswXuFp9DzY-unsplash.jpg',
   },
   {
     id: 2,
@@ -90,7 +90,7 @@ export const guides: Guide[] = [
     ctaType: 'hard',
     ctaText: 'Speak with an advisor about financing options',
     ctaTextTr: 'Finansman seçenekleri hakkında danışmanla görüşün',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600',
+    image: '/guides/jakub-zerdzicki-QgXJUf6-cv8-unsplash.jpg',
   },
   {
     id: 3,
@@ -116,7 +116,7 @@ export const guides: Guide[] = [
     ctaType: 'inline',
     ctaText: 'Want a personalised investment breakdown?',
     ctaTextTr: 'Kişiselleştirilmiş bir yatırım analizi ister misiniz?',
-    image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1600',
+    image: '/guides/photo-1460925895917-afdab827c52f.jpeg',
   },
   {
     id: 4,
@@ -142,7 +142,7 @@ export const guides: Guide[] = [
     ctaType: 'hard',
     ctaText: 'Get a full investment breakdown',
     ctaTextTr: 'Kapsamlı bir yatırım analizi alın',
-    image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1600',
+    image: '/guides/scott-graham-5fNmWej4tAA-unsplash.jpg',
   },
   {
     id: 5,
@@ -168,7 +168,7 @@ export const guides: Guide[] = [
     ctaType: 'soft',
     ctaText: 'Explore Dubai freehold properties',
     ctaTextTr: 'Dubai freehold mülklerini keşfedin',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600',
+    image: '/guides/photo-1600585154340-be6161a56a0c.jpeg',
   },
   {
     id: 6,
@@ -194,7 +194,7 @@ export const guides: Guide[] = [
     ctaType: 'hard',
     ctaText: 'Get investment plan',
     ctaTextTr: 'Yatırım planı alın',
-    image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1600',
+    image: '/guides/omid-armin-8Nppe0yLmn8-unsplash.jpg',
   },
   {
     id: 7,
@@ -220,7 +220,7 @@ export const guides: Guide[] = [
     ctaType: 'soft',
     ctaText: 'Explore options',
     ctaTextTr: 'Seçenekleri keşfedin',
-    image: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?q=80&w=1600',
+    image: '/guides/mario-gogh-VBLHICVh-lI-unsplash.jpg',
   },
   {
     id: 8,
@@ -246,7 +246,7 @@ export const guides: Guide[] = [
     ctaType: 'hard',
     ctaText: 'Book free consultation',
     ctaTextTr: 'Ücretsiz danışmanlık randevusu alın',
-    image: 'https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?q=80&w=1600',
+    image: '/guides/global-residence-index-D01GwcpNt0c-unsplash.jpg',
   },
   {
     id: 9,
@@ -272,7 +272,7 @@ export const guides: Guide[] = [
     ctaType: 'soft',
     ctaText: 'Learn more about your options',
     ctaTextTr: 'Seçenekleriniz hakkında daha fazla bilgi edinin',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600',
+    image: '/guides/obi-pVvZ2bnqJ94-unsplash.jpg',
   },
   {
     id: 10,
@@ -298,7 +298,7 @@ export const guides: Guide[] = [
     ctaType: 'inline',
     ctaText: 'Want a personalised investment breakdown?',
     ctaTextTr: 'Kişiselleştirilmiş bir yatırım analizi ister misiniz?',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600',
+    image: '/guides/photo-1554224155-6726b3ff858f.jpeg',
   },
   {
     id: 11,
@@ -324,7 +324,7 @@ export const guides: Guide[] = [
     ctaType: 'hard',
     ctaText: 'Get investment plan',
     ctaTextTr: 'Yatırım planı alın',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600',
+    image: '/guides/adeolu-eletu-E7RLgUjjazc-unsplash.jpg',
   },
   {
     id: 12,
@@ -350,7 +350,7 @@ export const guides: Guide[] = [
     ctaType: 'soft',
     ctaText: 'Learn more',
     ctaTextTr: 'Daha fazla bilgi edinin',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1600',
+    image: '/guides/charlesdeluvio-Lks7vei-eAg-unsplash.jpg',
   },
   {
     id: 13,
@@ -376,7 +376,7 @@ export const guides: Guide[] = [
     ctaType: 'hard',
     ctaText: 'Book free consultation',
     ctaTextTr: 'Ücretsiz danışmanlık randevusu alın',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600',
+    image: '/guides/campaign-creators-gMsnXqILjp4-unsplash.jpg',
   },
 ];
 

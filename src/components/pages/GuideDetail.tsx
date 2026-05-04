@@ -23,7 +23,7 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
   const keyPoints = locale === 'tr' ? guide.keyPointsTr : guide.keyPoints;
   const ctaText = locale === 'tr' ? guide.ctaTextTr : guide.ctaText;
 
-  const backLabel = locale === 'tr' ? 'Bilgi Merkezine Dön' : 'Back to Knowledge Hub';
+  const backLabel = locale === 'tr' ? 'Yatırım Rehberine Dön' : 'Back to Investment Guides';
 
   return (
     <>
