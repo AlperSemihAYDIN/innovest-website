@@ -125,9 +125,8 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         scrollWheelZoom: false,
       });
 
-      // Carto Voyager — clean, modern, warm-toned tile
       L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/dark_matter/{z}/{x}/{y}{r}.png',
+        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
         {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -220,7 +219,7 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         </div>
 
         {/* Region Tabs */}
-        <div className="flex gap-3 mb-8">
+        <div className="flex gap-12 justify-center mb-10 border-b border-white/10" style={{ paddingBottom: 0 }}>
           {(['UK', 'UAE'] as const).map((region) => (
             <button
               key={region}
@@ -228,12 +227,12 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
                 setActiveRegion(region);
                 setSelected(null);
               }}
-              className={`rounded-full py-2.5 px-8 text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
+              className={`pb-4 text-xs font-semibold tracking-[0.2em] uppercase cursor-pointer transition-all duration-300 ${
                 activeRegion === region
-                  ? 'bg-gold text-background'
-                  : 'bg-transparent text-muted hover:text-foreground'
+                  ? 'text-gold border-b-2 border-gold'
+                  : 'border-b-2 border-transparent hover:text-white/60'
               }`}
-              style={activeRegion !== region ? { border: '1px solid rgba(255,255,255,0.15)' } : {}}
+              style={activeRegion !== region ? { color: 'rgba(255,255,255,0.35)' } : {}}
             >
               {region === 'UK' ? t.uk : t.uae}
             </button>
@@ -246,21 +245,21 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
           <div className="relative flex-1 h-[320px] sm:h-[420px] lg:h-[580px]">
             {/* Override Leaflet styles for dark theme */}
             <style>{`
-              .leaflet-container { background: #060E1A; }
+              .leaflet-container { background: #f0ede6; }
+              .leaflet-tile-pane { filter: sepia(12%) contrast(0.92) brightness(1.03) saturate(0.82); }
               .leaflet-control-attribution {
                 font-size: 10px;
-                background: rgba(6,14,26,0.80) !important;
-                color: rgba(255,255,255,0.35);
+                background: rgba(247,245,239,0.85) !important;
+                color: #8A7A63;
               }
-              .leaflet-control-attribution a { color: rgba(193,164,93,0.7); }
               .leaflet-bar a {
-                background: #0A1628 !important;
-                color: #C1A45D !important;
-                border-color: rgba(193,164,93,0.3) !important;
+                background: #F7F5EF !important;
+                color: #091B2A !important;
+                border-color: #C1A45D !important;
               }
               .leaflet-bar a:hover {
                 background: #C1A45D !important;
-                color: #060E1A !important;
+                color: #F7F5EF !important;
               }
             `}</style>
             <div ref={containerRef} className="w-full h-full" />
