@@ -50,6 +50,7 @@ export interface HomePageContent {
     role: string;
     image: string;
   }>;
+  testimonials_visible: boolean;
   cta: {
     titleEn: string;
     titleTr: string;
@@ -150,6 +151,7 @@ export const homeDefaults: HomePageContent = {
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200',
     },
   ],
+  testimonials_visible: false,
   cta: {
     titleEn: 'Ready to Start Your',
     titleTr: 'Yatırım Yolculuğunuza',

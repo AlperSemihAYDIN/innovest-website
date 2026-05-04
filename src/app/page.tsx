@@ -30,7 +30,7 @@ export default async function Home() {
         <FeaturedInvestments dict={dict} locale="en" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
-        <Testimonials locale="en" testimonials={testimonialsOverride} />
+        {content.testimonials_visible && <Testimonials locale="en" testimonials={testimonialsOverride} />}
         <CallToAction dict={dict} locale="en" />
       </main>
       <Footer dict={dict} locale="en" />

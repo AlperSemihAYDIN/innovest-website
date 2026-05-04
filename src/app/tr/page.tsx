@@ -36,7 +36,7 @@ export default async function HomeTR() {
         <FeaturedInvestments dict={dict} locale="tr" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
-        <Testimonials locale="tr" testimonials={testimonialsOverride} />
+        {content.testimonials_visible && <Testimonials locale="tr" testimonials={testimonialsOverride} />}
         <CallToAction dict={dict} locale="tr" />
       </main>
       <Footer dict={dict} locale="tr" />

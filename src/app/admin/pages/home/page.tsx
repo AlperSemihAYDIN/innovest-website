@@ -211,9 +211,32 @@ export default function HomePageEditor() {
               <h2 className="flex items-center gap-3 uppercase font-bold text-[#C9A84C]" style={{ fontSize: '13px', letterSpacing: '0.08em' }}>
                 <span className="w-1 h-3.5 bg-[#C9A84C] rounded-full" /> Müşteri Görüşleri
               </h2>
-              <button onClick={() => setField('testimonials', [...data.testimonials, { quoteEn: '', quoteTr: '', name: '', role: '', image: '' }])} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-white/70 rounded-md transition-all uppercase tracking-wider font-medium">
-                <Plus size={11} /> Yeni
-              </button>
+              <div className="flex items-center gap-3">
+                {/* Visibility toggle */}
+                <button
+                  type="button"
+                  onClick={() => setField('testimonials_visible', !data.testimonials_visible)}
+                  className="flex items-center gap-2 text-[11px] uppercase tracking-wider font-medium px-3 py-1.5 rounded-md transition-all"
+                  style={{
+                    background: data.testimonials_visible ? 'rgba(74,222,128,0.12)' : 'rgba(255,255,255,0.04)',
+                    border: `1px solid ${data.testimonials_visible ? 'rgba(74,222,128,0.30)' : 'rgba(255,255,255,0.08)'}`,
+                    color: data.testimonials_visible ? 'rgba(74,222,128,0.90)' : 'rgba(255,255,255,0.40)',
+                  }}
+                  title="Yayında / Gizli"
+                >
+                  <span
+                    style={{
+                      width: '7px', height: '7px', borderRadius: '50%',
+                      background: data.testimonials_visible ? '#4ade80' : 'rgba(255,255,255,0.25)',
+                      display: 'inline-block',
+                    }}
+                  />
+                  {data.testimonials_visible ? 'Yayında' : 'Gizli'}
+                </button>
+                <button onClick={() => setField('testimonials', [...data.testimonials, { quoteEn: '', quoteTr: '', name: '', role: '', image: '' }])} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-white/70 rounded-md transition-all uppercase tracking-wider font-medium">
+                  <Plus size={11} /> Yeni
+                </button>
+              </div>
             </div>
             <div className="space-y-3">
               {data.testimonials.map((t, i) => (
