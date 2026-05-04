@@ -12,14 +12,16 @@ interface FooterProps {
 }
 
 const DEFAULT_SOCIALS = {
-  instagram: 'https://www.instagram.com/innovestcapital',
   facebook: 'https://www.facebook.com/people/I-N-N-O-V-E-S-T/61552674123444/',
-  youtube: 'https://www.youtube.com/@InnovestUK',
+  youtube: 'https://www.youtube.com/@Innovestproperties/videos',
   linkedin: 'https://www.linkedin.com/company/innovest-capital/posts/?feedView=all',
 };
 
 export default function Footer({ dict, locale }: FooterProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
+  const instagramUrl = locale === 'tr'
+    ? 'https://www.instagram.com/innovestcapital/'
+    : 'https://www.instagram.com/innovest_eng/';
   const [socials, setSocials] = useState(DEFAULT_SOCIALS);
 
   useEffect(() => {
@@ -28,7 +30,6 @@ export default function Footer({ dict, locale }: FooterProps) {
       .then((data) => {
         if (!data) return;
         setSocials({
-          instagram: data.instagram || DEFAULT_SOCIALS.instagram,
           facebook: DEFAULT_SOCIALS.facebook,
           youtube: DEFAULT_SOCIALS.youtube,
           linkedin: data.linkedin || DEFAULT_SOCIALS.linkedin,
@@ -79,7 +80,7 @@ export default function Footer({ dict, locale }: FooterProps) {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href={socials.instagram}
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-border flex items-center justify-center text-muted hover:text-gold hover:border-gold transition-colors"
