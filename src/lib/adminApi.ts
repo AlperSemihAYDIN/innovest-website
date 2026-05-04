@@ -52,6 +52,12 @@ export const adminApi = {
   markContactRead: (id: string) => apiFetch(`/api/admin/contacts/${id}`, { method: 'PUT', body: JSON.stringify({ read: true }) }),
   deleteContact: (id: string) => apiFetch(`/api/admin/contacts/${id}`, { method: 'DELETE' }),
 
+  // AI Conversations
+  getAiConversations: (params?: { date?: string; session_id?: string; q?: string }) => {
+    const qs = new URLSearchParams(Object.fromEntries(Object.entries(params || {}).filter(([, v]) => v))).toString();
+    return apiFetch(`/api/admin/ai-conversations${qs ? '?' + qs : ''}`);
+  },
+
   // Settings
   getSettings: () => apiFetch('/api/admin/settings'),
   updateSettings: (data: Record<string, unknown>) => apiFetch('/api/admin/settings', { method: 'PUT', body: JSON.stringify(data) }),

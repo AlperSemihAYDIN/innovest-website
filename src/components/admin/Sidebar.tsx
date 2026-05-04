@@ -18,6 +18,7 @@ import {
   Menu,
   X,
   FileEdit,
+  BotMessageSquare,
 } from 'lucide-react';
 
 const navItems = [
@@ -27,6 +28,7 @@ const navItems = [
   { label: 'Makaleler', href: '/admin/articles', icon: FileText },
   { label: 'Rehberler', href: '/admin/guides', icon: BookOpen },
   { label: 'İletişim', href: '/admin/contacts', icon: MessageSquare },
+  { label: 'AI Konuşmaları', href: '/admin/ai-conversations', icon: BotMessageSquare },
   { label: 'Ayarlar', href: '/admin/settings', icon: Settings },
 ];
 

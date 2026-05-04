@@ -60,7 +60,9 @@ const ANSWERS_TR: [RegExp, string | ((msg: string) => string)][] = [
       const project = findProjectByName(msg);
       if (!project) return 'Bu proje hakkında bilgi bulunamadı. Lütfen proje adını kontrol ediniz.';
       const isLondon = LONDON_PROJECTS.includes(project);
-      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 Başlangıç: ${project.price}\n📈 Beklenen Getiri: ${project.yield}\n✨ ${project.highlight}\n\n${isLondon ? '🇬🇧 Londra' : '🇦🇪 Dubai'} portföyümüzdeki bu proje hakkında detaylı bilgi almak ister misiniz?\n\n📧 info@innovest.uk | 📞 +44 7491 510941`;
+      const pageLink = isLondon ? '/tr/real-estate/london' : '/tr/real-estate/dubai';
+      const cityLabel = isLondon ? 'Londra' : 'Dubai';
+      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 Başlangıç: ${project.price}\n📈 Beklenen Getiri: ${project.yield}\n✨ ${project.highlight}\n\nBu ${isLondon ? '🇬🇧 Londra' : '🇦🇪 Dubai'} projesi hakkında danışmanlık almak ister misiniz?\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\n[${cityLabel} Projeleri →](${pageLink})`;
     },
   ],
   // 1. Residency / Oturum
@@ -76,22 +78,22 @@ const ANSWERS_TR: [RegExp, string | ((msg: string) => string)][] = [
   // 3. Dubai specific — now with ALL projects
   [
     /dubai/i,
-    () => `Dubai portföyümüzdeki projeler:\n\n${formatProjectList(DUBAI_PROJECTS, 'tr')}\n\nDubai\'de vergisiz getiri ve Golden Visa imkânıyla yatırım yapabilirsiniz. Bütçenizi paylaşır mısınız?`,
+    () => `Dubai\'de en çok tercih edilen 4 projemiz:\n\n• **Binghatti Aquarise** — $290K | %9.0 getiri — Al Jaddaf\n• **Binghatti Flare** — $380K | %8.5 getiri — Business Bay, kanal manzarası\n• **Belgrove Residences** — $350K | %8.2 getiri — JVC, Ellington\n• **Mercedes-Benz Places** — $750K | %7.5 getiri — Downtown, ikonik kule\n\n🇦🇪 Vergisiz getiri + Golden Visa imkânı. Bütçenizi paylaşırsanız size özel liste hazırlarım.\n\n[Tüm Dubai Projeleri →](/tr/real-estate/dubai)`,
   ],
-  // 4. London specific — now with ALL projects
+  // 4. London specific
   [
     /londra|london/i,
-    () => `Londra portföyümüzdeki projeler:\n\n${formatProjectList(LONDON_PROJECTS, 'tr')}\n\n£285.000\'dan başlayan fiyatlarla Londra\'da yatırım yapabilirsiniz. Hangi bütçe aralığı sizi ilgilendiriyor?`,
+    () => `Londra\'da en çok tercih edilen 4 projemiz:\n\n• **Woolwich Central** — £380K | %5.5 getiri — SE18, Elizabeth Line\n• **Sterling Place** — £420K | %5.0 getiri — Tooting, Northern Line\n• **Westminster Tower** — £550K | %5.2 getiri — SE1, Thames manzarası\n• **White City Living** — £650K | %4.6 getiri — W12, Westfield komşusu\n\n🇬🇧 Sermaye kazancı ve kira getirisi için ideal lokasyonlar.\n\n[Tüm Londra Projeleri →](/tr/real-estate/london)`,
   ],
   // 5. Generic investment
   [
     /nereye yatırım|yatırım.*nerede|yatırım.*yapabilir|gayrimenkul|emlak|mülk|proje|invest/i,
-    'İki ana pazarda toplam 14 aktif projemiz var:\n\n🇬🇧 **Londra** — 6 proje, £380.000\'dan başlayan fiyatlar, %4-6 getiri\n🇦🇪 **Dubai** — 8 proje, $290.000\'dan başlayan fiyatlar, %7-9 getiri\n\nHangi pazarı incelemek istersiniz? Proje ismi de sorabilirsiniz (örn. "Westminster Tower", "Binghatti Aquarise").',
+    'Size en uygun yatırımı bulabilmem için birkaç bilgiye ihtiyacım var:\n\n1️⃣ **Bütçe aralığınız?** (örn. $300K, £500K, $1M+)\n2️⃣ **Amacınız?** Kira getirisi / sermaye kazancı / oturum izni\n3️⃣ **Tercihli lokasyon?** Londra 🇬🇧, Dubai 🇦🇪, ya da her ikisi\n\nBu bilgilere göre size özel 4-5 proje önereceğim.',
   ],
   // 6. Budget / price
   [
     /bütçe|fiyat|£500|500k|minimum|uygun|kaç para|ne kadar|ucuz|pahalı/i,
-    '**£500K altı Londra projeleri:**\n• Woolwich Central — £380.000, %5.5 getiri\n• Sterling Place — £420.000, %5.0 getiri\n\n**$500K altı Dubai projeleri:**\n• Binghatti Aquarise — $290.000, %9.0 getiri\n• Belgrove Residences — $350.000, %8.2 getiri\n• Binghatti Flare — $380.000, %8.5 getiri\n• Cala Del Mar — $474.000, %9.0 getiri\n\nBütçenizi ve tercih ettiğiniz pazarı belirtirseniz size özel seçenekler sunabiliriz.',
+    '**Bütçeye göre öneriler:**\n\n🇬🇧 £500K altı Londra:\n• **Woolwich Central** — £380K, %5.5 getiri\n• **Sterling Place** — £420K, %5.0 getiri\n[Londra Projeleri →](/tr/real-estate/london)\n\n🇦🇪 $500K altı Dubai:\n• **Binghatti Aquarise** — $290K, %9.0 getiri\n• **Belgrove Residences** — $350K, %8.2 getiri\n• **Binghatti Flare** — $380K, %8.5 getiri\n[Dubai Projeleri →](/tr/real-estate/dubai)\n\nBütçenizi belirtirseniz daha kişisel bir öneri yapabilirim.',
   ],
   // 7. Yield / return
   [
@@ -118,7 +120,9 @@ const ANSWERS_EN: [RegExp, string | ((msg: string) => string)][] = [
       const project = findProjectByName(msg);
       if (!project) return 'Project not found. Please check the project name.';
       const isLondon = LONDON_PROJECTS.includes(project);
-      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 From: ${project.price}\n📈 Projected Yield: ${project.yield}\n✨ ${project.highlight}\n\nWould you like more details about this ${isLondon ? '🇬🇧 London' : '🇦🇪 Dubai'} project?\n\n📧 info@innovest.uk | 📞 +44 7491 510941`;
+      const pageLink = isLondon ? '/real-estate/london' : '/real-estate/dubai';
+      const cityLabel = isLondon ? 'London' : 'Dubai';
+      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 From: ${project.price}\n📈 Projected Yield: ${project.yield}\n✨ ${project.highlight}\n\nWould you like more details about this ${isLondon ? '🇬🇧 London' : '🇦🇪 Dubai'} project?\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\n[View ${cityLabel} Portfolio →](${pageLink})`;
     },
   ],
   [
@@ -131,19 +135,19 @@ const ANSWERS_EN: [RegExp, string | ((msg: string) => string)][] = [
   ],
   [
     /dubai/i,
-    () => `Our Dubai portfolio:\n\n${formatProjectList(DUBAI_PROJECTS, 'en')}\n\nDubai offers tax-free returns and a path to Golden Visa. What is your budget range?`,
+    () => `Our top 4 Dubai projects:\n\n• **Binghatti Aquarise** — $290K | 9.0% yield — Al Jaddaf\n• **Binghatti Flare** — $380K | 8.5% yield — Business Bay, canal views\n• **Belgrove Residences** — $350K | 8.2% yield — JVC, Ellington\n• **Mercedes-Benz Places** — $750K | 7.5% yield — Downtown, iconic tower\n\n🇦🇪 Tax-free returns + Golden Visa eligibility. Share your budget for a tailored shortlist.\n\n[View All Dubai Projects →](/real-estate/dubai)`,
   ],
   [
     /london/i,
-    () => `Our London portfolio:\n\n${formatProjectList(LONDON_PROJECTS, 'en')}\n\nStarting from £285,000 in London. What is your target budget?`,
+    () => `Our top 4 London projects:\n\n• **Woolwich Central** — £380K | 5.5% yield — SE18, Elizabeth Line\n• **Sterling Place** — £420K | 5.0% yield — Tooting, Northern Line\n• **Westminster Tower** — £550K | 5.2% yield — SE1, Thames views\n• **White City Living** — £650K | 4.6% yield — W12, next to Westfield\n\n🇬🇧 Capital growth and rental income in prime London locations.\n\n[View All London Projects →](/real-estate/london)`,
   ],
   [
     /where.*invest|invest.*where|property|real estate|apartment|development|invest/i,
-    'We have 14 active projects across two markets:\n\n🇬🇧 **London** — 6 projects, from £380,000, 4-6% yield\n🇦🇪 **Dubai** — 8 projects, from $290,000, 7-9% yield\n\nWhich market interests you? You can also ask about a specific project (e.g. "Westminster Tower", "Binghatti Aquarise").',
+    'To find the right investment for you, I need a few details:\n\n1️⃣ **Budget range?** (e.g. $300K, £500K, $1M+)\n2️⃣ **Goal?** Rental yield / capital growth / residency by investment\n3️⃣ **Preferred market?** London 🇬🇧, Dubai 🇦🇪, or open to both\n\nI\'ll come back with a personalised shortlist of 4–5 projects.',
   ],
   [
     /budget|price|£500|500k|minimum|affordable|how much|cost|cheap/i,
-    '**Under £500K in London:**\n• Woolwich Central — £380,000, 5.5% yield\n• Sterling Place — £420,000, 5.0% yield\n\n**Under $500K in Dubai:**\n• Binghatti Aquarise — $290,000, 9.0% yield\n• Belgrove Residences — $350,000, 8.2% yield\n• Binghatti Flare — $380,000, 8.5% yield\n• Cala Del Mar — $474,000, 9.0% yield\n\nShare your budget and preferred market for tailored recommendations.',
+    '**Budget-matched recommendations:**\n\n🇬🇧 Under £500K in London:\n• **Woolwich Central** — £380K, 5.5% yield\n• **Sterling Place** — £420K, 5.0% yield\n[London Projects →](/real-estate/london)\n\n🇦🇪 Under $500K in Dubai:\n• **Binghatti Aquarise** — $290K, 9.0% yield\n• **Belgrove Residences** — $350K, 8.2% yield\n• **Binghatti Flare** — $380K, 8.5% yield\n[Dubai Projects →](/real-estate/dubai)\n\nShare your exact budget for a tailored recommendation.',
   ],
   [
     /yield|rental.*return|roi|return on invest/i,
@@ -178,6 +182,26 @@ function getAIResponse(message: string, locale: 'en' | 'tr'): string {
     : 'Our advisors can best help you with this.\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\nOr choose a topic:\n1️⃣ Property in London or Dubai\n2️⃣ Residency by investment\n3️⃣ International business expansion';
 }
 
+function renderMessage(content: string): React.ReactNode[] | string {
+  const tokenRegex = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+  const parts: (string | React.ReactElement)[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = tokenRegex.exec(content)) !== null) {
+    if (match.index > lastIndex) parts.push(content.slice(lastIndex, match.index));
+    const token = match[0];
+    if (token.startsWith('**')) {
+      parts.push(<strong key={match.index} style={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>{token.slice(2, -2)}</strong>);
+    } else {
+      const lm = token.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (lm) parts.push(<a key={match.index} href={lm[2]} style={{ color: '#C1A45D', textDecoration: 'underline', textUnderlineOffset: '3px' }}>{lm[1]}</a>);
+    }
+    lastIndex = match.index + token.length;
+  }
+  if (lastIndex < content.length) parts.push(content.slice(lastIndex));
+  return parts.length ? (parts as React.ReactElement[]) : content;
+}
+
 // Quick reply buttons shown beneath the greeting
 const QUICK_REPLIES_TR = [
   'Dubai veya Londra\'da nereye yatırım yapabilirim?',
@@ -191,16 +215,18 @@ const QUICK_REPLIES_EN = [
   'How can I set up a business in a new country?',
 ];
 
+
 export default function AIChat({ dict, locale }: AIChatProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [aiTooltip, setAiTooltip] = useState(false);
+  const [sessionId] = useState(() => `sess_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const quickReplies = locale === 'tr' ? QUICK_REPLIES_TR : QUICK_REPLIES_EN;
-  const tooltipLabel = locale === 'tr' ? 'AI Asistan' : 'AI Assistant';
+  const tooltipLabel = locale === 'tr' ? 'Innovest AI Asistan' : 'Innovest AI Assistant';
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
@@ -216,6 +242,19 @@ export default function AIChat({ dict, locale }: AIChatProps) {
     if (isOpen) inputRef.current?.focus();
   }, [isOpen]);
 
+  const logConversation = (userMsg: string, aiMsg: string) => {
+    fetch('/api/ai-conversations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        session_id: sessionId,
+        conversation_id: sessionId,
+        user_message: userMsg,
+        ai_response: aiMsg,
+      }),
+    }).catch(() => {/* fire-and-forget */});
+  };
+
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
     setInput('');
@@ -225,55 +264,83 @@ export default function AIChat({ dict, locale }: AIChatProps) {
       const response = getAIResponse(text, locale);
       setMessages((prev) => [...prev, { role: 'assistant', content: response }]);
       setIsTyping(false);
+      logConversation(text, response);
     }, 600 + Math.random() * 800);
   };
 
   const showQuickReplies = messages.length === 1 && messages[0].role === 'assistant';
 
+  const containerStyle: React.CSSProperties = {
+    width: '440px',
+    maxWidth: 'calc(100vw - 32px)',
+    height: '680px',
+    borderRadius: '20px',
+    background: 'linear-gradient(160deg, rgba(10,20,45,0.98), rgba(6,14,32,0.99))',
+    border: '1px solid rgba(201,168,76,0.2)',
+    boxShadow: '0 32px 80px rgba(0,0,0,0.6)',
+    backdropFilter: 'blur(24px)',
+    fontFamily: "'Montserrat', sans-serif",
+    display: 'flex',
+    flexDirection: 'column',
+  };
+
   return (
     <>
-      {/* ─── Chat Toggle Button (bottom-24, above WhatsApp) ─── */}
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 right-6 z-50 flex items-center gap-0 overflow-hidden shadow-lg shadow-black/20"
-        onHoverStart={() => setHovered(true)}
-        onHoverEnd={() => setHovered(false)}
-        whileTap={{ scale: 0.95 }}
-        aria-label={tooltipLabel}
-      >
-        {/* Label — slides in from right, same style as WhatsApp */}
-        <AnimatePresence>
-          {hovered && !isOpen && (
-            <motion.span
-              key="label"
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 'auto', opacity: 1 }}
-              exit={{ width: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="bg-[#0B2236] border border-gold/40 text-white text-xs tracking-widest uppercase px-4 h-14 flex items-center whitespace-nowrap border-r-0"
-            >
-              {tooltipLabel}
-            </motion.span>
-          )}
-        </AnimatePresence>
-
-        {/* Icon square */}
-        <div className="w-14 h-14 bg-gold flex items-center justify-center shrink-0">
+      {/* ─── Chat Toggle Button ─── */}
+      <div className="fixed right-6 z-50" style={{ bottom: '88px', position: 'fixed' }}>
+        {aiTooltip && !isOpen && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '110%',
+              right: 0,
+              background: 'rgba(10,20,45,0.95)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '8px',
+              padding: '6px 12px',
+              fontSize: '11px',
+              whiteSpace: 'nowrap',
+              color: 'rgba(255,255,255,0.85)',
+              marginBottom: '4px',
+              fontFamily: "'Montserrat', sans-serif",
+              pointerEvents: 'none',
+              zIndex: 51,
+            }}
+          >
+            {tooltipLabel}
+          </div>
+        )}
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          onHoverStart={() => setAiTooltip(true)}
+          onHoverEnd={() => setAiTooltip(false)}
+          className="flex items-center justify-center"
+          style={{
+            width: '52px',
+            height: '52px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #C1A45D 0%, #A8893A 100%)',
+            border: '1px solid rgba(201,168,76,0.3)',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+          }}
+          whileTap={{ scale: 0.95 }}
+          aria-label={tooltipLabel}
+        >
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-                <X size={24} color="white" />
+                <X size={22} color="white" />
               </motion.div>
             ) : (
               <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
-                <MessageCircle size={24} color="white" />
+                <MessageCircle size={22} color="white" />
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
-      </motion.button>
+        </motion.button>
+      </div>
 
-      {/* ─── Chat Window (opens above the button) ─── */}
+      {/* ─── Chat Window ─── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -281,59 +348,127 @@ export default function AIChat({ dict, locale }: AIChatProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-44 right-6 z-50 w-[400px] max-w-[calc(100vw-48px)] bg-background border border-border/50 shadow-2xl shadow-black/20 flex flex-col rounded-sm"
-            style={{ height: '560px' }}
+            className="fixed bottom-44 right-6 z-50 max-w-[calc(100vw-48px)]"
+            style={containerStyle}
           >
-            {/* Header */}
-            <div className="flex items-center gap-3 px-6 py-5 border-b border-border/40">
-              <div className="w-8 h-8 bg-gold/10 border border-gold/30 flex items-center justify-center">
-                <Bot size={18} className="text-gold" />
+            {/* ── Header ── */}
+            <div
+              className="flex items-center gap-3 flex-shrink-0"
+              style={{
+                padding: '18px 20px',
+                borderBottom: '1px solid rgba(255,255,255,0.07)',
+              }}
+            >
+              <div
+                className="flex items-center justify-center flex-shrink-0"
+                style={{
+                  width: '34px',
+                  height: '34px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(135deg, rgba(201,168,76,0.25), rgba(201,168,76,0.10))',
+                  border: '1px solid rgba(201,168,76,0.30)',
+                }}
+              >
+                <Bot size={17} style={{ color: '#C9A84C' }} />
               </div>
               <div>
-                <p className="text-sm font-medium">{dict.chat.title}</p>
-                <p className="text-xs text-green-500 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full inline-block" />
+                <p style={{ fontSize: '15px', fontWeight: 600, color: 'rgba(255,255,255,0.95)', lineHeight: 1.2 }}>
+                  Innovest AI
+                </p>
+                <p className="flex items-center gap-1.5" style={{ fontSize: '11px', color: '#4ade80', marginTop: '2px' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80', display: 'inline-block' }} />
                   Online
                 </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="ml-auto text-muted hover:text-foreground transition-colors"
-                aria-label="Close"
+                className="ml-auto transition-colors"
+                style={{ color: 'rgba(255,255,255,0.35)', padding: '4px' }}
+                aria-label="Kapat"
+                onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
               >
                 <X size={16} />
               </button>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-5">
+            {/* ── Messages ── */}
+            <div
+              className="flex-1 overflow-y-auto"
+              style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}
+            >
               {messages.map((msg, i) => (
                 <div key={i} className={`flex gap-2.5 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {msg.role === 'assistant' && (
-                    <div className="w-6 h-6 bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <Bot size={12} className="text-gold" />
+                    <div
+                      className="flex items-center justify-center flex-shrink-0"
+                      style={{
+                        width: '24px',
+                        height: '24px',
+                        borderRadius: '50%',
+                        background: 'rgba(201,168,76,0.10)',
+                        border: '1px solid rgba(201,168,76,0.20)',
+                        marginTop: '2px',
+                      }}
+                    >
+                      <Bot size={11} style={{ color: '#C9A84C' }} />
                     </div>
                   )}
                   <div
-                    className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed whitespace-pre-line rounded-sm ${
-                      msg.role === 'user'
-                        ? 'bg-gold/5 text-foreground border border-gold/10'
-                        : 'bg-surface/40 text-muted-light border border-border/15'
-                    }`}
+                    className="max-w-[80%] whitespace-pre-line"
+                    style={
+                      msg.role === 'assistant'
+                        ? {
+                            background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            borderRadius: '4px 14px 14px 14px',
+                            padding: '14px 16px',
+                            fontSize: '14px',
+                            lineHeight: 1.7,
+                            color: 'rgba(255,255,255,0.85)',
+                          }
+                        : {
+                            background: 'rgba(201,168,76,0.15)',
+                            border: '1px solid rgba(201,168,76,0.25)',
+                            borderRadius: '14px 4px 14px 14px',
+                            padding: '12px 16px',
+                            fontSize: '14px',
+                            lineHeight: 1.7,
+                            color: 'rgba(255,255,255,0.85)',
+                          }
+                    }
                   >
-                    {msg.content}
+                    {renderMessage(msg.content)}
                   </div>
                 </div>
               ))}
 
-              {/* Quick reply buttons — shown only after greeting */}
+              {/* Quick replies */}
               {showQuickReplies && (
-                <div className="flex flex-col gap-2.5 mt-3">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '4px' }}>
                   {quickReplies.map((q) => (
                     <button
                       key={q}
                       onClick={() => sendMessage(q)}
-                      className="text-left text-xs px-4 py-3 border border-border/20 text-muted hover:text-gold hover:border-gold/20 hover:bg-gold/3 transition-all duration-300 leading-snug rounded-sm"
+                      className="text-left transition-all duration-200"
+                      style={{
+                        border: '1px solid rgba(255,255,255,0.10)',
+                        borderRadius: '20px',
+                        padding: '8px 14px',
+                        fontSize: '12px',
+                        color: 'rgba(255,255,255,0.60)',
+                        background: 'transparent',
+                        lineHeight: 1.5,
+                        fontFamily: "'Montserrat', sans-serif",
+                      }}
+                      onMouseEnter={e => {
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(201,168,76,0.40)';
+                        (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.85)';
+                      }}
+                      onMouseLeave={e => {
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.10)';
+                        (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.60)';
+                      }}
                     >
                       {q}
                     </button>
@@ -341,16 +476,34 @@ export default function AIChat({ dict, locale }: AIChatProps) {
                 </div>
               )}
 
+              {/* Typing indicator */}
               {isTyping && (
-                <div className="flex gap-2">
-                  <div className="w-6 h-6 bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Bot size={12} className="text-gold" />
+                <div className="flex gap-2.5">
+                  <div
+                    className="flex items-center justify-center flex-shrink-0"
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '50%',
+                      background: 'rgba(201,168,76,0.10)',
+                      border: '1px solid rgba(201,168,76,0.20)',
+                      marginTop: '2px',
+                    }}
+                  >
+                    <Bot size={11} style={{ color: '#C9A84C' }} />
                   </div>
-                  <div className="bg-surface/60 border border-border/30 px-4 py-3 text-sm rounded-sm">
+                  <div
+                    style={{
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: '4px 14px 14px 14px',
+                      padding: '14px 16px',
+                    }}
+                  >
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <span className="w-2 h-2 rounded-full animate-bounce" style={{ background: 'rgba(255,255,255,0.30)', animationDelay: '0ms' }} />
+                      <span className="w-2 h-2 rounded-full animate-bounce" style={{ background: 'rgba(255,255,255,0.30)', animationDelay: '150ms' }} />
+                      <span className="w-2 h-2 rounded-full animate-bounce" style={{ background: 'rgba(255,255,255,0.30)', animationDelay: '300ms' }} />
                     </div>
                   </div>
                 </div>
@@ -358,24 +511,57 @@ export default function AIChat({ dict, locale }: AIChatProps) {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
-            <div className="border-t border-border/40 p-4">
-              <form onSubmit={(e) => { e.preventDefault(); sendMessage(input); }} className="flex gap-2">
+            {/* ── Input ── */}
+            <div
+              className="flex-shrink-0"
+              style={{
+                borderTop: '1px solid rgba(255,255,255,0.07)',
+                padding: '14px 16px',
+                background: 'transparent',
+                borderRadius: '0 0 20px 20px',
+              }}
+            >
+              <form
+                onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
+                className="flex gap-2 items-center"
+              >
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={dict.chat.placeholder}
-                  className="flex-1 bg-background border border-border/40 px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-gold/40 transition-colors rounded-sm"
+                  className="flex-1 bg-transparent focus:outline-none"
+                  style={{
+                    fontSize: '13px',
+                    color: 'rgba(255,255,255,0.85)',
+                    fontFamily: "'Montserrat', sans-serif",
+                    border: '1px solid rgba(255,255,255,0.10)',
+                    borderRadius: '20px',
+                    padding: '10px 16px',
+                    transition: 'border-color 0.2s',
+                  }}
+                  onFocus={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)')}
+                  onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)')}
                 />
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="px-4 py-3 bg-gold text-white hover:bg-gold-light disabled:opacity-30 disabled:cursor-not-allowed transition-colors rounded-sm"
-                  aria-label="Send message"
+                  aria-label="Gönder"
+                  className="flex items-center justify-center flex-shrink-0 transition-all"
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    background: input.trim()
+                      ? 'linear-gradient(135deg, #C1A45D 0%, #A8893A 100%)'
+                      : 'rgba(255,255,255,0.08)',
+                    border: 'none',
+                    cursor: input.trim() ? 'pointer' : 'not-allowed',
+                    opacity: input.trim() ? 1 : 0.4,
+                  }}
                 >
-                  <Send size={16} />
+                  <Send size={15} color="white" />
                 </button>
               </form>
             </div>

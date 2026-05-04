@@ -35,8 +35,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width: 0;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
   font-style: normal;
+}
+
+p {
+  margin-bottom: 1.2em;
+}
+p:last-child {
+  margin-bottom: 0;
 }
 
 /* Disable italic globally per design system */
@@ -46,7 +54,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
   letter-spacing: 0.01em;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 h1 { line-height: 1.15; }
 
