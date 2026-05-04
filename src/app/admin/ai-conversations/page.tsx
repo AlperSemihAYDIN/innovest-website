@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { adminApi } from '@/lib/adminApi';
 import { ChevronDown, ChevronUp, Search, Bot, User, RefreshCw } from 'lucide-react';
 
@@ -56,6 +56,34 @@ function formatDuration(sec: number) {
   if (sec < 60) return `${sec}s`;
   if (sec < 3600) return `${Math.floor(sec / 60)}dk`;
   return `${Math.floor(sec / 3600)}sa ${Math.floor((sec % 3600) / 60)}dk`;
+}
+
+function renderMarkdown(content: string): React.ReactNode {
+  const lines = content.split('\n');
+  return lines.map((line, li) => {
+    const tokenRegex = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = tokenRegex.exec(line)) !== null) {
+      if (match.index > lastIndex) parts.push(line.slice(lastIndex, match.index));
+      const token = match[0];
+      if (token.startsWith('**')) {
+        parts.push(<strong key={`b${li}-${match.index}`} style={{ fontWeight: 600 }}>{token.slice(2, -2)}</strong>);
+      } else {
+        const lm = token.match(/\[([^\]]+)\]\(([^)]+)\)/);
+        if (lm) parts.push(<a key={`a${li}-${match.index}`} href={lm[2]} style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '3px' }} target="_blank" rel="noopener noreferrer">{lm[1]}</a>);
+      }
+      lastIndex = match.index + token.length;
+    }
+    if (lastIndex < line.length) parts.push(line.slice(lastIndex));
+    return (
+      <React.Fragment key={li}>
+        {parts.length ? parts : line}
+        {li < lines.length - 1 && <br />}
+      </React.Fragment>
+    );
+  });
 }
 
 export default function AiConversationsPage() {
@@ -193,7 +221,7 @@ export default function AiConversationsPage() {
                                 <span className="text-xs font-medium" style={{ color: '#C9A84C' }}>Kullanıcı</span>
                                 <span className="text-xs ml-auto" style={{ color: 'rgba(255,255,255,0.25)' }}>{formatTime(msg.timestamp)}</span>
                               </div>
-                              <p className="text-sm whitespace-pre-line" style={{ color: 'rgba(255,255,255,0.80)', lineHeight: 1.6 }}>{msg.user_message}</p>
+                              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.80)', lineHeight: 1.6 }}>{renderMarkdown(msg.user_message)}</p>
                             </div>
                           </div>
                           {/* AI response */}
@@ -203,7 +231,7 @@ export default function AiConversationsPage() {
                             </div>
                             <div style={{ maxWidth: '80%', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '4px 12px 12px 12px', padding: '10px 14px' }}>
                               <p className="text-xs font-medium mb-1.5" style={{ color: 'rgba(255,255,255,0.35)' }}>Innovest AI</p>
-                              <p className="text-sm whitespace-pre-line" style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.6 }}>{msg.ai_response}</p>
+                              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.6 }}>{renderMarkdown(msg.ai_response)}</p>
                             </div>
                           </div>
                           {idx < session.messages.length - 1 && (
