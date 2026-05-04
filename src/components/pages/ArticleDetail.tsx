@@ -129,10 +129,10 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
               </div>
 
               {/* Body paragraphs with mid-article image */}
-              <div className="space-y-7">
+              <div style={{ maxWidth: '720px', margin: '0 auto', lineHeight: '1.9', fontSize: '17px' }}>
                 {body.map((paragraph, i) => (
                   <Fragment key={i}>
-                    <p className="text-base text-muted leading-[1.85] font-light">{paragraph}</p>
+                    <p className="text-muted font-light" style={{ marginBottom: '1.8em' }}>{paragraph}</p>
                     {i === 1 && (
                       <div className="relative aspect-[16/9] overflow-hidden my-4">
                         <Image

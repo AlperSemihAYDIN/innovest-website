@@ -80,22 +80,22 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
               </div>
 
               {/* Body paragraphs */}
-              <div className="space-y-7">
+              <div style={{ maxWidth: '720px', margin: '0 auto', lineHeight: '1.9', fontSize: '17px' }}>
                 {body.map((paragraph, i) => (
                   <Fragment key={i}>
-                    <p className="text-base text-muted leading-[1.85] font-light">{paragraph}</p>
+                    <p className="text-muted font-light" style={{ marginBottom: '1.8em' }}>{paragraph}</p>
                     {/* Key points after second paragraph */}
                     {i === 1 && keyPoints && keyPoints.length > 0 && (
                       <div className="bg-surface border border-border/40 p-8 my-4">
                         <h3
-                          className="text-sm font-medium text-gold tracking-[0.15em] uppercase mb-5"
-                          style={{ fontFamily: 'var(--font-display)' }}
+                          className="text-gold tracking-[0.15em] uppercase"
+                          style={{ fontFamily: 'var(--font-display)', marginTop: '2em', marginBottom: '0.6em', fontSize: '20px', fontWeight: '500' }}
                         >
                           {locale === 'en' ? 'Key Points' : 'Önemli Noktalar'}
                         </h3>
-                        <ul className="space-y-3">
+                        <ul style={{ paddingLeft: '1.5em', marginBottom: '1.5em' }}>
                           {keyPoints.map((point, j) => (
-                            <li key={j} className="flex items-start gap-3 text-sm text-muted leading-loose">
+                            <li key={j} className="flex items-start gap-3 text-muted" style={{ marginBottom: '0.6em', lineHeight: '1.8' }}>
                               <span className="w-1.5 h-1.5 bg-gold/60 rounded-full mt-2 flex-shrink-0" />
                               {point}
                             </li>
