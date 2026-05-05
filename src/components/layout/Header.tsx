@@ -131,21 +131,54 @@ export default function Header({ dict, locale }: HeaderProps) {
                   <AnimatePresence>
                     {item.children && activeDropdown === item.label && (
                       <motion.div
-                        initial={{ opacity: 0, y: 6 }}
+                        initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 6 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-2 min-w-[180px] py-3 bg-background/95 backdrop-blur-sm shadow-2xl shadow-black/30"
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                        className="absolute top-full left-0 mt-2 min-w-[200px]"
+                        style={{
+                          borderRadius: '12px',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          background: 'rgba(8,18,38,0.97)',
+                          backdropFilter: 'blur(20px)',
+                          boxShadow: '0 16px 48px rgba(0,0,0,0.4)',
+                          padding: '8px',
+                        }}
                       >
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-6 py-3 text-sm text-muted-light tracking-wide hover:text-gold transition-colors duration-200"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
+                        {item.children.map((child, idx) => {
+                          const isAllServices = child.href === item.href;
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block transition-colors duration-150"
+                              style={{
+                                padding: '12px 20px',
+                                borderRadius: '8px',
+                                fontSize: '14px',
+                                fontWeight: 400,
+                                letterSpacing: '0.02em',
+                                color: isAllServices ? '#C9A84C' : 'rgba(255,255,255,0.75)',
+                                ...(idx > 0 && { marginTop: '2px' }),
+                                ...(isAllServices && {
+                                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                                  marginTop: '4px',
+                                  paddingTop: '16px',
+                                }),
+                              }}
+                              onMouseEnter={e => {
+                                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.06)';
+                                (e.currentTarget as HTMLElement).style.color = isAllServices ? '#E0CFAB' : 'white';
+                              }}
+                              onMouseLeave={e => {
+                                (e.currentTarget as HTMLElement).style.background = 'transparent';
+                                (e.currentTarget as HTMLElement).style.color = isAllServices ? '#C9A84C' : 'rgba(255,255,255,0.75)';
+                              }}
+                            >
+                              {child.label}
+                            </Link>
+                          );
+                        })}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -195,46 +228,49 @@ export default function Header({ dict, locale }: HeaderProps) {
               transition={{ type: 'tween', duration: 0.3 }}
               className="absolute right-0 top-[72px] h-[calc(100%-72px)] w-80 max-w-[85vw] bg-surface border-l border-border overflow-y-auto"
             >
-              <div className="p-6">
-                <nav className="space-y-2">
+              <div style={{ padding: '32px 24px' }}>
+                <nav>
                   {navItems.map((item) => (
                     <div key={item.href}>
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-4 text-lg text-muted-light hover:text-gold transition-colors border-b border-border/50"
+                        style={{ fontSize: '16px', fontWeight: '500', color: 'white', padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'block' }}
                       >
                         {item.label}
                       </Link>
-                      {item.children?.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-3.5 pl-4 text-base text-muted hover:text-gold transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {item.children && (
+                        <div style={{ marginTop: '4px', marginBottom: '8px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              style={{ fontSize: '13px', fontWeight: '300', color: 'rgba(255,255,255,0.55)', padding: '10px 0 10px 20px', display: 'block' }}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </nav>
 
-                <div className="mt-8 space-y-4">
-                  <div className="text-center">
-                    <Link
-                      href={`${altPrefix}/`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-sm text-muted hover:text-gold transition-colors flex items-center gap-2 justify-center"
-                    >
-                      <span className="text-base">{altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
-                      {altLocale === 'tr' ? 'Türkçe' : 'English'}
-                    </Link>
-                  </div>
+                <div style={{ marginTop: '24px' }}>
+                  <Link
+                    href={`${altPrefix}/`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 hover:text-gold transition-colors"
+                    style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}
+                  >
+                    <span className="text-base">{altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+                    {altLocale === 'tr' ? 'Türkçe' : 'English'}
+                  </Link>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-border text-sm text-muted space-y-2">
-                  <a href="tel:+447491510941" className="block hover:text-gold transition-colors">
+                <div style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.08)', fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>
+                  <a href="tel:+447491510941" className="block hover:text-gold transition-colors" style={{ marginBottom: '8px' }}>
                     +44 7491 510941
                   </a>
                   <a href="mailto:info@innovest.uk" className="block hover:text-gold transition-colors">
