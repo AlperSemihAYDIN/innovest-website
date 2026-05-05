@@ -79,23 +79,23 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       />
 
       {/* Services Grid */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="site-container flex flex-col items-center">
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: '32px' }}>
             {allServices.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.08}>
                 <Link href={service.href} className="block group h-full">
-                  <div className="p-8 bg-surface border border-border group-hover:border-gold/30 transition-all duration-500 h-full flex flex-col rounded-xl">
-                    <div className="w-12 h-12 mb-6 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
+                  <div
+                    className="h-full flex flex-col group-hover:border-[rgba(201,168,76,0.25)] group-hover:bg-white/5"
+                    style={{ padding: '36px 32px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)', transition: 'all 0.3s ease' }}
+                  >
+                    <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <service.icon size={22} className="text-gold" />
                     </div>
-                    <h3
-                      className="text-base font-light mb-3 group-hover:text-gold transition-colors"
-                      style={{ fontFamily: 'var(--font-display)' }}
-                    >
+                    <h3 style={{ fontSize: '18px', fontWeight: 500, marginTop: '24px', marginBottom: '12px', color: 'white', fontFamily: 'var(--font-display)' }}>
                       {service.title}
                     </h3>
-                    <p className="text-sm text-muted leading-loose flex-1">{service.desc}</p>
+                    <p style={{ fontSize: '14px', lineHeight: '1.8', color: 'rgba(255,255,255,0.6)', fontWeight: 300, flex: 1 }}>{service.desc}</p>
                     <span className="inline-flex items-center gap-1 text-xs text-gold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                       {locale === 'en' ? 'Learn more' : 'Daha fazla'}
                       <ArrowRight size={12} />
