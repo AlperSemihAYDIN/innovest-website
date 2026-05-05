@@ -140,28 +140,37 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-background border-t border-border min-h-[40vh] flex flex-col justify-center">
-        <div className="site-container flex flex-col items-center">
-          <div className="flex flex-col items-center text-center">
-            <AnimatedSection className="flex flex-col items-center text-center w-full">
-              <h2 className="text-3xl md:text-4xl font-light mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>
-                {locale === 'en' ? 'Start Your Residency ' : 'Oturum Yolculuğunuza '}
-                <span className="text-gradient-gold">{locale === 'en' ? 'Journey' : 'Başlayın'}</span>
-              </h2>
-              <p className="text-muted mb-10 max-w-xl mx-auto text-center">
-                {locale === 'en'
-                  ? 'Our immigration and investment experts are ready to guide you through the entire process.'
-                  : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.'}
-              </p>
-              <Link
-                href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
-              >
-                {dict.nav.getConsultation}
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </AnimatedSection>
-          </div>
+      <section className="relative overflow-hidden" style={{ minHeight: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070"
+            alt="Dubai cityscape"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0" style={{ background: 'rgba(5,15,35,0.75)' }} />
+        </div>
+        <div className="relative site-container flex flex-col items-center" style={{ textAlign: 'center', paddingTop: '100px', paddingBottom: '100px' }}>
+          <AnimatedSection className="flex flex-col items-center text-center w-full">
+            <h2 style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', fontWeight: '400', marginBottom: '24px', lineHeight: '1.2', fontFamily: 'var(--font-display)' }}>
+              {locale === 'en' ? 'Start Your Residency ' : 'Oturum Yolculuğunuza '}
+              <span className="text-gradient-gold">{locale === 'en' ? 'Journey' : 'Başlayın'}</span>
+            </h2>
+            <p style={{ fontSize: '16px', lineHeight: '1.9', color: 'rgba(255,255,255,0.70)', fontWeight: 300, maxWidth: '480px', margin: '0 auto 48px', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
+              {locale === 'en'
+                ? 'Our immigration and investment experts are ready to guide you through the entire process.'
+                : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.'}
+            </p>
+            <Link
+              href={`${prefix}/contact`}
+              className="inline-flex items-center gap-2 hover:opacity-90 transition-all duration-300 btn-shine group rounded-lg"
+              style={{ padding: '16px 48px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', background: '#C9A84C', color: '#0a1628' }}
+            >
+              {dict.nav.getConsultation}
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </>
