@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import ContactContent from '@/components/pages/ContactContent';
+import { getPageContent } from '@/lib/pageContent';
+import { mergeContactIntoDict, mergeFooterIntoDict } from '@/lib/mergePageContent';
+import type { ContactPageContent, FooterContent } from '@/lib/pageDefaults';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,8 +13,13 @@ export const metadata: Metadata = {
   description: 'Schedule a complimentary consultation with our expert investment advisors. Get personalised guidance for your global investment goals.',
 };
 
-export default function ContactPage() {
-  const dict = getDictionary('en');
+export default async function ContactPage() {
+  const baseDict = getDictionary('en');
+  const [contactContent, footerContent] = await Promise.all([
+    getPageContent<ContactPageContent>('contact'),
+    getPageContent<FooterContent>('footer'),
+  ]);
+  const dict = mergeFooterIntoDict(mergeContactIntoDict(baseDict, contactContent, 'en'), footerContent, 'en');
   return (
     <>
       <Header dict={dict} locale="en" />

@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import RealEstateContent from '@/components/pages/RealEstateContent';
+import { getPageContent } from '@/lib/pageContent';
+import { mergeRealEstateIntoDict, mergeFooterIntoDict } from '@/lib/mergePageContent';
+import type { RealEstatePageContent, FooterContent } from '@/lib/pageDefaults';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,8 +13,13 @@ export const metadata: Metadata = {
   description: 'Londra ve Dubai\'de premium gayrimenkul yatırım fırsatları. Uzman danışmanlıkla yüksek getirili projeler.',
 };
 
-export default function RealEstatePageTR() {
-  const dict = getDictionary('tr');
+export default async function RealEstatePageTR() {
+  const baseDict = getDictionary('tr');
+  const [reContent, footerContent] = await Promise.all([
+    getPageContent<RealEstatePageContent>('real-estate'),
+    getPageContent<FooterContent>('footer'),
+  ]);
+  const dict = mergeFooterIntoDict(mergeRealEstateIntoDict(baseDict, reContent, 'tr'), footerContent, 'tr');
   return (
     <>
       <Header dict={dict} locale="tr" />

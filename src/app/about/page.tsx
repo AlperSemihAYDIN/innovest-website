@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import AboutContent from '@/components/pages/AboutContent';
+import { getPageContent } from '@/lib/pageContent';
+import { mergeAboutIntoDict, mergeFooterIntoDict } from '@/lib/mergePageContent';
+import type { AboutPageContent, FooterContent } from '@/lib/pageDefaults';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,8 +13,13 @@ export const metadata: Metadata = {
   description: 'Learn about Innovest - a leading cross-border investment advisory firm specialising in real estate, residency programmes and business expansion.',
 };
 
-export default function AboutPage() {
-  const dict = getDictionary('en');
+export default async function AboutPage() {
+  const baseDict = getDictionary('en');
+  const [aboutContent, footerContent] = await Promise.all([
+    getPageContent<AboutPageContent>('about'),
+    getPageContent<FooterContent>('footer'),
+  ]);
+  const dict = mergeFooterIntoDict(mergeAboutIntoDict(baseDict, aboutContent, 'en'), footerContent, 'en');
   return (
     <>
       <Header dict={dict} locale="en" />

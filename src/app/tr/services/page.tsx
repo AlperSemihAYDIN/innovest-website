@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import ServicesContent from '@/components/pages/ServicesContent';
+import { getPageContent } from '@/lib/pageContent';
+import { mergeServicesIntoDict, mergeFooterIntoDict } from '@/lib/mergePageContent';
+import type { ServicesPageContent, FooterContent } from '@/lib/pageDefaults';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,8 +13,13 @@ export const metadata: Metadata = {
   description: 'Küresel yatırımcılar için kapsamlı yatırım ve danışmanlık hizmetleri. Gayrimenkul, oturum, ticari genişleme ve daha fazlası.',
 };
 
-export default function ServicesPageTR() {
-  const dict = getDictionary('tr');
+export default async function ServicesPageTR() {
+  const baseDict = getDictionary('tr');
+  const [servicesContent, footerContent] = await Promise.all([
+    getPageContent<ServicesPageContent>('services'),
+    getPageContent<FooterContent>('footer'),
+  ]);
+  const dict = mergeFooterIntoDict(mergeServicesIntoDict(baseDict, servicesContent, 'tr'), footerContent, 'tr');
   return (
     <>
       <Header dict={dict} locale="tr" />
