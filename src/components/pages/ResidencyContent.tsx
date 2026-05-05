@@ -98,11 +98,11 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-surface min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-surface min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
-            <div className="text-center mb-20">
-              <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
+            <div className="text-center">
+              <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium block" style={{ marginBottom: '16px' }}>
                 {locale === 'en' ? 'The Process' : 'Süreç'}
               </span>
               <h2 className="text-3xl md:text-4xl font-light" style={{ fontFamily: 'var(--font-display)' }}>
@@ -113,7 +113,7 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
             </div>
           </AnimatedSection>
 
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="max-w-5xl mx-auto w-full" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0', marginTop: '72px' }}>
             {[
               { num: '01', title: locale === 'en' ? 'Initial Consultation' : 'İlk Değerlendirme', desc: locale === 'en' ? 'We assess your goals, budget and preferred destinations.' : 'Hedeflerinizi, finansal çerçevenizi ve tercih ettiğiniz ülkeleri kapsamlı şekilde analiz ederiz.' },
               { num: '02', title: locale === 'en' ? 'Programme Selection' : 'Strateji & Program Seçimi', desc: locale === 'en' ? 'We recommend the most suitable residency programme for you.' : 'Profilinize en uygun oturum programını belirler ve size özel bir yol haritası oluştururuz.' },
@@ -121,14 +121,17 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
               { num: '04', title: locale === 'en' ? 'Approval & Beyond' : 'Onay & Süreklilik', desc: locale === 'en' ? 'From permit receipt to renewal and citizenship pathways.' : 'Oturum izninin alınmasından yenileme ve vatandaşlık süreçlerine kadar uzun vadeli destek sunarız.' },
             ].map((step, index) => (
               <AnimatedSection key={step.num} delay={index * 0.15}>
-                <div className="text-center group">
-                  <span className="text-4xl font-light text-gold/20 group-hover:text-gold/40 transition-colors block mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+                <div
+                  className="text-center"
+                  style={{ padding: '0 40px', borderRight: index < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
+                >
+                  <span style={{ fontSize: '48px', fontWeight: '200', color: 'rgba(201,168,76,0.3)', marginBottom: '24px', lineHeight: '1', display: 'block', fontFamily: 'var(--font-display)' }}>
                     {step.num}
                   </span>
-                  <h3 className="text-lg font-light mb-3 group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 style={{ fontSize: '16px', fontWeight: '500', color: 'white', marginBottom: '16px', lineHeight: '1.4', fontFamily: 'var(--font-display)' }}>
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted leading-loose">{step.desc}</p>
+                  <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.55)', fontWeight: 300 }}>{step.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
