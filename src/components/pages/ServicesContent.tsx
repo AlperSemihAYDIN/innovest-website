@@ -122,14 +122,14 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
         </div>
         <div className="relative site-container flex flex-col items-center text-center" style={{ paddingTop: '120px', paddingBottom: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <AnimatedSection className="flex flex-col items-center text-center w-full">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase" style={{ marginBottom: '20px' }}>
+            <span style={{ fontSize: '11px', fontWeight: '600', letterSpacing: '0.2em', color: '#C9A84C', marginBottom: '20px', display: 'block', textTransform: 'uppercase' }}>
               {locale === 'en' ? 'Get Started' : 'Başlayın'}
             </span>
             <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 400, marginBottom: '28px', lineHeight: '1.2', fontFamily: 'var(--font-display)' }}>
               {locale === 'en' ? "Need a Service That's " : 'Size Özel Bir Hizmet mi '}
               <span className="text-gradient-gold">{locale === 'en' ? 'Tailored to You?' : 'Arıyorsunuz?'}</span>
             </h2>
-            <p style={{ fontSize: '17px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '540px', margin: '0 auto 48px', textAlign: 'center' }}>
+            <p style={{ fontSize: '17px', lineHeight: '1.9', color: 'rgba(255,255,255,0.90)', fontWeight: 300, maxWidth: '540px', margin: '0 auto 48px', textAlign: 'center', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
               {locale === 'en'
                 ? "Every client is unique. Let's discuss your specific needs and create a bespoke service package."
                 : 'Her yatırımcı ve her hedef benzersizdir. İhtiyaçlarınızı birlikte değerlendirerek size özel bir hizmet paketi oluşturalım.'}
