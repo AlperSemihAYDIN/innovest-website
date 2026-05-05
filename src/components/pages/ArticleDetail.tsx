@@ -187,7 +187,8 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
               </div>
               <Link
                 href={contactHref}
-                className="shrink-0 inline-flex items-center gap-2 px-8 py-4 border border-gold text-gold text-sm tracking-widest uppercase hover:bg-gold hover:text-background transition-all duration-300"
+                className="shrink-0 inline-flex items-center gap-2 uppercase transition-colors hover:bg-[rgba(201,168,76,0.1)]"
+                style={{ border: '1px solid rgba(201,168,76,0.5)', color: '#C9A84C', padding: '16px 40px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', letterSpacing: '0.12em' }}
               >
                 {ctaButton}
                 <ArrowRight size={14} />

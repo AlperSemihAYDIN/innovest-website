@@ -60,10 +60,10 @@ export function SectionHeading({
         style={{ fontFamily: 'var(--font-display)' }}
       >
         {title}{' '}
-        <span className="text-gradient-gold">{titleHighlight}</span>
+        <span className="text-gradient-gold" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>{titleHighlight}</span>
       </h2>
       {subtitle && (
-        <p className="text-muted-light text-lg md:text-xl leading-loose font-light mt-5 mb-8 text-center mx-auto max-w-3xl" style={{ textAlign: 'center' }}>
+        <p className="text-muted-light text-lg md:text-xl leading-loose font-light mt-5 mb-8 mx-auto max-w-3xl" style={{ textAlign: 'center', width: '100%' }}>
           {subtitle}
         </p>
       )}

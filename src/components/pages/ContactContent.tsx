@@ -54,7 +54,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
   };
 
   const inputClass =
-    'w-full bg-white/[0.02] border border-white/10 rounded-lg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold/60 focus:bg-white/[0.04] transition-all duration-300';
+    'w-full bg-white/[0.02] border border-white/10 rounded-lg text-sm text-foreground placeholder:text-muted/40 focus:outline-none focus:border-gold/60 focus:bg-white/[0.04] transition-all duration-300';
   const labelClass = 'block text-sm font-medium text-foreground/80 mb-2';
 
   return (
@@ -89,7 +89,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       <section className="py-20 bg-background">
         <div className="site-container">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-5" style={{ gap: '80px' }}>
 
               {/* LEFT — Form (3 cols) */}
               <div className="lg:col-span-3">
@@ -128,11 +128,11 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                   ) : (
                     <>
                       <div className="mb-10">
-                        <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-5 block">
+                        <span className="text-gold text-xs font-medium tracking-widest uppercase mb-5 block">
                           {locale === 'en' ? 'Get In Touch' : 'İletişime Geçin'}
                         </span>
                         <h2
-                          className="text-3xl md:text-4xl font-bold mb-4"
+                          className="text-3xl md:text-4xl font-light mb-4"
                           style={{ fontFamily: 'var(--font-display)' }}
                         >
                           {locale === 'en' ? 'Request a ' : 'Danışmanlık '}
@@ -148,22 +148,22 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                       </div>
 
                       <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '20px' }}>
                           <div>
                             <label className={labelClass}>{form.name} *</label>
-                            <input type="text" name="firstname" required className={inputClass} placeholder={form.name} />
+                            <input type="text" name="firstname" required className={inputClass} placeholder={form.name} style={{ padding: '14px 16px', lineHeight: '1.6' }} />
                           </div>
                           <div>
                             <label className={labelClass}>{form.email} *</label>
-                            <input type="email" name="email" required className={inputClass} placeholder={form.email} />
+                            <input type="email" name="email" required className={inputClass} placeholder={form.email} style={{ padding: '14px 16px', lineHeight: '1.6' }} />
                           </div>
                           <div>
                             <label className={labelClass}>{form.phone} *</label>
-                            <input type="tel" name="phone" required className={inputClass} placeholder={form.phone} />
+                            <input type="tel" name="phone" required className={inputClass} placeholder={form.phone} style={{ padding: '14px 16px', lineHeight: '1.6' }} />
                           </div>
                           <div>
                             <label className={labelClass}>{form.location}</label>
-                            <input type="text" name="city" className={inputClass} placeholder={form.location} />
+                            <input type="text" name="city" className={inputClass} placeholder={form.location} style={{ padding: '14px 16px', lineHeight: '1.6' }} />
                           </div>
                           <div>
                             <label htmlFor="budget" className={labelClass}>{form.budget} *</label>
@@ -173,6 +173,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                                 name="budget"
                                 required
                                 className={`${inputClass} appearance-none cursor-pointer pr-10`}
+                                style={{ padding: '14px 16px', lineHeight: '1.6' }}
                               >
                                 <option value="" className="bg-[#091B2A] text-muted">{locale === 'en' ? 'Select budget range' : 'Bütçe aralığı seçin'}</option>
                                 {form.budgetOptions.map((opt) => (
@@ -190,6 +191,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                                 name="interest"
                                 required
                                 className={`${inputClass} appearance-none cursor-pointer pr-10`}
+                                style={{ padding: '14px 16px', lineHeight: '1.6' }}
                               >
                                 <option value="" className="bg-[#091B2A] text-muted">{locale === 'en' ? 'Select area of interest' : 'İlgi alanı seçin'}</option>
                                 {form.interestOptions.map((opt) => (
@@ -201,18 +203,18 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                           </div>
                         </div>
 
-                        <div>
+                        <div style={{ marginTop: '24px' }}>
                           <label className={labelClass}>{form.message}</label>
                           <textarea
                             name="message"
                             rows={6}
                             className={`${inputClass} resize-none`}
-                            style={{ minHeight: '160px', padding: '18px' }}
+                            style={{ minHeight: '130px', padding: '14px 16px', lineHeight: '1.6' }}
                             placeholder={form.message}
                           />
                         </div>
 
-                        <div className="pt-4">
+                        <div style={{ marginTop: '32px' }}>
                           <button
                             type="submit"
                             disabled={isSubmitting}
@@ -255,40 +257,40 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     {/* Direct Contact */}
                     <div>
                       <h3
-                        className="text-lg font-semibold mb-8"
+                        className="text-lg font-medium mb-8"
                         style={{ fontFamily: 'var(--font-display)' }}
                       >
                         {locale === 'en' ? 'Direct Contact' : 'Doğrudan İletişim'}
                       </h3>
                       <div>
-                        <a href="tel:+447491510941" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                        <a href="tel:+447491510941" className="flex items-center group" style={{ gap: '16px', marginBottom: '28px' }}>
                           <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
                             <Phone size={22} className="text-gold" />
                           </div>
                           <div>
-                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">
+                            <p className="text-xs tracking-widest uppercase text-gold mb-1">
                               {locale === 'en' ? 'Phone' : 'Telefon'}
                             </p>
                             <p className="text-base font-medium text-white group-hover:text-gold transition-colors">+44 7491 510941</p>
                           </div>
                         </a>
-                        <a href="tel:+447769212877" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                        <a href="tel:+447769212877" className="flex items-center group" style={{ gap: '16px', marginBottom: '28px' }}>
                           <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
                             <Phone size={22} className="text-gold" />
                           </div>
                           <div>
-                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">
+                            <p className="text-xs tracking-widest uppercase text-gold mb-1">
                               {locale === 'en' ? 'Phone' : 'Telefon'}
                             </p>
                             <p className="text-base font-medium text-white group-hover:text-gold transition-colors">+44 7769 212877</p>
                           </div>
                         </a>
-                        <a href="mailto:info@innovest.uk" className="flex items-center group" style={{ gap: '16px', marginBottom: '20px' }}>
+                        <a href="mailto:info@innovest.uk" className="flex items-center group" style={{ gap: '16px', marginBottom: '28px' }}>
                           <div className="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold/25 transition-colors duration-300 flex-shrink-0">
                             <Mail size={22} className="text-gold" />
                           </div>
                           <div>
-                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">
+                            <p className="text-xs tracking-widest uppercase text-gold mb-1">
                               {locale === 'en' ? 'Email' : 'E-posta'}
                             </p>
                             <p className="text-base font-medium text-white group-hover:text-gold transition-colors">info@innovest.uk</p>
@@ -301,7 +303,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                             </svg>
                           </div>
                           <div>
-                            <p className="text-xs font-semibold tracking-widest uppercase text-gold mb-1">WhatsApp</p>
+                            <p className="text-xs tracking-widest uppercase text-gold mb-1">WhatsApp</p>
                             <p className="text-base font-medium text-white group-hover:text-gold transition-colors">
                               {locale === 'en' ? 'Send a message' : 'Mesaj gönderin'}
                             </p>
@@ -311,16 +313,16 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     </div>
 
                     {/* Headquarters */}
-                    <div className="border-t border-white/10 mt-8 pt-8">
+                    <div style={{ marginTop: '32px', paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                       <h3
-                        className="text-lg font-semibold mb-6"
+                        className="text-lg font-medium mb-6"
                         style={{ fontFamily: 'var(--font-display)' }}
                       >
                         {locale === 'en' ? 'Headquarters' : 'Merkez Ofis'}
                       </h3>
                       <div className="flex items-start gap-4 mb-5">
                         <MapPin size={18} className="text-gold mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-white/80 leading-relaxed">
+                        <p className="text-sm text-white/80" style={{ lineHeight: '1.8' }}>
                           Berkeley Square House, 2nd Floor,<br />
                           Berkeley Square, Mayfair,<br />
                           London W1J 6BE

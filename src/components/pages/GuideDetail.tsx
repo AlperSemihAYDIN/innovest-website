@@ -45,7 +45,7 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
             </Link>
 
             <div className="flex flex-wrap items-center gap-4 mb-6">
-              <span className="px-3 py-1 border border-gold/30 text-gold text-xs tracking-widest uppercase">
+              <span className="text-xs font-semibold tracking-widest text-gold uppercase">
                 {category}
               </span>
               <span className="flex items-center gap-1.5 text-xs text-muted/80">
@@ -108,17 +108,18 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
               </div>
             </AnimatedSection>
 
-            {/* CTA Box */}
+            {/* CTA + Back link */}
             <AnimatedSection>
-              <div className="mt-16 bg-surface border border-border/40 p-10 text-center">
+              <div style={{ marginTop: '48px', marginBottom: '48px', textAlign: 'center' }}>
                 {guide.ctaType === 'inline' ? (
                   <>
-                    <p className="text-base text-foreground font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+                    <p className="text-base text-foreground/80 font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
                       {ctaText}
                     </p>
                     <Link
                       href={contactHref}
-                      className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white text-sm font-medium tracking-widest uppercase hover:bg-gold-light transition-all duration-300"
+                      className="inline-flex items-center gap-2 uppercase transition-colors hover:bg-[rgba(201,168,76,0.1)]"
+                      style={{ border: '1px solid rgba(201,168,76,0.5)', color: '#C9A84C', padding: '16px 40px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', letterSpacing: '0.12em' }}
                     >
                       {locale === 'en' ? 'Contact Us' : 'Bize Ulaşın'}
                       <ArrowRight size={14} />
@@ -130,12 +131,13 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
                       href={guide.ctaLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 px-10 py-4 border border-gold text-gold text-sm tracking-widest uppercase hover:bg-gold hover:text-background transition-all duration-300"
+                      className="inline-flex items-center gap-2 uppercase transition-colors hover:bg-[rgba(201,168,76,0.1)]"
+                      style={{ border: '1px solid rgba(201,168,76,0.5)', color: '#C9A84C', padding: '16px 40px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', letterSpacing: '0.12em' }}
                     >
                       {ctaText}
                       <ExternalLink size={14} />
                     </a>
-                    <div className="mt-6">
+                    <div style={{ marginTop: '16px' }}>
                       <Link
                         href={contactHref}
                         className="text-xs text-muted hover:text-gold transition-colors tracking-wide"
@@ -147,28 +149,24 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
                 ) : (
                   <Link
                     href={contactHref}
-                    className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white text-sm font-medium tracking-widest uppercase hover:bg-gold-light transition-all duration-300"
+                    className="inline-flex items-center gap-2 uppercase transition-colors hover:bg-[rgba(201,168,76,0.1)]"
+                    style={{ border: '1px solid rgba(201,168,76,0.5)', color: '#C9A84C', padding: '16px 40px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', letterSpacing: '0.12em' }}
                   >
                     {ctaText}
                     <ArrowRight size={14} />
                   </Link>
                 )}
+
+                {/* Back link */}
+                <Link
+                  href={hubHref}
+                  className="inline-flex items-center justify-center gap-2 transition-colors hover:text-white/75"
+                  style={{ marginTop: '24px', display: 'flex', fontSize: '13px', color: 'rgba(255,255,255,0.45)' }}
+                >
+                  <ArrowLeft size={13} />
+                  {backLabel}
+                </Link>
               </div>
-            </AnimatedSection>
-
-            {/* Divider */}
-            <div className="my-16 flex items-center gap-4">
-              <div className="flex-1 h-px bg-border/60" />
-              <div className="w-1.5 h-1.5 bg-gold/40 rotate-45" />
-              <div className="flex-1 h-px bg-border/60" />
-            </div>
-
-            {/* Back link bottom */}
-            <AnimatedSection>
-              <Link href={hubHref} className="inline-flex items-center gap-2 text-sm text-gold hover:gap-3 transition-all">
-                <ArrowLeft size={14} />
-                {backLabel}
-              </Link>
             </AnimatedSection>
           </div>
         </div>
@@ -197,7 +195,8 @@ export default function GuideDetail({ guide, locale }: GuideDetailProps) {
               </div>
               <Link
                 href={contactHref}
-                className="shrink-0 inline-flex items-center gap-2 px-8 py-4 border border-gold text-gold text-sm tracking-widest uppercase hover:bg-gold hover:text-background transition-all duration-300"
+                className="shrink-0 inline-flex items-center gap-2 uppercase transition-colors hover:bg-[rgba(201,168,76,0.1)]"
+                style={{ border: '1px solid rgba(201,168,76,0.5)', color: '#C9A84C', padding: '16px 40px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', letterSpacing: '0.12em' }}
               >
                 {locale === 'en' ? 'Get in Touch' : 'Bizimle İletişime Geçin'}
                 <ArrowRight size={14} />
