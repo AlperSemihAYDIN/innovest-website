@@ -79,9 +79,9 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       />
 
       {/* Services Grid */}
-      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
         <div className="site-container flex flex-col items-center">
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: '32px' }}>
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: '32px', marginTop: '64px' }}>
             {allServices.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.08}>
                 <Link href={service.href} className="block group h-full">
@@ -109,7 +109,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="hero-dark relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden">
+      <section className="hero-dark relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: '600px' }}>
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
@@ -118,28 +118,29 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-[rgba(5,15,35,0.65)]" />
         </div>
-        <div className="relative site-container flex flex-col items-center text-center py-24">
+        <div className="relative site-container flex flex-col items-center text-center" style={{ paddingTop: '120px', paddingBottom: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <AnimatedSection className="flex flex-col items-center text-center w-full">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase mb-8">
+            <span className="inline-flex items-center px-4 py-1.5 bg-gold/10 border border-gold/20 text-gold text-xs tracking-[0.2em] uppercase" style={{ marginBottom: '20px' }}>
               {locale === 'en' ? 'Get Started' : 'Başlayın'}
             </span>
-            <h2 className="text-3xl md:text-5xl font-light mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 400, marginBottom: '28px', lineHeight: '1.2', fontFamily: 'var(--font-display)' }}>
               {locale === 'en' ? "Need a Service That's " : 'Size Özel Bir Hizmet mi '}
               <span className="text-gradient-gold">{locale === 'en' ? 'Tailored to You?' : 'Arıyorsunuz?'}</span>
             </h2>
-            <p className="text-muted text-lg mb-10 max-w-xl mx-auto text-center">
+            <p style={{ fontSize: '17px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '540px', margin: '0 auto 48px', textAlign: 'center' }}>
               {locale === 'en'
                 ? "Every client is unique. Let's discuss your specific needs and create a bespoke service package."
                 : 'Her yatırımcı ve her hedef benzersizdir. İhtiyaçlarınızı birlikte değerlendirerek size özel bir hizmet paketi oluşturalım.'}
             </p>
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 px-10 py-4 bg-gold text-white font-medium text-lg hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+              className="inline-flex items-center gap-2 bg-gold text-white hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+              style={{ padding: '16px 48px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em' }}
             >
               {dict.nav.getConsultation}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </AnimatedSection>
         </div>
