@@ -76,7 +76,7 @@ export default function PageHero({
           {titleHighlight ? (
             <>
               {' '}
-              <span className="text-gold">{titleHighlight}</span>
+              <span className="text-gold" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>{titleHighlight}</span>
             </>
           ) : null}
         </motion.h1>
@@ -87,7 +87,7 @@ export default function PageHero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-lg md:text-xl font-light tracking-wide text-center max-w-2xl mx-auto leading-loose"
-            style={{ color: 'rgba(255,255,255,0.85)', marginTop: '24px', marginBottom: '8px' }}
+            style={{ color: 'rgba(255,255,255,0.85)', marginTop: '24px', marginBottom: '8px', textAlign: 'center', width: '100%', display: 'block' }}
           >
             {subtitle}
           </motion.p>
