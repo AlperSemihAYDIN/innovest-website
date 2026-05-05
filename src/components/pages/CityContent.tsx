@@ -171,24 +171,25 @@ export default function CityContent({
       )}
 
       {/* CTA */}
-      <section className="py-24 bg-surface border-t border-border min-h-[40vh] flex flex-col justify-center">
+      <section className="bg-surface border-t border-border min-h-[40vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <AnimatedSection className="flex flex-col items-center text-center w-full">
-              <h2 className="text-3xl md:text-4xl font-light mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 className="text-3xl md:text-4xl text-center" style={{ fontFamily: 'var(--font-display)', fontWeight: 500 }}>
                 {locale === 'en' ? `Interested in ${city} ` : `${city} `}
                 <span className="text-gradient-gold">
                   {locale === 'en' ? 'Property?' : 'Gayrimenkulü ile İlgileniyor musunuz?'}
                 </span>
               </h2>
-              <p className="text-muted mb-10 max-w-xl mx-auto text-center">
+              <p style={{ lineHeight: '1.9', color: 'rgba(255,255,255,0.6)', fontSize: '16px', fontWeight: 300, maxWidth: '480px', margin: '24px auto 40px', textAlign: 'center' }}>
                 {locale === 'en'
                   ? 'Our expert advisors can provide personalised guidance and access to exclusive off-market opportunities.'
                   : 'Uzman danışmanlarımız kişiselleştirilmiş rehberlik ve özel fırsatlara erişim sağlayabilir.'}
               </p>
               <Link
                 href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+                className="inline-flex items-center gap-2 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
+                style={{ padding: '16px 40px', borderRadius: '8px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em' }}
               >
                 {dict.nav.getConsultation}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
