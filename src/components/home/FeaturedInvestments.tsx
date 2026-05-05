@@ -132,6 +132,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                         <p className="text-sm font-medium">{property.completion}</p>
                       </div>
                     </div>
+                    <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.35)', marginTop: '8px', lineHeight: '1.5', fontStyle: 'italic' }}>*Starting prices are based on launch pricing and may vary depending on availability.</p>
                   </div>
                 </div>
               </Link>
