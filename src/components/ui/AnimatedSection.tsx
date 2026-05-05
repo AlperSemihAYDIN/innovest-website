@@ -63,7 +63,7 @@ export function SectionHeading({
         <span className="text-gradient-gold" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>{titleHighlight}</span>
       </h2>
       {subtitle && (
-        <p className="text-muted-light text-lg md:text-xl leading-loose font-light mt-5 mb-8 mx-auto max-w-3xl" style={{ textAlign: 'center', width: '100%' }}>
+        <p className="text-lg md:text-xl font-light tracking-wide text-center max-w-2xl mx-auto leading-loose" style={{ color: 'rgba(255,255,255,0.85)', marginTop: '24px', marginBottom: '8px', textAlign: 'center', width: '100%', display: 'block' }}>
           {subtitle}
         </p>
       )}
