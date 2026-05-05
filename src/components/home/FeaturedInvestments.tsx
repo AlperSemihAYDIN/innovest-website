@@ -99,26 +99,26 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
-                    <span className="absolute top-3 right-3 px-3 py-1 bg-gold/90 text-white text-xs font-medium rounded">
+                    <span className="absolute top-3 right-3" style={{ fontSize: '10px', fontWeight: '600', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.70)', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.12)' }}>
                       {property.tag}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 flex flex-col p-8">
-                    <p className="text-xs text-muted mb-2">{property.developer}</p>
+                    <p className="text-xs text-muted" style={{ marginBottom: '8px' }}>{property.developer}</p>
                     <h3
                       style={{ fontSize: '16px', fontWeight: 500, marginBottom: '12px', fontFamily: 'var(--font-display)', color: 'white' }}
                       className="group-hover:text-gold transition-colors"
                     >
                       {property.name}
                     </h3>
-                    <p className="flex items-center gap-1 text-xs text-muted mb-6">
+                    <p className="flex items-center gap-1 text-xs text-muted" style={{ marginBottom: '8px' }}>
                       <MapPin size={12} />
                       {property.location}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-3 pt-6 mt-auto border-t border-border/30">
+                    <div className="grid grid-cols-3 gap-3 pt-6 border-t border-border/30" style={{ marginTop: '16px' }}>
                       <div>
                         <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
@@ -132,7 +132,6 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                         <p className="text-sm font-medium">{property.completion}</p>
                       </div>
                     </div>
-                    <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.35)', marginTop: '8px', lineHeight: '1.5', fontStyle: 'italic' }}>*Starting prices are based on launch pricing and may vary depending on availability.</p>
                   </div>
                 </div>
               </Link>

@@ -123,11 +123,11 @@ export default function CityContent({
                     </div>
                   </div>
                   <div style={{ padding: '28px 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div className="flex items-center gap-4 text-xs text-muted mb-5">
+                    <div className="flex items-center gap-4 text-xs text-muted" style={{ marginBottom: '8px' }}>
                       <span className="flex items-center gap-1"><MapPin size={12} />{property.location}</span>
                       <span className="flex items-center gap-1"><BedDouble size={12} />{property.beds}</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-5 border-t border-border/30" style={{ flex: 1 }}>
+                    <div className="grid grid-cols-3 gap-4 py-5 border-t border-border/30" style={{ flex: 1, marginTop: '16px' }}>
                       <div>
                         <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
@@ -141,7 +141,9 @@ export default function CityContent({
                         <p className="text-sm font-medium">{property.completion}</p>
                       </div>
                     </div>
-                    <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.35)', marginTop: '8px', lineHeight: '1.5', fontStyle: 'italic' }}>*Starting prices are based on launch pricing and may vary depending on availability.</p>
+                    <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.30)', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', lineHeight: '1.6', fontStyle: 'italic', fontWeight: '300', wordBreak: 'break-word', whiteSpace: 'normal', display: 'block', width: '100%' }}>
+                      {locale === 'tr' ? '*Başlangıç fiyatları lansman fiyatlandırmasına dayalıdır ve mevcut duruma göre değişiklik gösterebilir.' : '*Starting prices are based on launch pricing and may vary depending on availability.'}
+                    </p>
                     <Link
                       href={property.slug ? `${prefix}/real-estate/${city.toLowerCase() === 'londra' ? 'london' : city.toLowerCase()}/${property.slug}` : `${prefix}/contact`}
                       className="mt-5 w-full inline-flex items-center justify-center gap-2 py-3.5 border border-border/30 text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn rounded-lg"
