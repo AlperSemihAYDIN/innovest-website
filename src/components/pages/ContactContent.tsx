@@ -340,11 +340,11 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
         <div className="site-container">
           <AnimatedSection>
             <div className="text-center mb-14">
-              <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-3 block">
+              <span className="text-gold text-xs font-semibold tracking-widest uppercase block" style={{ marginBottom: '16px' }}>
                 {locale === 'en' ? 'Our Offices' : 'Ofislerimiz'}
               </span>
               <h2
-                className="text-4xl md:text-5xl font-bold"
+                className="text-4xl md:text-5xl font-medium"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {locale === 'en' ? 'Global ' : 'Küresel '}
@@ -356,26 +356,26 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
             </div>
           </AnimatedSection>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-24" style={{ marginTop: '48px' }}>
             {/* London */}
             <AnimatedSection delay={0}>
               <div
                 className="h-full flex flex-col transition-all duration-500"
                 style={{
-                  padding: '40px',
+                  padding: '32px',
                   borderRadius: '16px',
                   border: '1px solid var(--gold)',
                   background: 'rgba(255,255,255,0.04)',
                   boxShadow: '0 0 40px rgba(201, 168, 76, 0.08)',
                 }}
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3" style={{ marginBottom: '12px' }}>
                   <span className="text-2xl" aria-hidden="true">&#x1F1EC;&#x1F1E7;</span>
-                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-2xl font-medium text-white" style={{ fontFamily: 'var(--font-display)' }}>
                     {locale === 'en' ? 'London' : 'Londra'}
                   </h3>
                 </div>
-                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
+                <span style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 600, display: 'block', marginBottom: '32px' }}>
                   {locale === 'en' ? 'Headquarters' : 'Merkez Ofis'}
                 </span>
                 <div className="space-y-5 mt-auto">
@@ -407,19 +407,19 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
               <div
                 className="h-full flex flex-col transition-all duration-500"
                 style={{
-                  padding: '40px',
+                  padding: '32px',
                   borderRadius: '16px',
                   border: '1px solid rgba(255,255,255,0.08)',
                   background: 'rgba(255,255,255,0.04)',
                 }}
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3" style={{ marginBottom: '12px' }}>
                   <span className="text-2xl" aria-hidden="true">&#x1F1E6;&#x1F1EA;</span>
-                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                  <h3 className="text-2xl font-medium text-white" style={{ fontFamily: 'var(--font-display)' }}>
                     Dubai
                   </h3>
                 </div>
-                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
+                <span style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 600, display: 'block', marginBottom: '32px' }}>
                   {locale === 'en' ? 'Middle East' : 'Orta Doğu'}
                 </span>
                 <div className="space-y-5 mt-auto">
@@ -440,19 +440,19 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
               <div
                 className="h-full flex flex-col transition-all duration-500"
                 style={{
-                  padding: '40px',
+                  padding: '32px',
                   borderRadius: '16px',
                   border: '1px solid rgba(255,255,255,0.08)',
                   background: 'rgba(255,255,255,0.04)',
                 }}
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3" style={{ marginBottom: '12px' }}>
                   <span className="text-2xl" aria-hidden="true">&#x1F1F9;&#x1F1F7;</span>
-                  <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
-                    {locale === 'en' ? 'Turkey' : 'Türkiye'}
+                  <h3 className="text-2xl font-medium text-white" style={{ fontFamily: 'var(--font-display)' }}>
+                    Türkiye
                   </h3>
                 </div>
-                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-8 block">
+                <span style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A84C', fontWeight: 600, display: 'block', marginBottom: '32px' }}>
                   {locale === 'en' ? 'Representative' : 'Temsilcilik'}
                 </span>
                 <div className="space-y-5 mt-auto">
@@ -481,7 +481,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                   {locale === 'en' ? 'Find Us' : 'Bizi Bulun'}
                 </span>
                 <h3
-                  className="text-4xl font-bold mb-3"
+                  className="text-4xl font-medium mb-3"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Berkeley Square, Mayfair
@@ -491,12 +491,8 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                 </p>
               </div>
               <div
-                className="relative w-full h-[480px] mt-10"
-                style={{
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                }}
+                className="relative w-full h-[480px]"
+                style={{ marginTop: '32px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
               >
                 <iframe
                   src="https://maps.google.com/maps?q=Berkeley+Square+House,+Mayfair,+London+W1J+6BE&z=16&output=embed"
