@@ -1,15 +1,22 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Building2, Shield, Briefcase, Search, BarChart3, FileText, Scale, Users, HeadphonesIcon } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
+import type { ServicesPageContent } from '@/lib/pageDefaults';
+
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  Building2, BarChart3, Shield, Briefcase, Scale, FileText, Users, HeadphonesIcon,
+};
 
 interface ServicesContentProps {
   dict: Dictionary;
   locale: 'en' | 'tr';
+  content?: ServicesPageContent;
 }
 
 export default function ServicesContent({ dict, locale }: ServicesContentProps) {

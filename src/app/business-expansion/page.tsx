@@ -24,9 +24,9 @@ export default async function BusinessPage() {
     <>
       <Header dict={dict} locale="en" />
       <main className="flex-1">
-        <BusinessContent dict={dict} locale="en" />
+        <BusinessContent dict={dict} locale="en" content={bizContent} />
       </main>
-      <Footer dict={dict} locale="en" />
+      <Footer dict={dict} locale="en" content={footerContent} />
       <AIChat dict={dict} locale="en" />
     </>
   );

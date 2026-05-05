@@ -24,9 +24,9 @@ export default async function RealEstatePageTR() {
     <>
       <Header dict={dict} locale="tr" />
       <main className="flex-1">
-        <RealEstateContent dict={dict} locale="tr" />
+        <RealEstateContent dict={dict} locale="tr" content={reContent} />
       </main>
-      <Footer dict={dict} locale="tr" />
+      <Footer dict={dict} locale="tr" content={footerContent} />
       <AIChat dict={dict} locale="tr" />
     </>
   );

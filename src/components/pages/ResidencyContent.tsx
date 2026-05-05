@@ -6,10 +6,12 @@ import { ArrowRight, Check, Clock, Banknote } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
+import type { ResidencyPageContent } from '@/lib/pageDefaults';
 
 interface ResidencyContentProps {
   dict: Dictionary;
   locale: 'en' | 'tr';
+  content?: ResidencyPageContent;
 }
 
 const countryImages: Record<string, string> = {
@@ -23,8 +25,22 @@ const countryImages: Record<string, string> = {
   'İngiltere': 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800',
 };
 
-export default function ResidencyContent({ dict, locale }: ResidencyContentProps) {
+export default function ResidencyContent({ dict, locale, content }: ResidencyContentProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
+  const l = locale === 'en';
+
+  const procTagline = content?.process?.[l ? 'taglineEn' : 'taglineTr'] ?? (l ? 'The Process' : 'Süreç');
+  const procTitle = content?.process?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'How It ' : 'Nasıl ');
+  const procHighlight = content?.process?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Works' : 'Çalışır');
+  const procSteps = content?.process?.steps ?? [
+    { num: '01', titleEn: 'Initial Consultation', titleTr: 'İlk Değlendirme', descEn: 'We assess your goals, budget and preferred destinations.', descTr: 'Hedeflerinizi, finansal çerçevenizi ve tercih ettiğiniz ülkeleri kapsamlı şekilde analiz ederiz.' },
+    { num: '02', titleEn: 'Programme Selection', titleTr: 'Strateji & Program Seçimi', descEn: 'We recommend the most suitable residency programme for you.', descTr: 'Profilinize en uygun oturum programını belirler ve size özel bir yol haritası oluştururuz.' },
+    { num: '03', titleEn: 'Application & Investment', titleTr: 'Başvuru & Yatırım Süreci', descEn: 'We handle all documentation and guide you through the investment.', descTr: 'Tüm başvuru ve yatırım süreçlerini titizlikle yönetir, her aşamada size rehberlik ederiz.' },
+    { num: '04', titleEn: 'Approval & Beyond', titleTr: 'Onay & Süreklilik', descEn: 'From permit receipt to renewal and citizenship pathways.', descTr: 'Oturum izninin alınmasından yenileme ve vatandaşlık süreçlerine kadar uzun vadeli destek sunarız.' },
+  ];
+  const ctaTitle = content?.cta?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Start Your Residency ' : 'Oturum Yolculuğunuza ');
+  const ctaHighlight = content?.cta?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Journey' : 'Başlayın');
+  const ctaSubtitle = content?.cta?.[l ? 'subtitleEn' : 'subtitleTr'] ?? (l ? 'Our immigration and investment experts are ready to guide you through the entire process.' : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.');
 
   return (
     <>
@@ -111,11 +127,11 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
           <AnimatedSection>
             <div className="text-center">
               <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
-                {locale === 'en' ? 'The Process' : 'Süreç'}
+                {procTagline}
               </span>
               <h2 style={{ fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, fontFamily: 'var(--font-display)' }}>
-                {locale === 'en' ? 'How It ' : 'Nasıl '}
-                <span className="text-gradient-gold">{locale === 'en' ? 'Works' : 'Çalışır'}</span>
+                {procTitle}
+                <span className="text-gradient-gold">{procHighlight}</span>
               </h2>
               <div className="gold-line-center mt-6" />
             </div>
@@ -162,13 +178,11 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
         <div className="relative site-container flex flex-col items-center" style={{ textAlign: 'center', paddingTop: '120px', paddingBottom: '120px' }}>
           <AnimatedSection className="flex flex-col items-center text-center w-full">
             <h2 style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', fontWeight: '400', marginBottom: '24px', lineHeight: '1.2', fontFamily: 'var(--font-display)' }}>
-              {locale === 'en' ? 'Start Your Residency ' : 'Oturum Yolculuğunuza '}
-              <span className="text-gradient-gold">{locale === 'en' ? 'Journey' : 'Başlayın'}</span>
+              {ctaTitle}
+              <span className="text-gradient-gold">{ctaHighlight}</span>
             </h2>
             <p style={{ fontSize: '16px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '480px', margin: '0 auto 48px', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
-              {locale === 'en'
-                ? 'Our immigration and investment experts are ready to guide you through the entire process.'
-                : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.'}
+              {ctaSubtitle}
             </p>
             <Link
               href={`${prefix}/contact`}

@@ -24,9 +24,9 @@ export default async function ContactPage() {
     <>
       <Header dict={dict} locale="en" />
       <main className="flex-1">
-        <ContactContent dict={dict} locale="en" />
+        <ContactContent dict={dict} locale="en" content={contactContent} />
       </main>
-      <Footer dict={dict} locale="en" />
+      <Footer dict={dict} locale="en" content={footerContent} />
       <AIChat dict={dict} locale="en" />
     </>
   );

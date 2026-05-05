@@ -24,9 +24,9 @@ export default async function ServicesPage() {
     <>
       <Header dict={dict} locale="en" />
       <main className="flex-1">
-        <ServicesContent dict={dict} locale="en" />
+        <ServicesContent dict={dict} locale="en" content={servicesContent} />
       </main>
-      <Footer dict={dict} locale="en" />
+      <Footer dict={dict} locale="en" content={footerContent} />
       <AIChat dict={dict} locale="en" />
     </>
   );

@@ -24,9 +24,9 @@ export default async function ResidencyPage() {
     <>
       <Header dict={dict} locale="en" />
       <main className="flex-1">
-        <ResidencyContent dict={dict} locale="en" />
+        <ResidencyContent dict={dict} locale="en" content={resContent} />
       </main>
-      <Footer dict={dict} locale="en" />
+      <Footer dict={dict} locale="en" content={footerContent} />
       <AIChat dict={dict} locale="en" />
     </>
   );

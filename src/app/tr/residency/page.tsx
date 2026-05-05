@@ -24,9 +24,9 @@ export default async function ResidencyPageTR() {
     <>
       <Header dict={dict} locale="tr" />
       <main className="flex-1">
-        <ResidencyContent dict={dict} locale="tr" />
+        <ResidencyContent dict={dict} locale="tr" content={resContent} />
       </main>
-      <Footer dict={dict} locale="tr" />
+      <Footer dict={dict} locale="tr" content={footerContent} />
       <AIChat dict={dict} locale="tr" />
     </>
   );

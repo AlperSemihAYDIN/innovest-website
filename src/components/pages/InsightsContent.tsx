@@ -8,13 +8,15 @@ import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection
 import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
 import { articles as staticArticles, type Article } from '@/lib/articleData';
+import type { InsightsPageContent } from '@/lib/pageDefaults';
 
 interface InsightsContentProps {
   dict: Dictionary;
   locale: 'en' | 'tr';
+  content?: InsightsPageContent;
 }
 
-export default function InsightsContent({ dict, locale }: InsightsContentProps) {
+export default function InsightsContent({ dict, locale, content }: InsightsContentProps) {
   const [activeCategory, setActiveCategory] = useState('All');
   const categories = dict.insightsPage.categories;
   const [articleList, setArticleList] = useState<Article[]>(staticArticles);
@@ -86,7 +88,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                   </div>
                   <div className="p-10 flex flex-col justify-center">
                     <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
-                      {locale === 'en' ? 'Featured Article' : 'Öne Çıkan Makale'}
+                      {content?.featuredArticle?.[locale === 'en' ? 'taglineEn' : 'taglineTr'] ?? (locale === 'en' ? 'Featured Article' : 'Öne Çıkan Makale')}
                     </span>
                     <h2 style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 400, lineHeight: '1.35', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>
                       {locale === 'tr' ? featuredArticle.titleTr : featuredArticle.title}

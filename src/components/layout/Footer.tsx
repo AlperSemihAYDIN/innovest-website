@@ -3,40 +3,40 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import type { Dictionary } from '@/lib/dictionary';
+import type { FooterContent } from '@/lib/pageDefaults';
 
 interface FooterProps {
   dict: Dictionary;
   locale: 'en' | 'tr';
+  content?: FooterContent;
 }
 
 const DEFAULT_SOCIALS = {
+  instagram_en: 'https://www.instagram.com/innovest_eng/',
+  instagram_tr: 'https://www.instagram.com/innovestcapital/',
   facebook: 'https://www.facebook.com/people/I-N-N-O-V-E-S-T/61552674123444/',
   youtube: 'https://www.youtube.com/@Innovestproperties/videos',
   linkedin: 'https://www.linkedin.com/company/innovest-capital/posts/?feedView=all',
 };
 
-export default function Footer({ dict, locale }: FooterProps) {
-  const prefix = locale === 'tr' ? '/tr' : '';
-  const instagramUrl = locale === 'tr'
-    ? 'https://www.instagram.com/innovestcapital/'
-    : 'https://www.instagram.com/innovest_eng/';
-  const [socials, setSocials] = useState(DEFAULT_SOCIALS);
+const DEFAULT_PHONES = ['+44 7491 510941', '+44 7769 212877', '+971 54 755 0101', '+90 531 420 0331'];
+const DEFAULT_EMAIL = 'info@innovest.uk';
 
-  useEffect(() => {
-    fetch('/api/public/socials')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        if (!data) return;
-        setSocials({
-          facebook: DEFAULT_SOCIALS.facebook,
-          youtube: DEFAULT_SOCIALS.youtube,
-          linkedin: data.linkedin || DEFAULT_SOCIALS.linkedin,
-        });
-      })
-      .catch(() => {});
-  }, []);
+export default function Footer({ dict, locale, content }: FooterProps) {
+  const prefix = locale === 'tr' ? '/tr' : '';
+  const phones = content?.contactInfo?.phones ?? DEFAULT_PHONES;
+  const email = content?.contactInfo?.email ?? DEFAULT_EMAIL;
+  const instagramUrl = content?.social?.instagram
+    ? (locale === 'tr'
+        ? (content.social.instagram.includes('innovestcapital') ? content.social.instagram : DEFAULT_SOCIALS.instagram_tr)
+        : content.social.instagram)
+    : (locale === 'tr' ? DEFAULT_SOCIALS.instagram_tr : DEFAULT_SOCIALS.instagram_en);
+  const socials = {
+    facebook: content?.social?.facebook ?? DEFAULT_SOCIALS.facebook,
+    youtube: content?.social?.youtube ?? DEFAULT_SOCIALS.youtube,
+    linkedin: content?.social?.linkedin ?? DEFAULT_SOCIALS.linkedin,
+  };
 
   const quickLinks = [
     { label: dict.nav.home, href: `${prefix}/` },
@@ -192,27 +192,24 @@ export default function Footer({ dict, locale }: FooterProps) {
               <li className="flex items-start gap-3">
                 <Phone size={16} className="text-gold mt-1 flex-shrink-0" />
                 <div className="text-sm text-muted" style={{ lineHeight: 2 }}>
-                  <a href="tel:+447491510941" className="block hover:text-gold transition-colors">
-                    +44 7491 510941
+                  {phones.map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone.replace(/[\s+]/g, '')}`}
+                    className="block hover:text-gold transition-colors"
+                  >
+                    {phone}
                   </a>
-                  <a href="tel:+447769212877" className="block hover:text-gold transition-colors">
-                    +44 7769 212877
-                  </a>
-                  <a href="tel:+971547550101" className="block hover:text-gold transition-colors">
-                    +971 54 755 0101
-                  </a>
-                  <a href="tel:+905314200331" className="block hover:text-gold transition-colors">
-                    +90 531 420 0331
-                  </a>
+                ))}
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-gold flex-shrink-0" />
                 <a
-                  href="mailto:info@innovest.uk"
+                  href={`mailto:${email}`}
                   className="text-sm text-muted hover:text-gold transition-colors"
                 >
-                  info@innovest.uk
+                  {email}
                 </a>
               </li>
             </ul>

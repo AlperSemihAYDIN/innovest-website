@@ -6,16 +6,36 @@ import { ArrowRight, Globe, Users, FileCheck, Building } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
+import type { BusinessPageContent } from '@/lib/pageDefaults';
 
 interface BusinessContentProps {
   dict: Dictionary;
   locale: 'en' | 'tr';
+  content?: BusinessPageContent;
 }
 
 const serviceIcons = [Globe, Users, FileCheck, Building];
 
-export default function BusinessContent({ dict, locale }: BusinessContentProps) {
+export default function BusinessContent({ dict, locale, content }: BusinessContentProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
+  const l = locale === 'en';
+
+  const mkTagline = content?.markets?.[l ? 'taglineEn' : 'taglineTr'] ?? (l ? 'Markets We Cover' : 'Faaliyet Gösterdiğimiz Pazarlar');
+  const mkTitle = content?.markets?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Global ' : 'Küresel ');
+  const mkHighlight = content?.markets?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Reach' : 'Ağımız');
+  const mkItems = content?.markets?.items ?? [
+    { name: 'United Kingdom', flag: '🇬🇧' },
+    { name: 'United Arab Emirates', flag: '🇦🇪' },
+    { name: 'European Union', flag: '🇪🇺' },
+    { name: 'United States', flag: '🇺🇸' },
+    { name: 'Turkey', flag: '🇹🇷' },
+    { name: 'Saudi Arabia', flag: '🇸🇦' },
+    { name: 'Qatar', flag: '🇶🇦' },
+    { name: 'Singapore', flag: '🇸🇬' },
+  ];
+  const ctaTitle = content?.cta?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye ');
+  const ctaHighlight = content?.cta?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Globally?' : 'Hazır mısınız?');
+  const ctaSubtitle = content?.cta?.[l ? 'subtitleEn' : 'subtitleTr'] ?? (l ? "Let's discuss how we can help you enter new markets and grow your business internationally." : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirerim.');
 
   return (
     <>
@@ -62,27 +82,18 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
           <AnimatedSection>
             <div className="text-center">
               <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', marginBottom: '16px', display: 'block', textTransform: 'uppercase' }}>
-                {locale === 'en' ? 'Markets We Cover' : 'Faaliyet Gösterdiğimiz Pazarlar'}
+                {mkTagline}
               </span>
               <h2 className="text-3xl md:text-4xl" style={{ fontWeight: 400, fontFamily: 'var(--font-display)' }}>
-                {locale === 'en' ? 'Global ' : 'Küresel '}
-                <span className="text-gradient-gold">{locale === 'en' ? 'Reach' : 'Ağımız'}</span>
+                {mkTitle}
+                <span className="text-gradient-gold">{mkHighlight}</span>
               </h2>
               <div className="gold-line-center mt-6" />
             </div>
           </AnimatedSection>
 
           <div className="max-w-5xl mx-auto w-full grid grid-cols-2 md:grid-cols-4" style={{ gap: '32px', marginTop: '64px' }}>
-            {[
-              { name: 'United Kingdom', flag: '🇬🇧' },
-              { name: 'United Arab Emirates', flag: '🇦🇪' },
-              { name: 'European Union', flag: '🇪🇺' },
-              { name: 'United States', flag: '🇺🇸' },
-              { name: 'Turkey', flag: '🇹🇷' },
-              { name: 'Saudi Arabia', flag: '🇸🇦' },
-              { name: 'Qatar', flag: '🇶🇦' },
-              { name: 'Singapore', flag: '🇸🇬' },
-            ].map((market, index) => (
+            {mkItems.map((market, index) => (
               <AnimatedSection key={market.name} delay={index * 0.05}>
                 <div
                   className="text-center group hover:border-[rgba(201,168,76,0.25)] hover:bg-white/5"
@@ -102,13 +113,11 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
         <div className="site-container flex flex-col items-center">
           <AnimatedSection className="flex flex-col items-center text-center w-full">
             <h2 style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', fontWeight: 400, lineHeight: '1.2', marginBottom: '24px', fontFamily: 'var(--font-display)', textAlign: 'center' }}>
-              {locale === 'en' ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye '}
-              <span className="text-gradient-gold">{locale === 'en' ? 'Globally?' : 'Hazır mısınız?'}</span>
+              {ctaTitle}
+              <span className="text-gradient-gold">{ctaHighlight}</span>
             </h2>
             <p style={{ fontSize: '16px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '480px', margin: '0 auto 48px', textAlign: 'center' }}>
-              {locale === 'en'
-                ? "Let's discuss how we can help you enter new markets and grow your business internationally."
-                : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirelim.'}
+              {ctaSubtitle}
             </p>
             <Link
               href={`${prefix}/contact`}

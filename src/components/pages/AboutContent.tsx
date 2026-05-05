@@ -9,14 +9,18 @@ const valueRoman = ['I', 'II', 'III', 'IV'];
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import PageHero from '@/components/ui/PageHero';
 import type { Dictionary } from '@/lib/dictionary';
+import type { AboutPageContent } from '@/lib/pageDefaults';
 
 interface AboutContentProps {
   dict: Dictionary;
   locale: 'en' | 'tr';
+  content?: AboutPageContent;
 }
 
-export default function AboutContent({ dict, locale }: AboutContentProps) {
+export default function AboutContent({ dict, locale, content }: AboutContentProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
+  const l = locale === 'en';
+  const c = content;
 
   return (
     <>
@@ -52,15 +56,15 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-px bg-gold/50" />
                   <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase' }}>
-                    {locale === 'en' ? 'Who We Are' : 'Biz Kimiz'}
+                    {c?.whoWeAre?.[l ? 'taglineEn' : 'taglineTr'] ?? (l ? 'Who We Are' : 'Biz Kimiz')}
                   </span>
                 </div>
                 <h2
                   style={{ fontSize: 'clamp(32px, 3.5vw, 48px)', fontWeight: 400, marginBottom: '24px', fontFamily: 'var(--font-display)' }}
                 >
-                  {locale === 'en' ? 'A Vision Built on ' : 'Güven Üzerine İnşa Edilmiş '}
+                  {c?.whoWeAre?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'A Vision Built on ' : 'Güven Üzerine İnşa Edilmiş ')}
                   <span className="text-gradient-gold">
-                    {locale === 'en' ? 'Trust & Expertise' : 'Bir Vizyon'}
+                    {c?.whoWeAre?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Trust & Expertise' : 'Bir Vizyon')}
                   </span>
                 </h2>
                 <div className="w-16 h-px bg-gold/60 mb-10" />
@@ -98,24 +102,22 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
           <AnimatedSection>
             <div className="w-full text-center mb-20 px-4 flex flex-col items-center">
               <p style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px' }}>
-                {locale === 'en' ? 'Our People' : 'Ekibimiz'}
+                {c?.team?.[l ? 'taglineEn' : 'taglineTr'] ?? (l ? 'Our People' : 'Ekibimiz')}
               </p>
               <h2
                 style={{ fontSize: 'clamp(32px, 3.5vw, 48px)', fontWeight: 400, marginBottom: '20px', fontFamily: 'var(--font-display)', color: '#C9A84C' }}
               >
-                {locale === 'en' ? 'Our Expert Team' : 'Uzman Ekibimiz'}
+                {c?.team?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Our Expert Team' : 'Uzman Ekibimiz')}
               </h2>
               <p style={{ fontSize: '15px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '42rem', textAlign: 'center' }}>
-                {locale === 'en'
-                  ? 'A team of seasoned professionals based in the United Kingdom'
-                  : 'Birleşik Krallık\'ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
+                {c?.team?.[l ? 'subtitleEn' : 'subtitleTr'] ?? (l ? 'A team of seasoned professionals based in the United Kingdom' : "Birleşik Krallık'ta tecrübeli profesyonellerden oluşan uzman ekibimiz")}
               </p>
               <div className="w-16 h-px bg-gold/40 mt-8" />
             </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto" style={{ marginTop: '64px' }}>
-            {[
+            {(c?.team?.members ?? [
               { name: 'Buhari Burak', image: '/team/bbtweb.png' },
               { name: 'Asel', image: '/team/at.png' },
               { name: 'Ceylin', image: '/team/coweb.png' },
@@ -125,7 +127,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               { name: 'Zehra', image: '/team/zkweb.png' },
               { name: 'Berat', image: '/team/bweb.png' },
               { name: 'Salih', image: '/team/skweb.jpeg' },
-            ].map((member, i) => (
+            ]).map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.06}>
                 <div className="group">
                   <div className="relative aspect-[4/5] overflow-hidden bg-background border border-border group-hover:border-gold/40 transition-colors duration-500 rounded-lg">
@@ -171,32 +173,24 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
-                {locale === 'en' ? 'Our Story' : 'Hikayemiz'}
+                {c?.story?.[l ? 'taglineEn' : 'taglineTr'] ?? (l ? 'Our Story' : 'Hikayemiz')}
               </span>
               <h2
                 style={{ fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, marginBottom: '24px', fontFamily: 'var(--font-display)' }}
               >
-                {locale === 'en' ? 'Building Bridges Across ' : 'Küresel Pazarlarda '}
+                {c?.story?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Building Bridges Across ' : 'Küresel Pazarlarda ')}
                 <span className="text-gradient-gold">
-                  {locale === 'en' ? 'Global Markets' : 'Köprüler Kuruyoruz'}
+                  {c?.story?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Global Markets' : 'Köprüler Kuruyoruz')}
                 </span>
               </h2>
               <div className="space-y-4" style={{ fontSize: '15px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
-                <p>
-                  {locale === 'en'
-                    ? 'Founded with a clear vision to bridge the gap between international investors and premium global opportunities, Innovest has established itself as a trusted name in cross-border investment advisory.'
-                    : 'Uluslararası yatırımcılar ile premium küresel fırsatlar arasındaki boşluğu kapatma vizyonuyla kurulan Innovest, sınır ötesi yatırım danışmanlığında güvenilir bir isim olarak kendini kanıtlamıştır.'}
-                </p>
-                <p>
-                  {locale === 'en'
-                    ? 'Our team combines deep market expertise with a client-first philosophy, ensuring every investment decision is backed by thorough research, local knowledge and personalised guidance.'
-                    : 'Ekibimiz, derin pazar uzmanlığını müşteri odaklı bir felsefeyle birleştirerek her yatırım kararının kapsamlı araştırma, yerel bilgi ve kişiselleştirilmiş rehberlikle desteklenmesini sağlar.'}
-                </p>
-                <p>
-                  {locale === 'en'
-                    ? 'With offices in London and strong partnerships across the UAE, EU and beyond, we provide a truly global service with local insight.'
-                    : "Londra'daki ofisimiz ve BAE, AB ve ötesindeki güçlü ortaklıklarımızla, yerel içgörüyle gerçek anlamda küresel bir hizmet sunuyoruz."}
-                </p>
+                {(c?.story?.paragraphs ?? [
+                  { textEn: 'Founded with a clear vision to bridge the gap between international investors and premium global opportunities, Innovest has established itself as a trusted name in cross-border investment advisory.', textTr: 'Uluslararası yatırımcılar ile premium küresel fırsatlar arasındaki boşluğu kapatma vizyonuyla kurulan Innovest, sınır ötesi yatırım danışmanlığında güvenilir bir isim olarak kendini kanıtlamıştır.' },
+                  { textEn: 'Our team combines deep market expertise with a client-first philosophy, ensuring every investment decision is backed by thorough research, local knowledge and personalised guidance.', textTr: 'Ekibimiz, derin pazar uzmanlığını müşteri odaklı bir felsefeyle birleştirerek her yatırım kararının kapsamlı araştırma, yerel bilgi ve kişiselleştirilmiş rehberlikle desteklenmesini sağlar.' },
+                  { textEn: 'With offices in London and strong partnerships across the UAE, EU and beyond, we provide a truly global service with local insight.', textTr: "Londra'daki ofisimiz ve BAE, AB ve ötesindeki güçlü ortaklıklarımızla, yerel içgörüyle gerçek anlamda küresel bir hizmet sunuyoruz." },
+                ]).map((para, i) => (
+                  <p key={i}>{l ? para.textEn : para.textTr}</p>
+                ))}
               </div>
             </AnimatedSection>
           </div>
@@ -213,22 +207,20 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-px bg-gold/50" />
                   <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase' }}>
-                    {locale === 'en' ? 'Our Values' : 'Değerlerimiz'}
+                    {c?.values?.[l ? 'taglineEn' : 'taglineTr'] ?? (l ? 'Our Values' : 'Değerlerimiz')}
                   </span>
                 </div>
                 <h2
                   style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 400, fontFamily: 'var(--font-display)' }}
                 >
-                  {locale === 'en' ? 'What Drives ' : 'Bizi '}
+                  {c?.values?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'What Drives ' : 'Bizi ')}
                   <span className="text-gradient-gold">
-                    {locale === 'en' ? 'Us Forward' : 'İleri Taşıyan'}
+                    {c?.values?.[l ? 'titleHighlightEn' : 'titleHighlightTr'] ?? (l ? 'Us Forward' : 'İleri Taşıyan')}
                   </span>
                 </h2>
               </div>
               <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '24rem', textAlign: 'right', paddingBottom: '8px' }}>
-                {locale === 'en'
-                  ? 'The principles that shape how we work, how we decide, and what we stand for.'
-                  : 'Nasıl çalıştığımızı, nasıl karar verdiğimizi ve neye inandığımızı şekillendiren ilkeler.'}
+                {c?.values?.[l ? 'subtitleEn' : 'subtitleTr'] ?? (l ? 'The principles that shape how we work, how we decide, and what we stand for.' : 'Nasıl çalıştığımızı, nasıl karar verdiğimizi ve neye inandığımızı şekillendiren ilkeler.')}
               </p>
             </div>
           </AnimatedSection>

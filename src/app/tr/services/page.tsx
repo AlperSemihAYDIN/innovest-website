@@ -24,9 +24,9 @@ export default async function ServicesPageTR() {
     <>
       <Header dict={dict} locale="tr" />
       <main className="flex-1">
-        <ServicesContent dict={dict} locale="tr" />
+        <ServicesContent dict={dict} locale="tr" content={servicesContent} />
       </main>
-      <Footer dict={dict} locale="tr" />
+      <Footer dict={dict} locale="tr" content={footerContent} />
       <AIChat dict={dict} locale="tr" />
     </>
   );
