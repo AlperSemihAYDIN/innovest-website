@@ -108,7 +108,7 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
       </section>
 
       {/* Article body */}
-      <section className="py-28 md:py-36 md:py-28 bg-background">
+      <section className="bg-background" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container">
           <div className="max-w-3xl mx-auto">
             <AnimatedSection>
@@ -171,19 +171,18 @@ export default function ArticleDetail({ article, locale }: ArticleDetailProps) {
       </section>
 
       {/* CTA section */}
-      <section className="py-24 bg-surface border-t border-border/40">
+      <section className="bg-surface border-t border-border/40" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div>
-                <p className="text-xs text-gold tracking-widest uppercase mb-3">{ctaTagline}</p>
+                <p style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '12px' }}>{ctaTagline}</p>
                 <h2
-                  className="text-2xl md:text-3xl font-light mb-3"
-                  style={{ fontFamily: 'var(--font-display)' }}
+                  style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 400, marginBottom: '12px' }}
                 >
                   {ctaTitle}
                 </h2>
-                <p className="text-muted text-sm leading-loose max-w-lg">{ctaBody}</p>
+                <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '32rem' }}>{ctaBody}</p>
               </div>
               <Link
                 href={contactHref}

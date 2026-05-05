@@ -30,27 +30,26 @@ export default function CallToAction({ dict, locale }: CTAProps) {
 
       <div className="relative site-container flex flex-col items-center text-center py-24 md:py-32">
         <AnimatedSection className="flex flex-col items-center text-center w-full">
-          <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-4 block">
+          <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', marginBottom: '20px', display: 'block', textTransform: 'uppercase' }}>
             {locale === 'en' ? 'Get Started' : 'Başlayın'}
           </span>
 
           <h2
-            className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight max-w-3xl mx-auto text-center"
-            style={{ fontFamily: 'var(--font-display)' }}
+            style={{ fontSize: 'clamp(36px, 4.5vw, 60px)', fontWeight: 400, lineHeight: '1.15', maxWidth: '780px', margin: '0 auto 24px', textAlign: 'center', fontFamily: 'var(--font-display)' }}
           >
             {dict.cta.title}{' '}
             <span className="text-gradient-gold">{dict.cta.titleHighlight}</span>
           </h2>
 
-          <p className="text-muted text-lg max-w-xl mx-auto mt-4 mb-6 text-center leading-loose">
+          <p style={{ fontSize: '17px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '520px', margin: '0 auto 8px', textAlign: 'center' }}>
             {dict.cta.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-lg font-semibold text-sm bg-gold text-background hover:bg-gold-light transition-all duration-300 btn-shine group"
-              style={{ minWidth: '220px', whiteSpace: 'nowrap' }}
+              className="inline-flex items-center justify-center gap-2 rounded-lg hover:opacity-90 transition-all duration-300 btn-shine group"
+              style={{ padding: '16px 48px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', background: '#C9A84C', color: '#0a1628', whiteSpace: 'nowrap' }}
             >
               {dict.cta.button}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

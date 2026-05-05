@@ -62,7 +62,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
   return (
-    <section className="pt-32 pb-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
+    <section className="bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '144px', paddingBottom: '144px' }}>
       <div className="site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <AnimatedSection>
@@ -89,7 +89,7 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
           {properties.map((property, index) => (
             <AnimatedSection key={property.id} delay={index * 0.1}>
               <Link href={`${prefix}/real-estate/${property.tag === 'UK' ? 'london' : 'dubai'}`} className="block group h-full">
-                <div className="h-full flex flex-col bg-background/60 hover:bg-background rounded-2xl overflow-hidden transition-all duration-500 card-hover">
+                <div className="h-full flex flex-col overflow-hidden transition-all duration-500 hover:border-[rgba(201,168,76,0.25)]" style={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image
@@ -108,8 +108,8 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                   <div className="flex-1 flex flex-col p-8">
                     <p className="text-xs text-muted mb-2">{property.developer}</p>
                     <h3
-                      className="text-lg font-light mb-3 group-hover:text-gold transition-colors"
-                      style={{ fontFamily: 'var(--font-display)' }}
+                      style={{ fontSize: '16px', fontWeight: 500, marginBottom: '12px', fontFamily: 'var(--font-display)', color: 'white' }}
+                      className="group-hover:text-gold transition-colors"
                     >
                       {property.name}
                     </h3>

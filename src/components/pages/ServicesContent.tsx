@@ -79,7 +79,7 @@ export default function ServicesContent({ dict, locale }: ServicesContentProps) 
       />
 
       {/* Services Grid */}
-      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: '32px', marginTop: '64px' }}>
             {allServices.map((service, index) => (

@@ -30,24 +30,24 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       />
 
       {/* Services */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2" style={{ gap: '32px' }}>
             {dict.businessPage.services.map((service, index) => {
               const Icon = serviceIcons[index];
               return (
                 <AnimatedSection key={service.title} delay={index * 0.1}>
-                  <div className="p-10 bg-surface border border-border group hover:border-gold/30 transition-all duration-500 h-full rounded-xl">
-                    <div className="w-14 h-14 mb-6 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors duration-300 rounded-full">
-                      <Icon size={24} className="text-gold" />
+                  <div
+                    className="h-full group hover:border-[rgba(201,168,76,0.25)] hover:bg-white/5"
+                    style={{ padding: '36px 32px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)', transition: 'all 0.3s ease' }}
+                  >
+                    <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon size={22} className="text-gold" />
                     </div>
-                    <h3
-                      className="text-xl font-light mb-4 group-hover:text-gold transition-colors duration-300"
-                      style={{ fontFamily: 'var(--font-display)' }}
-                    >
+                    <h3 style={{ fontSize: '18px', fontWeight: 500, marginTop: '24px', marginBottom: '16px', color: 'white', fontFamily: 'var(--font-display)' }}>
                       {service.title}
                     </h3>
-                    <p className="text-muted leading-loose">{service.desc}</p>
+                    <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>{service.desc}</p>
                   </div>
                 </AnimatedSection>
               );
@@ -57,14 +57,14 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* Markets we cover */}
-      <section className="py-24 bg-surface min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-surface min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
-            <div className="text-center mb-20">
-              <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
+            <div className="text-center">
+              <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', marginBottom: '16px', display: 'block', textTransform: 'uppercase' }}>
                 {locale === 'en' ? 'Markets We Cover' : 'Faaliyet Gösterdiğimiz Pazarlar'}
               </span>
-              <h2 className="text-3xl md:text-4xl font-light" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 className="text-3xl md:text-4xl" style={{ fontWeight: 400, fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? 'Global ' : 'Küresel '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Reach' : 'Ağımız'}</span>
               </h2>
@@ -72,7 +72,7 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
             </div>
           </AnimatedSection>
 
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-2 md:grid-cols-4" style={{ gap: '32px', marginTop: '64px' }}>
             {[
               { name: 'United Kingdom', flag: '🇬🇧' },
               { name: 'United Arab Emirates', flag: '🇦🇪' },
@@ -84,9 +84,12 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
               { name: 'Singapore', flag: '🇸🇬' },
             ].map((market, index) => (
               <AnimatedSection key={market.name} delay={index * 0.05}>
-                <div className="p-6 bg-background border border-border text-center group hover:border-gold/30 transition-all duration-300 rounded-xl">
-                  <span className="text-3xl mb-3 block">{market.flag}</span>
-                  <p className="text-sm text-muted group-hover:text-gold transition-colors">{market.name}</p>
+                <div
+                  className="text-center group hover:border-[rgba(201,168,76,0.25)] hover:bg-white/5"
+                  style={{ padding: '28px 16px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)', transition: 'all 0.3s ease' }}
+                >
+                  <span className="text-3xl" style={{ display: 'block', marginBottom: '12px' }}>{market.flag}</span>
+                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', fontWeight: 300, transition: 'color 0.3s' }}>{market.name}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -95,28 +98,27 @@ export default function BusinessContent({ dict, locale }: BusinessContentProps) 
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-40 bg-background border-t border-border min-h-[40vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[40vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
-          <div className="flex flex-col items-center text-center">
-            <AnimatedSection className="flex flex-col items-center text-center w-full">
-              <h2 className="text-3xl md:text-4xl font-light mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>
-                {locale === 'en' ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye '}
-                <span className="text-gradient-gold">{locale === 'en' ? 'Globally?' : 'Hazır mısınız?'}</span>
-              </h2>
-              <p className="text-muted mb-10 max-w-xl mx-auto text-center">
-                {locale === 'en'
-                  ? "Let's discuss how we can help you enter new markets and grow your business internationally."
-                  : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirelim.'}
-              </p>
-              <Link
-                href={`${prefix}/contact`}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-white font-medium hover:bg-gold-light transition-all duration-300 btn-shine group rounded-lg"
-              >
-                {dict.nav.getConsultation}
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </AnimatedSection>
-          </div>
+          <AnimatedSection className="flex flex-col items-center text-center w-full">
+            <h2 style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', fontWeight: 400, lineHeight: '1.2', marginBottom: '24px', fontFamily: 'var(--font-display)', textAlign: 'center' }}>
+              {locale === 'en' ? 'Ready to Grow Your Business ' : 'İşinizi Doğru Stratejiyle Büyütmeye '}
+              <span className="text-gradient-gold">{locale === 'en' ? 'Globally?' : 'Hazır mısınız?'}</span>
+            </h2>
+            <p style={{ fontSize: '16px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '480px', margin: '0 auto 48px', textAlign: 'center' }}>
+              {locale === 'en'
+                ? "Let's discuss how we can help you enter new markets and grow your business internationally."
+                : 'Yeni pazarlara açılmanız ve işinizi uluslararası ölçekte büyütmeniz için size nasıl değer katabileceğimizi birlikte değerlendirelim.'}
+            </p>
+            <Link
+              href={`${prefix}/contact`}
+              className="inline-flex items-center gap-2 hover:opacity-90 transition-all duration-300 btn-shine group rounded-lg"
+              style={{ padding: '16px 48px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', background: '#C9A84C', color: '#0a1628' }}
+            >
+              {dict.nav.getConsultation}
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </>

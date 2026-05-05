@@ -39,12 +39,17 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
       />
 
       {/* Programmes */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
-          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr">
+          <div className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 auto-rows-fr" style={{ gap: '32px' }}>
             {dict.residencyPage.programmes.map((programme, index) => (
               <AnimatedSection key={programme.country} delay={index * 0.1} className="h-full">
-                <div className="bg-surface border border-border overflow-hidden group hover:border-gold/30 transition-all duration-500 rounded-xl h-full flex flex-col">
+                <div
+                  className="overflow-hidden group h-full flex flex-col"
+                  style={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)', transition: 'border-color 0.3s ease' }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.25)')}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
+                >
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={countryImages[programme.country] || countryImages['Portugal']}
@@ -53,42 +58,45 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                     <div className="absolute bottom-4 left-6">
-                      <span className="text-xs text-gold tracking-widest uppercase">{programme.country}</span>
-                      <h3 className="text-2xl font-light text-white mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+                      <span style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', marginBottom: '8px', display: 'block', textTransform: 'uppercase' }}>{programme.country}</span>
+                      <h3 style={{ fontSize: '24px', fontWeight: 400, marginBottom: 0, color: 'white', fontFamily: 'var(--font-display)' }}>
                         {programme.title}
                       </h3>
                     </div>
                   </div>
-                  <div className="p-8 flex flex-col flex-1">
-                    <div className="flex items-center gap-8 md:gap-12 mb-6 text-sm">
+                  <div className="flex flex-col flex-1" style={{ padding: '28px 32px', background: 'rgba(8,18,38,0.97)' }}>
+                    <div className="flex items-center gap-8 md:gap-12 text-sm" style={{ marginTop: '0', marginBottom: '16px' }}>
                       <span className="flex items-center gap-2 text-gold">
                         <Banknote size={16} />
                         {programme.investment}
                       </span>
-                      <span className="flex items-center gap-2 text-muted">
+                      <span className="flex items-center gap-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
                         <Clock size={16} />
                         {programme.timeline}
                       </span>
                     </div>
 
-                    <ul className="space-y-4 mb-8 flex-1">
+                    <ul className="flex-1" style={{ marginTop: '16px', marginBottom: '16px' }}>
                       {programme.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-start gap-3 text-sm text-muted leading-loose">
-                          <Check size={14} className="text-gold flex-shrink-0 mt-0.5" />
+                        <li key={benefit} className="flex items-start gap-3" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: '10px', lineHeight: '1.7' }}>
+                          <Check size={13} className="text-gold flex-shrink-0" style={{ marginTop: '3px' }} />
                           {benefit}
                         </li>
                       ))}
                     </ul>
 
-                    <Link
-                      href={`${prefix}/contact`}
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 border border-border text-sm hover:border-gold hover:text-gold transition-all duration-300 group/btn rounded-lg"
-                    >
-                      {locale === 'en' ? 'Get Expert Guidance' : 'Uzman Rehberliği Alın'}
-                      <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
+                    <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                      <Link
+                        href={`${prefix}/contact`}
+                        className="w-full inline-flex items-center justify-center gap-2 hover:opacity-80 transition-all duration-300 group/btn"
+                        style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', color: '#C9A84C', textTransform: 'uppercase' }}
+                      >
+                        {locale === 'en' ? 'Get Expert Guidance' : 'Uzman Rehberliği Alın'}
+                        <ArrowRight size={13} className="group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>
@@ -102,10 +110,10 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center">
-              <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium block" style={{ marginBottom: '16px' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                 {locale === 'en' ? 'The Process' : 'Süreç'}
               </span>
-              <h2 className="text-3xl md:text-4xl font-light" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 style={{ fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? 'How It ' : 'Nasıl '}
                 <span className="text-gradient-gold">{locale === 'en' ? 'Works' : 'Çalışır'}</span>
               </h2>
@@ -151,13 +159,13 @@ export default function ResidencyContent({ dict, locale }: ResidencyContentProps
           />
           <div className="absolute inset-0" style={{ background: 'rgba(5,15,35,0.75)' }} />
         </div>
-        <div className="relative site-container flex flex-col items-center" style={{ textAlign: 'center', paddingTop: '100px', paddingBottom: '100px' }}>
+        <div className="relative site-container flex flex-col items-center" style={{ textAlign: 'center', paddingTop: '120px', paddingBottom: '120px' }}>
           <AnimatedSection className="flex flex-col items-center text-center w-full">
             <h2 style={{ fontSize: 'clamp(32px, 3.5vw, 52px)', fontWeight: '400', marginBottom: '24px', lineHeight: '1.2', fontFamily: 'var(--font-display)' }}>
               {locale === 'en' ? 'Start Your Residency ' : 'Oturum Yolculuğunuza '}
               <span className="text-gradient-gold">{locale === 'en' ? 'Journey' : 'Başlayın'}</span>
             </h2>
-            <p style={{ fontSize: '16px', lineHeight: '1.9', color: 'rgba(255,255,255,0.70)', fontWeight: 300, maxWidth: '480px', margin: '0 auto 48px', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
+            <p style={{ fontSize: '16px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '480px', margin: '0 auto 48px', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
               {locale === 'en'
                 ? 'Our immigration and investment experts are ready to guide you through the entire process.'
                 : 'Göç ve yatırım uzmanlarımız tüm süreçte size rehberlik etmeye hazır.'}

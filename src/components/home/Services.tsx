@@ -44,7 +44,7 @@ export default function Services({ dict, locale }: ServicesProps) {
   ];
 
   return (
-    <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+    <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       <div className="site-container flex flex-col items-center">
         <div className="w-full max-w-3xl mx-auto text-center mb-12">
           <AnimatedSection>
@@ -85,20 +85,20 @@ export default function Services({ dict, locale }: ServicesProps) {
                   {/* Content */}
                   <div
                     className="flex-1 flex flex-col text-center"
-                    style={{ padding: '28px 24px 32px' }}
+                    style={{ padding: '36px 32px' }}
                   >
                     <div className="flex justify-center mb-5">
-                      <div className="w-14 h-14 bg-background border border-gold/40 rounded-full flex items-center justify-center">
+                      <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <service.Icon size={22} className="text-gold" />
                       </div>
                     </div>
                     <h3
-                      className="text-xl font-bold mb-3 group-hover:text-gold transition-colors duration-300"
-                      style={{ fontFamily: 'var(--font-display)' }}
+                      style={{ fontSize: '18px', fontWeight: 500, marginTop: '28px', marginBottom: '16px', fontFamily: 'var(--font-display)', color: 'white' }}
+                      className="group-hover:text-gold transition-colors duration-300"
                     >
                       {service.title}
                     </h3>
-                    <p className="text-sm leading-loose text-white/75 mb-6 flex-1">
+                    <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: '24px' }} className="flex-1">
                       {service.desc}
                     </p>
                     <span className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-gold group-hover:gap-3 transition-all duration-300">

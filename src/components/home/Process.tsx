@@ -57,12 +57,12 @@ export default function Process({ dict }: ProcessProps) {
                 <div className="flex-1 pt-1">
                   <div className="w-8 h-px bg-gold mb-4 group-hover:w-16 transition-all duration-500" />
                   <h3
-                    className="text-xl font-light mb-3 group-hover:text-gold transition-colors duration-300"
-                    style={{ fontFamily: 'var(--font-display)' }}
+                    style={{ fontSize: '16px', fontWeight: 500, marginBottom: '12px', fontFamily: 'var(--font-display)', color: 'white' }}
+                    className="group-hover:text-gold transition-colors duration-300"
                   >
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted leading-loose">{step.desc}</p>
+                  <p style={{ fontSize: '13px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>{step.desc}</p>
                 </div>
               </div>
             </AnimatedSection>

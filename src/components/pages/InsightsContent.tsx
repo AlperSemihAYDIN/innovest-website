@@ -67,14 +67,14 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
 
       {/* Featured article */}
       {featuredArticle && (
-        <section className="bg-background" style={{ marginTop: '80px' }}>
+        <section className="bg-background" style={{ paddingTop: '120px', paddingBottom: '60px' }}>
           <div className="site-container flex flex-col items-center">
             <AnimatedSection>
               <Link
                 href={articleHref(featuredArticle.slug)}
                 className="block max-w-6xl mx-auto w-full"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-surface border border-border overflow-hidden group rounded-xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 overflow-hidden group" style={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
                   <div className="relative h-72 lg:h-auto overflow-hidden">
                     <Image
                       src={featuredArticle.image}
@@ -85,13 +85,13 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                     />
                   </div>
                   <div className="p-10 flex flex-col justify-center">
-                    <span className="text-xs text-gold tracking-widest uppercase mb-4">
+                    <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                       {locale === 'en' ? 'Featured Article' : 'Öne Çıkan Makale'}
                     </span>
-                    <h2 className="text-2xl font-light leading-normal mb-4 group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-display)' }}>
+                    <h2 style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 400, lineHeight: '1.35', marginBottom: '16px', fontFamily: 'var(--font-display)' }}>
                       {locale === 'tr' ? featuredArticle.titleTr : featuredArticle.title}
                     </h2>
-                    <p className="text-white/70 leading-loose mt-4 mb-0">{locale === 'tr' ? featuredArticle.excerptTr : featuredArticle.excerpt}</p>
+                    <p style={{ lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginTop: '16px', marginBottom: 0 }}>{locale === 'tr' ? featuredArticle.excerptTr : featuredArticle.excerpt}</p>
                     <div className="flex items-center gap-4 text-xs text-muted mt-5">
                       <span className="flex items-center gap-1"><Calendar size={12} />{locale === 'tr' ? featuredArticle.dateTr : featuredArticle.date}</span>
                       <span className="flex items-center gap-1"><Clock size={12} />{locale === 'tr' ? featuredArticle.readTimeTr : featuredArticle.readTime}</span>
@@ -109,7 +109,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
       )}
 
       {/* Category filter + Articles */}
-      <section className="bg-background" style={{ marginTop: '64px', paddingBottom: '128px' }}>
+      <section className="bg-background" style={{ paddingTop: '60px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           <AnimatedSection>
             <div className="flex flex-wrap justify-center" style={{ gap: '12px' }}>
@@ -133,7 +133,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
             {filteredArticles.filter((a) => !a.featured).map((article, index) => (
               <AnimatedSection key={article.id} delay={index * 0.1} className="h-full">
                 <Link href={articleHref(article.slug)} className="block group h-full">
-                  <article className="bg-surface border border-[rgba(255,255,255,0.07)] overflow-hidden group-hover:border-[rgba(255,255,255,0.15)] transition-all duration-300 card-hover rounded-2xl h-full flex flex-col">
+                  <article className="overflow-hidden group-hover:border-[rgba(201,168,76,0.25)] transition-all duration-300 h-full flex flex-col" style={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={article.image}
@@ -143,7 +143,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                    <div className="flex flex-col flex-1" style={{ padding: '24px', marginTop: '0' }}>
+                    <div className="flex flex-col flex-1" style={{ padding: '28px 32px', marginTop: '0' }}>
                       <span className="text-xs font-semibold tracking-widest text-gold" style={{ letterSpacing: '0.12em', marginBottom: '12px', display: 'block' }}>
                         {categoryDisplayMap[article.category] || article.category}
                       </span>
@@ -151,7 +151,7 @@ export default function InsightsContent({ dict, locale }: InsightsContentProps) 
                         <span className="flex items-center gap-1"><Calendar size={11} />{locale === 'tr' ? article.dateTr : article.date}</span>
                         <span className="flex items-center gap-1"><Clock size={11} />{locale === 'tr' ? article.readTimeTr : article.readTime}</span>
                       </div>
-                      <h3 className="text-base font-light group-hover:text-gold transition-colors leading-snug" style={{ fontFamily: 'var(--font-display)', marginBottom: '0' }}>
+                      <h3 style={{ fontSize: '16px', fontWeight: 400, fontFamily: 'var(--font-display)', lineHeight: '1.45', marginBottom: 0 }}>
                         {locale === 'tr' ? article.titleTr : article.title}
                       </h3>
                       <p className="text-sm leading-loose line-clamp-2" style={{ color: 'rgba(255,255,255,0.65)', marginTop: '16px', marginBottom: '0' }}>{locale === 'tr' ? article.excerptTr : article.excerpt}</p>

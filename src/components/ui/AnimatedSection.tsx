@@ -1,15 +1,17 @@
 'use client';
 
-import { useRef, useEffect, useState, type ReactNode } from 'react';
+import { useRef, useEffect, useState, type ReactNode, type CSSProperties } from 'react';
+import React from 'react';
 import { motion, useInView } from 'framer-motion';
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  style?: React.CSSProperties;
 }
 
-export default function AnimatedSection({ children, className = '', delay = 0 }: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className = '', delay = 0, style }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -20,6 +22,7 @@ export default function AnimatedSection({ children, className = '', delay = 0 }:
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94], delay }}
       className={`w-full ${className}`}
+      style={style}
     >
       {children}
     </motion.div>

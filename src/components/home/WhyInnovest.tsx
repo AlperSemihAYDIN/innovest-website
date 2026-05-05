@@ -12,7 +12,7 @@ const icons = [Target, Users, Globe, Award, Handshake, Eye];
 
 export default function WhyInnovest({ dict }: WhyUsProps) {
   return (
-    <section className="bg-background relative overflow-hidden border-t border-border" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+    <section className="bg-background relative overflow-hidden border-t border-border" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
@@ -37,17 +37,20 @@ export default function WhyInnovest({ dict }: WhyUsProps) {
             const Icon = icons[index];
             return (
               <AnimatedSection key={item.title} delay={index * 0.1}>
-                <div className="group h-full p-12 bg-surface/40 hover:bg-surface/70 transition-all duration-500 text-center rounded-2xl flex flex-col items-center">
-                  <div className="w-16 h-16 mb-8 mx-auto border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-300 rounded-full">
-                    <Icon size={26} className="text-gold" />
+                <div
+                  className="group h-full text-center flex flex-col items-center hover:border-[rgba(201,168,76,0.25)] hover:bg-white/5"
+                  style={{ padding: '36px 32px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)', transition: 'all 0.3s ease' }}
+                >
+                  <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                    <Icon size={22} className="text-gold" />
                   </div>
                   <h3
-                    className="text-lg font-light mb-5 group-hover:text-gold transition-colors duration-300"
-                    style={{ fontFamily: 'var(--font-display)' }}
+                    style={{ fontSize: '16px', fontWeight: 500, marginBottom: '16px', fontFamily: 'var(--font-display)', color: 'white' }}
+                    className="group-hover:text-gold transition-colors duration-300"
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted leading-loose">{item.desc}</p>
+                  <p style={{ fontSize: '13px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>{item.desc}</p>
                 </div>
               </AnimatedSection>
             );

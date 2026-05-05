@@ -85,14 +85,14 @@ export default function CityContent({
       </section>
 
       {/* Properties Grid */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col items-center">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
+              <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                 {locale === 'en' ? 'Available Developments' : 'Mevcut Projeler'}
               </span>
-              <h2 className="text-3xl md:text-4xl font-light" style={{ fontFamily: 'var(--font-display)' }}>
+              <h2 style={{ fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, fontFamily: 'var(--font-display)' }}>
                 {locale === 'en' ? `Featured ${city} ` : `Öne Çıkan ${city} `}
                 <span className="text-gradient-gold">
                   {locale === 'en' ? 'Properties' : 'Gayrimenkulleri'}
@@ -102,10 +102,10 @@ export default function CityContent({
             </div>
           </AnimatedSection>
 
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" style={{ alignItems: 'stretch' }}>
             {properties.map((property, index) => (
-              <AnimatedSection key={property.name} delay={index * 0.1}>
-                <div className="bg-surface border border-border/40 rounded-xl overflow-hidden group hover:border-gold/30 transition-all duration-500 card-hover">
+              <AnimatedSection key={property.name} delay={index * 0.1} style={{ height: '100%' }}>
+                <div className="overflow-hidden group hover:border-[rgba(201,168,76,0.25)] transition-all duration-300" style={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)', display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <div className="relative h-60 overflow-hidden">
                     <Image
                       src={property.image}
@@ -122,12 +122,12 @@ export default function CityContent({
                       </h3>
                     </div>
                   </div>
-                  <div className="p-7">
+                  <div style={{ padding: '28px 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <div className="flex items-center gap-4 text-xs text-muted mb-5">
                       <span className="flex items-center gap-1"><MapPin size={12} />{property.location}</span>
                       <span className="flex items-center gap-1"><BedDouble size={12} />{property.beds}</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-5 border-t border-border/30">
+                    <div className="grid grid-cols-3 gap-4 py-5 border-t border-border/30" style={{ flex: 1 }}>
                       <div>
                         <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
@@ -181,7 +181,7 @@ export default function CityContent({
                   {locale === 'en' ? 'Property?' : 'Gayrimenkulü ile İlgileniyor musunuz?'}
                 </span>
               </h2>
-              <p style={{ lineHeight: '1.9', color: 'rgba(255,255,255,0.6)', fontSize: '16px', fontWeight: 300, maxWidth: '480px', margin: '24px auto 40px', textAlign: 'center' }}>
+              <p style={{ lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontSize: '16px', fontWeight: 300, maxWidth: '480px', margin: '24px auto 40px', textAlign: 'center' }}>
                 {locale === 'en'
                   ? 'Our expert advisors can provide personalised guidance and access to exclusive off-market opportunities.'
                   : 'Uzman danışmanlarımız kişiselleştirilmiş rehberlik ve özel fırsatlara erişim sağlayabilir.'}

@@ -50,13 +50,13 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
       />
 
       {/* Markets */}
-      <section className="bg-background" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+      <section className="bg-background" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col" style={{ gap: '40px' }}>
           {markets.map((market) => (
             <AnimatedSection key={market.city} className="w-full">
               <Link href={market.href} className="block group">
                 <div
-                  className="grid grid-cols-2 overflow-hidden"
+                  className="grid grid-cols-2 overflow-hidden group-hover:border-[rgba(201,168,76,0.25)] transition-all duration-300"
                   style={{
                     minHeight: '420px',
                     borderRadius: '16px',
@@ -79,18 +79,17 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
                     className="flex flex-col justify-center"
                     style={{ background: 'rgba(10,22,40,0.97)', padding: '56px 48px' }}
                   >
-                    <span className="text-gold text-xs font-semibold tracking-widest uppercase" style={{ marginBottom: '16px' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                       {locale === 'en' ? 'INVEST IN' : 'YATIRIM YAP'}
                     </span>
                     <h3
                       className="text-white"
-                      style={{ fontSize: '3rem', fontWeight: 700, lineHeight: 1.1, marginBottom: '20px', fontFamily: 'var(--font-display)' }}
+                      style={{ fontSize: '3rem', fontWeight: 400, lineHeight: 1.1, marginBottom: '20px', fontFamily: 'var(--font-display)' }}
                     >
                       {market.city}
                     </h3>
                     <p
-                      className="leading-loose"
-                      style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.65)', marginBottom: '32px' }}
+                      style={{ fontSize: '1rem', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: '32px' }}
                     >
                       {market.desc}
                     </p>
@@ -99,7 +98,7 @@ export default function RealEstateContent({ dict, locale }: RealEstateContentPro
                     <div className="flex" style={{ gap: '40px', marginBottom: '32px' }}>
                       {market.stats.map((stat) => (
                         <div key={stat.label}>
-                          <div className="text-white" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
+                          <div className="text-white" style={{ fontSize: '1.5rem', fontWeight: 500 }}>
                             {stat.value}
                           </div>
                           <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.50)', letterSpacing: '0.05em', marginTop: '4px' }}>

@@ -39,7 +39,7 @@ export default function Stats({ locale = 'en', stats: override }: StatsProps) {
   const stats = override && override.length > 0 ? override : defaults;
 
   return (
-    <section className="py-24 bg-background border-y border-border min-h-[30vh] flex flex-col justify-center">
+    <section className="bg-background border-y border-border min-h-[30vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       <div className="site-container">
         <AnimatedSection>
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-border">

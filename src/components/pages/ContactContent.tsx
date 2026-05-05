@@ -86,7 +86,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Main Content — Two Column Premium Layout */}
-      <section className="py-20 bg-background">
+      <section className="bg-background" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5" style={{ gap: '80px' }}>
@@ -257,8 +257,7 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     {/* Direct Contact */}
                     <div>
                       <h3
-                        className="text-lg font-medium mb-8 text-center"
-                        style={{ fontFamily: 'var(--font-display)' }}
+                        style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 500, marginBottom: '32px', textAlign: 'center' }}
                       >
                         {locale === 'en' ? 'Direct Contact' : 'Doğrudan İletişim'}
                       </h3>
@@ -305,14 +304,13 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
                     {/* Headquarters */}
                     <div style={{ marginTop: '28px', paddingTop: '28px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                       <h3
-                        className="text-lg font-medium mb-6 text-center"
-                        style={{ fontFamily: 'var(--font-display)' }}
+                        style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 500, marginBottom: '24px', textAlign: 'center' }}
                       >
                         {locale === 'en' ? 'Headquarters' : 'Merkez Ofis'}
                       </h3>
                       <div className="flex items-start gap-4 mb-5">
                         <MapPin size={18} className="text-gold mt-0.5 flex-shrink-0" />
-                        <p className="text-sm text-white/80 text-center w-full" style={{ lineHeight: '1.8' }}>
+                        <p style={{ fontSize: '14px', lineHeight: '1.8', color: 'rgba(255,255,255,0.65)', textAlign: 'center', width: '100%' }}>
                           Berkeley Square House, 2nd Floor,<br />
                           Berkeley Square, Mayfair,<br />
                           London W1J 6BE
@@ -340,12 +338,11 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
         <div className="site-container">
           <AnimatedSection>
             <div className="text-center mb-14">
-              <span className="text-gold text-xs font-semibold tracking-widest uppercase block" style={{ marginBottom: '16px' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                 {locale === 'en' ? 'Our Offices' : 'Ofislerimiz'}
               </span>
               <h2
-                className="text-4xl md:text-5xl font-medium"
-                style={{ fontFamily: 'var(--font-display)' }}
+                style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 400 }}
               >
                 {locale === 'en' ? 'Global ' : 'Küresel '}
                 <span className="text-gradient-gold">
@@ -472,17 +469,16 @@ export default function ContactContent({ dict, locale }: ContactContentProps) {
       </section>
 
       {/* Map Section */}
-      <section className="bg-background border-t border-border" style={{ paddingTop: '80px', paddingBottom: '96px' }}>
+      <section className="bg-background border-t border-border" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container">
           <AnimatedSection>
             <div className="max-w-5xl mx-auto">
               <div className="text-center">
-                <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-2 block">
+                <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '8px', display: 'block' }}>
                   {locale === 'en' ? 'Find Us' : 'Bizi Bulun'}
                 </span>
                 <h3
-                  className="text-4xl font-medium mb-3"
-                  style={{ fontFamily: 'var(--font-display)' }}
+                  style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, marginBottom: '12px' }}
                 >
                   Berkeley Square, Mayfair
                 </h3>

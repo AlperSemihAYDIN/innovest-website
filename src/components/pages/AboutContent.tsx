@@ -31,7 +31,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       />
 
       {/* Who We Are — centred grid matching Story section layout */}
-      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -51,13 +51,12 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               <div className="mb-12">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-px bg-gold/50" />
-                  <span className="text-gold text-xs tracking-[0.35em] uppercase font-semibold">
+                  <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase' }}>
                     {locale === 'en' ? 'Who We Are' : 'Biz Kimiz'}
                   </span>
                 </div>
                 <h2
-                  className="text-4xl md:text-5xl font-light mb-6"
-                  style={{ fontFamily: 'var(--font-display)' }}
+                  style={{ fontSize: 'clamp(32px, 3.5vw, 48px)', fontWeight: 400, marginBottom: '24px', fontFamily: 'var(--font-display)' }}
                 >
                   {locale === 'en' ? 'A Vision Built on ' : 'Güven Üzerine İnşa Edilmiş '}
                   <span className="text-gradient-gold">
@@ -75,17 +74,17 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   >
                     {dict.about.mission.title}
                   </h3>
-                  <p className="text-sm leading-loose text-white/70">{dict.about.mission.desc}</p>
+                  <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>{dict.about.mission.desc}</p>
                 </div>
 
                 <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '28px 32px', marginBottom: '0' }}>
                   <h3
                     className="text-gold mb-3"
-                    style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', fontStyle: 'normal' }}
+                    style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase' }}
                   >
                     {dict.about.vision.title}
                   </h3>
-                  <p className="text-sm leading-loose text-white/70">{dict.about.vision.desc}</p>
+                  <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>{dict.about.vision.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -94,20 +93,19 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* ─── Team section ──────────────────────────────────────────── */}
-      <section className="bg-surface" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+      <section className="bg-surface" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container">
           <AnimatedSection>
             <div className="w-full text-center mb-20 px-4 flex flex-col items-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">
+              <p style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px' }}>
                 {locale === 'en' ? 'Our People' : 'Ekibimiz'}
               </p>
               <h2
-                className="text-4xl md:text-5xl font-light mb-5 text-gold"
-                style={{ fontFamily: 'var(--font-display)' }}
+                style={{ fontSize: 'clamp(32px, 3.5vw, 48px)', fontWeight: 400, marginBottom: '20px', fontFamily: 'var(--font-display)', color: '#C9A84C' }}
               >
                 {locale === 'en' ? 'Our Expert Team' : 'Uzman Ekibimiz'}
               </h2>
-              <p className="text-muted max-w-xl mx-auto leading-[1.85] text-center">
+              <p style={{ fontSize: '15px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '42rem', textAlign: 'center' }}>
                 {locale === 'en'
                   ? 'A team of seasoned professionals based in the United Kingdom'
                   : 'Birleşik Krallık\'ta tecrübeli profesyonellerden oluşan uzman ekibimiz'}
@@ -142,8 +140,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   </div>
                   <div className="mt-4 text-center">
                     <h3
-                      className="text-base font-semibold text-foreground tracking-wide mb-2"
-                      style={{ fontFamily: 'var(--font-display)' }}
+                      style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '0.05em', marginBottom: '8px', fontFamily: 'var(--font-display)', color: 'white' }}
                     >
                       {member.name}
                     </h3>
@@ -157,7 +154,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Story section */}
-      <section className="py-24 bg-surface min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-surface min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
@@ -173,19 +170,18 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
-              <span className="text-gold text-sm tracking-[0.2em] uppercase font-medium mb-4 block">
+              <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                 {locale === 'en' ? 'Our Story' : 'Hikayemiz'}
               </span>
               <h2
-                className="text-3xl md:text-4xl font-light mb-6"
-                style={{ fontFamily: 'var(--font-display)' }}
+                style={{ fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, marginBottom: '24px', fontFamily: 'var(--font-display)' }}
               >
                 {locale === 'en' ? 'Building Bridges Across ' : 'Küresel Pazarlarda '}
                 <span className="text-gradient-gold">
                   {locale === 'en' ? 'Global Markets' : 'Köprüler Kuruyoruz'}
                 </span>
               </h2>
-              <div className="space-y-4 text-muted leading-loose">
+              <div className="space-y-4" style={{ fontSize: '15px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
                 <p>
                   {locale === 'en'
                     ? 'Founded with a clear vision to bridge the gap between international investors and premium global opportunities, Innovest has established itself as a trusted name in cross-border investment advisory.'
@@ -208,7 +204,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-background min-h-[60vh] flex flex-col justify-center">
+      <section className="bg-background min-h-[60vh] flex flex-col justify-center" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="site-container flex flex-col items-center">
           {/* Heading */}
           <AnimatedSection className="w-full max-w-6xl mx-auto">
@@ -216,13 +212,12 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-px bg-gold/50" />
-                  <span className="text-gold text-xs tracking-[0.35em] uppercase font-semibold">
+                  <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase' }}>
                     {locale === 'en' ? 'Our Values' : 'Değerlerimiz'}
                   </span>
                 </div>
                 <h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-light"
-                  style={{ fontFamily: 'var(--font-display)' }}
+                  style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 400, fontFamily: 'var(--font-display)' }}
                 >
                   {locale === 'en' ? 'What Drives ' : 'Bizi '}
                   <span className="text-gradient-gold">
@@ -230,7 +225,7 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
                   </span>
                 </h2>
               </div>
-              <p className="text-muted text-sm max-w-sm leading-loose lg:text-right lg:pb-2">
+              <p style={{ fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '24rem', textAlign: 'right', paddingBottom: '8px' }}>
                 {locale === 'en'
                   ? 'The principles that shape how we work, how we decide, and what we stand for.'
                   : 'Nasıl çalıştığımızı, nasıl karar verdiğimizi ve neye inandığımızı şekillendiren ilkeler.'}
@@ -261,19 +256,19 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
 
                     {/* Icon + Title */}
                     <div className="flex items-center gap-4 lg:w-56 shrink-0">
-                      <div className="w-11 h-11 border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 group-hover:border-gold/60 transition-all duration-300 shrink-0">
-                        <Icon size={18} className="text-gold" />
+                      <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'all 0.3s ease' }} className="group-hover:border-[rgba(201,168,76,0.5)]">
+                        <Icon size={20} className="text-gold" />
                       </div>
                       <h3
-                        className="text-xl font-light group-hover:text-gold transition-colors duration-300"
-                        style={{ fontFamily: 'var(--font-display)' }}
+                        style={{ fontSize: '18px', fontWeight: 400, fontFamily: 'var(--font-display)', color: 'white', transition: 'color 0.3s ease' }}
+                        className="group-hover:text-gold"
                       >
                         {value.title}
                       </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="flex-1 text-sm text-muted leading-loose">
+                    <p style={{ flex: 1, fontSize: '14px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
                       {value.desc}
                     </p>
 
@@ -304,19 +299,18 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
         </div>
         <div className="relative site-container flex flex-col items-center text-center py-24 md:py-32">
           <AnimatedSection className="flex flex-col items-center text-center w-full">
-            <span className="text-gold text-xs font-semibold tracking-widest uppercase mb-4 block">
+            <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '20px', display: 'block' }}>
               {locale === 'en' ? 'Get Started' : 'Başlayın'}
             </span>
             <h2
-              className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight max-w-3xl mx-auto text-center"
-              style={{ fontFamily: 'var(--font-display)' }}
+              style={{ fontSize: 'clamp(36px, 4.5vw, 60px)', fontWeight: 400, lineHeight: '1.15', maxWidth: '780px', margin: '0 auto 24px', textAlign: 'center', fontFamily: 'var(--font-display)' }}
             >
               {locale === 'en' ? 'Ready to Partner with ' : 'Innovest ile '}
               <span className="text-gradient-gold">
                 {locale === 'en' ? 'Innovest?' : 'Ortaklığa Hazır mısınız?'}
               </span>
             </h2>
-            <p className="text-muted text-lg max-w-xl mx-auto mt-4 mb-6 text-center leading-loose">
+            <p style={{ fontSize: '17px', lineHeight: '1.9', color: 'rgba(255,255,255,0.65)', fontWeight: 300, maxWidth: '520px', margin: '0 auto 8px', textAlign: 'center' }}>
               {locale === 'en'
                 ? 'Schedule a complimentary consultation and discover how we can help achieve your investment goals.'
                 : 'Ücretsiz bir danışmanlık görüşmesi planlayın ve yatırım hedeflerinize nasıl ulaşabileceğinizi keşfedin.'}
@@ -324,8 +318,8 @@ export default function AboutContent({ dict, locale }: AboutContentProps) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <Link
                 href={`${prefix}/contact`}
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-lg font-semibold text-sm bg-gold text-background hover:bg-gold-light transition-all duration-300 btn-shine group"
-                style={{ minWidth: '220px', whiteSpace: 'nowrap' }}
+                className="inline-flex items-center justify-center gap-2 rounded-lg hover:opacity-90 transition-all duration-300 btn-shine group"
+                style={{ padding: '16px 48px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', background: '#C9A84C', color: '#0a1628', whiteSpace: 'nowrap' }}
               >
                 {dict.nav.getConsultation}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
