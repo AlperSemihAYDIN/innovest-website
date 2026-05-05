@@ -54,6 +54,7 @@ export default async function LondonPage() {
           stats={d.stats}
           properties={properties}
           heroImage="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070"
+          mapRegion="UK"
         />
       </main>
       <Footer dict={dict} locale="en" />

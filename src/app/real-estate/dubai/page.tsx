@@ -54,6 +54,7 @@ export default async function DubaiPage() {
           stats={d.stats}
           properties={properties}
           heroImage="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070"
+          mapRegion="UAE"
         />
       </main>
       <Footer dict={dict} locale="en" />

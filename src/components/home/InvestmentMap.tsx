@@ -9,6 +9,9 @@ import { mapProperties, type MapProperty } from '@/lib/mapProperties';
 
 interface InvestmentMapProps {
   locale: 'en' | 'tr';
+  defaultRegion?: 'UK' | 'UAE';
+  tagline?: string;
+  hideTabs?: boolean;
 }
 
 interface FirestoreProperty {
@@ -36,8 +39,8 @@ const REGION_ZOOM: Record<'UK' | 'UAE', number> = {
   UAE: 10,
 };
 
-export default function InvestmentMap({ locale }: InvestmentMapProps) {
-  const [activeRegion, setActiveRegion] = useState<'UK' | 'UAE'>('UK');
+export default function InvestmentMap({ locale, defaultRegion, tagline, hideTabs }: InvestmentMapProps) {
+  const [activeRegion, setActiveRegion] = useState<'UK' | 'UAE'>(defaultRegion ?? 'UK');
   const [selected, setSelected] = useState<MapProperty | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [allMapProps, setAllMapProps] = useState<MapProperty[]>(mapProperties);
@@ -203,23 +206,24 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
         {/* Heading */}
         <div className="w-full max-w-3xl mx-auto text-center mb-16">
           <span
-            className="text-gold text-xs tracking-widest uppercase font-semibold mb-4 block"
-            style={{ fontStyle: 'normal' }}
+            className="text-gold text-xs tracking-widest uppercase font-semibold block"
+            style={{ fontStyle: 'normal', marginBottom: '16px' }}
           >
-            {t.tagline}
+            {tagline ?? t.tagline}
           </span>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-light mb-6 leading-tight"
-            style={{ fontFamily: 'var(--font-display)' }}
+            className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight"
+            style={{ fontFamily: 'var(--font-display)', marginTop: '20px', marginBottom: '24px' }}
           >
             {t.title}{' '}
             <span className="text-gold">{t.titleHighlight}</span>
           </h2>
-          <p className="text-muted leading-loose">{t.subtitle}</p>
+          <p style={{ fontWeight: 300, color: 'rgba(255,255,255,0.65)', lineHeight: '1.8', marginTop: '24px', marginBottom: '32px' }}>{t.subtitle}</p>
         </div>
 
         {/* Region Tabs */}
-        <div className="flex gap-12 justify-center mb-10 border-b border-white/10" style={{ paddingBottom: 0 }}>
+        {!hideTabs && (
+        <div className="flex gap-12 justify-center border-b border-white/10" style={{ paddingBottom: 0, marginBottom: '24px' }}>
           {(['UK', 'UAE'] as const).map((region) => (
             <button
               key={region}
@@ -238,9 +242,10 @@ export default function InvestmentMap({ locale }: InvestmentMapProps) {
             </button>
           ))}
         </div>
+        )}
 
         {/* Map + Side Panel */}
-        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)', marginTop: '24px' }}>
           {/* Map — responsive heights */}
           <div className="relative flex-1 h-[320px] sm:h-[420px] lg:h-[580px]">
             {/* Override Leaflet styles for dark theme */}

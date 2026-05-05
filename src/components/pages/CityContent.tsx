@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin, BedDouble, Calendar, TrendingUp } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
+import InvestmentMap from '@/components/home/InvestmentMap';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface Property {
@@ -29,6 +30,7 @@ interface CityContentProps {
   stats: { value: string; label: string }[];
   properties: Property[];
   heroImage: string;
+  mapRegion?: 'UK' | 'UAE';
 }
 
 export default function CityContent({
@@ -42,6 +44,7 @@ export default function CityContent({
   stats,
   properties,
   heroImage,
+  mapRegion,
 }: CityContentProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
@@ -152,6 +155,20 @@ export default function CityContent({
           </div>
         </div>
       </section>
+
+      {/* City Map Section */}
+      {mapRegion && (
+        <InvestmentMap
+          locale={locale}
+          defaultRegion={mapRegion}
+          hideTabs
+          tagline={
+            mapRegion === 'UK'
+              ? (locale === 'en' ? 'London Project Map' : 'Londra Proje Haritası')
+              : (locale === 'en' ? 'Dubai Project Map' : 'Dubai Proje Haritası')
+          }
+        />
+      )}
 
       {/* CTA */}
       <section className="py-24 bg-surface border-t border-border min-h-[40vh] flex flex-col justify-center">
