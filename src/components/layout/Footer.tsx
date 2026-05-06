@@ -25,7 +25,8 @@ const DEFAULT_EMAIL = 'info@innovest.uk';
 
 export default function Footer({ dict, locale, content }: FooterProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
-  const phones = content?.contactInfo?.phones ?? DEFAULT_PHONES;
+  const phones = (content?.contactInfo?.phones ?? DEFAULT_PHONES)
+    .flatMap((p: string) => p.split(/\s*[-–]\s*/));
   const email = content?.contactInfo?.email ?? DEFAULT_EMAIL;
   const instagramUrl = content?.social?.instagram
     ? (locale === 'tr'

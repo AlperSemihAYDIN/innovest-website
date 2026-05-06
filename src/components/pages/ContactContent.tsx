@@ -26,7 +26,8 @@ export default function ContactContent({ dict, locale, content }: ContactContent
   const successTitle = content?.successMessage?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Thank You' : 'Teşekkürler');
   const successSubtitle = content?.successMessage?.[l ? 'subtitleEn' : 'subtitleTr'] ?? (l ? "We've received your enquiry and will be in touch within 24 hours." : 'Talebinizi aldık, 24 saat içinde sizinle iletişime geçeceğiz.');
   const dcTitle = content?.directContact?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Direct Contact' : 'Doğrudan İletişim');
-  const dcPhones = content?.directContact?.phones ?? ['+44 7491 510941', '+44 7769 212877'];
+  const dcPhones = (content?.directContact?.phones ?? ['+44 7491 510941', '+44 7769 212877'])
+    .flatMap((p: string) => p.split(/\s*[-–]\s*/));
   const dcEmail = content?.directContact?.email ?? 'info@innovest.uk';
   const dcWhatsapp = dcPhones[0]?.replace(/[\s+]/g, '') ?? '447491510941';
   const dcWhatsappCTA = content?.directContact?.[l ? 'whatsappCTAEn' : 'whatsappCTATr'] ?? (l ? 'Send a message' : 'Mesaj gönderin');
