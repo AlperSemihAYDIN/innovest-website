@@ -499,10 +499,10 @@ export default function ContactContent({ dict, locale, content }: ContactContent
                 style={{ marginTop: '32px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
               >
                 <iframe
-                  src="https://maps.google.com/maps?q=51.50977,-0.14699&z=16&hl=en&output=embed"
+                  src="https://maps.google.com/maps?q=Berkeley+Square+House,+Mayfair,+London+W1J+6BE&z=16&output=embed"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: 'invert(92%) hue-rotate(180deg) saturate(0.55) brightness(0.85)' }}
+                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
