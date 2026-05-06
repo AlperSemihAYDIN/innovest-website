@@ -74,7 +74,7 @@ export default function AboutContent({ dict, locale, content }: AboutContentProp
                 <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '28px 32px', marginBottom: '0' }}>
                   <h3
                     className="text-gold mb-3"
-                    style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', fontStyle: 'normal' }}
+                    style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', fontStyle: 'normal' }}
                   >
                     {dict.about.mission.title}
                   </h3>
@@ -84,7 +84,7 @@ export default function AboutContent({ dict, locale, content }: AboutContentProp
                 <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '28px 32px', marginBottom: '0' }}>
                   <h3
                     className="text-gold mb-3"
-                    style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase' }}
+                    style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.2em', textTransform: 'uppercase' }}
                   >
                     {dict.about.vision.title}
                   </h3>

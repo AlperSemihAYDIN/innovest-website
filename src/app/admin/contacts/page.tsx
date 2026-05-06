@@ -63,7 +63,7 @@ export default function ContactsPage() {
 
   return (
     <div>
-      <div className="admin-sticky-bar" style={{ marginBottom: '24px' }}>
+      <div style={{ position: 'sticky', top: '16px', zIndex: 30, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'rgba(6,14,26,0.85)', backdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: '24px' }}>
         <div className="mr-auto">
           <h1 className="text-lg font-semibold text-white">İletişim Talepleri</h1>
           <p className="text-white/40 text-[11px] mt-0.5">
@@ -73,13 +73,13 @@ export default function ContactsPage() {
       </div>
 
       {/* Filters */}
-      <div className="admin-card">
-        <h2 className="admin-section-title">Filtreler</h2>
+      <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '28px 32px', marginBottom: '20px' }}>
+        <h2 style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A84C', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '8px', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>Filtreler</h2>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <div className="relative flex-1">
             <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
             <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="İsim, e-posta veya ilgi alanı ara..."
-              className="admin-input" style={{ paddingLeft: '44px' }} />
+              style={{ width: '100%', borderRadius: '8px', padding: '11px 14px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', fontSize: '14px', color: 'white', paddingLeft: '44px' }} />
           </div>
           <div className="flex gap-1 bg-white/[0.04] border border-white/[0.08] rounded-lg p-1">
             {(['all', 'unread', 'read'] as const).map(f => (
@@ -92,8 +92,8 @@ export default function ContactsPage() {
         </div>
       </div>
 
-      <div className="admin-card">
-        <h2 className="admin-section-title">Talepler</h2>
+      <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '28px 32px', marginBottom: '20px' }}>
+        <h2 style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A84C', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '8px', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>Talepler</h2>
         {loading ? (
           <div className="flex justify-center py-16"><div className="w-8 h-8 border-2 border-[#C9A84C]/30 border-t-[#C9A84C] rounded-full animate-spin" /></div>
         ) : filtered.length === 0 ? (
@@ -141,41 +141,41 @@ export default function ContactsPage() {
                   <div className="px-4 pb-4 pt-2 border-t border-white/[0.06]">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 mb-4 mt-3">
                       <div>
-                        <p className="admin-label">Ad Soyad</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Ad Soyad</p>
                         <p className="text-sm text-white/70">{contact.firstname || '—'}</p>
                       </div>
                       <div>
-                        <p className="admin-label">E-posta</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>E-posta</p>
                         <a href={`mailto:${contact.email}`} className="text-sm text-[#C9A84C] hover:underline break-all">{contact.email || '—'}</a>
                       </div>
                       <div>
-                        <p className="admin-label">Telefon</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Telefon</p>
                         <a href={`tel:${contact.phone}`} className="text-sm text-white/70 hover:text-white transition-colors">{contact.phone || '—'}</a>
                       </div>
                       <div>
-                        <p className="admin-label">Şehir</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Şehir</p>
                         <p className="text-sm text-white/70">{contact.city || '—'}</p>
                       </div>
                       <div>
-                        <p className="admin-label">Bütçe</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Bütçe</p>
                         <p className="text-sm text-white/70">{contact.budget || '—'}</p>
                       </div>
                       <div>
-                        <p className="admin-label">İlgi Alanı</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>İlgi Alanı</p>
                         <p className="text-sm text-white/70">{contact.interest || '—'}</p>
                       </div>
                       <div>
-                        <p className="admin-label">Tarih</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Tarih</p>
                         <p className="text-sm text-white/70">{contact.createdAt ? new Date(contact.createdAt).toLocaleString('tr-TR') : '—'}</p>
                       </div>
                       <div>
-                        <p className="admin-label">Kaynak</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Kaynak</p>
                         <p className="text-sm text-white/70">{contact.source || '—'}</p>
                       </div>
                     </div>
                     {contact.message && (
                       <div>
-                        <p className="admin-label">Mesaj</p>
+                        <p style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', marginBottom: '6px', textTransform: 'uppercase' }}>Mesaj</p>
                         <p className="text-sm text-white/60 leading-relaxed bg-white/[0.03] rounded-lg p-3">{contact.message}</p>
                       </div>
                     )}

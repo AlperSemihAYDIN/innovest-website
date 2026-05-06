@@ -87,7 +87,7 @@ export default function AdminDashboard() {
   return (
     <div>
       {/* Header */}
-      <div className="admin-sticky-bar" style={{ marginBottom: '24px' }}>
+      <div style={{ position: 'sticky', top: '16px', zIndex: 30, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'rgba(6,14,26,0.85)', backdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: '24px' }}>
         <div className="mr-auto">
           <h1 className="text-lg font-semibold text-white">Dashboard</h1>
           <p className="text-white/40 text-[11px] mt-0.5">Genel bakış ve istatistikler</p>
@@ -103,8 +103,8 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stat Cards */}
-      <div className="admin-card">
-        <h2 className="admin-section-title">İstatistikler</h2>
+      <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '28px 32px', marginBottom: '20px' }}>
+        <h2 style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A84C', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '8px', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>İstatistikler</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {statCards.map((card) => {
             const Icon = card.icon;
@@ -141,9 +141,9 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Contacts */}
-      <div className="admin-card">
+      <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '28px 32px', marginBottom: '20px' }}>
         <div className="flex items-center justify-between" style={{ marginBottom: '16px' }}>
-          <h2 className="admin-section-title" style={{ marginTop: 0, marginBottom: 0, borderBottom: 'none', paddingBottom: 0 }}>
+          <h2 style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A84C', borderBottom: 'none', paddingBottom: 0, marginTop: 0, marginBottom: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
             Son İletişim Talepleri
           </h2>
           <Link href="/admin/contacts" className="text-xs text-[#C9A84C] hover:text-[#b8963e] transition-colors">

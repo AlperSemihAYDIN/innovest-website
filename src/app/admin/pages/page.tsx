@@ -1,28 +1,33 @@
 'use client';
 
 import Link from 'next/link';
-import { FileEdit, Home, Info, Briefcase, Phone, Layout } from 'lucide-react';
+import { FileEdit, Home, Info, Briefcase, Phone, Layout, Building2, Globe, BookOpen, FileText } from 'lucide-react';
 
 const pages = [
   { slug: 'home', label: 'Ana Sayfa', desc: 'Hero, istatistikler, hizmetler, görüşler, alt CTA', icon: Home, status: 'active' as const },
-  { slug: 'about', label: 'Hakkımızda', desc: 'Şirket metinleri, ekip üyeleri', icon: Info, status: 'soon' as const },
-  { slug: 'services', label: 'Hizmetler', desc: 'Hizmet sayfası blokları', icon: Briefcase, status: 'soon' as const },
-  { slug: 'contact', label: 'İletişim', desc: 'Form metinleri, ofis bilgileri', icon: Phone, status: 'soon' as const },
-  { slug: 'footer', label: 'Footer', desc: 'Şirket açıklaması ve bağlantılar', icon: Layout, status: 'soon' as const },
+  { slug: 'about', label: 'Hakkımızda', desc: 'Şirket hikayesi, misyon/vizyon, ekip üyeleri, değerler', icon: Info, status: 'active' as const },
+  { slug: 'services', label: 'Hizmetler', desc: 'Hero ve hizmet kartları (başlık, açıklama, ikon)', icon: Briefcase, status: 'active' as const },
+  { slug: 'real-estate', label: 'Gayrimenkul', desc: 'Hero metni, Londra ve Dubai pazar kartları', icon: Building2, status: 'active' as const },
+  { slug: 'residency', label: 'Yatırım ile Oturum', desc: 'Hero, ülke programları, süreç adımları', icon: Globe, status: 'active' as const },
+  { slug: 'business-expansion', label: 'İş Geliştirme', desc: 'Hero, hizmet kartları, kapsanan pazarlar', icon: Briefcase, status: 'active' as const },
+  { slug: 'insights', label: 'İçgörüler', desc: 'Hero metni, kategori etiketleri, makale CTA', icon: BookOpen, status: 'active' as const },
+  { slug: 'guides', label: 'Yatırım Rehberi', desc: 'Hero metni', icon: FileText, status: 'active' as const },
+  { slug: 'contact', label: 'İletişim', desc: 'Form alanları, başarı mesajı, doğrudan iletişim', icon: Phone, status: 'active' as const },
+  { slug: 'footer', label: 'Footer', desc: 'Şirket açıklaması, hızlı linkler, sosyal medya', icon: Layout, status: 'active' as const },
 ];
 
 export default function PagesIndex() {
   return (
     <div>
-      <div className="admin-sticky-bar" style={{ marginBottom: '24px' }}>
+      <div style={{ position: 'sticky', top: '16px', zIndex: 30, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'rgba(6,14,26,0.85)', backdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: '24px' }}>
         <div className="mr-auto">
           <h1 className="text-lg font-semibold text-white">Sayfa İçerikleri</h1>
           <p className="text-white/40 text-[11px] mt-0.5">Sitedeki sayfaların metinlerini ve görsellerini düzenle</p>
         </div>
       </div>
 
-      <div className="admin-card">
-        <h2 className="admin-section-title">Sayfalar</h2>
+      <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '28px 32px', marginBottom: '20px' }}>
+        <h2 style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A84C', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '8px', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>Sayfalar</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {pages.map((p) => {
             const Icon = p.icon;

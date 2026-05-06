@@ -51,8 +51,8 @@ export default function KnowledgeHubContent({ dict, locale }: KnowledgeHubConten
       {/* Hero */}
       <PageHero
         eyebrow={locale === 'tr' ? 'YATIRIM REHBERİ' : 'INVESTOR GUIDE'}
-        title={locale === 'en' ? 'Investor' : 'Yatırımcı'}
-        titleHighlight={locale === 'en' ? 'Guide' : 'Rehberi'}
+        title={locale === 'en' ? 'Investment Guides &' : 'Yatırım Rehberleri &'}
+        titleHighlight={locale === 'en' ? 'Expert Resources' : 'Uzman Kaynakları'}
         subtitle={
           locale === 'en'
             ? 'In-depth guides to help you navigate property investment, residency programmes and international business expansion.'

@@ -4,7 +4,18 @@ import { adminDb } from '@/lib/firebaseAdmin';
 import { verifyAdmin, unauthorized } from '@/lib/adminAuth';
 import { getPageDefaults, type PageSlug } from '@/lib/pageDefaults';
 
-const ALLOWED: PageSlug[] = ['home', 'about', 'services', 'contact', 'footer'];
+const ALLOWED: PageSlug[] = [
+  'home',
+  'about',
+  'services',
+  'real-estate',
+  'residency',
+  'business-expansion',
+  'insights',
+  'guides',
+  'contact',
+  'footer',
+];
 
 function isValidSlug(s: string): s is PageSlug {
   return (ALLOWED as string[]).includes(s);

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, MapPin, TrendingUp, Calendar, BedDouble, Building2, CheckCircle2, ArrowRight, X, ChevronLeft, ChevronRight, Navigation } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, BedDouble, Building2, CheckCircle2, ArrowRight, X, ChevronLeft, ChevronRight, Navigation } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import type { PropertyData } from '@/lib/propertyData';
 
@@ -21,7 +21,6 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
     en: {
       backTo: `Back to ${property.city === 'london' ? 'London' : 'Dubai'} Properties`,
       priceFrom: 'Starting from',
-      yield: 'Projected Yield',
       completion: 'Completion',
       beds: 'Bed Types',
       floors: 'Floors',
@@ -40,7 +39,6 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
     tr: {
       backTo: `${property.city === 'london' ? 'Londra' : 'Dubai'} Projelerine Dön`,
       priceFrom: 'Başlangıç fiyatı',
-      yield: 'Beklenen Getiri',
       completion: 'Teslim',
       beds: 'Daire Tipleri',
       floors: 'Kat Sayısı',
@@ -62,6 +60,76 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
   const highlights = property.highlights[locale];
   const paragraphs = description.split('\n\n');
 
+  const amenityTranslations: Record<string, string> = {
+    'Park Views': 'Park Manzarası',
+    'Swimming Pool': 'Yüzme Havuzu',
+    'Spa & Gym': 'Spa & Spor Salonu',
+    '24hr Concierge': '24 Saat Konsiyerj',
+    'Secure Parking': 'Güvenli Otopark',
+    'Residents Garden': 'Sakinler Bahçesi',
+    'Residents Lounge': 'Sakinler Salonu',
+    'Gym & Wellness': 'Spor & Wellness',
+    'Rooftop Terrace': 'Çatı Terası',
+    'Cycle Storage': 'Bisiklet Deposu',
+    'River Views': 'Nehir Manzarası',
+    'Private Balconies': 'Özel Balkonlar',
+    'Concierge': 'Konsiyerj',
+    'Landscaped Gardens': 'Peyzajlı Bahçeler',
+    'Elizabeth Line Hub': 'Elizabeth Line Bağlantısı',
+    'Residents Gym': 'Sakinler Spor Salonu',
+    'Roof Terrace': 'Çatı Terası',
+    'Private Courtyard': 'Özel Avlu',
+    'Bike Storage': 'Bisiklet Deposu',
+    'Communal Gardens': 'Ortak Bahçeler',
+    'EV Charging': 'Elektrikli Araç Şarjı',
+    'Video Entry': 'Görüntülü Giriş',
+    'Cinema Room': 'Sinema Odası',
+    'Roof Garden': 'Çatı Bahçesi',
+    'Private Dining': 'Özel Yemek Odası',
+    'Infinity Pool': 'Sonsuzluk Havuzu',
+    'Rooftop Gym': 'Çatı Spor Salonu',
+    'Kids Pool': 'Çocuk Havuzu',
+    'BBQ Area': 'Barbekü Alanı',
+    'Smart Home': 'Akıllı Ev',
+    'Dedicated Parking': 'Tahsisli Otopark',
+    'Private Beach Club': 'Özel Plaj Kulübü',
+    'Butler Service': 'Butler Hizmeti',
+    'Spa & Wellness': 'Spa & Wellness',
+    'Private Cinema': 'Özel Sinema',
+    'Valet Parking': 'Vale Otopark',
+    'Gym & Fitness': 'Spor Salonu',
+    'Kids Play Area': 'Çocuk Oyun Alanı',
+    'Retail Podium': 'Alışveriş Podiyumu',
+    'Visitor Parking': 'Misafir Otoparkı',
+    'Supercar Valet': 'Süpercar Vale',
+    'Private Spa': 'Özel Spa',
+    'Sky Lounge': 'Sky Lounge',
+    'Branded Gym': 'Markalı Spor Salonu',
+    'Art Gallery Lobby': 'Sanat Galerisi Lobi',
+    'Pool & Cabanas': 'Havuz & Kabinler',
+    'Gym': 'Spor Salonu',
+    'Kids Club': 'Çocuk Kulübü',
+    'BBQ Terrace': 'Barbekü Terası',
+    'Coworking Space': 'Ortak Çalışma Alanı',
+    'Beach Access': 'Plaj Erişimi',
+    'Spa & Yoga': 'Spa & Yoga',
+    'Fine Dining': 'Restoran',
+    'Private Garden': 'Özel Bahçe',
+    'Canal Views': 'Kanal Manzarası',
+    'Art Gallery': 'Sanat Galerisi',
+    'Gym & Spa': 'Spor Salonu & Spa',
+    'Paddle Courts': 'Padel Kortları',
+    'Sky Deck': 'Sky Deck',
+    'Private Beach': 'Özel Plaj',
+    'Boardwalk': 'Tahta Yürüyüş Yolu',
+    'Yoga Pavilion': 'Yoga Pavyonu',
+    'Kids Waterpark': 'Çocuk Su Parkı',
+    'Beachfront Dining': 'Plaj Restoranı',
+  };
+
+  const translateAmenity = (a: string) =>
+    locale === 'tr' ? (amenityTranslations[a] ?? a) : a;
+
   const gmapSrc = `https://maps.google.com/maps?q=${property.lat},${property.lng}&z=15&output=embed`;
 
   return (
@@ -80,7 +148,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         </div>
 
-        <div className="relative w-full site-container pb-16 pt-32">
+        <div className="relative w-full site-container" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
           <AnimatedSection>
             {/* Back link */}
             <Link
@@ -101,8 +169,8 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
             {/* Name */}
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4 leading-tight max-w-3xl"
-              style={{ fontFamily: 'var(--font-display)' }}
+              className="text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 leading-tight max-w-3xl"
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
             >
               {property.name}
             </h1>
@@ -114,30 +182,23 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             </div>
 
             {/* Key stats strip */}
-            <div className="flex flex-wrap gap-6 md:gap-12">
+            <div className="flex flex-wrap" style={{ gap: '48px' }}>
               <div>
-                <p className="text-xs text-muted mb-1">{t.priceFrom}</p>
-                <p className="text-2xl font-light text-gold" style={{ fontFamily: 'var(--font-display)' }}>
+                <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.1em', marginBottom: '6px', textTransform: 'uppercase' }}>{t.priceFrom}</p>
+                <p style={{ fontSize: '28px', fontWeight: 400, color: '#C9A84C', fontFamily: 'var(--font-display)' }}>
                   {property.price}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-muted mb-1">{t.yield}</p>
-                <div className="flex items-center gap-1 text-2xl font-light text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
-                  <TrendingUp size={18} className="text-gold" />
-                  {property.yield}
-                </div>
-              </div>
-              <div>
-                <p className="text-xs text-muted mb-1">{t.completion}</p>
-                <div className="flex items-center gap-1 text-2xl font-light text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.1em', marginBottom: '6px', textTransform: 'uppercase' }}>{t.completion}</p>
+                <div className="flex items-center gap-1" style={{ fontSize: '28px', fontWeight: 400, fontFamily: 'var(--font-display)' }}>
                   <Calendar size={16} className="text-gold" />
                   {property.completion}
                 </div>
               </div>
               <div>
-                <p className="text-xs text-muted mb-1">{t.beds}</p>
-                <div className="flex items-center gap-1 text-2xl font-light text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.1em', marginBottom: '6px', textTransform: 'uppercase' }}>{t.beds}</p>
+                <div className="flex items-center gap-1" style={{ fontSize: '28px', fontWeight: 400, fontFamily: 'var(--font-display)' }}>
                   <BedDouble size={16} className="text-gold" />
                   {property.beds}
                 </div>
@@ -156,7 +217,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             <AnimatedSection className="lg:col-span-2">
               <div className="space-y-6">
                 {paragraphs.map((para, i) => (
-                  <p key={i} className="text-muted leading-loose text-base">
+                  <p key={i} style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.9, fontWeight: 300, fontSize: '15px' }}>
                     {para}
                   </p>
                 ))}
@@ -165,7 +226,7 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
             {/* Sidebar — 1 col */}
             <AnimatedSection delay={0.15}>
-              <div className="bg-surface border border-border/40 p-8 space-y-6 rounded-xl">
+              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', padding: '36px 32px', borderRadius: '16px' }} className="space-y-6">
                 {/* Extra stats */}
                 {property.floors && (
                   <div className="flex items-center justify-between py-3 border-b border-border/30">
@@ -185,34 +246,35 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
 
                 {/* Amenities */}
                 <div>
-                  <p className="text-xs text-gold tracking-widest uppercase mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                    Amenities
+                  <p style={{ fontSize: '10px', fontWeight: '600', letterSpacing: '0.15em', color: '#C9A84C', marginTop: '24px', marginBottom: '12px', textTransform: 'uppercase' }}>
+                    {locale === 'tr' ? 'OLANAKLAR' : 'AMENITIES'}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
                     {property.amenities.map((a) => (
-                      <span key={a} className="text-xs text-muted border border-border/30 px-3 py-1.5">
-                        {a}
+                      <span key={a} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', marginBottom: '8px', lineHeight: '1.6' }}>
+                        {translateAmenity(a)}
                       </span>
                     ))}
                   </div>
                 </div>
 
                 {/* Address */}
-                <div className="pt-3 border-t border-border/30">
-                  <p className="text-xs text-gold tracking-widest uppercase mb-2" style={{ fontFamily: 'var(--font-display)' }}>
+                <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                  <p style={{ fontSize: '10px', fontWeight: '600', letterSpacing: '0.15em', color: '#C9A84C', marginTop: '24px', marginBottom: '12px', textTransform: 'uppercase' }}>
                     {t.address}
                   </p>
-                  <p className="text-sm text-muted">{property.fullAddress}</p>
+                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.8' }}>{property.fullAddress}</p>
                 </div>
 
                 {/* CTA */}
                 <Link
                   href={`${prefix}/contact`}
-                  className="mt-2 w-full flex items-center justify-center gap-2 bg-gold text-[#09090b] py-3 text-sm tracking-widest uppercase hover:bg-gold-light transition-colors duration-300 rounded-lg"
-                  style={{ fontFamily: 'var(--font-display)' }}
+                  className="hover:opacity-80 transition-all duration-300"
+                  style={{ padding: '16px 32px', border: '1px solid rgba(201,168,76,0.5)', borderRadius: '8px', background: 'transparent', color: '#C9A84C', fontSize: '12px', fontWeight: '600', letterSpacing: '0.1em', textAlign: 'center', display: 'block', marginTop: '24px' }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(201,168,76,0.08)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
                 >
                   {t.contact}
-                  <ArrowRight size={14} />
                 </Link>
               </div>
             </AnimatedSection>
@@ -221,23 +283,20 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Project Highlights ────────────────────────────────────── */}
-      <section className="py-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
-        <div className="site-container flex flex-col items-center">
+      <section style={{ paddingTop: '100px', paddingBottom: '100px' }} className="bg-surface border-t border-border">
+        <div className="site-container">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
-              <h2
-                className="text-2xl md:text-3xl font-light mb-10 text-center"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
+              <h2 style={{ fontSize: '32px', fontWeight: '400', textAlign: 'center', marginBottom: '64px' }}>
                 {t.highlights}
               </h2>
             </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:gap-12">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px 80px' }}>
               {highlights.map((item, i) => (
                 <AnimatedSection key={i} delay={i * 0.07}>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
-                    <p className="text-muted leading-loose">{item}</p>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', paddingBottom: '32px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                    <CheckCircle2 style={{ color: '#C9A84C', marginTop: '3px', flexShrink: 0, width: '18px', height: '18px' }} />
+                    <p style={{ fontSize: '15px', lineHeight: '1.8', color: 'rgba(255,255,255,0.70)', fontWeight: '300' }}>{item}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -247,25 +306,26 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       </section>
 
       {/* ─── Gallery ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-background border-t border-border min-h-[60vh] flex flex-col justify-center">
-        <div className="site-container flex flex-col items-center">
+      <section style={{ paddingTop: '80px', paddingBottom: '96px' }} className="bg-background border-t border-border">
+        <div className="site-container">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
-                className="text-2xl md:text-3xl font-light mb-10 text-center"
-                style={{ fontFamily: 'var(--font-display)' }}
+                style={{ marginBottom: '40px' }}
+                className="text-2xl md:text-3xl font-light text-center"
               >
                 {t.gallery}
               </h2>
             </AnimatedSection>
 
             {/* Clickable gallery grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: '24px' }}>
               {property.images.map((src, i) => (
                 <AnimatedSection key={i} delay={i * 0.1}>
                   <button
                     onClick={() => setLightboxIndex(i)}
-                    className="relative overflow-hidden bg-surface cursor-pointer group w-full aspect-square"
+                    className="relative bg-surface cursor-pointer group w-full aspect-square"
+                    style={{ borderRadius: '12px', overflow: 'hidden' }}
                   >
                     <Image
                       src={src}
@@ -332,21 +392,24 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
       )}
 
       {/* ─── Location Map ──────────────────────────────────────────── */}
-      <section className="py-24 bg-surface border-t border-border min-h-[60vh] flex flex-col justify-center">
-        <div className="site-container flex flex-col items-center">
+      <section style={{ paddingTop: '80px', paddingBottom: '80px' }} className="bg-surface border-t border-border">
+        <div className="site-container">
           <div className="max-w-5xl mx-auto w-full">
             <AnimatedSection>
               <h2
-                className="text-2xl md:text-3xl font-light mb-3 text-center"
-                style={{ fontFamily: 'var(--font-display)' }}
+                className="text-2xl md:text-3xl font-light text-center"
+                style={{ marginBottom: '12px' }}
               >
                 {t.location}
               </h2>
-              <p className="text-muted text-sm mb-8 text-center">{property.fullAddress}</p>
+              <p className="text-muted text-sm text-center">{property.fullAddress}</p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <div className="w-full h-[400px] md:h-[500px] border border-border overflow-hidden relative">
+              <div
+                className="w-full h-[400px] md:h-[500px]"
+                style={{ marginTop: '32px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
                 <iframe
                   title={`${property.name} location`}
                   src={gmapSrc}
@@ -356,14 +419,15 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
-                {/* Get Directions overlay */}
+              </div>
+              <div>
                 <a
                   href={`https://www.google.com/maps/dir/?api=1&destination=${property.lat},${property.lng}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-4 left-4 inline-flex items-center gap-2 px-4 py-2.5 bg-gold text-[#09090b] text-sm font-medium hover:bg-gold-light transition-colors duration-300 shadow-lg z-10"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '20px', padding: '12px 28px', border: '1px solid rgba(201,168,76,0.4)', borderRadius: '8px', background: 'transparent', color: '#C9A84C', fontSize: '12px', fontWeight: '600', letterSpacing: '0.1em', cursor: 'pointer' }}
                 >
-                  <Navigation size={16} />
+                  <Navigation size={14} />
                   {locale === 'en' ? 'Get Directions' : 'Yol Tarifi Al'}
                 </a>
               </div>
@@ -391,8 +455,8 @@ export default function PropertyDetail({ property, locale }: PropertyDetailProps
             <p className="text-muted mb-10 leading-loose">{t.enquireDesc}</p>
             <Link
               href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-[#09090b] font-medium hover:bg-gold-light transition-all duration-300 group rounded-lg"
-              style={{ fontFamily: 'var(--font-display)' }}
+              className="inline-flex items-center gap-2 bg-gold text-[#09090b] hover:bg-gold-light transition-all duration-300 group rounded-lg"
+              style={{ padding: '16px 48px', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', fontFamily: 'var(--font-display)' }}
             >
               {t.consultant}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

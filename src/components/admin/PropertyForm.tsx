@@ -19,7 +19,6 @@ const defaultData = {
   city: 'london' as const,
   price: '',
   priceNote: { en: 'Starting from', tr: 'Başlangıç fiyatı' },
-  yield: '',
   completion: '',
   beds: '',
   floors: '',
@@ -203,10 +202,6 @@ export default function PropertyForm({ id, onSaved }: PropertyFormProps) {
               <div>
                 <label className={labelClass}>Fiyat *</label>
                 <input value={data.price} onChange={e => update('price', e.target.value)} className={inputClass} required placeholder="£550,000" />
-              </div>
-              <div>
-                <label className={labelClass}>Getiri *</label>
-                <input value={data.yield} onChange={e => update('yield', e.target.value)} className={inputClass} required placeholder="5.2%" />
               </div>
               <div>
                 <label className={labelClass}>Teslim Tarihi</label>

@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, ExternalLink, MapPin, TrendingUp } from 'lucide-react';
+import { X, ExternalLink, MapPin } from 'lucide-react';
 import { mapProperties, type MapProperty } from '@/lib/mapProperties';
 
 interface InvestmentMapProps {
@@ -26,7 +26,6 @@ interface FirestoreProperty {
   heroImage?: string;
   images?: string[];
   price: string;
-  yield: string;
 }
 
 const REGION_CENTERS: Record<'UK' | 'UAE', [number, number]> = {
@@ -69,7 +68,6 @@ export default function InvestmentMap({ locale, defaultRegion, tagline, hideTabs
             lng: p.lng,
             image: p.heroImage || p.images?.[0] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800',
             price: p.price,
-            yield: p.yield,
             href: {
               en: `/real-estate/${p.city}/${p.slug}`,
               tr: `/tr/real-estate/${p.city}/${p.slug}`,
@@ -87,7 +85,6 @@ export default function InvestmentMap({ locale, defaultRegion, tagline, hideTabs
       titleHighlight: 'by Location',
       subtitle: 'Navigate the map to explore our curated investment developments across London and Dubai.',
       viewProject: 'View Project',
-      yield: 'Yield',
       close: 'Close',
       uk: 'United Kingdom',
       uae: 'United Arab Emirates',
@@ -98,7 +95,6 @@ export default function InvestmentMap({ locale, defaultRegion, tagline, hideTabs
       titleHighlight: 'Proje Keşfet',
       subtitle: "Londra ve Dubai'daki yatırım projelerini haritada keşfedin, konuma tıklayarak detayları görün.",
       viewProject: 'Projeyi İncele',
-      yield: 'Getiri',
       close: 'Kapat',
       uk: 'Birleşik Krallık',
       uae: 'Birleşik Arap Emirlikleri',
@@ -315,7 +311,7 @@ export default function InvestmentMap({ locale, defaultRegion, tagline, hideTabs
                     {selected.location}
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 py-4 border-t border-b border-border">
+                  <div className="py-4 border-t border-b border-border">
                     <div>
                       <p className="text-xs text-muted mb-1">
                         {locale === 'en' ? 'Price from' : 'Başlangıç fiyatı'}
@@ -326,16 +322,6 @@ export default function InvestmentMap({ locale, defaultRegion, tagline, hideTabs
                       >
                         {selected.price}
                       </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted mb-1">{t.yield}</p>
-                      <div
-                        className="flex items-center gap-1 text-gold font-medium"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                      >
-                        <TrendingUp size={14} />
-                        {selected.yield}
-                      </div>
                     </div>
                   </div>
 

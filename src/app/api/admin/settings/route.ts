@@ -29,9 +29,28 @@ export async function PUT(req: NextRequest) {
   if (!isAdmin) return unauthorized();
 
   const data = await req.json();
+  const updatedAt = new Date().toISOString();
+
   await adminDb.collection('settings').doc('general').set({
     ...data,
-    updatedAt: new Date().toISOString(),
+    updatedAt,
   }, { merge: true });
+
+  // Sync phone numbers & email to public page docs (footer + contact)
+  const phones = [data.phoneLondon, data.phoneDubai, data.phoneTurkey].filter(Boolean) as string[];
+  const email = (data.email as string) || 'info@innovest.uk';
+  const whatsapp = (data.whatsapp as string) || '';
+
+  await Promise.all([
+    adminDb.collection('pages').doc('footer').set(
+      { contactInfo: { phones, email }, updatedAt },
+      { merge: true }
+    ),
+    adminDb.collection('pages').doc('contact').set(
+      { directContact: { phones, email, whatsapp }, updatedAt },
+      { merge: true }
+    ),
+  ]);
+
   return Response.json({ success: true });
 }

@@ -44,11 +44,14 @@ export default function GuidesPage() {
 
   if (showForm || editingId) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-white">{editingId ? 'Rehber Düzenle' : 'Yeni Rehber'}</h1>
-          <button onClick={() => { setShowForm(false); setEditingId(null); }} className="flex items-center gap-2 px-4 py-2 text-white/50 hover:text-white text-sm transition-colors">
-            <X size={16} /> İptal
+      <div>
+        <div style={{ position: 'sticky', top: '16px', zIndex: 30, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'rgba(6,14,26,0.85)', backdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: '24px' }}>
+          <div className="mr-auto">
+            <h1 className="text-lg font-semibold text-white">{editingId ? 'Rehber Düzenle' : 'Yeni Rehber'}</h1>
+            <p className="text-white/40 text-[11px] mt-0.5">{editingId ? 'İçeriği güncelle' : 'Yeni rehber ekle'}</p>
+          </div>
+          <button onClick={() => { setShowForm(false); setEditingId(null); }} className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-xs text-white/60 hover:text-white transition-all">
+            <X size={13} /> İptal
           </button>
         </div>
         <GuideForm id={editingId} onSaved={handleSaved} />
@@ -58,22 +61,22 @@ export default function GuidesPage() {
 
   return (
     <div>
-      <div className="admin-sticky-bar" style={{ marginBottom: '24px' }}>
+      <div style={{ position: 'sticky', top: '16px', zIndex: 30, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'rgba(6,14,26,0.85)', backdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: '24px' }}>
         <div className="mr-auto">
           <h1 className="text-lg font-semibold text-white">Rehberler</h1>
           <p className="text-white/40 text-[11px] mt-0.5">{guides.length} rehber</p>
         </div>
-        <button onClick={() => setShowForm(true)} className="admin-btn-primary">
+        <button onClick={() => setShowForm(true)} style={{ background: '#C9A84C', color: '#0a1628', fontWeight: 700, fontSize: '13px', padding: '10px 28px', borderRadius: '8px', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
           <Plus size={14} /> Yeni Ekle
         </button>
       </div>
 
-      <div className="admin-card">
-        <h2 className="admin-section-title">Liste</h2>
+      <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '28px 32px', marginBottom: '20px' }}>
+        <h2 style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A84C', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '8px', marginTop: 0, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>Liste</h2>
         <div className="relative" style={{ marginBottom: '20px' }}>
           <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
           <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Rehber ara..."
-            className="admin-input" style={{ paddingLeft: '44px' }} />
+            style={{ width: '100%', borderRadius: '8px', padding: '11px 14px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', fontSize: '14px', color: 'white', paddingLeft: '44px' }} />
         </div>
 
         {loading ? (

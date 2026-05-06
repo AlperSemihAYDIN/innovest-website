@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirebaseAuth } from '@/lib/firebase';
-import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState('');
@@ -30,85 +31,84 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#060e1a] flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-2xl font-semibold text-white tracking-wide mb-2">
-            Innovest <span className="text-[#C9A84C]">Admin</span>
-          </h1>
-          <p className="text-white/40 text-sm">Yönetim paneline giriş yapın</p>
-        </div>
+    <div style={{ minHeight: '100vh', background: '#080f23', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
+      <div style={{ width: '100%', maxWidth: '420px' }}>
+        {/* Card */}
+        <div style={{ border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', background: 'rgba(255,255,255,0.03)', padding: '48px 40px' }}>
+          {/* Logo */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+            <Image
+              src="/logo-nav-transparent.png"
+              alt="Innovest Capital"
+              width={150}
+              height={42}
+              style={{ objectFit: 'contain', height: '42px', width: 'auto' }}
+            />
+          </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-8 space-y-6">
-          {error && (
-            <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3 text-red-400 text-sm">
-              {error}
-            </div>
-          )}
+          {/* Panel Label */}
+          <p style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textAlign: 'center', marginBottom: '36px', textTransform: 'uppercase' }}>
+            ADMİN PANELİ
+          </p>
 
-          <div>
-            <label className="block text-xs text-white/50 uppercase tracking-wider mb-2 font-medium">
-              E-posta
-            </label>
-            <div className="relative">
-              <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
+          <form onSubmit={handleSubmit}>
+            {error && (
+              <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '12px 16px', color: '#f87171', fontSize: '13px', marginBottom: '20px' }}>
+                {error}
+              </div>
+            )}
+
+            {/* E-posta */}
+            <div style={{ marginBottom: '0' }}>
+              <label style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: '8px', textTransform: 'uppercase' }}>
+                E-posta
+              </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
                 placeholder="admin@innovest.uk"
+                style={{ padding: '14px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.05)', color: 'white', fontSize: '14px', width: '100%', marginBottom: '16px', outline: 'none', boxSizing: 'border-box' }}
               />
             </div>
-          </div>
 
-          <div>
-            <label className="block text-xs text-white/50 uppercase tracking-wider mb-2 font-medium">
-              Şifre
-            </label>
-            <div className="relative">
-              <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20" />
-              <input
-                type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-11 pr-12 py-3.5 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
-                placeholder="••••••••"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/40 transition-colors"
-              >
-                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-              </button>
+            {/* Şifre */}
+            <div>
+              <label style={{ display: 'block', fontSize: '10px', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', marginBottom: '8px', textTransform: 'uppercase' }}>
+                Şifre
+              </label>
+              <div style={{ position: 'relative', marginBottom: '16px' }}>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  style={{ padding: '14px 48px 14px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.05)', color: 'white', fontSize: '14px', width: '100%', outline: 'none', boxSizing: 'border-box' }}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.3)', padding: '0', display: 'flex', alignItems: 'center' }}
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
             </div>
-          </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-[#C9A84C] hover:bg-[#b8963e] disabled:opacity-50 text-white font-medium py-3.5 rounded-lg text-sm tracking-wide transition-colors duration-200"
-          >
-            {loading ? (
-              <span className="flex items-center justify-center gap-2">
-                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                </svg>
-                Giriş Yapılıyor...
-              </span>
-            ) : (
-              'Giriş Yap'
-            )}
-          </button>
-        </form>
+            {/* Submit */}
+            <button
+              type="submit"
+              disabled={loading}
+              style={{ width: '100%', padding: '14px', background: loading ? 'rgba(201,168,76,0.6)' : '#C9A84C', color: '#080f23', borderRadius: '8px', fontWeight: 600, fontSize: '13px', letterSpacing: '0.08em', border: 'none', cursor: loading ? 'not-allowed' : 'pointer', marginTop: '8px', textTransform: 'uppercase' }}
+            >
+              {loading ? 'Giriş Yapılıyor...' : 'Giriş Yap'}
+            </button>
+          </form>
+        </div>
 
-        <p className="text-center text-white/20 text-xs mt-6">
+        <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.2)', fontSize: '11px', marginTop: '24px' }}>
           &copy; {new Date().getFullYear()} Innovest Capital. Tüm hakları saklıdır.
         </p>
       </div>

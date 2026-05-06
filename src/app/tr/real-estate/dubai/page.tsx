@@ -32,7 +32,6 @@ export default async function DubaiPageTR() {
     developer: p.developer,
     location: p.location,
     price: p.price,
-    yield: p.yield,
     completion: p.completion,
     beds: p.beds,
     image: p.heroImage,

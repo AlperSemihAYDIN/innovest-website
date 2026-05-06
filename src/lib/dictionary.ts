@@ -56,7 +56,6 @@ const dictionaries = {
       subtitle: 'Handpicked developments in the world\'s most sought-after locations.',
       viewAll: 'View All Properties',
       from: 'From',
-      yield: 'Yield',
       completion: 'Completion',
     },
     whyUs: {
@@ -168,7 +167,6 @@ const dictionaries = {
         subtitle: 'One of the world\'s most resilient property markets. From luxury developments in Mayfair to high-yield opportunities in emerging boroughs.',
         stats: [
           { value: '£285K', label: 'Starting Price' },
-          { value: '4-6%', label: 'Rental Yield' },
           { value: '15%', label: '5yr Capital Growth' },
         ],
       },
@@ -179,7 +177,6 @@ const dictionaries = {
         subtitle: 'The world\'s fastest-growing luxury property market. Tax-free returns, world-class developments and exceptional lifestyle offerings.',
         stats: [
           { value: '$500K', label: 'Starting Price' },
-          { value: '6-10%', label: 'Rental Yield' },
           { value: '20%', label: '5yr Capital Growth' },
         ],
       },
@@ -340,7 +337,6 @@ const dictionaries = {
       subtitle: 'Dünyanın en çok aranan lokasyonlarında özenle seçilmiş projeler.',
       viewAll: 'Tüm Gayrimenkulleri Görüntüle',
       from: 'Başlangıç',
-      yield: 'Getiri',
       completion: 'Teslim',
     },
     whyUs: {
@@ -452,7 +448,6 @@ const dictionaries = {
         subtitle: 'Dünyanın en istikrarlı ve dayanıklı gayrimenkul pazarlarından biri. Mayfair\'in seçkin projelerinden, gelişen bölgelerde öne çıkan yüksek getiri potansiyelli fırsatlara kadar uzanan ayrıcalıklı bir portföy.',
         stats: [
           { value: '£285K', label: 'Başlangıç Fiyatı' },
-          { value: '%4-6', label: 'Kira Getirisi' },
           { value: '%15', label: '5 Yıllık Değer Artışı' },
         ],
       },
@@ -463,7 +458,6 @@ const dictionaries = {
         subtitle: 'Dünyanın en hızlı büyüyen lüks gayrimenkul pazarı. Vergisiz getiriler, dünya standartlarında projeler ve olağanüstü yaşam tarzı.',
         stats: [
           { value: '$500K', label: 'Başlangıç Fiyatı' },
-          { value: '%6-10', label: 'Kira Getirisi' },
           { value: '%20', label: '5 Yıllık Değer Artışı' },
         ],
       },
