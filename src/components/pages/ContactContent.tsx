@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { MapPin, Phone, Mail, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
@@ -26,8 +26,11 @@ export default function ContactContent({ dict, locale, content }: ContactContent
   const successTitle = content?.successMessage?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Thank You' : 'Teşekkürler');
   const successSubtitle = content?.successMessage?.[l ? 'subtitleEn' : 'subtitleTr'] ?? (l ? "We've received your enquiry and will be in touch within 24 hours." : 'Talebinizi aldık, 24 saat içinde sizinle iletişime geçeceğiz.');
   const dcTitle = content?.directContact?.[l ? 'titleEn' : 'titleTr'] ?? (l ? 'Direct Contact' : 'Doğrudan İletişim');
-  const dcPhones = (content?.directContact?.phones ?? ['+44 7491 510941', '+44 7769 212877'])
-    .flatMap((p: string) => p.split(/\s*[-–]\s*/));
+  const dcPhones = useMemo(() =>
+    (content?.directContact?.phones ?? ['+44 7491 510941', '+44 7769 212877'])
+      .flatMap((p: string) => p.split(/\s*[-–]\s*/)),
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  [JSON.stringify(content?.directContact?.phones)]);
   const dcEmail = content?.directContact?.email ?? 'info@innovest.uk';
   const dcWhatsapp = dcPhones[0]?.replace(/[\s+]/g, '') ?? '447491510941';
   const dcWhatsappCTA = content?.directContact?.[l ? 'whatsappCTAEn' : 'whatsappCTATr'] ?? (l ? 'Send a message' : 'Mesaj gönderin');
@@ -496,10 +499,10 @@ export default function ContactContent({ dict, locale, content }: ContactContent
                 style={{ marginTop: '32px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
               >
                 <iframe
-                  src="https://maps.google.com/maps?q=Berkeley+Square+House,+Mayfair,+London+W1J+6BE&z=16&output=embed"
+                  src="https://maps.google.com/maps?q=51.50977,-0.14699&z=16&hl=en&output=embed"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9)' }}
+                  style={{ border: 0, filter: 'invert(92%) hue-rotate(180deg) saturate(0.55) brightness(0.85)' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
