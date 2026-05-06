@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, MapPin, BedDouble, Calendar, TrendingUp } from 'lucide-react';
+import { ArrowRight, MapPin, BedDouble, Calendar } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import InvestmentMap from '@/components/home/InvestmentMap';
 import type { Dictionary } from '@/lib/dictionary';
@@ -12,7 +12,6 @@ interface Property {
   developer: string;
   location: string;
   price: string;
-  yield: string;
   completion: string;
   beds: string;
   image: string;
@@ -127,21 +126,17 @@ export default function CityContent({
                       <span className="flex items-center gap-1"><MapPin size={12} />{property.location}</span>
                       <span className="flex items-center gap-1"><BedDouble size={12} />{property.beds}</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 py-5 border-t border-border/30" style={{ flex: 1, marginTop: '16px' }}>
+                    <div className="grid grid-cols-2 gap-4 py-5 border-t border-border/30" style={{ flex: 1, marginTop: '16px' }}>
                       <div>
                         <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-muted mb-1">{dict.featured.yield}</p>
-                        <p className="text-sm font-medium">{property.yield}</p>
                       </div>
                       <div>
                         <p className="text-xs text-muted mb-1">{dict.featured.completion}</p>
                         <p className="text-sm font-medium">{property.completion}</p>
                       </div>
                     </div>
-                    <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.30)', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', lineHeight: '1.6', fontStyle: 'italic', fontWeight: '300', wordBreak: 'break-word', whiteSpace: 'normal', display: 'block', width: '100%' }}>
+                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.55)', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', lineHeight: '1.6', fontStyle: 'italic', fontWeight: '300', wordBreak: 'break-word', whiteSpace: 'normal', display: 'block', width: '100%' }}>
                       {locale === 'tr' ? '*Başlangıç fiyatları lansman fiyatlandırmasına dayalıdır ve mevcut duruma göre değişiklik gösterebilir.' : '*Starting prices are based on launch pricing and may vary depending on availability.'}
                     </p>
                     <Link

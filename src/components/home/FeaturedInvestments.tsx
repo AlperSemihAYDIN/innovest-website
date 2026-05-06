@@ -18,7 +18,6 @@ const properties = [
     developer: 'London Square',
     location: 'London, SE1',
     price: '£550,000',
-    yield: '5.2%',
     completion: 'Q2 2026',
     image: '/images/properties/london/westminster-tower/4296-westminster-tower-view-01-hummingbird-sunset-04-dfrc-final.jpg',
     tag: 'UK',
@@ -29,7 +28,6 @@ const properties = [
     developer: 'London Square',
     location: 'London, SW11',
     price: '£725,000',
-    yield: '4.8%',
     completion: 'Q4 2026',
     image: '/images/properties/london/ransomes-wharf/rsw-ext-dusk-hero-final-2k.jpg',
     tag: 'UK',
@@ -40,7 +38,6 @@ const properties = [
     developer: 'Binghatti',
     location: 'Dubai, Business Bay',
     price: '$380,000',
-    yield: '8.5%',
     completion: 'Q1 2027',
     image: '/images/properties/dubai/binghatti-flare/flare-exterior-1.jpg',
     tag: 'UAE',
@@ -51,7 +48,6 @@ const properties = [
     developer: 'Omniyat',
     location: 'Dubai, Palm Jumeirah',
     price: '$1,200,000',
-    yield: '7.2%',
     completion: 'Q3 2026',
     image: '/images/properties/dubai/the-alba/main.jpg',
     tag: 'UAE',
@@ -105,33 +101,32 @@ export default function FeaturedInvestments({ dict, locale }: FeaturedProps) {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 flex flex-col p-8">
+                  <div className="flex-1 flex flex-col" style={{ padding: '20px 20px 24px' }}>
                     <p className="text-xs text-muted" style={{ marginBottom: '8px' }}>{property.developer}</p>
                     <h3
-                      style={{ fontSize: '16px', fontWeight: 500, marginBottom: '12px', fontFamily: 'var(--font-display)', color: 'white' }}
+                      style={{ fontSize: '16px', fontWeight: 500, marginBottom: '8px', fontFamily: 'var(--font-display)', color: 'white' }}
                       className="group-hover:text-gold transition-colors"
                     >
                       {property.name}
                     </h3>
-                    <p className="flex items-center gap-1 text-xs text-muted" style={{ marginBottom: '8px' }}>
+                    <p className="flex items-center gap-1 text-xs text-muted" style={{ marginTop: '6px', marginBottom: '16px' }}>
                       <MapPin size={12} />
                       {property.location}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-3 pt-6 border-t border-border/30" style={{ marginTop: '16px' }}>
+                    <div className="grid grid-cols-2 gap-3 pt-5 border-t border-border/30" style={{ marginTop: 'auto' }}>
                       <div>
-                        <p className="text-xs text-muted mb-1">{dict.featured.from}</p>
+                        <p className="text-xs text-muted" style={{ marginBottom: '6px' }}>{dict.featured.from}</p>
                         <p className="text-sm font-medium text-gold">{property.price}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-muted mb-1">{dict.featured.yield}</p>
-                        <p className="text-sm font-medium">{property.yield}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-muted mb-1">{dict.featured.completion}</p>
+                        <p className="text-xs text-muted" style={{ marginBottom: '6px' }}>{dict.featured.completion}</p>
                         <p className="text-sm font-medium">{property.completion}</p>
                       </div>
                     </div>
+                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.55)', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', lineHeight: '1.6', fontStyle: 'italic', fontWeight: 300 }}>
+                      {locale === 'tr' ? '*Başlangıç fiyatları lansman fiyatlandırmasına dayalıdır ve mevcut duruma göre değişiklik gösterebilir.' : '*Starting prices are based on launch pricing and may vary depending on availability.'}
+                    </p>
                   </div>
                 </div>
               </Link>
