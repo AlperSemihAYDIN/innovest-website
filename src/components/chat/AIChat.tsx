@@ -21,29 +21,76 @@ interface Message {
 
 // ─── Property Database (14 projects) ─────────────────────────────────────────
 const LONDON_PROJECTS = [
-  { name: 'Westminster Tower', developer: 'London Square', location: 'SE1, Zone 1', price: '£550,000', yield: '5.2%', highlight: 'Thames manzarası, 218 daire' },
-  { name: "Ransome's Wharf", developer: 'London Square', location: 'Battersea SW11', price: '£725,000', yield: '4.8%', highlight: 'nehir kenarı, 152 daire' },
-  { name: 'Woolwich Central', developer: 'London Square', location: 'SE18', price: '£380,000', yield: '5.5%', highlight: 'Elizabeth Line, rekabetçi fiyat' },
-  { name: 'Prince of Wales Drive', developer: 'Berkeley Group', location: 'Battersea SW11', price: '£850,000', yield: '4.5%', highlight: 'Battersea Park karşısı' },
-  { name: 'Sterling Place', developer: 'Barratt London', location: 'Tooting SW17', price: '£420,000', yield: '5.0%', highlight: 'Northern Line bağlantısı' },
-  { name: 'White City Living', developer: 'Berkeley Group', location: 'W12', price: '£650,000', yield: '4.6%', highlight: 'Westfield komşusu, 1400+ konut' },
+  { name: 'Westminster Tower', developer: 'London Square', location: 'SE1, Zone 1', price: '£550,000', yield: '5.2%', highlight: 'Zone 1 konumu ve Thames manzarası güçlü ve istikrarlı kira talebi sağlıyor.' },
+  { name: "Ransome's Wharf", developer: 'London Square', location: 'Battersea SW11', price: '£725,000', yield: '4.8%', highlight: 'Battersea nehir kenarında düşük arz ve üst segment kiracı profili öne çıkarıyor.' },
+  { name: 'Woolwich Central', developer: 'London Square', location: 'SE18', price: '£380,000', yield: '5.5%', highlight: 'Elizabeth Line bağlantısı bu fiyat noktasında portföyün en iyi getiri/fiyat dengesini sunuyor.' },
+  { name: 'Prince of Wales Drive', developer: 'Berkeley Group', location: 'Battersea SW11', price: '£850,000', yield: '4.5%', highlight: 'Battersea Park karşısında Berkeley Group kalitesi, uzun vadeli sermaye kazancı güçlü.' },
+  { name: 'Sterling Place', developer: 'Barratt London', location: 'Tooting SW17', price: '£420,000', yield: '5.0%', highlight: 'Northern Line ile merkeze hızlı erişim, geniş ve istikrarlı kiracı tabanı.' },
+  { name: 'White City Living', developer: 'Berkeley Group', location: 'W12', price: '£650,000', yield: '4.6%', highlight: "Westfield'a komşu 1400 konutluk master plan; altyapı yatırımları tamamlanmış, değer artışı süreci başlamış." },
 ];
 
 const DUBAI_PROJECTS = [
-  { name: 'Binghatti Flare', developer: 'Binghatti', location: 'Business Bay', price: '$380,000', yield: '8.5%', highlight: 'Dubai Kanalı manzarası' },
-  { name: 'The Alba', developer: 'Omniyat × Dorchester', location: 'Palm Jumeirah', price: '$1,200,000', yield: '7.2%', highlight: '80 premium rezidans' },
-  { name: 'Binghatti Aquarise', developer: 'Binghatti', location: 'Al Jaddaf', price: '$290,000', yield: '9.0%', highlight: 'en uygun fiyat, yüksek getiri' },
-  { name: 'Mercedes-Benz Places', developer: 'Binghatti', location: 'Downtown Dubai', price: '$750,000', yield: '7.5%', highlight: '65 kat, ikonik tasarım' },
-  { name: 'Belgrove Residences', developer: 'Ellington', location: 'JVC', price: '$350,000', yield: '8.2%', highlight: 'aile odaklı, modern yaşam' },
-  { name: 'Solaya', developer: 'Meraas', location: 'Jumeirah', price: '$950,000', yield: '6.8%', highlight: 'premium konum' },
-  { name: 'One River Point', developer: 'Ellington', location: 'Business Bay', price: '$620,000', yield: '7.8%', highlight: 'kanal cephesi' },
-  { name: 'Cala Del Mar', developer: 'Ellington', location: 'Al Marjan Island, RAK', price: '$474,000', yield: '9.0%', highlight: 'Wynn Resort yakını' },
+  { name: 'Binghatti Flare', developer: 'Binghatti', location: 'Business Bay', price: '$380,000', yield: '8.5%', highlight: 'Dubai Kanalı manzarası ve Business Bay lokasyonu yüksek kira getirisini destekliyor.' },
+  { name: 'The Alba', developer: 'Omniyat × Dorchester', location: 'Palm Jumeirah', price: '$1,200,000', yield: '7.2%', highlight: 'Dorchester Collection yönetiminde Palm Jumeirah ultra-premium segmenti.' },
+  { name: 'Binghatti Aquarise', developer: 'Binghatti', location: 'Al Jaddaf', price: '$290,000', yield: '9.0%', highlight: 'Portföyde en düşük giriş fiyatıyla en yüksek getiri kombinasyonu.' },
+  { name: 'Mercedes-Benz Places', developer: 'Binghatti', location: 'Downtown Dubai', price: '$750,000', yield: '7.5%', highlight: "Downtown'da 65 katlı ikonik kule; prestij ve talep daima yüksek." },
+  { name: 'Belgrove Residences', developer: 'Ellington', location: 'JVC', price: '$350,000', yield: '8.2%', highlight: 'Ellington kalitesi ve JVC aile odaklı lokasyonu uzun vadeli kira istikrarı sağlıyor.' },
+  { name: 'Solaya', developer: 'Meraas', location: 'Jumeirah', price: '$950,000', yield: '6.8%', highlight: 'Meraas geliştirmesi; Jumeirah sahil koridorunda kira talebi sürekli güçlü.' },
+  { name: 'One River Point', developer: 'Ellington', location: 'Business Bay', price: '$620,000', yield: '7.8%', highlight: 'Business Bay kanal cephesi ve Ellington markasıyla kiracı profili üst segment.' },
+  { name: 'Cala Del Mar', developer: 'Ellington', location: 'Al Marjan Island, RAK', price: '$474,000', yield: '9.0%', highlight: "Wynn Resort komşuluğu RAK'ı yeni destinasyon yapıyor; erken giriş avantajı belirgin." },
 ];
 
-function formatProjectList(projects: typeof LONDON_PROJECTS, locale: 'en' | 'tr'): string {
-  return projects.map(p =>
-    `• **${p.name}** — ${p.location}\n  ${locale === 'tr' ? 'Fiyat' : 'Price'}: ${p.price} | ${locale === 'tr' ? 'Getiri' : 'Yield'}: ${p.yield}\n  ${p.highlight}`
-  ).join('\n\n');
+// ─── Conversation Context ────────────────────────────────────────────────────
+interface ConvContext {
+  location: 'london' | 'dubai' | null;
+  budgetK: number | null;
+  budgetCurrency: 'GBP' | 'USD' | null;
+  goal: 'rental' | 'capital' | 'residency' | null;
+  prevAskedFor: Set<string>;
+}
+
+function parseBudgetK(raw: string, suffix?: string): number {
+  const n = parseFloat(raw.replace(/,/g, ''));
+  const s = (suffix ?? '').toLowerCase();
+  if (s === 'k' || s === 'bin') return n;
+  if (s === 'm' || s === 'milyon') return n * 1000;
+  return n >= 1000 ? n / 1000 : n;
+}
+
+function extractConvContext(history: Message[]): ConvContext {
+  const ctx: ConvContext = { location: null, budgetK: null, budgetCurrency: null, goal: null, prevAskedFor: new Set() };
+  for (const msg of history) {
+    const lower = msg.content.toLowerCase();
+    if (msg.role === 'user') {
+      const hasLon = /londra|london/.test(lower);
+      const hasDub = /dubai/.test(lower);
+      if (hasLon && !hasDub) ctx.location = 'london';
+      else if (hasDub && !hasLon) ctx.location = 'dubai';
+      const mGBP = lower.match(/£\s*(\d[\d,.]+)\s*(k|bin|milyon|m)?/);
+      const mUSD = lower.match(/\$\s*(\d[\d,.]+)\s*(k|bin|milyon|m)?/);
+      const mBare = lower.match(/\b(\d[\d,.]+)\s*(k|bin)\b/);
+      if (mGBP) { ctx.budgetK = parseBudgetK(mGBP[1], mGBP[2]); ctx.budgetCurrency = 'GBP'; }
+      else if (mUSD) { ctx.budgetK = parseBudgetK(mUSD[1], mUSD[2]); ctx.budgetCurrency = 'USD'; }
+      else if (mBare) { ctx.budgetK = parseBudgetK(mBare[1], mBare[2]); }
+      if (/kira|getiri|rental|yield|passive/i.test(lower)) ctx.goal = 'rental';
+      else if (/oturum|golden visa|vize|ikamet|residency/i.test(lower)) ctx.goal = 'residency';
+      else if (/sermaye|capital growth/i.test(lower)) ctx.goal = 'capital';
+    }
+    if (msg.role === 'assistant') {
+      if (/tercihli lokasyon|preferred market|her ikisi/i.test(lower)) ctx.prevAskedFor.add('location');
+      if (/bütçe aralığınız|budget range/i.test(lower)) ctx.prevAskedFor.add('budget');
+      if (/amacınız\?|your goal\?/i.test(lower)) ctx.prevAskedFor.add('goal');
+    }
+  }
+  return ctx;
+}
+
+function filterByBudget(projects: typeof LONDON_PROJECTS, budgetK: number): typeof LONDON_PROJECTS {
+  const max = budgetK * 1000 * 1.1;
+  return projects.filter(p => {
+    const m = p.price.match(/[\d,]+/);
+    return m ? parseInt(m[0].replace(/,/g, '')) <= max : true;
+  });
 }
 
 function findProjectByName(query: string): typeof LONDON_PROJECTS[0] | null {
@@ -52,134 +99,127 @@ function findProjectByName(query: string): typeof LONDON_PROJECTS[0] | null {
   return all.find(p => q.includes(p.name.toLowerCase().replace(/['']/g, ''))) || null;
 }
 
-const ANSWERS_TR: [RegExp, string | ((msg: string) => string)][] = [
-  // 0. Specific project queries — must be first
-  [
-    /westminster tower|ransome|woolwich central|prince of wales|sterling place|white city|binghatti flare|the alba|binghatti aquarise|mercedes.?benz|belgrove|solaya|one river point|cala del mar/i,
-    (msg: string) => {
-      const project = findProjectByName(msg);
-      if (!project) return 'Bu proje hakkında bilgi bulunamadı. Lütfen proje adını kontrol ediniz.';
-      const isLondon = LONDON_PROJECTS.includes(project);
-      const pageLink = isLondon ? '/tr/real-estate/london' : '/tr/real-estate/dubai';
-      const cityLabel = isLondon ? 'Londra' : 'Dubai';
-      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 Başlangıç: ${project.price}\n📈 Beklenen Getiri: ${project.yield}\n✨ ${project.highlight}\n\nBu ${isLondon ? '🇬🇧 Londra' : '🇦🇪 Dubai'} projesi hakkında danışmanlık almak ister misiniz?\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\n[${cityLabel} Projeleri →](${pageLink})`;
-    },
-  ],
-  // 1. Residency / Oturum
-  [
-    /oturum|golden visa|vize|ikamet|göç|pasaport|hangi.*ülke.*otur|yatırım yoluyla.*otur|residence/i,
-    'Yatırım yoluyla oturum izni alabileceğiniz ülkeler:\n\n• 🇵🇹 Portekiz Golden Visa: 500.000€\'dan\n• 🇬🇷 Yunanistan Golden Visa: 250.000€\'dan\n• 🇦🇪 BAE Golden Visa: AED 2.000.000\'dan\n• 🇬🇧 İngiltere Innovator Vizesi: İş planı onayına tabi\n\nHer programın farklı avantajları, süreleri ve aile dahil etme koşulları vardır. Hangi ülke sizi ilgilendiriyor?',
-  ],
-  // 2. Business / İş kurma
-  [
-    /iş kur|partner bul|ticari bağlantı|ticari.*gelişt|firma kur|şirket kur|pazar.*giriş|iş.*genişlet|iş ortağı|distribüt/i,
-    'Uluslararası iş geliştirme hizmetlerimiz:\n\n• 🌍 Pazar Giriş Stratejisi (UK, BAE, AB, ABD)\n• 🤝 Partner & Distribütör Eşleştirme\n• 📋 Şirket Kurulumu ve yasal işlemler\n• 📊 Ticaret Kolaylaştırma & uyum danışmanlığı\n\nHedef pazarınız ve sektörünüze göre size özel strateji hazırlıyoruz. Hangi ülkede faaliyete geçmeyi düşünüyorsunuz?',
-  ],
-  // 3. Dubai specific — now with ALL projects
-  [
-    /dubai/i,
-    () => `Dubai\'de en çok tercih edilen 4 projemiz:\n\n• **Binghatti Aquarise** — $290K | %9.0 getiri — Al Jaddaf\n• **Binghatti Flare** — $380K | %8.5 getiri — Business Bay, kanal manzarası\n• **Belgrove Residences** — $350K | %8.2 getiri — JVC, Ellington\n• **Mercedes-Benz Places** — $750K | %7.5 getiri — Downtown, ikonik kule\n\n🇦🇪 Vergisiz getiri + Golden Visa imkânı. Bütçenizi paylaşırsanız size özel liste hazırlarım.\n\n[Tüm Dubai Projeleri →](/tr/real-estate/dubai)`,
-  ],
-  // 4. London specific
-  [
-    /londra|london/i,
-    () => `Londra\'da en çok tercih edilen 4 projemiz:\n\n• **Woolwich Central** — £380K | %5.5 getiri — SE18, Elizabeth Line\n• **Sterling Place** — £420K | %5.0 getiri — Tooting, Northern Line\n• **Westminster Tower** — £550K | %5.2 getiri — SE1, Thames manzarası\n• **White City Living** — £650K | %4.6 getiri — W12, Westfield komşusu\n\n🇬🇧 Sermaye kazancı ve kira getirisi için ideal lokasyonlar.\n\n[Tüm Londra Projeleri →](/tr/real-estate/london)`,
-  ],
-  // 5. Generic investment
-  [
-    /nereye yatırım|yatırım.*nerede|yatırım.*yapabilir|gayrimenkul|emlak|mülk|proje|invest/i,
-    'Size en uygun yatırımı bulabilmem için birkaç bilgiye ihtiyacım var:\n\n1️⃣ **Bütçe aralığınız?** (örn. $300K, £500K, $1M+)\n2️⃣ **Amacınız?** Kira getirisi / sermaye kazancı / oturum izni\n3️⃣ **Tercihli lokasyon?** Londra 🇬🇧, Dubai 🇦🇪, ya da her ikisi\n\nBu bilgilere göre size özel 4-5 proje önereceğim.',
-  ],
-  // 6. Budget / price
-  [
-    /bütçe|fiyat|£500|500k|minimum|uygun|kaç para|ne kadar|ucuz|pahalı/i,
-    '**Bütçeye göre öneriler:**\n\n🇬🇧 £500K altı Londra:\n• **Woolwich Central** — £380K, %5.5 getiri\n• **Sterling Place** — £420K, %5.0 getiri\n[Londra Projeleri →](/tr/real-estate/london)\n\n🇦🇪 $500K altı Dubai:\n• **Binghatti Aquarise** — $290K, %9.0 getiri\n• **Belgrove Residences** — $350K, %8.2 getiri\n• **Binghatti Flare** — $380K, %8.5 getiri\n[Dubai Projeleri →](/tr/real-estate/dubai)\n\nBütçenizi belirtirseniz daha kişisel bir öneri yapabilirim.',
-  ],
-  // 7. Yield / return
-  [
-    /getiri|kira|roi|kazanç|kar|yüzde|%/i,
-    'Portföyümüzdeki getiri aralıkları:\n\n🇬🇧 Londra: %4.5 – %5.5\n🇦🇪 Dubai: %6.8 – %9.0\n\n**En yüksek getirili projeler:**\n• Binghatti Aquarise — %9.0 ($290K)\n• Cala Del Mar — %9.0 ($474K)\n• Binghatti Flare — %8.5 ($380K)\n• Belgrove Residences — %8.2 ($350K)\n\nDetaylı getiri analizi için danışmanlık ekibimize ulaşın.',
-  ],
-  // 8. Contact
-  [
-    /iletişim|randevu|görüşme|telefon|email|adres|ulaş/i,
-    'Ekibimize ulaşın:\n\n📍 Berkeley Square House, Mayfair, Londra\n📧 info@innovest.uk\n📞 +44 7491 510941 (İngiltere)\n📞 +971 54 755 0101 (BAE)\n📞 +90 531 420 0331 (Türkiye)\n\nÜcretsiz danışmanlık randevusu için İletişim sayfamızı ziyaret edin.',
-  ],
-  // 9. Greeting — SHORT, no heavy intro
-  [
-    /merhaba|selam|günaydın|iyi günler|iyi akşam|nasılsın|hello|hi\b/i,
-    'Merhaba! 👋 Size nasıl yardımcı olabilirim?\n\n1️⃣ Londra veya Dubai\'de gayrimenkul yatırımı\n2️⃣ Yatırım yoluyla oturum izni\n3️⃣ Uluslararası iş geliştirme',
-  ],
-];
+function buildProjectBlock(
+  projects: typeof LONDON_PROJECTS,
+  locale: 'en' | 'tr',
+  cityKey: 'london' | 'dubai'
+): string {
+  const tr = locale === 'tr';
+  const cityLabel = tr ? (cityKey === 'london' ? 'Londra' : 'Dubai') : (cityKey === 'london' ? 'London' : 'Dubai');
+  const linkPath = (tr ? '/tr' : '') + `/real-estate/${cityKey}`;
+  const intro = tr ? `${cityLabel} portföyümden önerilerim:\n\n` : `My ${cityLabel} recommendations:\n\n`;
+  const priceLabel = tr ? 'Fiyat' : 'Price';
+  const yieldLabel = tr ? 'Getiri' : 'Yield';
+  const linkLabel = tr ? `Tüm ${cityLabel} projelerini görüntüle` : `View all ${cityLabel} projects`;
+  const list = projects.slice(0, 4).map(p =>
+    `${p.name} — ${p.location}\n${priceLabel}: ${p.price}  |  ${yieldLabel}: ${p.yield}\n${p.highlight}`
+  ).join('\n\n');
+  return `${intro}${list}\n\n[${linkLabel}](${linkPath})`;
+}
 
-const ANSWERS_EN: [RegExp, string | ((msg: string) => string)][] = [
-  // 0. Specific project queries
-  [
-    /westminster tower|ransome|woolwich central|prince of wales|sterling place|white city|binghatti flare|the alba|binghatti aquarise|mercedes.?benz|belgrove|solaya|one river point|cala del mar/i,
-    (msg: string) => {
-      const project = findProjectByName(msg);
-      if (!project) return 'Project not found. Please check the project name.';
-      const isLondon = LONDON_PROJECTS.includes(project);
-      const pageLink = isLondon ? '/real-estate/london' : '/real-estate/dubai';
-      const cityLabel = isLondon ? 'London' : 'Dubai';
-      return `**${project.name}**\n📍 ${project.location}\n🏗️ ${project.developer}\n💰 From: ${project.price}\n📈 Projected Yield: ${project.yield}\n✨ ${project.highlight}\n\nWould you like more details about this ${isLondon ? '🇬🇧 London' : '🇦🇪 Dubai'} project?\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\n[View ${cityLabel} Portfolio →](${pageLink})`;
-    },
-  ],
-  [
-    /residency|golden visa|visa|citizenship|passport|which.*country.*reside|residence by invest/i,
-    'Countries where you can obtain residency through investment:\n\n• 🇵🇹 Portugal Golden Visa: From €500,000\n• 🇬🇷 Greece Golden Visa: From €250,000\n• 🇦🇪 UAE Golden Visa: From AED 2,000,000\n• 🇬🇧 UK Innovator Visa: Subject to business plan approval\n\nEach programme has different benefits, timelines and family inclusion options. Which country interests you?',
-  ],
-  [
-    /business setup|set up.*business|partner|trade connection|expand.*business|company formation|market entry|new.*market|trade facilit|distributor/i,
-    'Our Business Expansion services:\n\n• 🌍 Market Entry Strategy (UK, UAE, EU, US)\n• 🤝 Partner & Distributor Matching\n• 📋 Company Formation & legal support\n• 📊 Trade Facilitation & compliance advisory\n\nWe tailor strategies to your sector and target market. Which country are you considering?',
-  ],
-  [
-    /dubai/i,
-    () => `Our top 4 Dubai projects:\n\n• **Binghatti Aquarise** — $290K | 9.0% yield — Al Jaddaf\n• **Binghatti Flare** — $380K | 8.5% yield — Business Bay, canal views\n• **Belgrove Residences** — $350K | 8.2% yield — JVC, Ellington\n• **Mercedes-Benz Places** — $750K | 7.5% yield — Downtown, iconic tower\n\n🇦🇪 Tax-free returns + Golden Visa eligibility. Share your budget for a tailored shortlist.\n\n[View All Dubai Projects →](/real-estate/dubai)`,
-  ],
-  [
-    /london/i,
-    () => `Our top 4 London projects:\n\n• **Woolwich Central** — £380K | 5.5% yield — SE18, Elizabeth Line\n• **Sterling Place** — £420K | 5.0% yield — Tooting, Northern Line\n• **Westminster Tower** — £550K | 5.2% yield — SE1, Thames views\n• **White City Living** — £650K | 4.6% yield — W12, next to Westfield\n\n🇬🇧 Capital growth and rental income in prime London locations.\n\n[View All London Projects →](/real-estate/london)`,
-  ],
-  [
-    /where.*invest|invest.*where|property|real estate|apartment|development|invest/i,
-    'To find the right investment for you, I need a few details:\n\n1️⃣ **Budget range?** (e.g. $300K, £500K, $1M+)\n2️⃣ **Goal?** Rental yield / capital growth / residency by investment\n3️⃣ **Preferred market?** London 🇬🇧, Dubai 🇦🇪, or open to both\n\nI\'ll come back with a personalised shortlist of 4–5 projects.',
-  ],
-  [
-    /budget|price|£500|500k|minimum|affordable|how much|cost|cheap/i,
-    '**Budget-matched recommendations:**\n\n🇬🇧 Under £500K in London:\n• **Woolwich Central** — £380K, 5.5% yield\n• **Sterling Place** — £420K, 5.0% yield\n[London Projects →](/real-estate/london)\n\n🇦🇪 Under $500K in Dubai:\n• **Binghatti Aquarise** — $290K, 9.0% yield\n• **Belgrove Residences** — $350K, 8.2% yield\n• **Binghatti Flare** — $380K, 8.5% yield\n[Dubai Projects →](/real-estate/dubai)\n\nShare your exact budget for a tailored recommendation.',
-  ],
-  [
-    /yield|rental.*return|roi|return on invest/i,
-    'Yield ranges across our portfolio:\n\n🇬🇧 London: 4.5% – 5.5%\n🇦🇪 Dubai: 6.8% – 9.0%\n\n**Highest yielding projects:**\n• Binghatti Aquarise — 9.0% ($290K)\n• Cala Del Mar — 9.0% ($474K)\n• Binghatti Flare — 8.5% ($380K)\n• Belgrove Residences — 8.2% ($350K)\n\nSpeak to an advisor for a detailed project analysis.',
-  ],
-  [
-    /contact|appointment|consult|phone|email|address|reach/i,
-    'Get in touch with our team:\n\n📍 Berkeley Square House, Mayfair, London\n📧 info@innovest.uk\n📞 +44 7491 510941 (UK)\n📞 +971 54 755 0101 (UAE)\n📞 +90 531 420 0331 (Turkey)\n\nVisit our Contact page to schedule a free consultation.',
-  ],
-  [
-    /hello|hi\b|good morning|good afternoon|good evening|how are you/i,
-    'Hello! 👋 How can I help you today?\n\n1️⃣ Property investment in London or Dubai\n2️⃣ Residency by investment (Golden Visa)\n3️⃣ International business expansion',
-  ],
-];
+// ─── Smart Response (context-aware, full history) ─────────────────────────────
+const PROJECT_NAME_RE = /westminster tower|ransome|woolwich central|prince of wales|sterling place|white city living|binghatti flare|the alba|binghatti aquarise|mercedes.?benz places|belgrove|solaya|one river point|cala del mar/i;
 
-function getAIResponse(message: string, locale: 'en' | 'tr'): string {
-  const answers = locale === 'tr' ? ANSWERS_TR : ANSWERS_EN;
-  for (const [pattern, response] of answers) {
-    if (pattern.test(message)) {
-      return typeof response === 'function' ? response(message) : response;
+function getSmartResponse(text: string, locale: 'en' | 'tr', history: Message[]): string {
+  const lower = text.toLowerCase();
+  const tr = locale === 'tr';
+  const ctx = extractConvContext([...history, { role: 'user', content: text }]);
+
+  // 1. Specific project detail
+  if (PROJECT_NAME_RE.test(lower)) {
+    const project = findProjectByName(lower);
+    if (project) {
+      const isLon = LONDON_PROJECTS.some(p => p.name === project.name);
+      const cityKey = isLon ? 'london' : 'dubai';
+      const linkPath = (tr ? '/tr' : '') + `/real-estate/${cityKey}`;
+      const cityLabel = tr ? (isLon ? 'Londra' : 'Dubai') : (isLon ? 'London' : 'Dubai');
+      if (tr) return `${project.name}\nKonum: ${project.location}\nGeliştirici: ${project.developer}\nFiyat: ${project.price}\nGetiri: ${project.yield}\n${project.highlight}\n\nDanışmanlık için: info@innovest.uk  |  +44 7491 510941\n\n[Tüm ${cityLabel} Projeleri](${linkPath})`;
+      return `${project.name}\nLocation: ${project.location}\nDeveloper: ${project.developer}\nPrice from: ${project.price}\nProjected yield: ${project.yield}\n${project.highlight}\n\nFor advisory: info@innovest.uk  |  +44 7491 510941\n\n[All ${cityLabel} Projects](${linkPath})`;
     }
   }
-  // Fallback: try the other language set too
-  const fallbackAnswers = locale === 'tr' ? ANSWERS_EN : ANSWERS_TR;
-  for (const [pattern, response] of fallbackAnswers) {
-    if (pattern.test(message)) {
-      return typeof response === 'function' ? response(message) : response;
+
+  // 2. Why did you recommend
+  if (/neden.*önerd|neden.*tavsiye|neden bu|why.*recommend|why this/i.test(lower)) {
+    const lastAi = [...history].reverse().find(m => m.role === 'assistant' && PROJECT_NAME_RE.test(m.content));
+    if (lastAi) {
+      const p = findProjectByName(lastAi.content);
+      if (p) {
+        if (tr) return `${p.name}'ı önerdim çünkü: ${p.highlight} Geliştirici ${p.developer} güçlü bir portföy geçmişine sahip. Bu lokasyon hem kira geliri hem uzun vadeli değer artışı açısından avantajlı.`;
+        return `I recommended ${p.name} because: ${p.highlight} Developer ${p.developer} has a strong track record. The location offers good prospects for both rental income and capital appreciation.`;
+      }
     }
+    if (tr) return 'Hangi projeyi daha detaylı açıklamamı istersiniz?';
+    return 'Which project would you like me to elaborate on?';
   }
-  return locale === 'tr'
-    ? 'Bu konuda size en doğru bilgiyi danışmanlarımız verebilir.\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\nVeya şu konulardan birini seçin:\n1️⃣ Londra veya Dubai\'de gayrimenkul\n2️⃣ Yatırım ile oturum izni\n3️⃣ Uluslararası iş geliştirme'
-    : 'Our advisors can best help you with this.\n\n📧 info@innovest.uk | 📞 +44 7491 510941\n\nOr choose a topic:\n1️⃣ Property in London or Dubai\n2️⃣ Residency by investment\n3️⃣ International business expansion';
+
+  // 3. Greeting
+  if (/merhaba|selam|günaydın|iyi günler|iyi akşam|nasılsın|hello|hi\b|good morning|good afternoon|good evening/i.test(lower)) {
+    if (tr) return 'Merhaba, size nasıl yardımcı olabilirim?\n\n1. Londra veya Dubai\'de gayrimenkul yatırımı\n2. Yatırım yoluyla oturum izni\n3. Uluslararası iş geliştirme';
+    return 'Hello, how can I help you today?\n\n1. Property investment in London or Dubai\n2. Residency by investment\n3. International business expansion';
+  }
+
+  // 4. Residency
+  if (/oturum|golden visa|vize|ikamet|göç|pasaport|residence by invest/i.test(lower)) {
+    if (tr) return 'Yatırım yoluyla oturum izni alınabilecek ülkeler:\n\nPortekiz: 500.000 EUR\'dan — Golden Visa\nYunanistan: 250.000 EUR\'dan — Golden Visa\nBirleşik Arap Emirlikleri: 2.000.000 AED\'dan — Golden Visa\nBirleşik Krallık: Innovator Vizesi — iş planı onayına tabi\n\nHer programın farklı avantajları ve aile dahil etme koşulları var. Hangi ülke sizi ilgilendiriyor?';
+    return 'Countries offering residency through investment:\n\nPortugal: from EUR 500,000 — Golden Visa\nGreece: from EUR 250,000 — Golden Visa\nUAE: from AED 2,000,000 — Golden Visa\nUK: Innovator Visa — subject to business plan approval\n\nEach programme has different conditions and family inclusion options. Which country interests you?';
+  }
+
+  // 5. Business expansion
+  if (/iş kur|partner bul|ticari bağlantı|firma kur|şirket kur|pazar.*giriş|iş.*genişlet|iş ortağı|business setup|set up.*business|market entry|expand.*business|distribüt/i.test(lower)) {
+    if (tr) return 'Uluslararası iş geliştirme hizmetlerimiz:\n\n- Pazar giriş stratejisi (İngiltere, BAE, AB, ABD)\n- Partner ve distribütör eşleştirme\n- Şirket kurulumu ve yasal süreçler\n- Ticaret kolaylaştırma ve uyum danışmanlığı\n\nSektörünüze ve hedef pazarınıza özel strateji hazırlıyoruz. Hangi ülkede faaliyete geçmek istiyorsunuz?';
+    return 'Our international business expansion services:\n\n- Market entry strategy (UK, UAE, EU, US)\n- Partner and distributor matching\n- Company formation and legal support\n- Trade facilitation and compliance advisory\n\nWe tailor strategies to your sector and target market. Which country are you considering?';
+  }
+
+  // 6. Contact
+  if (/iletişim|randevu|görüşme|telefon|email|adres|ulaş|contact|appointment|phone|address/i.test(lower)) {
+    if (tr) return 'Bize ulaşın:\n\nAdres: Berkeley Square House, Mayfair, Londra\nE-posta: info@innovest.uk\nTelefon (İngiltere): +44 7491 510941\nTelefon (BAE): +971 54 755 0101\nTelefon (Türkiye): +90 531 420 0331\n\nÜcretsiz danışmanlık için iletişim sayfamızı ziyaret edin.';
+    return 'Get in touch:\n\nAddress: Berkeley Square House, Mayfair, London\nEmail: info@innovest.uk\nPhone (UK): +44 7491 510941\nPhone (UAE): +971 54 755 0101\nPhone (Turkey): +90 531 420 0331\n\nVisit our contact page to schedule a free consultation.';
+  }
+
+  // 7. Property recommendation
+  const isPropertyIntent = /yatırım|gayrimenkul|emlak|mülk|proje|invest|property|real estate|apartment|development|öneri|tavsiye|öner|londra|london|dubai/i.test(lower);
+  if (isPropertyIntent) {
+    const hasLonInMsg = /londra|london/i.test(lower);
+    const hasDubInMsg = /dubai/i.test(lower);
+    const locFromMsg = hasLonInMsg && !hasDubInMsg ? 'london' : (!hasLonInMsg && hasDubInMsg ? 'dubai' : null);
+    const loc = locFromMsg ?? ctx.location;
+
+    if (loc === 'london') {
+      let projects = [...LONDON_PROJECTS];
+      if (ctx.budgetK && ctx.budgetCurrency === 'GBP') projects = filterByBudget(projects, ctx.budgetK);
+      if (projects.length === 0) projects = LONDON_PROJECTS;
+      return buildProjectBlock(projects, locale, 'london');
+    }
+    if (loc === 'dubai') {
+      let projects = [...DUBAI_PROJECTS];
+      if (ctx.budgetK && ctx.budgetCurrency === 'USD') projects = filterByBudget(projects, ctx.budgetK);
+      if (projects.length === 0) projects = DUBAI_PROJECTS;
+      return buildProjectBlock(projects, locale, 'dubai');
+    }
+
+    if (!ctx.prevAskedFor.has('location')) {
+      const missing: string[] = [];
+      if (!ctx.budgetK) missing.push(tr ? 'bütçe aralığınız (örn. £500K veya $300K)' : 'your budget range (e.g. £500K or $300K)');
+      if (!ctx.goal) missing.push(tr ? 'amacınız: kira getirisi, sermaye kazancı veya oturum izni' : 'your goal: rental yield, capital growth, or residency');
+      const extraLines = missing.length ? '\n' + missing.map(m => `- ${m}`).join('\n') : '';
+      if (tr) return `Size en uygun projeleri belirleyebilmem için birkaç bilgiye ihtiyacım var:\n\n- Tercihli lokasyon: Londra, Dubai veya her ikisi${extraLines}\n\nBu bilgileri paylaşırsanız doğrudan öneri yaparım.`;
+      return `To find the right investment for you, I need a few details:\n\n- Preferred market: London, Dubai, or open to both${extraLines}\n\nShare these and I'll come back with a tailored shortlist.`;
+    }
+    if (tr) return 'Londra mı, Dubai mi — ya da her ikisi de değerlendirilebilir mi?';
+    return 'London or Dubai — or are you open to both?';
+  }
+
+  // 8. Yield / budget without explicit property intent
+  if (/getiri|yield|kira.*gelir|bütçe|budget|fiyat|ne kadar|kaç para/i.test(lower)) {
+    if (ctx.location === 'london') return buildProjectBlock(LONDON_PROJECTS, locale, 'london');
+    if (ctx.location === 'dubai') return buildProjectBlock(DUBAI_PROJECTS, locale, 'dubai');
+    if (tr) return 'Portföyümüzdeki getiri aralıkları:\n\nLondra: %4.5 – %5.5\nDubai: %6.8 – %9.0\n\nEn yüksek getirili projeler Dubai tarafında yer alıyor. Hangi pazarı tercih edersiniz — Londra mı, Dubai mi?';
+    return 'Yield ranges across our portfolio:\n\nLondon: 4.5% – 5.5%\nDubai: 6.8% – 9.0%\n\nHighest yielding projects are in Dubai. Which market do you prefer — London or Dubai?';
+  }
+
+  // 9. Fallback
+  if (tr) return 'Bu konuda size en doğru bilgiyi danışmanlarımız verebilir.\n\ninfo@innovest.uk  |  +44 7491 510941\n\nYa da şu konulardan birinde yardımcı olabilirim:\n\n1. Londra veya Dubai\'de gayrimenkul yatırımı\n2. Yatırım yoluyla oturum izni\n3. Uluslararası iş geliştirme';
+  return 'Our advisors can best help you with this.\n\ninfo@innovest.uk  |  +44 7491 510941\n\nOr I can help with:\n\n1. Property investment in London or Dubai\n2. Residency by investment\n3. International business expansion';
 }
 
 function renderMessage(content: string): React.ReactNode[] | string {
@@ -258,10 +298,11 @@ export default function AIChat({ dict, locale }: AIChatProps) {
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
     setInput('');
+    const historySnapshot = messages; // capture before state update
     setMessages((prev) => [...prev, { role: 'user', content: text }]);
     setIsTyping(true);
     setTimeout(() => {
-      const response = getAIResponse(text, locale);
+      const response = getSmartResponse(text, locale, historySnapshot);
       setMessages((prev) => [...prev, { role: 'assistant', content: response }]);
       setIsTyping(false);
       logConversation(text, response);
