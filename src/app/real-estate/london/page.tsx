@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import CityContent from '@/components/pages/CityContent';
+import { LONDON_BUILDERS } from '@/lib/builders';
 import { allProperties } from '@/lib/propertyData';
 import type { PropertyData } from '@/lib/propertyData';
 import { adminDb } from '@/lib/firebaseAdmin';
@@ -54,6 +55,7 @@ export default async function LondonPage() {
           properties={properties}
           heroImage="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070"
           mapRegion="UK"
+          builders={LONDON_BUILDERS}
         />
       </main>
       <Footer dict={dict} locale="en" />

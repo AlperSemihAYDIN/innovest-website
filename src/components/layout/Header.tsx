@@ -81,7 +81,7 @@ export default function Header({ dict, locale }: HeaderProps) {
               href={`${altPrefix}/`}
               className="flex items-center gap-1.5 hover:text-white transition-colors duration-300"
             >
-              <span className="text-base leading-none">{altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+              <span className="inline-flex items-center justify-center text-muted-light"><Globe size={14} /></span>
               <span>{altLocale === 'tr' ? 'Türkçe' : 'English'}</span>
             </Link>
           </div>
@@ -192,9 +192,10 @@ export default function Header({ dict, locale }: HeaderProps) {
               <Link
                 href={`${altPrefix}/`}
                 aria-label={`Switch to ${altLocale === 'tr' ? 'Turkish' : 'English'}`}
-                className="lg:hidden flex items-center gap-1 text-lg hover:opacity-70 transition-opacity"
+                className="lg:hidden inline-flex items-center gap-1 px-2 py-1 rounded-md text-foreground/80 hover:text-gold hover:bg-white/5 transition-colors"
               >
-                {altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}
+                <Globe size={18} strokeWidth={1.75} />
+                <span className="text-[11px] font-medium tracking-wider uppercase">{altLocale.toUpperCase()}</span>
               </Link>
 
               <button
@@ -264,7 +265,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                     className="flex items-center gap-2 hover:text-gold transition-colors"
                     style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)' }}
                   >
-                    <span className="text-base">{altLocale === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+                    <Globe size={16} className="text-muted-light" />
                     {altLocale === 'tr' ? 'Türkçe' : 'English'}
                   </Link>
                 </div>
