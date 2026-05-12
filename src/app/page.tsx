@@ -11,8 +11,6 @@ import Stats from '@/components/home/Stats';
 import Process from '@/components/home/Process';
 import Testimonials from '@/components/home/Testimonials';
 import CallToAction from '@/components/home/CallToAction';
-import BuildersMarquee from '@/components/ui/BuildersMarquee';
-import { ALL_BUILDERS } from '@/lib/builders';
 import AIChat from '@/components/chat/AIChat';
 
 export default async function Home() {
@@ -32,7 +30,6 @@ export default async function Home() {
         <FeaturedInvestments dict={dict} locale="en" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
-        <BuildersMarquee logos={ALL_BUILDERS} title="Trusted by Leading Developers" />
         {content.testimonials_visible && <Testimonials locale="en" testimonials={testimonialsOverride} />}
         <CallToAction dict={dict} locale="en" />
       </main>

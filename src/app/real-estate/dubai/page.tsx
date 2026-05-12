@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AIChat from '@/components/chat/AIChat';
 import CityContent from '@/components/pages/CityContent';
-import { DUBAI_BUILDERS } from '@/lib/builders';
 import { allProperties } from '@/lib/propertyData';
 import type { PropertyData } from '@/lib/propertyData';
 import { adminDb } from '@/lib/firebaseAdmin';
@@ -55,7 +54,6 @@ export default async function DubaiPage() {
           properties={properties}
           heroImage="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070"
           mapRegion="UAE"
-          builders={DUBAI_BUILDERS}
         />
       </main>
       <Footer dict={dict} locale="en" />

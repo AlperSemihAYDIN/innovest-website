@@ -187,7 +187,7 @@ export default function Header({ dict, locale }: HeaderProps) {
             </nav>
 
             {/* CTA area removed — İletişim already in nav */}
-            <div className="shrink-0 flex items-center gap-4">
+            <div className="shrink-0 flex items-center gap-4 lg:ml-0 ml-auto">
               {/* Language switcher mobile */}
               <Link
                 href={`${altPrefix}/`}
