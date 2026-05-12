@@ -19,14 +19,14 @@ export default function BuildersMarquee({ logos, speed = 40, title }: BuildersMa
 
   return (
     <section
-      className="bg-surface border-y border-border"
-      style={{ paddingTop: '64px', paddingBottom: '64px' }}
+      className="bg-background"
+      style={{ paddingTop: '72px', paddingBottom: '72px' }}
       aria-label={title ?? 'Trusted developers'}
     >
       {title && (
-        <div className="px-6 md:px-12 lg:px-16 xl:px-20 mb-8 text-center">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-20 mb-10 text-center">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase text-muted-light"
+            className="text-[11px] tracking-[0.28em] uppercase text-muted-light"
             style={{ fontWeight: 500 }}
           >
             {title}
@@ -94,24 +94,24 @@ export default function BuildersMarquee({ logos, speed = 40, title }: BuildersMa
           height: 80px;
         }
         .builders-marquee__logo {
-          height: 56px;
+          height: 48px;
           width: auto;
           max-width: 160px;
-          opacity: 0.75;
-          filter: grayscale(100%);
-          transition: opacity 0.3s ease, filter 0.3s ease;
+          opacity: 0.55;
+          /* Force every logo to a clean white silhouette so source backgrounds disappear */
+          filter: brightness(0) invert(1);
+          transition: opacity 0.3s ease;
         }
         .builders-marquee__item:hover .builders-marquee__logo {
           opacity: 1;
-          filter: grayscale(0%);
         }
         @media (min-width: 768px) {
           .builders-marquee__item {
-            padding: 0 44px;
+            padding: 0 48px;
             height: 96px;
           }
           .builders-marquee__logo {
-            height: 64px;
+            height: 56px;
             max-width: 180px;
           }
         }
