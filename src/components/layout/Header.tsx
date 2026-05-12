@@ -192,7 +192,7 @@ export default function Header({ dict, locale }: HeaderProps) {
               <Link
                 href={`${altPrefix}/`}
                 aria-label={`Switch to ${altLocale === 'tr' ? 'Turkish' : 'English'}`}
-                className="lg:hidden inline-flex items-center gap-1.5 px-2 py-1.5 rounded-md text-foreground/80 hover:text-gold hover:bg-white/5 transition-colors"
+                className="header-lang lg:hidden inline-flex items-center gap-1.5 px-2 py-1.5 rounded-md text-foreground/80 hover:text-gold hover:bg-white/5 transition-colors"
               >
                 <Globe size={20} strokeWidth={1.75} />
                 <span className="text-[12px] font-medium tracking-wider uppercase">{altLocale.toUpperCase()}</span>

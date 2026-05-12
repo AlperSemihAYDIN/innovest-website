@@ -190,6 +190,9 @@ h1 { line-height: 1.15; }
 
   h1 { font-size: 2rem !important; line-height: 1.15 !important; }
   h2 { font-size: 1.75rem !important; line-height: 1.2 !important; }
+
+  /* Header: gap between logo and language switcher */
+  .header-lang { margin-left: 32px; }
 }
 
 @media (max-width: 480px) {
