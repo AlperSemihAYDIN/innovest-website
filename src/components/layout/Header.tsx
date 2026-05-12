@@ -93,10 +93,10 @@ export default function Header({ dict, locale }: HeaderProps) {
         className={`sticky top-0 z-50 transition-all duration-500 bg-[rgba(9,27,42,0.95)] backdrop-blur-md border-b ${
           isScrolled
             ? 'border-border shadow-lg shadow-black/20'
-            : 'border-transparent'
+            : 'border-[rgba(212,175,55,0.12)]'
         }`}
       >
-        <div className="site-container flex items-center h-[72px]">
+        <div className="site-container flex items-center h-[72px] lg:h-[72px] max-lg:h-[80px]">
 
             {/* Logo — sol, sabit genişlik */}
             <Link href={`${prefix}/`} className="shrink-0 flex items-center group">
@@ -187,23 +187,26 @@ export default function Header({ dict, locale }: HeaderProps) {
             </nav>
 
             {/* CTA area removed — İletişim already in nav */}
-            <div className="shrink-0 flex items-center gap-4 lg:ml-0 ml-auto">
+            <div className="shrink-0 flex items-center lg:gap-4 max-lg:gap-5 lg:ml-0 ml-auto">
               {/* Language switcher mobile */}
               <Link
                 href={`${altPrefix}/`}
                 aria-label={`Switch to ${altLocale === 'tr' ? 'Turkish' : 'English'}`}
-                className="lg:hidden inline-flex items-center gap-1 px-2 py-1 rounded-md text-foreground/80 hover:text-gold hover:bg-white/5 transition-colors"
+                className="lg:hidden inline-flex items-center gap-1.5 px-2 py-1.5 rounded-md text-foreground/80 hover:text-gold hover:bg-white/5 transition-colors"
               >
-                <Globe size={18} strokeWidth={1.75} />
-                <span className="text-[11px] font-medium tracking-wider uppercase">{altLocale.toUpperCase()}</span>
+                <Globe size={20} strokeWidth={1.75} />
+                <span className="text-[12px] font-medium tracking-wider uppercase">{altLocale.toUpperCase()}</span>
               </Link>
+
+              {/* Divider — mobile only */}
+              <span className="lg:hidden w-px h-5 bg-white/20" aria-hidden="true" />
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="lg:hidden p-2 text-foreground hover:text-gold transition-colors"
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
             </div>
         </div>
