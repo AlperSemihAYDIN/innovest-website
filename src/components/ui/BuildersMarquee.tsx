@@ -97,9 +97,11 @@ export default function BuildersMarquee({ logos, speed = 40, title }: BuildersMa
           height: 48px;
           width: auto;
           max-width: 160px;
-          opacity: 0.55;
-          /* Force every logo to a clean white silhouette so source backgrounds disappear */
-          filter: brightness(0) invert(1);
+          opacity: 0.7;
+          /* invert: dark logo -> white, white bg -> black */
+          /* screen blend on dark bg: black becomes transparent, white stays */
+          filter: invert(1) brightness(1.05) contrast(1.1);
+          mix-blend-mode: screen;
           transition: opacity 0.3s ease;
         }
         .builders-marquee__item:hover .builders-marquee__logo {
