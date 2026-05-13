@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { ArrowRight, MapPin, BedDouble, Calendar } from 'lucide-react';
 import AnimatedSection, { SectionHeading } from '@/components/ui/AnimatedSection';
 import InvestmentMap from '@/components/home/InvestmentMap';
+import BuildersMarquee from '@/components/ui/BuildersMarquee';
+import type { Builder } from '@/lib/builders';
 import type { Dictionary } from '@/lib/dictionary';
 
 interface Property {
@@ -30,6 +32,7 @@ interface CityContentProps {
   properties: Property[];
   heroImage: string;
   mapRegion?: 'UK' | 'UAE';
+  builders?: Builder[];
 }
 
 export default function CityContent({
@@ -44,6 +47,7 @@ export default function CityContent({
   properties,
   heroImage,
   mapRegion,
+  builders,
 }: CityContentProps) {
   const prefix = locale === 'tr' ? '/tr' : '';
 
@@ -153,6 +157,14 @@ export default function CityContent({
           </div>
         </div>
       </section>
+
+      {/* Trusted developers marquee */}
+      {builders && builders.length > 0 && (
+        <BuildersMarquee
+          logos={builders}
+          title={locale === 'en' ? `Trusted ${city} Developers` : `Güvenilir ${city} Geliştiricileri`}
+        />
+      )}
 
       {/* City Map Section */}
       {mapRegion && (

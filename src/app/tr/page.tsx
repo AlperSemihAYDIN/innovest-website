@@ -11,6 +11,8 @@ import Stats from '@/components/home/Stats';
 import Process from '@/components/home/Process';
 import Testimonials from '@/components/home/Testimonials';
 import CallToAction from '@/components/home/CallToAction';
+import BuildersMarquee from '@/components/ui/BuildersMarquee';
+import { ALL_BUILDERS } from '@/lib/builders';
 import AIChat from '@/components/chat/AIChat';
 import type { Metadata } from 'next';
 
@@ -36,6 +38,7 @@ export default async function HomeTR() {
         <FeaturedInvestments dict={dict} locale="tr" />
         <WhyInnovest dict={dict} />
         <Process dict={dict} />
+        <BuildersMarquee logos={ALL_BUILDERS} title="Güvendiğimiz Geliştirici Markalar" />
         {content.testimonials_visible && <Testimonials locale="tr" testimonials={testimonialsOverride} />}
         <CallToAction dict={dict} locale="tr" />
       </main>
