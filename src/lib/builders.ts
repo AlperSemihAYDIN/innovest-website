@@ -14,7 +14,7 @@ export const LONDON_BUILDERS: Builder[] = [
   { name: 'Fenton', logo: '/builders/london/fenton.jpg', alt: 'Fenton' },
   { name: 'Hill', logo: '/builders/london/hill.png', alt: 'Hill' },
   { name: 'Knight Dragon', logo: '/builders/london/knight-dragon.jpg', alt: 'Knight Dragon', height: 130 },
-  { name: 'London Square', logo: '/builders/london/london-square.svg', alt: 'London Square' },
+  { name: 'London Square', logo: '/builders/london/london-square.jpg', alt: 'London Square', height: 120 },
 ];
 
 export const DUBAI_BUILDERS: Builder[] = [
