@@ -142,7 +142,7 @@ export default function AboutContent({ dict, locale, content }: AboutContentProp
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-                  <div className="mt-4 text-center">
+                  <div className="mt-6 text-center">
                     <h3
                       style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '0.05em', marginBottom: '8px', fontFamily: 'var(--font-display)', color: 'white' }}
                     >
