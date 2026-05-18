@@ -120,13 +120,15 @@ export default function AboutContent({ dict, locale, content }: AboutContentProp
             {(c?.team?.members ?? [
               { name: 'Buhari Burak', image: '/team/bbtweb.png' },
               { name: 'Asel', image: '/team/at.png' },
-              { name: 'Ceylin', image: '/team/coweb.png' },
-              { name: 'Ali', image: '/team/akweb.png' },
               { name: 'Tarık', image: '/team/ttweb.png' },
-              { name: 'Efe', image: '/team/etweb.png' },
-              { name: 'Zehra', image: '/team/zkweb.png' },
+              { name: 'Ceylin', image: '/team/coweb.png' },
               { name: 'Berat', image: '/team/bweb.png' },
+              { name: 'Zehra', image: '/team/zkweb.png' },
+              { name: 'Beyza', image: '/team/beyzaweb.jpg' },
+              { name: 'Ali', image: '/team/akweb.png' },
+              { name: 'Eva', image: '/team/evaweb.jpg' },
               { name: 'Salih', image: '/team/skweb.jpeg' },
+              { name: 'Efe', image: '/team/etweb.png' },
             ]).map((member, i) => (
               <AnimatedSection key={member.name} delay={i * 0.06}>
                 <div className="group">
