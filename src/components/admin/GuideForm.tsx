@@ -44,8 +44,8 @@ export default function GuideForm({ id, onSaved }: GuideFormProps) {
     try {
       const guide = await adminApi.getGuide(id);
       setData({ ...defaultData, ...guide });
-    } catch {
-      alert('Veri yüklenemedi');
+    } catch (err) {
+      alert('Veri yüklenemedi: ' + (err instanceof Error ? err.message : 'Bilinmeyen hata'));
     } finally {
       setLoading(false);
     }

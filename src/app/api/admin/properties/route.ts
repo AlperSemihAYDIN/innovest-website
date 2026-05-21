@@ -6,8 +6,12 @@ export async function GET(req: NextRequest) {
   const isAdmin = await verifyAdmin(req);
   if (!isAdmin) return unauthorized();
 
-  const snapshot = await adminDb.collection('properties').orderBy('name').get();
-  const properties = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  // NOTE: avoid Firestore orderBy() — it silently EXCLUDES docs missing the order field,
+  // which can hide newly-created docs whose name was set to undefined/null. Sort client-side.
+  const snapshot = await adminDb.collection('properties').get();
+  const properties = snapshot.docs
+    .map(doc => ({ id: doc.id, ...(doc.data() as Record<string, unknown>) }))
+    .sort((a, b) => String((a as { name?: string }).name ?? a.id).localeCompare(String((b as { name?: string }).name ?? b.id)));
   return Response.json(properties);
 }
 

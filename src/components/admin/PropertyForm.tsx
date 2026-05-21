@@ -47,9 +47,10 @@ export default function PropertyForm({ id, onSaved }: PropertyFormProps) {
     if (!id) return;
     try {
       const prop = await adminApi.getProperty(id);
-      setData(prop);
-    } catch {
-      alert('Veri yüklenemedi');
+      // Merge with defaults so that fields missing from Firestore (e.g. older docs) stay controlled.
+      setData({ ...defaultData, ...prop });
+    } catch (err) {
+      alert('Veri yüklenemedi: ' + (err instanceof Error ? err.message : 'Bilinmeyen hata'));
     } finally {
       setLoading(false);
     }

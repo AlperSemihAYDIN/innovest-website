@@ -41,9 +41,10 @@ export default function ArticleForm({ id, onSaved }: ArticleFormProps) {
     if (!id) return;
     try {
       const article = await adminApi.getArticle(id);
-      setData(article);
-    } catch {
-      alert('Veri yüklenemedi');
+      // Merge with defaults so legacy docs missing some fields don't cause uncontrolled-input errors.
+      setData({ ...defaultData, ...article });
+    } catch (err) {
+      alert('Veri yüklenemedi: ' + (err instanceof Error ? err.message : 'Bilinmeyen hata'));
     } finally {
       setLoading(false);
     }

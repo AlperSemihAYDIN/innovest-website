@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2, Upload } from 'lucide-react';
 import { adminApi } from '@/lib/adminApi';
 import { aboutDefaults, type AboutPageContent } from '@/lib/pageDefaults';
 import {
@@ -164,7 +164,36 @@ export default function AboutPageEditor() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                     <Field label="Ad" value={m.name} onChange={(v) => { const arr = [...data.team.members]; arr[i] = { ...arr[i], name: v }; setField('team', { ...data.team, members: arr }); }} />
-                    <Field label="Fotoğraf URL" placeholder="/team/xxx.png" value={m.image} onChange={(v) => { const arr = [...data.team.members]; arr[i] = { ...arr[i], image: v }; setField('team', { ...data.team, members: arr }); }} />
+                    <div>
+                      <Field label="Fotoğraf URL" placeholder="/team/xxx.png veya yükleyin" value={m.image} onChange={(v) => { const arr = [...data.team.members]; arr[i] = { ...arr[i], image: v }; setField('team', { ...data.team, members: arr }); }} />
+                      <div className="flex items-center gap-3 mt-2">
+                        {m.image && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={m.image} alt={m.name || 'Ekip üyesi'} className="w-12 h-12 rounded-full object-cover border border-white/10" />
+                        )}
+                        <label className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 rounded-md cursor-pointer text-[11px] text-white/70 hover:text-white transition-all">
+                          <Upload size={12} /> Fotoğraf Yükle
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={async (e) => {
+                              const file = e.target.files?.[0];
+                              e.target.value = '';
+                              if (!file) return;
+                              try {
+                                const result = await adminApi.upload(file, 'team');
+                                const arr = [...data.team.members];
+                                arr[i] = { ...arr[i], image: result.url };
+                                setField('team', { ...data.team, members: arr });
+                              } catch (err) {
+                                alert('Yükleme hatası: ' + (err instanceof Error ? err.message : 'Bilinmeyen hata'));
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}

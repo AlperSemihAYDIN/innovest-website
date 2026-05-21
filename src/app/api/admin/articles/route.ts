@@ -6,8 +6,15 @@ export async function GET(req: NextRequest) {
   const isAdmin = await verifyAdmin(req);
   if (!isAdmin) return unauthorized();
 
-  const snapshot = await adminDb.collection('articles').orderBy('date', 'desc').get();
-  const articles = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  // Sort client-side to avoid Firestore orderBy() silently excluding docs missing the field.
+  const snapshot = await adminDb.collection('articles').get();
+  const articles = snapshot.docs
+    .map(doc => ({ id: doc.id, ...(doc.data() as Record<string, unknown>) }))
+    .sort((a, b) => {
+      const da = String((a as { date?: string }).date ?? '');
+      const db = String((b as { date?: string }).date ?? '');
+      return db.localeCompare(da);
+    });
   return Response.json(articles);
 }
 
