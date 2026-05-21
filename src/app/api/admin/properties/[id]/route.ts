@@ -9,7 +9,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   const { id } = await params;
   const doc = await adminDb.collection('properties').doc(id).get();
   if (!doc.exists) return Response.json({ error: 'Not found' }, { status: 404 });
-  return Response.json({ id: doc.id, ...doc.data() });
+  // Spread data first so the real Firestore doc id wins over any in-document `id` field.
+  return Response.json({ ...doc.data(), id: doc.id });
 }
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {

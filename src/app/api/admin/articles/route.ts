@@ -7,9 +7,11 @@ export async function GET(req: NextRequest) {
   if (!isAdmin) return unauthorized();
 
   // Sort client-side to avoid Firestore orderBy() silently excluding docs missing the field.
+  // Spread doc.data() FIRST then set id from doc.id — the documents store a slug-like `id`
+  // field that would otherwise overwrite the real Firestore doc id and break /[id] lookups.
   const snapshot = await adminDb.collection('articles').get();
   const articles = snapshot.docs
-    .map(doc => ({ id: doc.id, ...(doc.data() as Record<string, unknown>) }))
+    .map(doc => ({ ...(doc.data() as Record<string, unknown>), id: doc.id }))
     .sort((a, b) => {
       const da = String((a as { date?: string }).date ?? '');
       const db = String((b as { date?: string }).date ?? '');
