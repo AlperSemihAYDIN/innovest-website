@@ -64,35 +64,34 @@ export default function RealEstateContent({ dict, locale, content }: RealEstateC
             <AnimatedSection key={market.city} className="w-full">
               <Link href={market.href} className="block group">
                 <div
-                  className="grid grid-cols-2 overflow-hidden group-hover:border-[rgba(201,168,76,0.25)] transition-all duration-300"
+                  className="grid grid-cols-1 md:grid-cols-2 overflow-hidden group-hover:border-[rgba(201,168,76,0.25)] transition-all duration-300"
                   style={{
-                    minHeight: '420px',
                     borderRadius: '16px',
                     border: '1px solid rgba(255,255,255,0.08)',
                   }}
                 >
                   {/* Left: Image */}
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden h-64 md:h-auto md:min-h-[420px]">
                     <Image
                       src={market.image}
                       alt={market.city}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="50vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
 
                   {/* Right: Content */}
                   <div
-                    className="flex flex-col justify-center"
-                    style={{ background: 'rgba(10,22,40,0.97)', padding: '56px 48px' }}
+                    className="flex flex-col justify-center p-8 md:p-12 lg:p-14"
+                    style={{ background: 'rgba(10,22,40,0.97)' }}
                   >
                     <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#C9A84C', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>
                       {market.tagline}
                     </span>
                     <h3
-                      className="text-white"
-                      style={{ fontSize: '3rem', fontWeight: 400, lineHeight: 1.1, marginBottom: '20px', fontFamily: 'var(--font-display)' }}
+                      className="text-white text-3xl md:text-5xl"
+                      style={{ fontWeight: 400, lineHeight: 1.1, marginBottom: '20px', fontFamily: 'var(--font-display)' }}
                     >
                       {market.city}
                     </h3>
@@ -103,7 +102,7 @@ export default function RealEstateContent({ dict, locale, content }: RealEstateC
                     </p>
 
                     {/* Stats */}
-                    <div className="flex" style={{ gap: '40px', marginBottom: '32px' }}>
+                    <div className="flex flex-wrap" style={{ gap: '40px', marginBottom: '32px' }}>
                       {market.stats.map((stat) => (
                         <div key={stat.label}>
                           <div className="text-white" style={{ fontSize: '1.5rem', fontWeight: 500 }}>
