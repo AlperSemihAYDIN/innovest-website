@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import WhatsAppButton from "@/components/chat/WhatsAppButton";
 import Analytics from "@/components/Analytics";
@@ -36,6 +36,16 @@ export const metadata: Metadata = {
     description:
       "Strategic investment solutions across the UK, UAE, EU, USA and key global markets.",
   },
+};
+
+// Mobile: lock initial zoom but allow user pinch-zoom for accessibility.
+// viewport-fit=cover ensures content extends behind iOS notch/home indicator.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#060e1a",
 };
 
 export default function RootLayout({

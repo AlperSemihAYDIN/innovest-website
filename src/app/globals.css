@@ -170,6 +170,12 @@ h1 { line-height: 1.15; }
     background-attachment: scroll;
   }
 
+  /* iOS Safari auto-zooms on focus for any input with font-size < 16px.
+     Force minimum 16px on all form controls to prevent that. */
+  input, textarea, select {
+    font-size: 16px;
+  }
+
   /* Mobile spacing fixes — prevent content squishing */
   body {
     font-size: 15px;
